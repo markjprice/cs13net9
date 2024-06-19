@@ -36,9 +36,9 @@ My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark
 - Chapter 11 Querying and Manipulating Data Using LINQ: [code/Chapter11](code/Chapter11)
 
 **Modern Web Development**
-- Chapter 12 Introducing Modern Web Development Using ASP.NET Core: [code/ModernWeb](code/ModernWeb)
+- Chapter 12 Introducing Modern Web Development Using .NET: [code/ModernWeb](code/ModernWeb)
 - Chapter 13 Building Websites Using ASP.NET Core: [code/ModernWeb/Northwind.Web](code/ModernWeb/Northwind.Web)
-- Chapter 14 Building User Interface Components Using Blazor: [code/ModernWeb/Northwind.Blazor](code/ModernWeb/Northwind.Blazor)
+- Chapter 14 Building Interactive Web Components Using Blazor: [code/ModernWeb/Northwind.Blazor](code/ModernWeb/Northwind.Blazor)
 - Chapter 15 Building and Consuming Web Services: [code/ModernWeb/Northwind.MinimalApi](code/ModernWeb/Northwind.MinimalApi)
 
 **Appendix and online chapter**
