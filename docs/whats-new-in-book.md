@@ -28,27 +28,27 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 
 
 # Chapter 4 Writing, Debugging, and Testing Functions
-
+- Moved the *Logging during development and runtime* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch04-logging.md
 
 # Chapter 5 Building Your Own Types with Object-Oriented Programming
 
-
 # Chapter 6 Implementing Interfaces and Inheriting Classes
-
+- Moved the *Managing memory with reference and value types* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch06-memory.md
 
 # Chapter 7 Packaging and Distributing .NET Types
-
+- Moved the *Decompiling .NET assemblies* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch07-decompiling.md
 
 # Chapter 8 Working with Common .NET Types
 
-
 # Chapter 9 Working with Files, Streams, and Serialization
-
+- Moved the *Working with environment variables* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch09-environment-variables.md
 
 # Chapter 10 Working with Data Using Entity Framework Core
-
+- Moved the *Loading and tracking patterns with EF Core* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch10-tracking.md
+- Moved the *Modifying data with EF Core* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch10-modifying.md
 
 # Chapter 11 Querying and Manipulating Data Using LINQ
+- Moved the *Aggregating and paging sequences* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch11-aggregating.md
 
 
 # Chapter 12 Introducing Web Development Using ASP.NET Core
@@ -62,5 +62,5 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 - Swapped the order of chapters 14 and 15 so that all web user interface chapters are together.
 
 # Chapter 15 Building and Consuming Web Services
-
+- Moved the *Testing requests with the Swagger UI* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch15-swagger-ui.md
 - Updated the chapter to use modern Minimal APIs instead of controller-based Web API.
