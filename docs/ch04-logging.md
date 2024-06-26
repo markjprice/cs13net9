@@ -1,5 +1,17 @@
 **Logging during development and runtime**
 
+- [Understanding logging options](#understanding-logging-options)
+- [Instrumenting with Debug and Trace](#instrumenting-with-debug-and-trace)
+  - [Understanding trace listeners](#understanding-trace-listeners)
+- [Writing to the default trace listener](#writing-to-the-default-trace-listener)
+- [Configuring trace listeners](#configuring-trace-listeners)
+- [Switching trace levels](#switching-trace-levels)
+- [Adding packages to a project in Visual Studio](#adding-packages-to-a-project-in-visual-studio)
+- [Adding packages to a project in Code](#adding-packages-to-a-project-in-code)
+- [Reviewing project packages for working with configuration](#reviewing-project-packages-for-working-with-configuration)
+- [Logging information about your source code](#logging-information-about-your-source-code)
+
+
 Once you believe that all the bugs have been removed from your code, you would then compile a release version and deploy the application, so that people can use it. But no code is ever bug-free, and during runtime, unexpected errors can occur.
 
 End users are notoriously bad at remembering, admitting to, and then accurately describing what they were doing when an error occurred. You should not rely on them providing useful information to reproduce the problem so that you can understand what caused the problem and then fix it. Instead, you can *instrument your code*, which means logging events of interest and other data like timings.
