@@ -25,7 +25,7 @@ For learning purposes, you can decompile any .NET assembly with a tool like ILSp
 11.	Select `<Main>$(string[]) : void` to show the statements in the compiler-generated `Program` class and its `<Main>$` method, as shown in *Figure 7.4*:
 
 ![Revealing the <Main>$ method using ILSpy](assets/B22322_07_04.png)
-*Figure 7.4: Revealing the <Main>$ method using ILSpy*
+*Figure 7.4: Revealing the `<Main>$` method using ILSpy*
 
 12.	In ILSpy, navigate to **File** | **Open…**.
 13.	Navigate to the following folder:
