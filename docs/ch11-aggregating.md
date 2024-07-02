@@ -108,7 +108,7 @@ Something else
 
 Most got it wrong, as shown in *Figure 11.6*:
 
-![]() 
+![A tricky LINQ and Task code teaser from Amichai Mantinband](assets/B22322_11_06.png) 
 *Figure 11.6: A tricky LINQ and Task code teaser from Amichai Mantinband*
 
 By this point in this chapter, I would hope that you understand the LINQ parts of this tricky question. Don't worry! I would not expect you to understand the subtleties of multi-threading with tasks. It is still worth breaking down the code to make sure you understand the LINQ parts, as shown in *Table 11.5*:
