@@ -59,7 +59,7 @@ This documentation section of the repository contains links to all the optional 
 ## Chapter 10 Working with Data Using Entity Framework Core
 
 - [Database Primer](ch10-database-primer.md)
-- [Loading and tracking patterns with EF Core](ch10-tracking.md)
+- [Loading and tracking patterns with EF Core](ch10-loading-tracking.md)
 - [Modifying data with EF Core](ch10-modifying.md)
 - [Working with transactions](ch10-transactions.md)
 - [Code First EF Core models](ch10-code-first.md)
