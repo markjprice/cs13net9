@@ -46,7 +46,6 @@ To make it easier to enter commands at the prompt, this page lists all commands 
   - [Page 635 - Creating a class library for entity models using SQLite](#page-635---creating-a-class-library-for-entity-models-using-sqlite)
 - [Chapter 13 - Building Websites Using ASP.NET Core Razor Pages](#chapter-13---building-websites-using-aspnet-core-razor-pages)
   - [Page 660 - Testing and securing the website](#page-660---testing-and-securing-the-website)
-  - [Page 675 - Using code-behind files with Razor Pages](#page-675---using-code-behind-files-with-razor-pages)
 - [Chapter 14 - Building and Consuming Web Services](#chapter-14---building-and-consuming-web-services)
 - [Chapter 15 - Building User Interfaces Using Blazor](#chapter-15---building-user-interfaces-using-blazor)
   - [Page 749 - Creating a Blazor Web App project](#page-749---creating-a-blazor-web-app-project)
@@ -105,9 +104,9 @@ Opening Visual Studio Code in the current folder:
 code .
 ```
 
-Creating a new **Console App** project named `HelloCS` that targets a specified framework version, for example, .NET 6:
+Creating a new **Console App** project named `HelloCS` that targets a specified framework version, for example, .NET 8:
 ```
-dotnet new console -f net6.0 -o HelloCS
+dotnet new console -f net8.0 -o HelloCS
 ```
 
 ## Page 30 - Compiling and running code using the dotnet CLI
@@ -250,7 +249,7 @@ dotnet --list-sdks
 
 Creating a `global.json` file to control to default .NET SDK for projects created in the current folder and its descendents:
 ```
-dotnet new globaljson --sdk-version 6.0.320
+dotnet new globaljson --sdk-version 8.0.300
 ```
 
 ## Page 384 - Understanding dotnet commands
@@ -284,9 +283,9 @@ Build and publish the release version for Windows:
 dotnet publish -c Release -r win-x64 --self-contained
 ```
 
-Build and publish the release version for macOS on Intel:
+Build and publish the release version for Windows on ARM64:
 ```
-dotnet publish -c Release -r osx-x64 --self-contained
+dotnet publish -c Release -r win-arm64 --self-contained
 ```
 
 Build and publish the release version for macOS on Apple Silicon:
@@ -297,11 +296,6 @@ dotnet publish -c Release -r osx-arm64 --self-contained
 Build and publish the release version for Linux on Intel:
 ```
 dotnet publish -c Release -r linux-x64 --self-contained
-```
-
-Build and publish the release version for Linus on ARM64:
-```
-dotnet publish -c Release -r linux-arm64 --self-contained
 ```
 
 ## Page 388 - Publishing a single-file app
@@ -434,14 +428,22 @@ Starting an ASP.NET Core project and specifying the `https` profile:
 dotnet run --launch-profile https
 ```
 
-## Page 675 - Using code-behind files with Razor Pages
-
-Creating a Razor Page named `Suppliers.cshtml` with a code-behind file:
-```
-dotnet new page -n Suppliers --namespace Northwind.Web.Page
-```
-
 # Chapter 14 - Building and Consuming Web Services
+
+Creating a Web API project using Minimal APIs:
+```
+dotnet new webapi -o Northwind.WebApi
+```
+
+Creating a Web API project using Minimal APIs (explicitly):
+```
+dotnet new webapi --use-minimal-api -o Northwind.WebApi
+```
+
+Creating a Web API project using Minimal APIs (explicitly, short form):
+```
+dotnet new webapi -minimal -o Northwind.WebApi
+```
 
 Creating a Web API project using controllers:
 ```
@@ -451,16 +453,6 @@ dotnet new webapi --use-controllers -o Northwind.WebApi
 Creating a Web API project using controllers (short form):
 ```
 dotnet new webapi -controllers -o Northwind.WebApi
-```
-
-Creating a Web API project using Minimal APIs:
-```
-dotnet new webapi --use-minimal-api -o Northwind.WebApi
-```
-
-Creating a Web API project using Minimal APIs (short form):
-```
-dotnet new webapi -minimal -o Northwind.WebApi
 ```
 
 # Chapter 15 - Building User Interfaces Using Blazor
