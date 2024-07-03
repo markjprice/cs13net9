@@ -91,11 +91,11 @@ In 2022, he posted a code teaser on Twitter, LinkedIn, and YouTube, with a poll 
 Here's the code:
 ```cs
 IEnumerable<Task> tasks = Enumerable.Range(0, 2)
-  .Select(_ => Task.Run(() => Console.WriteLine("*")));
+  .Select(_ => Task.Run(() => Console.Write("*")));
 
 await Task.WhenAll(tasks);
 
-Console.WriteLine($"{tasks.Count()} stars!");
+Console.Write($"{tasks.Count()} stars!");
 ```
 
 Which of the following four will the output be?
