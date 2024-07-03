@@ -48,7 +48,7 @@ void SomeMethod()
   System.Drawing.Point location = new(x: 4, y: 5);
 
   Person kevin = new() { Name = "Kevin",
-    Born = new(1988, 9, 23, 0, 0, 0, TimeSpace.Zero) };
+    Born = new(1988, 9, 23, 0, 0, 0, TimeSpan.Zero) };
 
   Person sally;
 }
