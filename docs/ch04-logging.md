@@ -104,6 +104,9 @@ Trace.Close();
 *Figure 4.18: Selecting the Release configuration in Visual Studio*
 
 4.	On your desktop, open the file named log.txt and note that it contains the message Trace says, I am watching!.
+
+> **Warning!** In Steps 3 to 6, you run a console app project twice, and each time a file named `log.txt` is written to. If you get a security exception thrown (`System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desktop\log.txt' is denied.`) the second time the app tries to write to the log file, then it could be due to anti-virus software. For example, Avast has a monitor that activates as soon as a new file is created and scans it for viruses. This can temporarily lock the file.
+
 5.	Run the debug configuration of the console app:
     - In Code, enter the following command in the TERMINAL window for the Instrumenting project: `dotnet run --configuration Debug`
     - In Visual Studio, in the standard toolbar, select **Debug** in the **Solution Configurations** drop-down list and then navigate to **Debug** | **Start Debugging**.
