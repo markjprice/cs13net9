@@ -10,6 +10,8 @@ For example, you might have a complex website project that runs on .NET Framewor
 - [.NET Portability Analyzer](#net-portability-analyzer)
 - [.NET Upgrade Assistant](#net-upgrade-assistant)
 - [Using non-.NET Standard libraries](#using-non-net-standard-libraries)
+- [Test your knowledge](#test-your-knowledge)
+- [Answers](#answers)
 
 
 # Could you port?
@@ -148,3 +150,17 @@ x0,y3 (0,3) = 3
 ```
 
 Even though this package was created before modern .NET existed, and the compiler and runtime have no way of knowing if it will work and therefore show warnings, because it happens to only call .NET Standard-compatible APIs, it works.
+
+# Test your knowledge
+Answer the following questions:
+1.	When porting an application from .NET Framework to .NET 6, what tool should you run before porting, and what tool could you run to perform much of the porting work?
+2.	What types of applications written for the .NET Framework can be ported to modern .NET?
+3.	Can you use packages written for .NET Framework with modern .NET?
+
+# Answers
+1.	When porting an application from .NET Framework to modern .NET, what tool should you run before porting, and what tool could you run to perform much of the porting work?
+**Answer**: You should use the .NET Portability Analyzer before porting an application from .NET Framework to .NET 6. You could use the .NET Upgrade Assistant to perform much of the porting work.
+2.	What types of applications written for .NET Framework can be ported to modern .NET?
+**Answer**: Console, ASP.NET MVC, ASP.NET Web API, Windows Forms, and Windows Presentation Foundation (WPF) apps.
+3.	Can you use packages written for .NET Framework with modern .NET?
+**Answer**: Yes, if they only call APIs in .NET Standard 2.0.
