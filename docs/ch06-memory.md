@@ -144,6 +144,8 @@ public struct DisplacementVector
 }
 ```
 
+> **Important**: The preceding code does not explicitly define a default constructor (a constructor without parameters) but `struct` types always have a default constructor so one will be generated for you because they go on the stack and *must* be initialized.
+
 > **Good Practice**: If the total memory used by all the fields in your type is 16 bytes or less, your type only uses value types for its fields, and you will never want to derive from your type, then Microsoft recommends that you use `struct`. If your type uses more than 16 bytes of stack memory, it uses reference types for its fields, or you might want to inherit from it, then use `class`.
 
 3.	In `Program.cs`, add statements to create two new instances of `DisplacementVector`, add them together, and output the result, as shown in the following code:

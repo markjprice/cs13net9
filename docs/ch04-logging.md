@@ -335,6 +335,8 @@ partial class Program
 }
 ```
 
+> There is no performance overhead to using the `[Caller...]` attributes because the compiler replaces the parameters with constants at compile-time.
+
 3.	In `Program.cs`, at the bottom of the file, before the calls to close `Debug` and `Trace`, add statements to declare and set a variable that will be used in an expression that is passed to the function named `LogSourceDetails`, as shown highlighted in the following code:
 ```cs
 int unitsInStock = 12;

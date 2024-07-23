@@ -19,6 +19,7 @@ If you already have some familiarity with older versions of C# and are excited t
 - [C# 10, November 2021](#c-10-november-2021)
 - [C# 11, November 2022](#c-11-november-2022)
 - [C# 12, November 2023](#c-12-november-2023)
+- [C# 13, November 2024](#c-13-november-2024)
 
 
 # Project COOL
@@ -194,3 +195,15 @@ Primary constructors|5|Defining a primary constructor
 Interceptors|7|Method interceptors
 
 *Table 2.13: Features of C# 12 mentioned in this book*
+
+# C# 13, November 2024
+
+Focused on features that simplify your code and improving performance, including the topics listed in *Table 2.14*:
+
+Feature|Chapter|Topic
+---|---|---
+2-4x faster exceptions|3|Handling exceptions
+Partial properties|5|Partial properties
+params collection expression support|5|Passing a variable number of parameters
+
+*Table 2.14: Features of C# 13 mentioned in this book*

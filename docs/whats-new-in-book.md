@@ -1,6 +1,10 @@
 **What's New in the 9th Edition**
 
-There are hundreds of minor fixes and improvements throughout the 8th edition; too many to list individually. All [errata and improvements for the 8th edition](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/README.md) have been made to the 9th edition. The main new sections in *C# 13 and .NET 9 - Modern Cross-Platform Development*, 9th edition compared to the 8th edition are shown below.
+There are hundreds of minor fixes and improvements throughout the 9th edition; too many to list individually. 
+
+All [41 errata](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/errata.md) and [52 improvements](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/improvements.md) for the 8th edition (up to mid-September 2024) have been made to the 9th edition. 
+
+The main new sections in *C# 13 and .NET 9 - Modern Cross-Platform Development*, 9th edition compared to the 8th edition are shown below.
 
 - [Chapter 1 Hello C#, Welcome .NET!](#chapter-1-hello-c-welcome-net)
 - [Chapter 2 Speaking C#](#chapter-2-speaking-c)
@@ -57,9 +61,10 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 # Chapter 13 Building Websites Using ASP.NET Core Razor Pages
 
 
+> I swapped the order of chapters 14 and 15 so that all web user interface chapters are together.
+
 # Chapter 14 Building User Interface Components Using Blazor
 
-- Swapped the order of chapters 14 and 15 so that all web user interface chapters are together.
 
 # Chapter 15 Building and Consuming Web Services
 - Moved the *Testing requests with the Swagger UI* section online-only: https://github.com/markjprice/cs13net9/blob/main/docs/ch15-swagger-ui.md
