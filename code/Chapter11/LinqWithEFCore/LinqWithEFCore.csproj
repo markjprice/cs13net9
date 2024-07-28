@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="System.Console" Static="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--To use SQLite-->
+    <PackageReference Version="9.0-*" Include="Microsoft.EntityFrameworkCore.Sqlite" />
+
+    <!--To use SQL Server-->
+    <PackageReference Version="9.0-*" Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PacktLinqExtensions\PacktLinqExtensions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="settings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
