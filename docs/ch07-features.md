@@ -13,6 +13,7 @@ If you already have some familiarity with older versions of .NET and are excited
 - [.NET 6, November 2021](#net-6-november-2021)
 - [.NET 7, November 2022](#net-7-november-2022)
 - [.NET 8, November 2023](#net-8-november-2023)
+- [.NET 9, November 2024](#net-9-november-2024)
 
 
 # .NET Core 1.0, June 2016
@@ -120,3 +121,22 @@ Frozen collections|8|Read-only, immutable, and frozen collections
 New data validation attributes|10|Using EF Core annotation attributes to define the model
 
 *Table 7.6: Features of .NET 8*
+
+# .NET 9, November 2024
+
+Improved native AOT (ahead-of-time) compilation support, and added some advanced features for library authors related to source generation, including the topics listed in *Table 7.7*:
+
+Feature|Chapter|Topic
+---|---|---
+`Base64Url` class|3|Base64 for URLs
+`BigMul` methods on integer types|8|Multiplying big integers
+`SearchValues` class|8|Searching in strings
+`OrderedDictionary<TKey, TValue>` class|8|Sorting collections
+`ReadOnlySet<T>` class|8|Read-only, immutable, and frozen collections
+`PriorityQueue.Remove` method|8|Sets, stacks, and queues
+Generated regex on properties|8|Improving regular expression performance with source generators
+`JsonSchemaExporter` class|9|JSON schema exporter
+BinaryFormatter removed in .NET 9|9|Binary serialization
+new LINQ methods: `CountBy`, `AggregateBy`, `Index`|11|Building LINQ expressions with the Enumerable class
+
+*Table 7.7: Features of .NET 9*
