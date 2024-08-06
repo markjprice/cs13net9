@@ -14,6 +14,7 @@ If you already have some familiarity with older versions of ASP.NET and are exci
 - [ASP.NET Core 6, November 2021](#aspnet-core-6-november-2021)
 - [ASP.NET Core 7, November 2022](#aspnet-core-7-november-2022)
 - [ASP.NET Core 8, November 2023](#aspnet-core-8-november-2023)
+- [ASP.NET Core 9, November 2024](#aspnet-core-9-november-2024)
 
 > **Note**: Chapter number `*` in the tables means the online-only chapter about ASP.NET Core MVC that is available at the following link: https://github.com/markjprice/cs12dotnet8/blob/main/docs/aspnetcoremvc.md.
 
@@ -126,3 +127,15 @@ Route tooling enhancements|14|Improved route tooling in ASP.NET Core 8
 Unification of Blazor hosting|15|All of *Chapter 15, Building User Interfaces Using Blazor*.
 
 *Table 12.8: Features of ASP.NET Core 8 covered in this book*
+
+# ASP.NET Core 9, November 2024
+
+Focused on improving performance, including the topics listed in *Table 12.9*:
+
+Feature|Chapter|Topic
+---|---|---
+Optimized static assets with `MapStaticAssets` method|13|Enabling static and default files
+OpenAPI document generation|15|Understanding the OpenAPI Specification
+`HybridCache` class|15|Hybrid caching
+
+*Table 12.9: Features of ASP.NET Core 9 covered in this book*
