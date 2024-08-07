@@ -124,7 +124,7 @@ New data validation attributes|10|Using EF Core annotation attributes to define 
 
 # .NET 9, November 2024
 
-Improved native AOT (ahead-of-time) compilation support, and added some advanced features for library authors related to source generation, including the topics listed in *Table 7.7*:
+Improved performance and new features, including the topics listed in *Table 7.7*:
 
 Feature|Chapter|Topic
 ---|---|---
