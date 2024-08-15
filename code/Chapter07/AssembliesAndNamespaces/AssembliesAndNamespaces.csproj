@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <!--<PackageReference Include="Packt.CSdotnet.SharedLibrary" Version="9.0.0" />-->
+    <PackageReference Include="Packt.CSdotnet.SharedLibrary" Version="9.0.0" />
   </ItemGroup>
 
 </Project>
