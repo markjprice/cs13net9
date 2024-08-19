@@ -454,6 +454,31 @@ WriteLine($"ar1 == ar2: {ar1 == ar2}");
 
 #endregion
 
+#region Equality of other types
+
+int number1 = 3;
+int number2 = 3;
+WriteLine($"number1: {number1}, number2: {number2}");
+WriteLine($"number1 == number2: {number1 == number2}");
+
+Person p1 = new() { Name = "Kevin" };
+Person p2 = new() { Name = "Kevin" };
+WriteLine($"p1: {p1}, p2: {p2}");
+WriteLine($"p1.Name: {p1.Name}, p2.Name: {p2.Name}");
+WriteLine($"p1 == p2: {p1 == p2}");
+
+Person p3 = p1;
+WriteLine($"p3: {p3}");
+WriteLine($"p3.Name: {p3.Name}");
+WriteLine($"p1 == p3: {p1 == p3}");
+
+// string is the only class reference type implemented to 
+// act like a value type for equality.
+WriteLine($"p1.Name: {p1.Name}, p2.Name: {p2.Name}");
+WriteLine($"p1.Name == p2.Name: {p1.Name == p2.Name}");
+
+#endregion
+
 #region Positional data members in records
 
 ImmutableAnimal oscar = new("Oscar", "Labrador");
