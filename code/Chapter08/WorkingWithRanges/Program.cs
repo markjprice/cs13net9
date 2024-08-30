@@ -26,6 +26,19 @@ WriteLine($"First: {firstNameSpan}, Last: {lastNameSpan}");
 
 #endregion
 
+#region Using spans for efficient text handling
+
+ReadOnlySpan<char> text = "12+23+456".AsSpan();
+
+int sum = 0;
+foreach (Range r in text.Split('+'))
+{
+  sum += int.Parse(text[r]);
+}
+WriteLine($"Sum using Split: {sum}");
+
+#endregion
+
 #region Test your knowledge
 /*
 string city = "Aberdeen";
