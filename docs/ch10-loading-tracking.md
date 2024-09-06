@@ -224,11 +224,11 @@ db.ChangeTracker.QueryTrackingBehavior =
   QueryTrackingBehavior.NoTrackingWithIdentityResolution;
 ```
 
-To set defaults for all new instances of a data context, in its OnConfiguring method, call the UseQueryTrackingBehavior method, as shown in the following code:
+To set defaults for all new instances of a data context, in its `OnConfiguring` method, call the `UseQueryTrackingBehavior` method, as shown in the following code:
 ```cs
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {
-  optionsBuilder.UseSqlServer(connectionString)
+  optionsBuilder.UseSqlite(connectionString)
     .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 }
 ```
@@ -248,7 +248,7 @@ Save changes|Alfreds Futterkiste, 030-1928|Alfreds Futterkiste, 030-1928
 
 *Table 10.4: Scenario 1, change tracking with identity resolution*
 
-Second, let's compare the same set of actions using no tracking and no identity resolution. Every query loads another instance of a database row into the data context, including underlying changes, allowing duplicates and mixed out-of-date and updated data. No local entity changes are tracked, so SaveChanges does nothing. Actions and states for scenario 2 are illustrated in *Table 10.5*:
+Second, let's compare the same set of actions using no tracking and no identity resolution. Every query loads another instance of a database row into the data context, including underlying changes, allowing duplicates and mixed out-of-date and updated data. No local entity changes are tracked, so `SaveChanges` does nothing. Actions and states for scenario 2 are illustrated in *Table 10.5*:
 
 Action|Entities in data context|Row in database
 ---|---|---
@@ -261,7 +261,7 @@ Save changes|Alfreds Futterkiste, 030-7432<br/>Alfreds Futterkiste, 030-9876<br/
 
 *Table 10.5: Scenario 2, no change tracking with no identity resolution*
 
-Third, let's compare the same set of actions using no tracking with identity resolution. Once an entity is loaded into the data context, underlying changes are not reflected and only one copy exists. No local entity changes are tracked, so SaveChanges does nothing. Actions and states for scenario 3 are illustrated in *Table 10.6*:
+Third, let's compare the same set of actions using no tracking with identity resolution. Once an entity is loaded into the data context, underlying changes are not reflected and only one copy exists. No local entity changes are tracked, so `SaveChanges` does nothing. Actions and states for scenario 3 are illustrated in *Table 10.6*:
 
 Action|Entities in data context|Row in database
 ---|---|---
@@ -281,7 +281,7 @@ In EF Core 7 or earlier, if you enable no tracking, then you cannot use the lazy
 Unhandled exception. System.InvalidOperationException: An error was generated for warning 'Microsoft.EntityFrameworkCore.Infrastructure.DetachedLazyLoadingWarning': An attempt was made to lazy-load navigation 'Category' on a detached entity of type 'ProductProxy'. Lazy loading is not supported for detached entities or entities that are loaded with 'AsNoTracking'. This exception can be suppressed or logged by passing event ID 'CoreEventId.DetachedLazyLoadingWarning' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
 ```
 
-EF Core 8 enables support for the lazy loading of entities that are not being tracked.
+EF Core 8 enabled support for the lazy loading of entities that are not being tracked.
 
 Let's try an example:
 1.	In `Program.Queries.cs`, add a method to request a no tracking query for products, and when you enumerate the products, use lazy loading to fetch the related category name, as shown in the following code:
@@ -311,7 +311,7 @@ private static void LazyLoadingWithNoTracking()
 2.	In `Program.cs`, add a call to `LazyLoadingWithNoTracking`. You might want to comment out any other method calls except `ConfigureConsole`, which ensures you see the same currency and other formatting as shown in the book.
 3.	Run the code and note that it works without throwing an exception as it would have done with previous versions of EF Core.
 
-> If you want to see the runtime exception for yourself, in the project file, change the version numbers of the three EF Core packages from `9.0.0` to any older package version, like `7.0.0` or `6.0.0`.
+> If you want to see the runtime exception for yourself, in the project file, change the version numbers of the three EF Core packages from `9.0.0` to any package version older than `8.0.0`, like `7.0.0` or `6.0.0`.
 
 # Summary of tracking
 
