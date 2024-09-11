@@ -133,7 +133,7 @@ Now, let's modify an existing row in a table.
 
 We will find a product to update by specifying the start of a product name and only return the first match. In a real application, if you need to update a specific product, then you must use a unique identifier like `ProductId`.
 
-> I do not know what the product ID will be for the products that you add. I do know that there are no products that start with "Bob" in the existing Northwind database. Finding a product to update using its name avoids having to tell you to first discover what the product ID is for a product that you've added. It is likely to be `78` because there are already `77` products in the table, but once you've added that and then deleted it, the next product to be added would be `79` and it all gets out of sync.
+> I do not know what the product ID will be for the products that you add. I do know that there are no products that start with "Bob" in the existing Northwind database. Finding a product to update using its name avoids having to tell you to first discover what the product ID is for a product that you've added. It is likely to be `78` because there are already `77` products in the table, but once you've added that and then deleted it, the next product to be added could be `79` and it all gets out of sync. It depends on the data provider. Some are "smart" so they could decrement their internal counter to reuse 78 again for a new row. The point is that you should not make any assumptions about database-assigned values.
 
 Let's go:
 1.	In `Program.Modifications.cs`, add a method to increase the price of the first product with a name that begins with a specified value (we'll use `Bob` in our example) by a specified amount, like $20, as shown in the following code:
