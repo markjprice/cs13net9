@@ -2,6 +2,7 @@
 
 > Solution notebooks for all chapters can be found here: [../code/notebooks](../code/notebooks)
 
+- [Learning to code using the Polyglot Notebooks extension](#learning-to-code-using-the-polyglot-notebooks-extension)
 - [Exploring code using Polyglot Notebooks](#exploring-code-using-polyglot-notebooks)
 - [Creating a notebook](#creating-a-notebook)
 - [Writing and running code in a notebook](#writing-and-running-code-in-a-notebook)
@@ -11,17 +12,32 @@
 
 > **Warning!** At the time of publishing in November 2024, the Polyglot Notebooks extension will still require .NET 8 SDK. It will likely be updated to support or require .NET 9 within a month.
 
+# Learning to code using the Polyglot Notebooks extension   
+
+The **Polyglot Notebooks** extension for VS Code provides an easy and safe place to write simple code snippets for experimenting and learning. For example, data scientists use them to analyze and visualize data. Students use them to learn how to write small pieces of code for language constructs and to explore APIs.
+
+Polyglot Notebooks enables you to create a single notebook file that mixes "cells" of Markdown (richly formatted text) and code, using C# and other related languages, such as PowerShell, F#, and SQL (for databases). The extension does this by hosting an instance of the .NET Interactive engine.
+
+The old name for the Polyglot Notebooks extension was the **.NET Interactive Notebooks** extension, but it was renamed because it is not limited to .NET languages like C# and F#. The extension retains its original identifier, `ms-dotnettools.dotnet-interactive-vscode`.
+
+Polyglot Notebooks has some limitations:
+- It cannot be used to create websites, services, and apps.
+- You cannot use `Console` class methods like `ReadLine` or `ReadKey` to get input from the user. (However, there are alternative methods, which you will learn about later in this online section.)
+- Notebooks cannot have arguments passed to them.
+- It does not allow you to define your own namespaces.
+- It does not have any debugging tools (yet).
+
 # Exploring code using Polyglot Notebooks
 
 Polyglot Notebooks makes writing code even easier than top-level programs. It requires Visual Studio Code, so if you did not install it and the Polyglot Notebooks extension earlier, please install them now.
 
-Visual Studio 2022 does have its own extension for notebooks named Notebook Editor that was created by Microsoft's machine learning team. It is not as mature as the Polyglot Notebooks extension for Visual Studio Code, so I do not recommend it. You can learn more and install Notebook Editor from the following link:
+Visual Studio does have its own extension for notebooks named **Notebook Editor** that was created by Microsoft's machine learning team. It is not as mature as the Polyglot Notebooks extension for VS Code, so I do not recommend it. You can learn more and install Notebook Editor from the following link:
 https://marketplace.visualstudio.com/items?itemName=MLNET.notebook
 
 # Creating a notebook
 
 First, we need to create a notebook:
-1. In Visual Studio Code, navigate to **File** | **Close Workspace**.
+1. In VS Code, navigate to **File** | **Close Workspace**.
 2. Navigate to **View** | **Command Palette**.
 3. Type `poly`, and then select **Polyglot Notebook: Create new blank notebook**, as shown in *Figure 1.16*:
 
