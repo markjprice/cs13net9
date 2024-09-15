@@ -65,10 +65,12 @@ Several libraries and packages provide implementations of result types in .NET:
 
 Library|Description
 ---|---
-`LanguageExt`|A functional programming library for .NET, `LanguageExt` provides `Option`, `Either`, and `Try` types that allow you to handle errors and control flow in a functional style.
-`CSharpFunctionalExtensions`|This library offers a `Result<T>` type and extension methods that make it easier to work with results in a functional manner. It also provides support for optional values and error chaining.
-`OneOf`|This library provides a simple discriminated union (or sum type) implementation that allows you to represent a value that could be one of several different types. It can be used to create custom result types where different failure modes return different types.
-`Optional`|A lightweight library that provides an `Option<T>` type for representing optional values (similar to `Nullable<T>` but for reference types and non-nullable value types).
+[LanguageExt](https://github.com/louthy/language-ext)|A functional programming library for .NET, `LanguageExt` provides `Option`, `Either`, and `Try` types that allow you to handle errors and control flow in a functional style.
+[CSharpFunctionalExtensions](https://github.com/vkhorikov/CSharpFunctionalExtensions)|This library offers a `Result<T>` type and extension methods that make it easier to work with results in a functional manner. It also provides support for optional values and error chaining.
+[OneOf](https://github.com/mcintyre321/OneOf)|This library provides a simple discriminated union (or sum type) implementation that allows you to represent a value that could be one of several different types. It can be used to create custom result types where different failure modes return different types.
+[Optional](https://github.com/Foritus/optional-dot-net)|A lightweight library that provides an `Option<T>` type for representing optional values (similar to `Nullable<T>` but for reference types and non-nullable value types).
+[ErrorOr](https://github.com/amantinband/error-or)|A simple, fluent discriminated union of an error or a result.
+[FluentResults](https://github.com/altmann/FluentResults)|A lightweight .NET library developed to solve a common problem. It returns an object indicating success or failure of an operation instead of throwing/using exceptions.
 
 # Discriminated Unions and Their Relation to the Discussion
 
@@ -82,6 +84,8 @@ type Result<'T> =
 In the context of result types, discriminated unions allow a function to return a value that clearly indicates its possible outcomes (success or various error types). This is especially useful when there are multiple failure modes that need to be handled differently.
 
 In C#, discriminated unions are not (yet) a built-in feature, but they can be emulated using class hierarchies, `enum` types, or libraries like `OneOf`. The relationship to the exceptions vs. result types discussion lies in how discriminated unions make error-handling patterns explicit, type-safe, and more aligned with functional programming practices.
+
+> **More Information**: You can read the proposal, Type Unions for C#, at the following link: https://github.com/dotnet/csharplang/blob/18a527bcc1f0bdaf542d8b9a189c50068615b439/proposals/TypeUnions.md. You can read an earlier discussion at the following link: https://github.com/dotnet/csharplang/discussions/399.
 
 # Conclusion
 
