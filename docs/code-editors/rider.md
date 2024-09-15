@@ -252,9 +252,12 @@ Namespace: AboutMyEnvironment
 
 1. Right-click the `Arguments` project. 
 2. In the popup menu, select **More Run/Debug** | **Modify Run Configuration...**.
-3. In the **Program arguments** box, enter the following arguments: `firstarg second-arg third:arg "fourth arg"`.
+3. In the **Program arguments** box, enter the following arguments: `firstarg second-arg third:arg "fourth arg"`, as shown in *Figure 2.11*.
 4. Click **Apply**, then click **OK**.
 5. Run the console app.
+
+![Entering command line arguments in the Rider run configuration](assets/rider/B22322_02_11.png)
+*Figure 2.11: Entering command line arguments in the Rider run configuration*
 
 # Chapter 4 - Writing, Debugging, and Testing Functions
 
