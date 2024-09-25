@@ -1,6 +1,6 @@
 - [Chapter 1 - Hello, C#! Welcome, .NET!](#chapter-1---hello-c-welcome-net)
-  - [Visual Studio 2022 for Windows](#visual-studio-2022-for-windows)
-  - [Visual Studio Code](#visual-studio-code)
+  - [Visual Studio](#visual-studio)
+  - [VS Code](#vs-code)
   - [Other C# code editors and platforms](#other-c-code-editors-and-platforms)
   - [.NET Interactive and Polyglot Notebooks](#net-interactive-and-polyglot-notebooks)
   - [Command Line Interfaces](#command-line-interfaces)
@@ -104,39 +104,38 @@
 
 # Chapter 1 - Hello, C#! Welcome, .NET!
 
-## Visual Studio 2022 for Windows
-- [Download Visual Studio for Windows](https://visualstudio.microsoft.com/downloads/)
+## Visual Studio
+- [Download Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - [Sign up for a Microsoft account](https://signup.live.com/)
 - [Visual Studio for Windows documentation](https://learn.microsoft.com/en-us/visualstudio/windows/)
 - [Microsoft Visual Studio on YouTube](https://www.youtube.com/visualstudio)
+- [Building Apps with Visual Studio in the Cloud with Dev Box](https://www.youtube.com/watch?v=9imDpJwrFJE)
 - [Cool features in Visual Studio 2022](https://www.youtube.com/watch?v=NBfNnyPQTKs)
 - [MSBuild and 64-bit Visual Studio 2022](https://devblogs.microsoft.com/dotnet/msbuild-and-64-bit-visual-studio-2022/)
 - [Create C# apps with Visual Studio](https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/)
 - [Comparison of Visual Studio Code and Visual Studio](https://www.itworld.com/article/3403683/visual-studio-code-stepping-on-visual-studios-toes.html)
 
-## Visual Studio Code
+## VS Code
 - [C# Dev Kit – Now Generally Available](https://devblogs.microsoft.com/dotnet/csharp-dev-kit-now-generally-available/)
-- [Download Visual Studio Code](https://code.visualstudio.com/)
-- [Visual Studio Code documentation](https://code.visualstudio.com/docs)
-- [Set up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)
-- [Visual Studio Code key bindings and shortcuts](https://code.visualstudio.com/docs/getstarted/keybindings)
+- [Download VS Code](https://code.visualstudio.com/)
+- [VS Code documentation](https://code.visualstudio.com/docs)
+- [Set up VS Code](https://code.visualstudio.com/docs/setup/setup-overview)
+- [VS Code key bindings and shortcuts](https://code.visualstudio.com/docs/getstarted/keybindings)
   - [Windows shortcuts PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
   - [macOS shortcuts PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
   - [Linux shortcuts PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
 - [How can I do a 'clean' uninstall of VS Code?](https://code.visualstudio.com/docs/setup/setup-overview#_how-can-i-do-a-clean-uninstall-of-vs-code)
-- [Microsoft's roadmap for Visual Studio Code](https://github.com/Microsoft/vscode/wiki/Roadmap)
-- [Visual Studio Code for C# Developers | .NET Conf 2022](https://www.youtube.com/watch?v=fuBi4d7k1-M)
+- [Microsoft's roadmap for VS Code](https://github.com/Microsoft/vscode/wiki/Roadmap)
+- [VS Code for C# Developers | .NET Conf 2022](https://www.youtube.com/watch?v=fuBi4d7k1-M)
 - [Learning with VS Code on Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started)
-- [The History of Visual Studio Code | BDL134](https://www.youtube.com/watch?v=Tw8l0WzQxmY)
+- [The History of VS Code | BDL134](https://www.youtube.com/watch?v=Tw8l0WzQxmY)
 
 ## Other C# code editors and platforms
 - [Stack Overflow survey 2021 - Integrated development environment](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-integrated-development-environment)
 - [Stack Overflow survey 2019 - Most Popular Development Environments](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools)
-- [Visual Studio for Mac documentation](https://learn.microsoft.com/en-us/visualstudio/mac/)
 - [GitHub Codespaces](https://docs.github.com/en/codespaces/overview)
 - [JetBrains Rider](https://www.jetbrains.com/rider/)
 - [Rider documentation](https://www.jetbrains.com/help/rider/Introduction.html)
-- [.NET 6 is now in Ubuntu 22.04](https://devblogs.microsoft.com/dotnet/dotnet-6-is-now-in-ubuntu-2204/)
 
 ## .NET Interactive and Polyglot Notebooks
 - [The Power of Polyglot Notebooks | .NET Conf 2022](https://www.youtube.com/watch?v=IXRGa5m-Lbo)
@@ -154,14 +153,14 @@
 
 ## .NET
 - [Download .NET SDK](https://dotnet.microsoft.com/en-us/download)
+- [Official list of .NET 9 supported operating systems](https://github.com/dotnet/core/blob/main/release-notes/9.0/supported-os.md)
 - [The convenience of .NET](https://devblogs.microsoft.com/dotnet/the-convenience-of-dotnet/)
-- [What's new in .NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
+- [What's new in .NET 9](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9)
 - [.NET Conf 2022 Keynote: Welcome to .NET 7 | .NET Conf 2022](https://www.youtube.com/watch?v=8V_BUGFKdaI)
 - [Stack Overflow survey 2021 - Most loved frameworks and libraries](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-other-frameworks-and-libraries)
 - [Themes of .NET](https://themesof.net/)
 - [Microsoft's positioning of .NET Core and .NET Framework](https://devblogs.microsoft.com/dotnet/update-on-net-core-3-0-and-net-framework-4-8/)
 - [Microsoft's plans for the journey to one .NET](https://devblogs.microsoft.com/dotnet/announcing-net-5-preview-4-and-our-journey-to-one-net/)
-- [Official list of .NET 7 supported operating systems](https://github.com/dotnet/core/blob/main/release-notes/7.0/supported-os.md)
 - [.NET Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 - [.NET versions](https://learn.microsoft.com/en-us/dotnet/core/versions/)
 - [.NET Uninstall Tool](https://learn.microsoft.com/en-us/dotnet/core/additional-tools/uninstall-tool)
@@ -172,6 +171,7 @@
 - [.NET Release Schedule](https://github.com/dotnet/core/blob/main/roadmap.md)
 - [.NET Team Members on Twitter](https://twitter.com/i/lists/120961876//members)
 - [dotnet new templates](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new)
+- [.NET 6 is now in Ubuntu 22.04](https://devblogs.microsoft.com/dotnet/dotnet-6-is-now-in-ubuntu-2204/)
 
 ## .NET performance improvements
 - [Arm64 Performance Improvements in .NET 7](https://devblogs.microsoft.com/dotnet/arm64-performance-improvements-in-dotnet-7/)
@@ -585,10 +585,11 @@ The official announcement links are useful because they describe the most import
 # Chapter 11 - Querying and Manipulating Data Using LINQ
 
 ## LINQ concepts
-- [Expression trees](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/)
+- [LINQ's INSANE Improvements in .NET 9](https://www.youtube.com/watch?v=xFsSEaa6tjA)
 - [LINQ comprehension syntax](https://stackoverflow.com/questions/6229187/linq-why-is-it-called-comprehension-syntax)
 - [LINQ in C#](https://learn.microsoft.com/en-us/dotnet/csharp/linq/linq-in-csharp)
 - [New LINQ extensions in .NET 6 and benchmarks](https://blog.elmah.io/new-linq-extensions-in-net-6-and-benchmarks/)
+- [Expression trees](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/)
 
 ## LINQ providers
 - [EF Core LINQ queries no longer evaluated at client](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-3.x/breaking-changes#linq-queries-are-no-longer-evaluated-on-the-client)
