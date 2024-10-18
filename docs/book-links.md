@@ -108,6 +108,7 @@
 - [Download Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - [Sign up for a Microsoft account](https://signup.live.com/)
 - [Visual Studio for Windows documentation](https://learn.microsoft.com/en-us/visualstudio/windows/)
+- [20 Must-Know Visual Studio Shortcuts for Developers - YouTube](https://www.youtube.com/watch?v=nhEHXQGVmaQ)
 - [Microsoft Visual Studio on YouTube](https://www.youtube.com/visualstudio)
 - [Building Apps with Visual Studio in the Cloud with Dev Box](https://www.youtube.com/watch?v=9imDpJwrFJE)
 - [Cool features in Visual Studio 2022](https://www.youtube.com/watch?v=NBfNnyPQTKs)
@@ -174,6 +175,8 @@
 - [.NET 6 is now in Ubuntu 22.04](https://devblogs.microsoft.com/dotnet/dotnet-6-is-now-in-ubuntu-2204/)
 
 ## .NET performance improvements
+- [Performance Improvements in .NET 9](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-9/)
+- [Performance Improvements in .NET 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-8/)
 - [Arm64 Performance Improvements in .NET 7](https://devblogs.microsoft.com/dotnet/arm64-performance-improvements-in-dotnet-7/)
 - [Performance Improvements in .NET 7](https://devblogs.microsoft.com/dotnet/performance_improvements_in_net_7/)
 - [Performance Improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6/)
@@ -257,6 +260,8 @@
 - [Patterns (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns)
 
 ## C# implemented proposals
+- [C# 13](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-13.0)
+- [C# 12](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-12.0)
 - [C# 11](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-11.0)
 - [C# 10](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-10.0)
 - [C# 9](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-9.0)
@@ -333,6 +338,8 @@
 - [Visual Studio for Windows debugger documentation](https://learn.microsoft.com/en-us/visualstudio/debugger/)
 - [Visual Studio Code debugger](https://code.visualstudio.com/docs/editor/debugging)
 - [How to debug for absolute beginners](https://learn.microsoft.com/en-us/visualstudio/debugger/debugging-absolute-beginners)
+- [Master Advanced Breakpoints in Visual Studio - YouTube](https://www.youtube.com/watch?v=n5Pqn_wofmY)
+- [Inspect Variables Like a Pro in Visual Studio Debugger - YouTube](https://www.youtube.com/watch?v=bHgprFPmwzo)
 
 ## Instrumenting
 - [System.Diagnostics Namespace](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics)
