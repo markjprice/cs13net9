@@ -135,6 +135,7 @@
 - [Stack Overflow survey 2021 - Integrated development environment](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-integrated-development-environment)
 - [Stack Overflow survey 2019 - Most Popular Development Environments](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools)
 - [GitHub Codespaces](https://docs.github.com/en/codespaces/overview)
+- [WebStorm and Rider Are Now Free for Non-Commercial Use](https://blog.jetbrains.com/blog/2024/10/24/webstorm-and-rider-are-now-free-for-non-commercial-use/)
 - [JetBrains Rider](https://www.jetbrains.com/rider/)
 - [Rider documentation](https://www.jetbrains.com/help/rider/Introduction.html)
 
