@@ -34,7 +34,7 @@ public class CustomerRepository : ICustomerRepository
       key: id, // Unique key to the cache entry.
       factory: async cancel => await _db.Customers
         .FirstOrDefaultAsync(c => c.CustomerId == id, token),
-      token: token);
+      cancellationToken: token);
   }
 
 
