@@ -83,6 +83,10 @@ private static (int affected, int productId) AddProduct(
 
   // Set product as added in change tracking.
   EntityEntry<Product> entity = db.Products.Add(p);
+
+  // Alternatively, call Add<Product> on the data context.
+  // EntityEntry<Product> entity = db.Add(p);
+
   WriteLine($"State: {entity.State}, ProductId: {p.ProductId}");
 
   // Save tracked change to database.
@@ -247,7 +251,7 @@ If multiple product names started with `Bob`, then they would all be deleted. As
 
 You have now seen the traditional way of modifying data using EF Core, as summarized in the following steps:
 1.	Create a database context. Change tracking is enabled by default.
-2.	To insert data, create a new instance of an entity class and then pass it as an argument to the `Add` method of the appropriate collection, for example, `db.Products.Add(product)`.
+2.	To insert data, create a new instance of an entity class and then pass it as an argument to the `Add` method of the appropriate collection, for example, `db.Products.Add(product)`, or directly on the data context, for example, `db.Add(product)`. The `Add<T>` method is generic so it knows what type of entity is being added and therefore which table to add it to. 
 3.	To update data, retrieve the entities that you want to modify and then change their properties.
 4.	To delete data, retrieve the entities that you want to remove and then pass them as an argument to the `Remove` or `RemoveRange` methods of the appropriate collection, for example, `db.Products.Remove(product)`.
 5.	Call the `SaveChanges` method of the database context. This uses the change tracker to generate SQL statements to perform the needed inserts, updates, and deletes, and then returns the number of entities affected.
