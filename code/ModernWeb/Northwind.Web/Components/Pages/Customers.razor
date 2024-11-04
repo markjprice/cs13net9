@@ -1,0 +1,49 @@
+﻿@using Northwind.EntityModels
+@page "/customers"
+@inject NorthwindContext _db
+@code
+{
+  public ILookup<string?, Customer>? CustomersByCountry;
+
+  private string title = "Customers by Country";
+
+  protected override void OnInitialized()
+  {
+    CustomersByCountry = _db.Customers.ToLookup(c => c.Country);
+  }
+}
+<div class="row">
+  <h1 class="display-2">@title</h1>
+  <div>
+    <h2>Exercise 13.2 – Build a data-driven web page</h2>
+  </div>
+  <div class="accordion" id="accordionCustomers">
+    @if (CustomersByCountry is not null)
+    {
+      @foreach (IGrouping<string?, Customer> cbc in CustomersByCountry)
+      {
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="header@(cbc.Key)">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse@(cbc.Key)" aria-expanded="true" aria-controls="collapse@(cbc.Key)">
+              @cbc.Key has @cbc.Count() customers
+            </button>
+          </h2>
+          <div id="collapse@(cbc.Key)" class="accordion-collapse collapse" aria-labelledby="heading@(cbc.Key)" data-bs-parent="#accordionCustomers">
+            <div class="accordion-body">
+              <ul>
+                @foreach (Customer c in cbc)
+                {
+                  <li>
+                    <a href="customerorders/@c.CustomerId">
+                      @c.CompanyName
+                    </a>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>

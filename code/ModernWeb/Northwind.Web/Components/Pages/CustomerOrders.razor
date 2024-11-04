@@ -1,0 +1,43 @@
+﻿@using Microsoft.EntityFrameworkCore @* To use Include. *@
+@using Northwind.EntityModels @* To use Customer. *@
+@page "/customerorders/{CustomerId}"
+@inject NorthwindContext _db
+@code
+{
+  [Parameter]
+  public string? CustomerId { get; set; }
+
+  public Customer? Customer { get; set; }
+
+  private string title = "Customer and their orders";
+
+  protected override void OnInitialized()
+  {
+    Customer = _db.Customers.Include(c => c.Orders)
+      .SingleOrDefault(c => c.CustomerId == CustomerId);
+  }
+}
+<div class="row">
+  <h1 class="display-2">@title</h1>
+  <div>
+    @if (Customer is not null)
+    {
+      <div>
+        <div>@Customer.CompanyName</div>
+      </div>
+      <div>
+        <table>
+          <thead>
+            <tr><th>Order Id</th><th>Order Date</th></tr>
+          </thead>
+          <tbody>
+            @foreach (Order o in Customer.Orders)
+            {
+              <tr><td>@o.OrderId</td><td>@o.OrderDate</td></tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</div>
