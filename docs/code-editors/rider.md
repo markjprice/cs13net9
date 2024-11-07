@@ -2,6 +2,8 @@
 
 In this article, I provide detailed step-by-step instuctions for using JetBrains Rider for topics like creating a solution with multiple projects and using debugging tools.
 
+> **Since October 2024, Rider is now free for non-commercial use!** You can learn more about this at the following link: https://blog.jetbrains.com/blog/2024/10/24/webstorm-and-rider-are-now-free-for-non-commercial-use/.
+
 - [Chapter 1 - Hello, C#! Welcome, .NET!](#chapter-1---hello-c-welcome-net)
   - [Downloading and installing JetBrains Rider and Toolbox App](#downloading-and-installing-jetbrains-rider-and-toolbox-app)
   - [Managing multiple projects using JetBrains Rider](#managing-multiple-projects-using-jetbrains-rider)

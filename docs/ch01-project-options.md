@@ -58,3 +58,5 @@ All ASP.NET Core projects created from Chapter 13 onwards have a project templat
 3. And then select the **Type**.
 
 ![JetBrains Rider types for ASP.NET Core projects](assets/B19586_01_Projects_06.png)
+
+> **Since October 2024, Rider is now free for non-commercial use!** You can learn more about this at the following link: https://blog.jetbrains.com/blog/2024/10/24/webstorm-and-rider-are-now-free-for-non-commercial-use/.
