@@ -40,7 +40,7 @@ You can also install and use alternative command prompts or terminals. For examp
 - It supports tabs so you can easily manage multiple active consoles simultaneously.
 - It still uses the builtin `cmd.exe` so the output is the same as the default.
 
-Windows Terminal is now the default in Windows 11 so you should not need to install it. But if you use an older verions of Windows, then you can install Windows Terminal from the Microsoft Store: https://www.microsoft.com/store/productId/9N0DX20HK701. 
+Since October 2022, Windows Terminal is the default in Windows 11 so you should not need to install it. But if you use an older version of Windows, then you can install Windows Terminal from the Microsoft Store. 
 
 > **More Information**: You can learn more about Windows Terminal at the following link: https://devblogs.microsoft.com/commandline/windows-terminal-is-now-the-default-in-windows-11/.
 
