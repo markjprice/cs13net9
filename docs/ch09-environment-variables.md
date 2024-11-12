@@ -55,13 +55,24 @@ partial class Program
 
     foreach (string key in dictionary.Keys)
     {
-      table.AddRow(key, dictionary[key]!.ToString()!);
+      // Some env var values are being interpreted as markup
+      try
+      {
+        table.AddRow(key, dictionary[key]!.ToString()!);
+      }
+      catch (Exception ex)
+      {
+        table.AddRow(key, ex.Message);
+        WriteLine($"{key} - {dictionary[key]}");
+      }
     }
 
     AnsiConsole.Write(table);
   }
 }
 ```
+
+> The code in the `DictionaryToTable` method assumes that the keys and values in the dictionary do not contain any special characters recognized by Spectre tables like the following: `GUESTFISH_PS1 - \[\e[1;32m\]><fs>\[\e[0;31m\]`, `GUESTFISH_RESTORE - \e[0m`, `GUESTFISH_INIT - \e[1;34m`, `GUESTFISH_OUTPUT - \e[0m`. The `try-catch` will handle these scenarios.
 
 5.	In `Program.cs`, delete any existing statements, and write statements to show all the environment variables at the three different scopes, as shown in the following code:
 
