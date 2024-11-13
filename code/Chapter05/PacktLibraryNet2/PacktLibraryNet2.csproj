@@ -7,7 +7,7 @@
 
     <!--Compile this library using C# 13 so we can use most
         modern compiler features. -->
-    <LangVersion>preview</LangVersion> <!-- Change to 13 after GA. -->
+    <LangVersion>13</LangVersion>
 
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>

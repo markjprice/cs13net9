@@ -12,10 +12,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
-    
-    <!--Temporary fix for a critical severity vulnerability warning.-->
-    <PackageReference Include="System.Drawing.Common" />
-    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
 </Project>

@@ -5,9 +5,6 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
-    <!-- remove after 12 November -->
-    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

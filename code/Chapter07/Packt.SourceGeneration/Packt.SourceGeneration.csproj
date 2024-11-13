@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 
     <!--Must use C# 10 or later to support 'global using' statements.-->
-    <LangVersion>preview</LangVersion>
+    <LangVersion>13</LangVersion>
 
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <Nullable>enable</Nullable>
@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers"
-                      Version="3.3.4">
+                      Version="3.11.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>
         runtime; build; native; contentfiles; analyzers;
@@ -24,7 +24,7 @@
       </IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp"
-                      Version="4.6.0" />
+                      Version="4.11.0" />
   </ItemGroup>
 
 </Project>
