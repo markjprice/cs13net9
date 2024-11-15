@@ -11,7 +11,7 @@
   - [Help and learning](#help-and-learning)
 - [Chapter 2 - Speaking C#](#chapter-2---speaking-c)
   - [What's New in C#?](#whats-new-in-c)
-  - [C# language version and the journey to C# 11](#c-language-version-and-the-journey-to-c-11)
+  - [The journey to modern C#](#the-journey-to-modern-c)
   - [C# language](#c-language)
   - [C# implemented proposals](#c-implemented-proposals)
   - [C# proposals being worked on](#c-proposals-being-worked-on)
@@ -218,9 +218,8 @@
 # Chapter 2 - Speaking C#
 
 ## What's New in C#?
-- [What's New in C# 11 | .NET Conf 2022](https://www.youtube.com/watch?v=H18CfoinPZg)
-- [Early peek at C# 11 features](https://devblogs.microsoft.com/dotnet/early-peek-at-csharp-11-features/): Allow newlines in the “holes” of interpolated strings, List patterns, Parameter null-checking.
-- [C# 11 preview: generic math, required members, and more](https://devblogs.microsoft.com/dotnet/csharp-11-preview-august-update/)
+- [What's new in C# 13](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-13)
+- [What's new in C# 12](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12)
 - [What's new in C# 11](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-11)
 - [What's new in C# 10](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-10)
 - [What's new in C# 9.0](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9)
@@ -235,7 +234,7 @@
 - [What's new in C# 3.0](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history#c-version-30)
 - [What's new in C# 2.0](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history#c-version-20)
 
-## C# language version and the journey to C# 11
+## The journey to modern C#
 - [Announcing Open Source C# standardization](https://devblogs.microsoft.com/dotnet/announcing-open-source-c-standardization-standards/)
 - [Rosalyn and C# compiler versions](https://github.com/dotnet/roslyn/blob/main/docs/wiki/NuGet-packages.md)
 - [How Microsoft rewrote its C# compiler in C# and made it open source](https://medium.com/microsoft-open-source-stories/how-microsoft-rewrote-its-c-compiler-in-c-and-made-it-open-source-4ebed5646f98)
@@ -368,6 +367,7 @@
 - [Methods in C#)](https://learn.microsoft.com/en-us/dotnet/csharp/methods)
 - [Deconstructing tuples and other types](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/deconstruct)
 - [params keyword](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/params)
+- [Calling methods is easier and faster with C# 13 params collections](https://devblogs.microsoft.com/dotnet/csharp13-calling-methods-is-easier-and-faster/)
 - [out parameter modifier (C# Reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier)
 - [ref (C# Reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref)
 
