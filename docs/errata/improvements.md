@@ -1,9 +1,10 @@
-**Improvements** (2 items)
+**Improvements** (3 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 15 - Listing and removing versions of .NET](#page-15---listing-and-removing-versions-of-net)
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
+- [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
 
 # Page 15 - Listing and removing versions of .NET
@@ -45,3 +46,11 @@ Since October 2022, Windows Terminal is the default in Windows 11 so you should 
 > **More Information**: You can learn more about Windows Terminal at the following link: https://devblogs.microsoft.com/commandline/windows-terminal-is-now-the-default-in-windows-11/.
 
 In the next edition, I might add notes about this.
+
+# Appendix - Exercise 3.1 – Test your knowledge
+
+> Thanks to **rene**/`rene510` in the Discord channel for asking a question about this.
+
+In Question 2, "What happens when you divide a double variable by 0?", in my suggested answer I wrote, "The `double` type contains a special value of `Infinity`. Instances of floating-point numbers can have the special values of `NaN` (not a number) or, in the case of dividing by `0`, either `PositiveInfinity` or `NegativeInfinity`."
+
+In the next edition, I will add that those special values output as `8` and `-8`.
