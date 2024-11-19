@@ -1,6 +1,6 @@
 **Project Options**
 
-When creating new project either using Visual Studio or using the command prompt for tools like VS Code, it is useful to see a summary of your options for common types of project template.
+When creating a new project either using Visual Studio or using the `dotnet` CLI at the command prompt or terminal, it is useful to see a summary of your options for common types of project template.
 
 - [Console App / `console`](#console-app--console)
 - [Class Library / `classlib`](#class-library--classlib)
