@@ -64,8 +64,8 @@ Let's review what memory is allocated on the stack and heap when this method is 
 sally = kevin; // Both variables point at the same Person on heap.
 ```
 
-![How value and reference types are allocated in the stack and heap](assets/B22322_06_01.png)
-*Figure 6.1: How value and reference types are allocated in the stack and heap*
+![How value and reference types are allocated in the stack and heap](assets/B22322_06_06.png)
+*Figure 6.6: How value and reference types are allocated in the stack and heap*
 
 All the allocated memory for a reference type is stored on the heap except for its memory address on the stack. If a value type such as `DateTimeOffset` is used for a field of a reference type like `Person`, then the `DateTimeOffset` value is stored on the heap, as shown in *Figure 6.1*.
 
