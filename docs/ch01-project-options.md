@@ -1,6 +1,6 @@
 **Project Options**
 
-When creating new project either using Visual Studio 2022 or using the command prompt for tools like Visual Studio Code, it is useful to see a summary of your options for common types of project template.
+When creating new project either using Visual Studio or using the command prompt for tools like VS Code, it is useful to see a summary of your options for common types of project template.
 
 - [Console App / `console`](#console-app--console)
 - [Class Library / `classlib`](#class-library--classlib)
@@ -13,41 +13,48 @@ When creating new project either using Visual Studio 2022 or using the command p
 
 # Console App / `console`
 
-![Console App default options](assets/B19586_01_Projects_01.png)
+> All project templates share the same first screen to configure names for your project and solution and the location in the filesystem so that screenshot will not be repeated for every project template.
 
-![Other common options](assets/B19586_01_Projects_02.png)
+![Console App default options](assets/B22322_01_Project_Options_1.png)
+
+> Most project templates share common options to configure the target framework, enable container support or AOT publish, and to explicitly define a `Program` class with `Main` method, so those screenshots will not be repeated for every project template.
+
+![Other common options](assets/B22322_01_Project_Options_2.png)
 
 # Class Library / `classlib`
 
-Create a .NET 8.0 class library:
-
-`dotnet new classlib`
-
-Create a .NET Standard 2.0 class library:
-
-`dotnet new classlib --framework netstandard2.0`
+![ASP.NET Core Empty default options](assets/B22322_01_Project_Options_3.png)
 
 # ASP.NET Core Empty / `web`
 
-![ASP.NET Core Empty default options](assets/B19586_01_Projects_03.png)
+![ASP.NET Core Empty default options](assets/B22322_01_Project_Options_4.png)
 
 # ASP.NET Core Web App (Model-View-Controller) / `mvc`
 
-This project template has the same options as **ASP.NET Core Empty** / `web`.
+This project template has the same options as **ASP.NET Core Empty** / `web`, and one extra to enable authentication.
+
+![ASP.NET Core MVC default options](assets/B22322_01_Project_Options_5.png)
+
+> **Note**: If you set authentication to `Individual` then add the switch `-uld` or `--use-local-db` to use SQL Server LocalDB instead of SQLite.
+
+For example, use the following command to create an ASP.NET Core MVC website project that allows visitors to register a username and password, and stores their profile information in a SQL Server database:
+```
+dotnet new mvc --auth Individual --use-local-db -o Northwind.Mvc
+```
 
 # ASP.NET Core Web API / `webapi`
 
-> **Warning!** The .NET SDK 8 defaults to implementing services using Minimal APIs and you must use the `--use-controllers` or `-controllers` switch to implement services using controllers. The .NET SDK 6 or 7 defaults to implementing services using controllers and you must use the `--use-minimal-apis` or `-minimal` switch to implement services using Minimal APIs. JetBrains Rider does not yet have an option to "use controllers" so you should use the `dotnet new` command to create a Web API project if you need to use controllers.
+![ASP.NET Core Web API default options](assets/B22322_01_Project_Options_6.png)
 
-![ASP.NET Core Web API default options](assets/B19586_01_Projects_04.png)
+> **Warning!** The .NET 8 or 9 SDKs default to implementing services using Minimal APIs. You must add the `--use-controllers` or `-controllers` switch to implement services using controllers. The .NET 6 or 7 SDKs default to implementing services using controllers and you must use the `--use-minimal-apis` or `-minimal` switch to implement services using Minimal APIs.
 
 # ASP.NET Core Web API (native AOT) / `webapiaot`
 
-This project template always implements the service using Minimal APIs and only enables `http`.
+This project template always implements the service using Minimal APIs and only enables `http` so it has similar but fewer options as the non-native AOT Web API project template.
 
 # Blazor Web App / `blazor`
 
-![ASP.NET Core Web default options](assets/B19586_01_Projects_05.png)
+![ASP.NET Core Web default options](assets/B22322_01_Project_Options_7.png)
 
 # JetBrains Rider options
 
