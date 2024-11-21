@@ -1,0 +1,266 @@
+﻿@rendermode RenderMode.InteractiveServer
+@page "/functions"
+@code
+{
+  private string title = "Functions";
+
+  [Parameter]
+  public int? TimesTableNumber { get; set; }
+
+  [Parameter]
+  public decimal? Amount { get; set; }
+  [Parameter]
+  public string? RegionCode { get; set; }
+  public decimal? TaxToPay { get; set; }
+
+  [Parameter]
+  public int? FactorialNumber { get; set; }
+  public int? FactorialResult { get; set; }
+  public Exception? FactorialException { get; set; }
+
+  [Parameter]
+  public int? FibonacciNumber { get; set; }
+  public int? FibonacciResult { get; set; }
+
+  private void Submit()
+  {
+    TaxToPay = CalculateTax(amount: Amount ?? 0M,
+      twoLetterRegionCode: RegionCode);
+
+    // Factorial
+    try
+    {
+      FactorialResult = Factorial(FactorialNumber ?? 1);
+    }
+    catch (Exception ex)
+    {
+      FactorialException = ex;
+    }
+
+    // Fibonacci
+    FibonacciResult = FibImperative(term: FibonacciNumber ?? 1);
+
+    static decimal CalculateTax(
+        decimal amount, string? twoLetterRegionCode)
+    {
+      decimal rate = 0.0M;
+
+      // since we are matching string values a switch
+      // statement is easier than a switch expression
+
+      switch (twoLetterRegionCode)
+      {
+        case "CH": // Switzerland
+          rate = 0.08M;
+          break;
+        case "DK": // Denmark
+        case "NO": // Norway
+          rate = 0.25M;
+          break;
+        case "GB": // United Kingdom
+        case "FR": // France
+          rate = 0.2M;
+          break;
+        case "HU": // Hungary
+          rate = 0.27M;
+          break;
+        case "OR": // Oregon
+        case "AK": // Alaska
+        case "MT": // Montana
+          rate = 0.0M;
+          break;
+        case "ND": // North Dakota
+        case "WI": // Wisconsin
+        case "ME": // Maine
+        case "VA": // Virginia
+          rate = 0.05M;
+          break;
+        case "CA": // California
+          rate = 0.0825M;
+          break;
+        default: // most US states
+          rate = 0.06M;
+          break;
+      }
+
+      return amount * rate;
+    }
+
+    static int Factorial(int number)
+    {
+      if (number < 0)
+      {
+        throw new ArgumentException(
+          message: "The factorial function is defined for non-negative integers only.",
+          paramName: "number");
+      }
+      else if (number == 0)
+      {
+        return 1;
+      }
+      else
+      {
+        checked // for overflow
+        {
+          return number * Factorial(number - 1);
+        }
+      }
+    }
+
+    static int FibImperative(int term)
+    {
+      if (term == 1)
+      {
+        return 0;
+      }
+      else if (term == 2)
+      {
+        return 1;
+      }
+      else
+      {
+        return FibImperative(term - 1) + FibImperative(term - 2);
+      }
+    }
+
+  }
+}
+<div class="row">
+  <h1 class="display-2">@title</h1>
+  <div>
+    <h2>Exercise 14.2 – Build web pages for functions</h2>
+    <div>Provide a web user interface to output times tables, calculate tax, and generate factorials and the Fibonacci sequence.</div>
+  </div>
+  <div>
+    <h2>Times Table</h2>
+    <form method="post" @onsubmit="Submit" @formname="times-table-form">
+      <div class="mb-3">
+        <label for="timesTableNumber" class="form-label">Number</label>
+        <InputNumber @bind-Value="TimesTableNumber" class="form-control" id="timesTableNumber" aria-describedby="timesTableNumberHelp" />
+        <div id="timesTableNumberHelp" class="form-text">Enter an integer between 1 and 100.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    @if (TimesTableNumber.HasValue)
+    {
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">@TimesTableNumber times table</h5>
+          @for (int i = 1; i <= 12; i++)
+          {
+            <div>
+              @i x @TimesTableNumber = @(i * TimesTableNumber)
+            </div>
+          }
+        </div>
+
+      </div>
+    }
+  </div>
+
+  <div>
+    <h2>Calculate Tax</h2>
+    <form method="post" @onsubmit="Submit" @formname="calculate-tax-form">
+      <div class="mb-3">
+        <label for="calculateTaxAmountInput" class="form-label">Amount</label>
+        <InputNumber @bind-Value="Amount" class="form-control" id="calculateTaxAmountInput" aria-describedby="calculateTaxAmountInputHelp" />
+        <div id="calculateTaxAmountInputHelp" class="form-text">Enter a monetary value.</div>
+      </div>
+      <div class="mb-3">
+        <label for="calculateTaxRegionCodeInput" class="form-label">Region</label>
+        <InputSelect @bind-Value="RegionCode" class="form-control" id="calculateTaxRegionCodeInput" aria-describedby="calculateTaxRegionCodeInputHelp">
+          <optgroup label="Europe">
+            <option value="DK">Denmark</option>
+            <option value="FR">France</option>
+            <option value="HU">Hungary</option>
+            <option value="NO">Norway</option>
+            <option value="CH">Switzerland</option>
+            <option value="GB">United Kingdom</option>
+          </optgroup>
+          <optgroup label="United States">
+            <option value="AK">Alaska</option>
+            <option value="OR">Oregon</option>
+            <option value="MT">Montana</option>
+            <option value="ND">North Dakota</option>
+            <option value="WI">Wisconsin</option>
+            <option value="ME">Maine</option>
+            <option value="VA">Virginia</option>
+            <option value="CA">California</option>
+            <option value="OT">Other</option>
+          </optgroup>
+        </InputSelect>
+        <div id="calculateTaxRegionCodeInputHelp" class="form-text">Select a European or US state.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    @if (Amount.HasValue)
+    {
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">You must pay @TaxToPay in tax.</h5>
+        </div>
+
+      </div>
+    }
+  </div>
+
+  <div>
+    <h2>Factorials</h2>
+    <form method="post" @onsubmit="Submit" @formname="factorials-form">
+      <div class="mb-3">
+        <label for="factorialNumberInput" class="form-label">Number</label>
+        <InputNumber @bind-Value="FactorialNumber" class="form-control" id="factorialNumberInput" aria-describedby="factorialNumberHelp" />
+        <div id="factorialNumberHelp" class="form-text">Enter an integer between 1 and 12.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    @if (FactorialNumber.HasValue)
+    {
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">@(FactorialNumber)!</h5>
+          <div>
+            @(FactorialNumber)! = @(FactorialResult is null ? "null" : FactorialResult.Value.ToString("N0"))
+          </div>
+        </div>
+
+      </div>
+    }
+    @if (FactorialException is not null)
+    {
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Exception</h5>
+          <div>
+            @FactorialException.Message
+          </div>
+        </div>
+
+      </div>
+    }
+  </div>
+
+  <div>
+    <h2>Fibonacci sequence</h2>
+    <form method="post" @onsubmit="Submit" @formname="fibonacci-form">
+      <div class="mb-3">
+        <label for="fibonacciNumberInput" class="form-label">Term</label>
+        <InputNumber @bind-Value="FibonacciNumber" class="form-control" id="fibonacciNumberInput" aria-describedby="fibonacciNumberHelp" />
+        <div id="fibonacciNumberHelp" class="form-text">Enter an integer between 1 and 40.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    @if (FibonacciNumber.HasValue)
+    {
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Fibonacci term @FibonacciNumber</h5>
+          <div>
+            Term @FibonacciNumber of the fibonacci sequence = @(FibonacciResult is null ? "null" : FibonacciResult.Value.ToString("N0"))
+          </div>
+        </div>
+
+      </div>
+    }
+  </div>
+</div>
