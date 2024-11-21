@@ -20,3 +20,9 @@ This feature is no longer in preview so you do not need to enable it. In the nex
 # Exercise 13.2 – practice exercises - Build web pages for functions
 
 This exercise should have been in *Chapter 14 Building Interactive Web Components Using Blazor*, because it is much easier to implement using interactive Blazor features rather than the limited Blazor static server-side rendering (SSR).
+
+Updated functions page to use server-side interactivity:
+https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.Blazor/Northwind.Blazor/Components/Pages/Functions.razor
+
+Updated navmenu to include link to functions page:
+https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.Blazor/Northwind.Blazor/Components/Layout/NavMenu.razor
