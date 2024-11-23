@@ -4,6 +4,8 @@
 
 Repository for the Packt Publishing book titled "C# 13 and .NET 9 - Modern Cross-Platform Development Fundamentals" by Mark J. Price
 
+> **[FAQs](docs/FAQs.md)**
+
 > **What's new in this edition?** You can read a [detailed list of changes](docs/whats-new-in-book.md) between the 8th and 9th editions.
 
 If you have purchased the paperback or Kindle edition, then you can request a free PDF copy at the following link: https://www.packtpub.com/page/companion-ebook.
