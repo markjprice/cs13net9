@@ -1,7 +1,20 @@
 **FAQs**
 
+For questions about book pricing, distribution, and so on, please contact the publisher Packt at the following email address: customercare@packt.com
+
+- [Where can I buy your books in my country?](#where-can-i-buy-your-books-in-my-country)
+- [Can you give me a free copy of your book?](#can-you-give-me-a-free-copy-of-your-book)
 - [How to get a Packt book as a PDF](#how-to-get-a-packt-book-as-a-pdf)
 - [Will there be .NET 9 editions of your other books?](#will-there-be-net-9-editions-of-your-other-books)
+- [Is there a roadmap that shows what order to learn .NET technologies?](#is-there-a-roadmap-that-shows-what-order-to-learn-net-technologies)
+
+# Where can I buy your books in my country?
+
+I live in the UK and I have no experience with buying books in your country but you probably do. Where have you bought books before in your country? Most bookstores will order a book for you if they do not have it in stock. If they cannot, then please ask the publisher, Packt, where you can buy Packt books in your country: customercare@packt.com. 
+
+# Can you give me a free copy of your book?
+
+No. It is not "my" book to give away. Some readers think that because my name is on the front cover, that means they are "my" books. Inside the book cover you will see who owns the book: **Copyright &copy; 2024 Packt Publishing**. Authors with publishers just write the content. I am not involved in pricing and distribution, and I certainly cannot give them away for free. 
 
 # How to get a Packt book as a PDF
 
@@ -33,3 +46,10 @@ Starting in November 2025, my plan* is that all four .NET books will be updated 
 ![Quartet of .NET 10 books](assets/B31470_15_01b.png)
 
 *Plan not guaranteed!
+
+# Is there a roadmap that shows what order to learn .NET technologies?
+
+Some decent .NET road maps include: 
+- https://roadmap.sh/aspnet-core
+- https://github.com/MoienTajik/AspNetCore-Developer-Roadmap/blob/master/aspnetcore-developer-roadmap.png
+
