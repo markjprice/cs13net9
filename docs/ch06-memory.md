@@ -188,9 +188,9 @@ Note that you cannot compare `struct` variables using `==`, but you can call the
 
 C# 10 introduced the ability to use the `record` keyword with `struct` types as well as `class` types. Let's see an example:
 
-1.	In the `DisplacementVector` type, add the `record` keyword, as highlighted in the following code:
+1.	In the `DisplacementVector` type, add the `record` keyword, as in the following code:
 ```cs
-public record struct DisplacementVector(int X, int Y);
+public record struct DisplacementVector
 ```
 2.	In `Program.cs`, note that `==` now does not have a compiler error.
 3.	Run the `PeopleApp` project and view the result, as shown in the following output:
