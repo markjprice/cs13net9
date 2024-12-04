@@ -15,6 +15,7 @@ This documentation section of the repository contains links to all the optional 
   - [Chapter 13 Building Websites Using ASP.NET Core](#chapter-13-building-websites-using-aspnet-core)
   - [Chapter 14 Building Interactive Web Components Using Blazor](#chapter-14-building-interactive-web-components-using-blazor)
   - [Chapter 15 Building and Consuming Web Services](#chapter-15-building-and-consuming-web-services)
+  - [Bonus content](#bonus-content)
 - [Errata, Improvements, and Common Mistakes](#errata-improvements-and-common-mistakes)
 - [Miscellaneous](#miscellaneous)
 
@@ -86,6 +87,13 @@ This documentation section of the repository contains links to all the optional 
 - [Testing requests with the Swagger UI](ch15-swagger-ui.md)
 - [Implementing advanced features for web services](ch15-advanced.md)
 - [Exercise 15.2 – Practice creating and deleting customers with HttpClient](ch15-exercise-2.md)
+
+## Bonus content
+
+The appendix and color figures are available to download as PDFs:
+
+- [Appendix, Answers to the Test Your Knowledge Questions](B22322_Appendix.pdf).
+- [Color images of the screenshots/diagrams used in this book](9781835881224_ColorImages.pdf).
 
 # [Errata, Improvements, and Common Mistakes](errata/README.md)
 
