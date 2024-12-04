@@ -61,7 +61,7 @@ Visual Studio Code now has an extension named **C# Dev Kit** that includes a sol
 The appendix and color figures are available to download as PDFs:
 
 - [Appendix, Answers to the Test Your Knowledge Questions](docs/B22322_Appendix.pdf).
-- Color images of the screenshots/diagrams used in this book (coming November 2024).
+- [Color images of the screenshots/diagrams used in this book](docs/9781835881224_ColorImages.pdf).
 
 ## Important
 
