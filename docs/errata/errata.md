@@ -1,24 +1,34 @@
-**Errata** (3 items)
+**Errata** (4 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
-- [Page x - Writing code using VS Code](#page-x---writing-code-using-vs-code)
-- [Page x - Creating data repositories with caching for entities](#page-x---creating-data-repositories-with-caching-for-entities)
+- [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
+- [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
+- [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 
 
-# Page x - Writing code using VS Code
+# Page 29 - Writing code using VS Code
 
 > Thanks to **Andriko** in the book's Discord channel for asking a question about this issue.
 
-I wrote, "VS Code has an improved project creation experience that provides you access to the same options you can use when creating a new project through the `dotnet` CLI. To enable this ability, you must change a setting, as shown in the following configuration:"
+I wrote, "In the preceding steps, I showed you how to use the dotnet CLI to create solutions and projects. Finally, with the August 2024 or later releases of the C# Dev Kit, VS Code has an improved project creation experience that provides you access to the same options you can use when creating a new project through the `dotnet` CLI. To enable this ability, you must change a setting, as shown in the following configuration:"
 ```
 "csharp.experimental.dotnetNewIntegration": true
 ```
 
 This feature is no longer in preview so you do not need to enable it. In the next edition, I will remove the sentence about enabling it and the setting.
 
-# Page x - Creating data repositories with caching for entities
+# Page 393 - Publishing a single-file app
+
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on December 8, 2024](https://github.com/markjprice/cs12dotnet8/issues/77).
+
+In the two command lines, I used `/p` to set a project property when I should have used `-p'. The complete command is:
+```
+dotnet publish -r win10-x64 -c Release --no-self-contained -p:PublishSingleFile=true
+```
+
+# Page 750 - Creating data repositories with caching for entities
 
 > Thanks to Jeroen for asking a question about this issue.
 
