@@ -23,7 +23,7 @@ This feature is no longer in preview so you do not need to enable it. In the nex
 
 > Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on December 8, 2024](https://github.com/markjprice/cs12dotnet8/issues/77).
 
-In the two command lines, I used `/p` to set a project property when I should have used `-p'. The complete command is:
+In the two command lines, I used `/p` to set a project property when I should have used `-p`. The complete command is:
 ```
 dotnet publish -r win10-x64 -c Release --no-self-contained -p:PublishSingleFile=true
 ```
