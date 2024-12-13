@@ -1,9 +1,10 @@
-**Errata** (4 items)
+**Errata** (5 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
+- [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 
@@ -27,6 +28,16 @@ In the two command lines, I used `/p` to set a project property when I should ha
 ```
 dotnet publish -r win10-x64 -c Release --no-self-contained -p:PublishSingleFile=true
 ```
+
+# Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions
+
+I end the **Testing the class libraries** section by writing, "Finally, in this chapter, let’s review some key concepts about web development, enabling us to be better prepared to dive into ASP.NET Core Razor Pages in the next chapter."
+
+In the **Build a data-driven web page** exercise, I wrote, "Add a Razor Page to the `Northwind.Web` website..."
+
+In the **Build web pages for functions** exercise, I wrote, "Reimplement some of the console apps from earlier chapters as Razor Pages;"
+
+In these instances, "Razor Pages" or "Razor Page" should be "Blazor" or "Blazor page component".
 
 # Page 750 - Creating data repositories with caching for entities
 
