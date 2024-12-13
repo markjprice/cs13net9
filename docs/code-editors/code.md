@@ -265,7 +265,7 @@ Follow these steps to create a solution and projects using Visual Studio Code:
 2.	Create a solution file in the folder: `dotnet new sln`.
 3.	Create a folder and project: `dotnet new console -o HelloCS`.
 4.	Add the folder to the solution: `dotnet sln add HelloCS`.
-5.	Repeat steps 4 and 5 to create and add any other projects.
+5.	Repeat steps 3 and 4 to create and add any other projects.
 6.	Open the folder containing the solution using Visual Studio Code: `code .`
 
 **Console Apps** (`dotnet new console`) are just one type of project template. In this book you will also create **Class Libraries** (`dotnet new classlib`), empty websites (`dotnet new web`), MVC websites (`dotnet new mvc`), Web API services (`dotnet new webapi`), Blazor websites (`dotnet new blazor`), and so on.
