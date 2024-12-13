@@ -7,7 +7,7 @@
 - [Configuring trace listeners](#configuring-trace-listeners)
 - [Switching trace levels](#switching-trace-levels)
 - [Adding packages to a project in Visual Studio](#adding-packages-to-a-project-in-visual-studio)
-- [Adding packages to a project in Code](#adding-packages-to-a-project-in-code)
+- [Adding packages to a project in VS Code](#adding-packages-to-a-project-in-vs-code)
 - [Reviewing project packages for working with configuration](#reviewing-project-packages-for-working-with-configuration)
 - [Logging information about your source code](#logging-information-about-your-source-code)
 
@@ -97,18 +97,18 @@ Trace.Close();
 ```
 
 3.	Run the release configuration of the console app:
-    - In Code, enter the following command in the **TERMINAL** window for the `Instrumenting` project and note that nothing will appear to have happened: `dotnet run --configuration Release`
+    - In VS Code, enter the following command in the **TERMINAL** window for the `Instrumenting` project and note that nothing will appear to have happened: `dotnet run --configuration Release`
     - In Visual Studio, in the standard toolbar, select **Release** in the **Solution Configurations** drop-down list, note that any statements in a `#if DEBUG` region are grayed out to indicate they are not compiled, as shown in *Figure 4.18*, and then navigate to **Debug** | **Start Without Debugging**.
 
 ![Selecting the Release configuration in Visual Studio](assets/B19586_04_18.png)
 *Figure 4.18: Selecting the Release configuration in Visual Studio*
 
-4.	On your desktop, open the file named log.txt and note that it contains the message Trace says, I am watching!.
+4.	On your desktop, open the file named `log.txt` and note that it contains the message `Trace says, I am watching!`.
 
 > **Warning!** In Steps 3 to 6, you run a console app project twice, and each time a file named `log.txt` is written to. If you get a security exception thrown (`System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desktop\log.txt' is denied.`) the second time the app tries to write to the log file, then it could be due to anti-virus software. For example, Avast has a monitor that activates as soon as a new file is created and scans it for viruses. This can temporarily lock the file.
 
 5.	Run the debug configuration of the console app:
-    - In Code, enter the following command in the TERMINAL window for the Instrumenting project: `dotnet run --configuration Debug`
+    - In VS Code, enter the following command in the TERMINAL window for the Instrumenting project: `dotnet run --configuration Debug`
     - In Visual Studio, in the standard toolbar, select **Debug** in the **Solution Configurations** drop-down list and then navigate to **Debug** | **Start Debugging**.
 6.	On your desktop, open the file named `log.txt` and note that it contains both the message `Debug says, I am watching!` and also the message `Trace says, I am watching!`.
 
@@ -146,7 +146,7 @@ Visual Studio has a graphical user interface for adding packages:
 
 > **Good Practice**: To use preview packages, for example, during most of 2024 for .NET 9 packages, you must select the **Include prerelease** checkbox as shown in *Figure 4.19*. There are also packages for loading configuration from XML files, INI files, environment variables, and the command line. Use the most appropriate technique for setting configuration in your projects.
 
-# Adding packages to a project in Code
+# Adding packages to a project in VS Code
 
 Code does not have a mechanism to add NuGet packages to a project, so we will use the command-line tool:
 1.	Navigate to the **TERMINAL** window for the `Instrumenting` project.
