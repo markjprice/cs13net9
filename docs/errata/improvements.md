@@ -1,4 +1,4 @@
-**Improvements** (5 items)
+**Improvements** (6 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -6,6 +6,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
+- [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
 
@@ -88,6 +89,78 @@ private const string CommaSeparatorText =
 This chapter introduces EF Core and how to use it to query and manipulate data in a relational database like SQLite or SQL Server. All code examples are shown in a console app and use synchronous code. This is best for learning EF Core because it keeps the code as simple as possible and focussed on the topic covered, but once a reader needs to implement EF Core in a server-side project like an ASP.NET Core Web API project, it is important to use asynchronous code. 
 
 In the next edition, I will add a new section at the end to highlight how to use tasks and the asynchronous methods to avoid thread exhaustion.
+
+# Page 752 - Creating data repositories with caching for entities
+
+In Step 10, I wrote, "Implement the `Create` method, as shown in the following code:"
+```cs
+public async Task<Customer?> CreateAsync(Customer c)
+{
+  c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
+
+  // Add to database using EF Core.
+  EntityEntry<Customer> added =
+    await _db.Customers.AddAsync(c);
+  
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    await _cache.SetAsync(c.CustomerId, c);
+    return c;
+  }
+  return null;
+}
+```
+
+The return value of the EF Core `DbSet<Customer>.AddAsync` method is an `EntityEntry<Customer>`. The code stores this in a local vaariable named `added` but we do not do anything with it. We could simplify the code by not defining and setting the `added` variable, as shown in the following code:
+```cs
+public async Task<Customer?> CreateAsync(Customer c)
+{
+  c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
+
+  // Add to database using EF Core.
+  await _db.Customers.AddAsync(c);
+  
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    await _cache.SetAsync(c.CustomerId, c);
+    return c;
+  }
+  return null;
+}
+```
+
+A reason you might want the local variable is to discover database-assigned values like an identifier. But the `Customers` table uses a five-character text value for its primary key column that must be supplied by client code before adding to the database so it's not necessary in this scenario.
+
+But instead of the `Customers` table, if we were adding a new entity to the `Shippers` table which has an auto-incrementing integer primary key column (or any other database-assigned value like a GUID or calculated value), then you could use the local `added` variable to read that assigned value, as shown in the following code:
+```cs
+public async Task<Shipper?> CreateAsync(Shipper s)
+{
+  // Add to database using EF Core.
+  EntityEntry<Shipper> added = await _db.Shippers.AddAsync(s);
+
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    await _cache.SetAsync(s.ShipperId, s);
+
+    // You can also read any database-assigned values.
+    int assignedShipperId = added.Entity.ShipperId;
+
+    return s;
+  }
+  return null;
+}
+
+```
+
+In the next edition, I will add some information about this, similar to the preceding explanation. 
+
+> **More Information**: You can learn more at the following link: https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries.
 
 # Appendix - Exercise 3.1 – Test your knowledge
 

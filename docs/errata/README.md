@@ -4,7 +4,7 @@ If you find any mistakes in the ninth edition, *C# 13 and .NET 9 - Modern Cross-
 
 [**Errata** (5 items)](errata.md): Typos, tool user interface and behavior changes, or mistakes in code that would cause a compilation error that prevents a successful build.
 
-[**Improvements** (5 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
+[**Improvements** (6 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
 
 [**Common Mistakes** (7 items)](common-mistakes.md): These are some of the most common mistakes that a reader might encounter when trying to get code in book tasks to work, or when trying to write your own code. 
 
