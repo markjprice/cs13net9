@@ -1,9 +1,10 @@
-**Improvements** (4 items)
+**Improvements** (5 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 15 - Listing and removing versions of .NET](#page-15---listing-and-removing-versions-of-net)
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
+- [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
@@ -47,6 +48,38 @@ Since October 2022, Windows Terminal is the default in Windows 11 so you should 
 > **More Information**: You can learn more about Windows Terminal at the following link: https://devblogs.microsoft.com/commandline/windows-terminal-is-now-the-default-in-windows-11/.
 
 In the next edition, I might add notes about this.
+
+# Page 439 - Splitting a complex comma-separated string
+
+> Thanks to **Chip** who sent an email about this issue on December 13, 2024.
+
+In Step 1, I wrote, "Add statements to store a complex comma-separated string variable", and in the code there is a statement to sets that variable to a CSV string, as shown in the following code:
+```cs
+string films = """
+"Monsters, Inc.","I, Tonya","Lock, Stock and Two Smoking Barrels"
+""";
+```
+
+But at least one reader added extra spaces after the commas between the double-quoted movie titles, as shown in the following code:
+```cs
+string films = """
+"Monsters, Inc.", "I, Tonya", "Lock, Stock and Two Smoking Barrels"
+extra spaces ----^ ----------^
+```
+Doing this means the variable contains comma-and-space-separated values instead of purely comma-separated values. The regular expression was written to process only literally CSV values with no whitespace. (There is no formal standard for CSV so different systems will have different ways of handling it. Many CSV processors reject data with extra whitespace as malformed input.)
+
+In the next edition, I will add a warning note about this:
+
+> **Warning!** Do not add extra spaces between the comma-separated values. The regular expression is written to handle generally-accepted valid CSV, not comma-and-space-separated values.
+
+Alternatively, you could change the regular expression to handle comma-and-space-separated values, as shown in the following code:
+```cs
+[StringSyntax(StringSyntaxAttribute.Regex)]
+private const string CommaSeparatorText =
+  @"(?:^|,)\s*(?=[^\"]|(\")?)\"?\s*((?(1)(?:[^""]|\\"")*|[^,\"]*))\s*\"?(?=,|$)");
+```
+
+> **Warning!** The preceding regular expression was provided by a reader so treat it with caution.
 
 # Chapter 10 - Working with Data Using Entity Framework Core
 
