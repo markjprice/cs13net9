@@ -12,6 +12,7 @@ This documentation section of the repository contains links to all the optional 
   - [Chapter 9 Working with Files, Streams, and Serialization](#chapter-9-working-with-files-streams-and-serialization)
   - [Chapter 10 Working with Data Using Entity Framework Core](#chapter-10-working-with-data-using-entity-framework-core)
   - [Chapter 11 Querying and Manipulating Data Using LINQ](#chapter-11-querying-and-manipulating-data-using-linq)
+  - [Chapter 12 Modern Web Development with .NET](#chapter-12-modern-web-development-with-net)
   - [Chapter 13 Building Websites Using ASP.NET Core](#chapter-13-building-websites-using-aspnet-core)
   - [Chapter 14 Building Interactive Web Components Using Blazor](#chapter-14-building-interactive-web-components-using-blazor)
   - [Chapter 15 Building and Consuming Web Services](#chapter-15-building-and-consuming-web-services)
@@ -31,6 +32,8 @@ This documentation section of the repository contains links to all the optional 
 ## Chapter 2 Speaking C#
 
 - [C# language versions and features](ch02-features.md)
+- [Dynamic Type](ch02-dynamic.md)
+- [Understanding async and await](ch02-async-await.md)
 
 ## Chapter 4 - Writing, Debugging, and Testing Functions
 
@@ -60,20 +63,29 @@ This documentation section of the repository contains links to all the optional 
 ## Chapter 10 Working with Data Using Entity Framework Core
 
 - [Database Primer](ch10-database-primer.md)
+- [Entity-Relationship Diagram for Northwind](ch10-er-diagram.md)
 - [Loading and tracking patterns with EF Core](ch10-loading-tracking.md)
 - [Modifying data with EF Core](ch10-modifying.md)
 - [Working with transactions](ch10-transactions.md)
 - [Code First EF Core models](ch10-code-first.md)
+- [App Secrets](ch10-app-secrets.md)
 
 ## Chapter 11 Querying and Manipulating Data Using LINQ
 
+- [LINQ extension methods](ch11-linq-methods.md)
 - [Aggregating and paging sequences](ch11-aggregating.md)
 - [Using multiple threads with parallel LINQ](ch11-plinq.md)
 - [Working with LINQ to XML](ch11-linq-to-xml.md)
 - [Creating your own LINQ extension methods](ch11-custom-linq-methods.md)
 
+## Chapter 12 Modern Web Development with .NET
+
+- [New features in ASP.NET Core](ch12-features.md)
+
 ## Chapter 13 Building Websites Using ASP.NET Core
 
+- [Prototyping with Bootstrap](ch13-bootstrap.md)
+- [ASP.NET Core common classes and methods](ch13-common-classes.md)
 - [Configuring services and the HTTP request pipeline](ch13-http-pipeline.md)
 - [Enabling HTTP/3 and request decompression support](ch13-enabling-http3.md)
 
