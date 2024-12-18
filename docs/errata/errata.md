@@ -1,9 +1,10 @@
-**Errata** (5 items)
+**Errata** (6 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
+- [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
@@ -28,6 +29,12 @@ In the two command lines, I used `/p` to set a project property when I should ha
 ```
 dotnet publish -r win10-x64 -c Release --no-self-contained -p:PublishSingleFile=true
 ```
+
+# Page 437 - Understanding the syntax of a regular expression
+
+> Thanks to **rene** in the book's Discord channel for raising this issue.
+
+In *Table 8.6*, the entry for `{,3}` is wrong. That is not a valid range and so it actually matches the exact string `{,3}`! To match "Up to three", you should use `{0,3}` or `{1,3}` depending on whether you want to accept zero or one as the lowest value. I will fix this in the 10th edition.
 
 # Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions
 
