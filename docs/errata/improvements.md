@@ -1,9 +1,10 @@
-**Improvements** (6 items)
+**Improvements** (7 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 15 - Listing and removing versions of .NET](#page-15---listing-and-removing-versions-of-net)
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
+- [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
@@ -49,6 +50,21 @@ Since October 2022, Windows Terminal is the default in Windows 11 so you should 
 > **More Information**: You can learn more about Windows Terminal at the following link: https://devblogs.microsoft.com/commandline/windows-terminal-is-now-the-default-in-windows-11/.
 
 In the next edition, I might add notes about this.
+
+# Page 438 - Examples of regular expressions
+
+> Thanks to **rene** in the book's Discord channel for suggesting this improvement.
+
+*Table 8.8* shows some examples of regular expressions with descriptions of their meaning. The last two entries are:
+
+Expression|Meaning
+---|---
+`^d.g$`|The letter `d`, then any character, and then the letter `g`, so it would match both `dig` and `dog` or any single character between the `d` and `g`
+`^d\.g$`|The letter `d`, then a dot `.`, and then the letter `g`, so it would match `d.g` only
+
+**rene** suggested "adding `^d.+g$` and/or `^d.*g$` ... so it would match `dingdong`." 
+
+I like that idea, so in the 10th edition I will add that example to the table.
 
 # Page 439 - Splitting a complex comma-separated string
 
