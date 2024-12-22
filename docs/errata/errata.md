@@ -1,7 +1,8 @@
-**Errata** (6 items)
+**Errata** (7 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
+- [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
@@ -9,6 +10,11 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 
+# Page 24 - Revealing the namespace for the Program class
+
+> Thanks to **John Tempest** in an email for raising this issue on December 21, 2024.
+
+In the **Good Practice** box, I wrote, "Code editors have a feature named code snippets. These allow you to insert pieces of code that you commonly use, by typing a shortcut and pressing *Tab* twice." But you only need to press *Tab* once.
 
 # Page 29 - Writing code using VS Code
 
