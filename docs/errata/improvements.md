@@ -1,7 +1,8 @@
-**Improvements** (8 items)
+**Improvements** (9 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
+- [Introducing C# and .NET](#introducing-c-and-net)
 - [Page 15 - Listing and removing versions of .NET](#page-15---listing-and-removing-versions-of-net)
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
@@ -11,6 +12,13 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
+# Introducing C# and .NET
+
+> Thanks to **eddyyxxyy** in the book's Discord channel for asking a question that prompted this improvement item.
+
+Throughout the book I introduce C# and .NET and how they are related, but this information is spread over multiple chapters. Readers who are completely new to the technologies might still have some questions like "if theres ways of building C# programs without .NET". In the next edition, I will start *Chapter 1* with a brief introduction of C# and .NET and how they are related:
+
+C# and .NET are closely related technologies. C# is a programming language that compiles to intermediate language (IL) code that can be loaded and JIT compiled to native CPU instructions that are execute by your computer. There are other languages like Visual Basic .NET and F# that also compile to intermediate language (IL) code, so they are alternatives to C#. You can build .NET projects without C#, but C# cannot build projects for any platform except .NET. In theory, since C# is an open standard, someone could create a C# compiler that builds projects for other platforms, but in practice, no one has done this.
 
 # Page 15 - Listing and removing versions of .NET
 
