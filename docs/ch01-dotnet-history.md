@@ -1,5 +1,6 @@
 **.NET History**
 
+- [Understanding how C# and .NET are related](#understanding-how-c-and-net-are-related)
 - [Understanding .NET platforms](#understanding-net-platforms)
   - [Understanding .NET Framework](#understanding-net-framework)
   - [Understanding the Mono, Xamarin, and Unity projects](#understanding-the-mono-xamarin-and-unity-projects)
@@ -13,6 +14,12 @@
 - [Understanding .NET Standard](#understanding-net-standard)
 - [.NET platforms and tools used by the C# and .NET book editions](#net-platforms-and-tools-used-by-the-c-and-net-book-editions)
 - [Topics covered by Apps and Services with .NET 8](#topics-covered-by-apps-and-services-with-net-8)
+
+# Understanding how C# and .NET are related
+
+C# and .NET are closely related technologies. C# is a programming language that compiles to **intermediate language (IL)** code that can be loaded and JIT compiled to native CPU instructions that are execute by your computer. There are other languages like **Visual Basic .NET** and **F#** that also compile to IL code, so they are alternatives to C#. 
+
+You can build .NET projects without C#, but C# can only build projects for .NET. In theory, since C# is an open standard, someone could create a C# compiler that builds projects for other platforms, but in practice, no one has done this.
 
 # Understanding .NET platforms
 
