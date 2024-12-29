@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <!--To auto-dispose the text writer with "using".-->
+    <LangVersion>12</LangVersion>
   </PropertyGroup>
 
 </Project>
