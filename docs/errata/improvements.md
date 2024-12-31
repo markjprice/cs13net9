@@ -1,4 +1,4 @@
-**Improvements** (9 items)
+**Improvements** (10 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
 - [Page 467 - Good practice with collections](#page-467---good-practice-with-collections)
+- [Page 488 - Controlling how you work with files](#page-488---controlling-how-you-work-with-files)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
@@ -118,6 +119,18 @@ private const string CommaSeparatorText =
 > Thanks to **rene** in the book's Discord channel for suggesting this improvement.
 
 Before this final section in the *Storing multiple objects in collections* topic, I will add a summary table for collection types based on **rene**'s [initial document](../ch08-collections.md)
+
+# Page 488 - Controlling how you work with files
+
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) who raised an [issue in the 8th edition's GitHub repository on December 31, 2024](https://github.com/markjprice/cs12dotnet8/issues/81) that prompted this improvement.
+
+The `FileShare` enum type is described as:
+
+- `FileShare`: This controls locks on a file to allow other processes the specified level of access, like `Read`.
+
+In the 10th edition, I will improve the grammar of the sentence:
+
+- `FileShare`: This controls locks on a file to allow other processes **to have** the specified level of access, like `Read`.
 
 # Chapter 10 - Working with Data Using Entity Framework Core
 
