@@ -50,7 +50,7 @@ In *Table 8.6*, the entry for `{,3}` is wrong. That is not a valid range and so 
 After prompting the user to press any key to delete the directory or file, the code should have an extra statement to output a new line otherwise the next text written to the console will appear immediately at the end of the "Press any key..." text.
 
 This has been fixed in the code solutions here:
-https://github.com/markjprice/cs12dotnet8/commit/81edf105ad5ae9a18bec32abe4b07342805e95bc
+https://github.com/markjprice/cs13net9/commit/d75644ad74bf3ffbd9ff202e0bf6f2ad665ca5ea
 
 # Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions
 
