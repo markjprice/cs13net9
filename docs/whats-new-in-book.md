@@ -2,7 +2,7 @@
 
 There are hundreds of minor fixes and improvements throughout the 9th edition; too many to list individually. 
 
-All [41 errata](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/errata.md) and [52 improvements](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/improvements.md) for the 8th edition (up to mid-September 2024) have been made to the 9th edition. After publishing the 9th edition, any errata and improvements for the 8th edition have been duplicated in both the 8th and 9th edition errata and improvements.
+All [errata](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/errata.md) and [improvements](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/improvements.md) for the 8th edition (up to mid-September 2024) have been made to the 9th edition. After publishing the 9th edition, any errata and improvements for the 8th edition have been duplicated in both the 8th and 9th edition [errata and improvements](https://github.com/markjprice/cs13net9/blob/main/docs/errata/README.md).
 
 The main new sections in *C# 13 and .NET 9 - Modern Cross-Platform Development*, 9th edition compared to the 8th edition are shown below.
 
