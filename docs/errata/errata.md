@@ -31,7 +31,7 @@ This feature is no longer in preview so you do not need to enable it. In the nex
 
 # Page 147 - Understanding how foreach works internally
 
-> Thanks to [Justin Treher](https://github.com/jtreher) for raising [this issue on January 3, 2024](https://github.com/markjprice/cs13net9/issues/6).
+> Thanks to [Justin Treher](https://github.com/jtreher) for raising [this issue on January 3, 2025](https://github.com/markjprice/cs13net9/issues/6).
 
 In Step 1, I wrote, "Type statements to create an array of string variables and then output the length of each one, as shown in the following code:"
 ```cs
