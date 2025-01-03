@@ -1,9 +1,10 @@
-**Errata** (8 items)
+**Errata** (9 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
+- [Page 147 - Understanding how foreach works internally](#page-147---understanding-how-foreach-works-internally)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
 - [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
@@ -27,6 +28,35 @@ I wrote, "In the preceding steps, I showed you how to use the dotnet CLI to crea
 ```
 
 This feature is no longer in preview so you do not need to enable it. In the next edition, I will remove the sentence about enabling it and the setting.
+
+# Page 147 - Understanding how foreach works internally
+
+> Thanks to [Justin Treher](https://github.com/jtreher) for raising [this issue on January 3, 2024](https://github.com/markjprice/cs13net9/issues/6).
+
+In Step 1, I wrote, "Type statements to create an array of string variables and then output the length of each one, as shown in the following code:"
+```cs
+string[] names = { "Adam", "Barry", "Charlie" };
+
+foreach (string name in names)
+{
+  WriteLine($"{name} has {name.Length} characters.");
+}
+```
+
+I then wrote, "The compiler turns the `foreach` statement in the preceding example into something like the following pseudocode:"
+```cs
+IEnumerator e = names.GetEnumerator();
+
+while (e.MoveNext())
+{
+  string name = (string)e.Current; // Current is read-only!
+  WriteLine($"{name} has {name.Length} characters.");
+}
+```
+
+But the `names` variable is an array, and although arrays implement the `IEnumerable<T>` interface as described in this section, the compiler is smart enough to ignore that and instead write a `for` loop that uses the `Length` property of the array since that is more efficient than using the `IEnumerable` interface. 
+
+In the next edition, I will use a `List<string>` instead of an array for the `names` variable, and add a note that arrays are treated as a special case by the compiler. 
 
 # Page 393 - Publishing a single-file app
 
