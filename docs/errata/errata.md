@@ -1,10 +1,11 @@
-**Errata** (9 items)
+**Errata** (10 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
 - [Page 147 - Understanding how foreach works internally](#page-147---understanding-how-foreach-works-internally)
+- [Page 175 - Throwing overflow exceptions with the checked statement](#page-175---throwing-overflow-exceptions-with-the-checked-statement)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
 - [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
@@ -57,6 +58,12 @@ while (e.MoveNext())
 But the `names` variable is an array, and although arrays implement the `IEnumerable<T>` interface as described in this section, the compiler is smart enough to ignore that and instead write a `for` loop that uses the `Length` property of the array since that is more efficient than using the `IEnumerable` interface. 
 
 In the next edition, I will use a `List<string>` instead of an array for the `names` variable, and add a note that arrays are treated as a special case by the compiler. 
+
+# Page 175 - Throwing overflow exceptions with the checked statement
+
+> Thanks to [Justin Treher](https://github.com/jtreher) for raising [this issue on January 3, 2025](https://github.com/markjprice/cs13net9/issues/7).
+
+In Step 3, I wrote, "let’s get the compiler to warn us about the overflow by wrapping the statements using a `checked` statement block", but it is not the compiler that warns us, it is the runtime that detects the overflow and throws the exception. In the next edition I will replace "compiler" with "runtime".
 
 # Page 393 - Publishing a single-file app
 
