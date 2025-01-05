@@ -45,7 +45,7 @@ void SomeMethod()
 {
   int number1 = 49;
   long number2 = 12;
-  System.Drawing.Point location = new(x: 4, y: 5);
+  System.Drawing.Point location = new(x: 3, y: 5);
 
   Person kevin = new() { Name = "Kevin",
     Born = new(1988, 9, 23, 0, 0, 0, TimeSpan.Zero) };
