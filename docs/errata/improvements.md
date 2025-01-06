@@ -1,10 +1,11 @@
-**Improvements** (10 items)
+**Improvements** (11 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Introducing C# and .NET](#introducing-c-and-net)
 - [Page 15 - Listing and removing versions of .NET](#page-15---listing-and-removing-versions-of-net)
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
+- [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
 - [Page 467 - Good practice with collections](#page-467---good-practice-with-collections)
@@ -66,6 +67,18 @@ Since October 2022, Windows Terminal is the default in Windows 11 so you should 
 > **More Information**: You can learn more about Windows Terminal at the following link: https://devblogs.microsoft.com/commandline/windows-terminal-is-now-the-default-in-windows-11/.
 
 In the next edition, I might add notes about this.
+
+# Page 38 - Getting definitions of types and their members
+
+> Thanks to **not_a_pigeon1277** in the book's Discord channel for documenting this improvement.
+
+If you try to use the **Go To Definition** feature in VS Code and you get a `Request textDocument/definition failed.` error then disable the **Navigate to Source Link and And Embedded Sources** feature, as described in the following steps:
+
+1. Navigate to **Settings** | **C#** | **Text Editor**.
+2. Clear the **Navigate to Source Link and And Embedded Sources** check box, as shown in the following screenshot:
+
+![Clearing the Navigate to Source Link and And Embedded Sources setting](page-38-disable-setting.png)
+*Clearing the **Navigate to Source Link and And Embedded Sources** setting*
 
 # Page 438 - Examples of regular expressions
 
