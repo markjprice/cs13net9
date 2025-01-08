@@ -203,6 +203,8 @@
 
 ## Help and learning
 - [Raise an issue with the book](https://github.com/markjprice/cs11dotnet7/issues): Please tell me as much as possible about the scenario e.g. the book section title and page number, your operating system and code editor including version, project file (.csproj), code files, what you expected and what actually happened, and so on.
+- [Top .NET Videos & Live Streams of 2024](https://devblogs.microsoft.com/dotnet/top-dotnet-videos-live-streams-of-2024/)
+- [Top .NET Blogs Posts of 2024](https://devblogs.microsoft.com/dotnet/top-dotnet-blogs-posts-of-2024/)
 - [.NET Conf 2021 Recap – Videos, Slides, Demos, and More](https://devblogs.microsoft.com/dotnet/net-conf-2021-recap-videos-slides-demos-and-more/)
 - [Microsoft Learn - Technical Documentation](https://learn.microsoft.com/en-us/docs/)
 - [Official .NET Blog written by the .NET engineering teams](https://devblogs.microsoft.com/dotnet/)
