@@ -1,4 +1,4 @@
-**Errata** (10 items)
+**Errata** (11 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -10,6 +10,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
 - [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
+- [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 
@@ -98,6 +99,12 @@ In the **Build a data-driven web page** exercise, I wrote, "Add a Razor Page to 
 In the **Build web pages for functions** exercise, I wrote, "Reimplement some of the console apps from earlier chapters as Razor Pages;"
 
 In these instances, "Razor Pages" or "Razor Page" should be "Blazor" or "Blazor page component".
+
+# Page 683 - Adding code to a Blazor static SSR page
+
+> Thanks to [Taylor Fore](https://github.com/trfore) for raising [this issue on January 8, 2025](https://github.com/markjprice/cs13net9/issues/8).
+
+In Step 1, I wrote, `Index.cshtml` when I should have written `Index.razor`.
 
 # Page 750 - Creating data repositories with caching for entities
 
