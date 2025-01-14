@@ -167,7 +167,7 @@ MY_PASSWORD: Pa$$w0rd
 
 > In a real-world app, you might pass an argument to the console that is then used to set the process scope environment variable on startup for reading later in the process lifetime.
 
-5.	In `Program.cs`, add statements to try to get an environment variable named `MY_PASSWORD` at all three potential scope levels, and then output them, as shown in the following code:
+5.	In `Program.cs`, add statements to try to get an environment variable named `MY_SECRET` at all three potential scope levels, and then output them, as shown in the following code:
 ```cs
 string secret_key = "MY_SECRET";
 
@@ -176,12 +176,12 @@ string? secret = GetEnvironmentVariable(secret_key,
 WriteLine($"Process - {secret_key}: {secret}");
 
 secret = GetEnvironmentVariable(secret_key,
-  EnvironmentVariableTarget.Machine);
-WriteLine($"Machine - {secret_key}: {secret}");
-
-secret = GetEnvironmentVariable(secret_key,
   EnvironmentVariableTarget.User);
 WriteLine($"User    - {secret_key}: {secret}");
+
+secret = GetEnvironmentVariable(secret_key,
+  EnvironmentVariableTarget.Machine);
+WriteLine($"Machine - {secret_key}: {secret}");
 ```
 
 6.	If you are using Visual Studio 2022, then navigate to **Project** | **WorkingWithEnvVars Properties**, click the **Debug** tab, and then click **Open debug launch profiles UI**. In the **Environment variables** section, add an entry with **Name** `MY_SECRET` and Value of `Alpha`.
@@ -217,8 +217,8 @@ SUCCESS: Specified value was saved.
 10.	Run the code and view the result, as shown in the following output:
 ```
 Process - MY_SECRET: Alpha
-Machine - MY_SECRET: Gamma
 User    - MY_SECRET: Beta
+Machine - MY_SECRET: Gamma
 ```
 
 Now that you have seen how to work with environment variables, we can use them in future chapters to set options like passwords rather than store those sensitive values in code.
