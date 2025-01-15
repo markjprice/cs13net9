@@ -1,4 +1,4 @@
-**Improvements** (11 items)
+**Improvements** (12 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -9,6 +9,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
 - [Page 467 - Good practice with collections](#page-467---good-practice-with-collections)
+- [Page 484 - Managing directories](#page-484---managing-directories)
 - [Page 488 - Controlling how you work with files](#page-488---controlling-how-you-work-with-files)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
@@ -132,6 +133,29 @@ private const string CommaSeparatorText =
 > Thanks to **rene** in the book's Discord channel for suggesting this improvement.
 
 Before this final section in the *Storing multiple objects in collections* topic, I will add a summary table for collection types based on **rene**'s [initial document](../ch08-collections.md)
+
+# Page 484 - Managing directories
+
+> Thanks to a reader who raised this issue with Packt who then forwarded it on to me to answer.
+
+"In the code for this section which creates a new folder, checks to see if it has been created, and then deletes the new folder I have encountered an:"
+```
+System.UnauthorizedAccessException: Access to the path 'C:\Users\john_\OneDrive\Documents\NewFolder' is denied.
+```
+
+"The program creates a new folder "NewFolder" in `C:\Users\john_\OneDrive\Documents` successfully but then fails to delete the `NewFolder` when a key is pressed and the exception then occurs due to access being denied. I've tried replacing `{Directory.Exists(newFolder)}` with `{Path.Exists(newFolder)}` with no difference in the resulting `IOException`.
+ 
+My system is a Windows 11 PC kept up-to-date with recommended updates. I cannot understand why if the path is ok to create a new folder, why access is denied when trying to remove the new folder from the valid path. It may possible be a quirk with OneDrive taking over the management of the `Documents` folder in the `Users` directory, but I don't know enough about how it works. It's just a default system setup for me.
+
+I'd be grateful to know if anyone else is experiencing the same problem with this code, and what a workaround might be."
+
+Your speculation that the problem is caused by OneDrive is likely to be correct. As soon as a new directory is created in OneDrive, it triggers a synchronization. This would prevent the directory from being deleted until OneDrive stops scanning the directory for changed subdirectories and files. 
+
+To confirm that OneDrive is causing the exception by locking the directory while it scans it, simply try a path that is outside OneDrive.
+
+A similar issue is caused by some anti-virus software. For example, Avast has a monitor that activates as soon as a new directory or file is created and scans it for viruses. This can temporarily lock a newly created directory or file.
+
+In the next edition, I will add a warning box to explain these potential issues to the reader.
 
 # Page 488 - Controlling how you work with files
 
