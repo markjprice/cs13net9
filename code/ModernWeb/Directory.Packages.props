@@ -1,31 +1,34 @@
 <Project>
 
+  <!--Last updated package versions: January 14, 2025.-->
+
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <ItemGroup Label="For EF Core 9.">
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.1" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1" />
   </ItemGroup>
 
   <ItemGroup Label="For unit testing.">
-    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.3" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-    <PackageVersion Include="xunit" Version="2.9.2" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.0" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup Label="For Blazor.">
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.1" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.1" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.1" />
   </ItemGroup>
 
   <ItemGroup Label="For web services.">
-    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
-    <!--The following package was still in preview on the day of .NET 9 release.-->
-    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.0.0-preview.9.24556.5" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
+
+    <!--The following package is still in preview on January 14, 2025.-->
+    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.1.0-preview.1.25064.3" />
   </ItemGroup>
 
 </Project>
