@@ -1,4 +1,4 @@
-**Improvements** (13 items)
+**Improvements** (14 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -6,6 +6,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 15 - Listing and removing versions of .NET](#page-15---listing-and-removing-versions-of-net)
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
 - [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
+- [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
 - [Page 467 - Good practice with collections](#page-467---good-practice-with-collections)
@@ -81,6 +82,30 @@ If you try to use the **Go To Definition** feature in VS Code and you get a `Req
 
 ![Clearing the Navigate to Source Link and And Embedded Sources setting](page-38-disable-setting.png)
 *Clearing the **Navigate to Source Link and And Embedded Sources** setting*
+
+# Page 403 - Fixing dependencies
+
+> Thanks to [P9avel](https://github.com/P9avel) who raised an issue in an email that prompted this improvement.
+
+At the end of this section, I will add a new sub-section titled, *Version ranges*. This will cover the notation for version numbers and how to control version ranges. 
+
+For example, if you specify a version number like `version="9.0.0"` it does not mean `9.0.0` only, it actually means `9.0.0` *or higher*, because NuGet assumes that future package versions will be backwards-compatible. 
+
+When defining the end of a version range, `[` or `]` means inclusive, a `(` or `)` means exclusive. as shown in the following table:
+
+Notation|Applied rule|Description
+---|---|---
+`1.0` or `[1.0,)`|x >= 1.0|Minimum version, inclusive
+`[1.0]`|x == 1.0|Exact version match
+`(,1.0]`|x <= 1.0|Maximum version, inclusive
+`[1.0,2.0]`|1.0 <= x <= 2.0|Exact range, inclusive
+
+For example, to limit the package version of `FluentAssertions` to a minimum of `7.0.0` and less than `8.0.0` so that you do not reference that paid version, you should use the following:
+```xml
+<PackageReference Include="FluentAssertions" Version="[7.0.0,8.0.0)" />
+```
+
+> **More Information**: A complete table of notations is available at the following link: https://learn.microsoft.com/en-us/nuget/concepts/package-versioning?tabs=semver20sort#version-ranges
 
 # Page 438 - Examples of regular expressions
 
