@@ -1,11 +1,13 @@
-**Improvements** (14 items)
+**Improvements** (16 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Introducing C# and .NET](#introducing-c-and-net)
 - [Page 15 - Listing and removing versions of .NET](#page-15---listing-and-removing-versions-of-net)
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
+- [Page 21 - Understanding the compiler-generated folders and files](#page-21---understanding-the-compiler-generated-folders-and-files)
 - [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
+- [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
@@ -71,6 +73,10 @@ Since October 2022, Windows Terminal is the default in Windows 11 so you should 
 
 In the next edition, I might add notes about this.
 
+# Page 21 - Understanding the compiler-generated folders and files
+
+In the next edition, I will add a paragraph highlighting that files that use `.g.` indicate that they are "generated" by the build process. You should never edit these files because they will just get recreated the next time you build. 
+
 # Page 38 - Getting definitions of types and their members
 
 > Thanks to **not_a_pigeon1277** in the book's Discord channel for documenting this improvement.
@@ -82,6 +88,22 @@ If you try to use the **Go To Definition** feature in VS Code and you get a `Req
 
 ![Clearing the Navigate to Source Link and And Embedded Sources setting](page-38-disable-setting.png)
 *Clearing the **Navigate to Source Link and And Embedded Sources** setting*
+
+# Page 223 - Understanding the call stack
+
+In Step 5, the wrote, "In the `CallStackExceptionHandling` console app project, add a reference to the `CallStackExceptionHandlingLib` class library project, as shown in the following markup:
+```xml
+<ItemGroup>
+  <ProjectReference Include="..\CallStackExceptionHandlingLib\CallStackExceptionHandlingLib.csproj" />
+</ItemGroup>
+```
+
+You can also see this in the solution project here:
+https://github.com/markjprice/cs13net9/blob/main/code/Chapter04/CallStackExceptionHandling/CallStackExceptionHandling.csproj
+
+But some readers do the opposite, i.e. try to reference the console app in the class library project, or they try to edit a "generated" file instead of the proper project file. In the next edition, I will change the text to say, "In the `CallStackExceptionHandling.csproj` console app project file," and I will add a warning box below Step 5:
+
+> **Warning!** Make sure that you add the project reference in the `CallStackExceptionHandling.csproj` file. Do not edit the `CallStackExceptionHandling.csproj.nuget.g.props` file because this is a file that is "generated" (that's what the ".g." in its name means). Every time you build the project this and other ".g." files are recreated so any changes will be lost. Also, do not add a project reference to the `CallStackExceptionHandling` console app project in the `CallStackExceptionHandlingLib.csproj` file. You can only reference class library projects. You cannot reference console app projects.
 
 # Page 403 - Fixing dependencies
 
