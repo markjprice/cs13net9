@@ -190,12 +190,16 @@ dotnet watch
 Creating a class library project and adding it to the solution file:
 ```shell
 dotnet new classlib -o CalculatorLib
+```
+```shell
 dotnet sln add CalculatorLib
 ```
 
 Creating an XUnit text project and adding it to the solution file:
 ```shell
 dotnet new xunit -o CalculatorLibUnitTests
+```
+```shell
 dotnet sln add CalculatorLibUnitTests
 ```
 
