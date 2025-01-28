@@ -131,6 +131,14 @@ Add product successful with ID: 78.
 
 When the new product is first created in memory and tracked by the EF Core change tracker, it has a state of `Added` and its ID is `0`. After the call to `SaveChanges`, it has a state of `Unchanged` and its ID is `78`, the value assigned by the database.
 
+> **Warning!** As you can see from the output, it was executed on 05/03/2022. Since then, the EF Core SQLite team may have improved the generated SQL, or if you use a different EF Core data provider, then the generated SQL could be different, for example, as shown in the following SQL:
+```sql
+INSERT INTO "Products" ("CategoryId", "UnitPrice", "Discontinued",
+"ProductName", "UnitsInStock")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+RETURNING "ProductId";
+```
+
 # Updating entities
 
 Now, let's modify an existing row in a table.
