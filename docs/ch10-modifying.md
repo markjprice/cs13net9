@@ -288,7 +288,7 @@ await db.Products
   .Where(product => !product.Discontinued)
   .ExecuteUpdateAsync(s => s.SetProperty(
     p => p.UnitPrice, // Selects the property to update.
-    p => p.UnitPrice * 0.1)); // Sets the value to update it to.
+    p => p.UnitPrice * 1.1)); // Sets the value to update it to.
 ```
 
 You can chain multiple calls to `SetProperty` in the same query to update multiple properties in one command.
