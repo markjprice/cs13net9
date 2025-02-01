@@ -1,4 +1,4 @@
-**Errata** (14 items)
+**Errata** (15 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -15,6 +15,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
+- [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 
 # Page 24 - Revealing the namespace for the Program class
@@ -154,6 +155,12 @@ builder.Services.AddHybridCache(options =>
 });
 #pragma warning restore EXTEXP0018 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 ```
+
+# Page 780 - Companion books to continue your learning journey
+
+> Thanks to [Jort Rodenburg](https://github.com/jjrodenburg) for raising [this issue on January 31, 2025](https://github.com/markjprice/cs13net9/issues/12).
+
+The order of the four books in *Figure 16.1* does not match the order of the numbered descriptions. Numbers 3. and 4. should be swapped.
 
 # Exercise 13.2 – practice exercises - Build web pages for functions
 
