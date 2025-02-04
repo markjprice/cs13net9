@@ -1,4 +1,4 @@
-**Improvements** (17 items)
+**Improvements** (18 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 21 - Understanding the compiler-generated folders and files](#page-21---understanding-the-compiler-generated-folders-and-files)
 - [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
+- [Page 102 - What does new do?](#page-102---what-does-new-do)
 - [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
@@ -97,7 +98,7 @@ If you try to use the **Go To Definition** feature in VS Code and you get a `Req
 
 # Page 82 - Verbatim strings
 
-> Thanks to **John Leitch** `johnleitch` in the book's Discord channel for suggesting this improvement.
+> Thanks to **John Leitch** `johnleitch` in the book's Discord channel for suggesting this improvement on February 3, 2025.
 
 In this section, I explain escape characters and how they are used in C# `string` values.
 
@@ -115,6 +116,14 @@ I failed to point out that:
 In the next edition, I will add a note explaining that any character after a slash `\` that is not recognized as a valid escape sequence will prevent the code from compiling, and I will add a table of escape sequences, similar to the following: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#string-escape-sequences. 
 
 I will also mention the useful `""` sequence and that it is enabled with both `@`-prefixed and normal `string` literals. 
+
+# Page 102 - What does new do?
+
+> Thanks to **John Leitch** `johnleitch` in the book's Discord channel for suggesting this improvement on February 3, 2025.
+
+In the last bullet I wrote, "bob has a value of `null` and 4 bytes of memory have been allocated in stack memory. No heap memory has been allocated for the object."
+
+In the next edition, I will change this to say that the size of the reference is typically 4 bytes on a 32-bit system and 8 bytes on a 64-bit system, corresponding to the size of a memory pointer. I cover this in more detail in an online-only section here: https://github.com/markjprice/cs13net9/blob/main/docs/ch06-memory.md.
 
 # Page 223 - Understanding the call stack
 
