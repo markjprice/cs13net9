@@ -1,4 +1,4 @@
-**Improvements** (16 items)
+**Improvements** (17 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -7,6 +7,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
 - [Page 21 - Understanding the compiler-generated folders and files](#page-21---understanding-the-compiler-generated-folders-and-files)
 - [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
+- [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
@@ -93,6 +94,27 @@ If you try to use the **Go To Definition** feature in VS Code and you get a `Req
 
 ![Clearing the Navigate to Source Link and And Embedded Sources setting](page-38-disable-setting.png)
 *Clearing the **Navigate to Source Link and And Embedded Sources** setting*
+
+# Page 82 - Verbatim strings
+
+> Thanks to **John Leitch** `johnleitch` in the book's Discord channel for suggesting this improvement.
+
+In this section, I explain escape characters and how they are used in C# `string` values.
+
+I wrote, "But what if you are storing the path to a file on Windows, and one of the folder names starts with a `T`, as shown in the following code?"
+```cs
+string filePath = "C:\televisions\sony\bravia.txt";
+```
+
+"The compiler will convert the `\t` into a tab character and you will get errors!"
+
+I failed to point out that:
+1. The `\s` is an invalid escape sequence so the compiler rejects it and you cannot build the project.
+2. The `\b` is interpreted as an escape sequence meaning a Backspace. 
+
+In the next edition, I will add a note explaining that any character after a slash `\` that is not recognized as a valid escape sequence will prevent the code from compiling, and I will add a table of escape sequences, similar to the following: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#string-escape-sequences. 
+
+I will also mention the useful `""` sequence and that it is enabled with both `@`-prefixed and normal `string` literals. 
 
 # Page 223 - Understanding the call stack
 
