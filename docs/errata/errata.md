@@ -1,4 +1,4 @@
-**Errata** (16 items)
+**Errata** (17 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -18,6 +18,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
+- [Appendix - Page 3](#appendix---page-3)
 
 # Page 24 - Revealing the namespace for the Program class
 
@@ -182,3 +183,12 @@ https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.Blazor
 
 Updated navmenu to include link to functions page:
 https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.Blazor/Northwind.Blazor/Components/Layout/NavMenu.razor
+
+# Appendix - Page 3
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on February 5, 2025](https://github.com/markjprice/cs13net9/issues/14).
+
+I re-arranged the practices and exercises at the end of Chapter 2 but forgot to also update the order in the appendix:
+- **Exercise 2.1 – Test your knowledge** should be **Exercise 2.3**.
+- **Exercise 2.2 – Test your knowledge of number types** is a second part to **Exercise 2.3**.
+- **Exercise 2.3 – Practice number sizes and ranges** should be **Exercise 2.2**.
