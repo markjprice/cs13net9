@@ -1,4 +1,4 @@
-**Errata** (17 items)
+**Errata** (18 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -14,6 +14,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
+- [Page 660 - Creating an empty ASP.NET Core project](#page-660---creating-an-empty-aspnet-core-project)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
@@ -141,6 +142,12 @@ In the **Build a data-driven web page** exercise, I wrote, "Add a Razor Page to 
 In the **Build web pages for functions** exercise, I wrote, "Reimplement some of the console apps from earlier chapters as Razor Pages;"
 
 In these instances, "Razor Pages" or "Razor Page" should be "Blazor" or "Blazor page component".
+
+# Page 660 - Creating an empty ASP.NET Core project
+
+> Thanks to **rene** in the Discord channel for this book for raising this issue on February 6, 2025.
+
+In Step 1, I describe the options when creating a new ASP.NET Core project. The option that used to be labelled **Enable Docker** is now labelled **Enable container support**. And the new option labelled **Enlist in .NET Aspire orchestration** should be cleared.
 
 # Page 683 - Adding code to a Blazor static SSR page
 
