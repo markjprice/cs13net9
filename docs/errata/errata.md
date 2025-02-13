@@ -1,4 +1,4 @@
-**Errata** (18 items)
+**Errata** (19 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -17,6 +17,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 660 - Creating an empty ASP.NET Core project](#page-660---creating-an-empty-aspnet-core-project)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
+- [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 - [Appendix - Page 3](#appendix---page-3)
@@ -174,6 +175,23 @@ builder.Services.AddHybridCache(options =>
 });
 #pragma warning restore EXTEXP0018 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 ```
+
+# Page 756 - Configuring the customer repository
+
+> Thanks to [Andrea](https://github.com/Doriasamp) for raising [this issue on February 12, 2025](https://github.com/markjprice/cs13net9/issues/15).
+
+In Step 7, the statement that returns a `204 No content` response mistakenly included the `new` keyword, as shown in the following code:
+```cs
+return new TypedResults.NoContent(); // 204 No content.
+```
+
+That statement should be:
+```cs
+return TypedResults.NoContent(); // 204 No content.
+```
+
+It was already correct in the code solution repo:
+https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.WebApi/Program.Customers.cs#L79
 
 # Page 780 - Companion books to continue your learning journey
 
