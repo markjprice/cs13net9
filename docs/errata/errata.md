@@ -14,7 +14,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
-- [Page 660 - Creating an empty ASP.NET Core project](#page-660---creating-an-empty-aspnet-core-project)
+- [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
@@ -144,7 +144,7 @@ In the **Build web pages for functions** exercise, I wrote, "Reimplement some of
 
 In these instances, "Razor Pages" or "Razor Page" should be "Blazor" or "Blazor page component".
 
-# Page 660 - Creating an empty ASP.NET Core project
+# Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project
 
 > Thanks to **rene** in the Discord channel for this book for raising this issue on February 6, 2025.
 
