@@ -1,4 +1,4 @@
-**Improvements** (19 items)
+**Improvements** (20 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -24,6 +24,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [3. Deployed Artifacts Diagram](#3-deployed-artifacts-diagram)
   - [Comparison of the Three Perspectives](#comparison-of-the-three-perspectives)
   - [Where do DTOs fit?](#where-do-dtos-fit)
+- [Page 737 - ASP.NET Core Minimal APIs projects, Page 770 - Getting customers as JSON in a Blazor component](#page-737---aspnet-core-minimal-apis-projects-page-770---getting-customers-as-json-in-a-blazor-component)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
@@ -399,6 +400,19 @@ ProductsSolution
 ```
 
 This ensures clear separation of the DTOs and avoids coupling them too tightly to a specific layer.
+
+# Page 737 - ASP.NET Core Minimal APIs projects, Page 770 - Getting customers as JSON in a Blazor component
+
+A reader asked a question in the Discord channel.
+
+Reader: This one's about the example in *Chapter 15*, where we implement the stand-alone WebAssembly project (pg. 768) and consume web services using HTTP clients.
+There's a step I don't quite understand. In the project file for `Northwind.WebApi.WasmClient`, we are instructed to add a reference to the entity models project (`Northwind.EntityModels.Sqlite`). I thought the web app would just send requests to the web API, deserialize the JSON response, and render the content. Why would the WebAssembly project need to reference the entity models? I naively assumed that with this approach, the stand-alone web interface and the web API project would be completely decoupled—essentially two entirely separate solutions. Am I misunderstanding something here?
+
+Author: You were already really close to answering your own question. You said: "deserialize the JSON response" and that's the short answer. The longer answer is, the client can only deserialize the JSON response into strongly-typed objects if it has a reference to an assembly that defines the models. The client project doesn't need the database context class, but in this simplified task the client project does need all the entity models like the `Customer` class. 
+
+Instead of reusing the entity models in both the client and service, you might define **data transfer object (DTO)** classes and then that would be a shared assembly referenced by the client and the service. But then the service would have to convert entity models into DTO models, serialize them to JSON, and return them in a response to the client, and then the client would have to deserialize the DTO models, and display them. Any two client/server projects will always have some shared assemblies to define the "shape" of any data that needs to be transferred between them. In the simple example like in the book, we want all the data from the entity models so it'd be a waste to define DTOs that have the same "shape" as the entity models.
+
+In the next edition, I will add a new section at the start of the chapter to explain all the above and the design decision to not define separate DTO classes. And I might add a new section after implementing the client using the `Customer` entity model class and define a DTO class to use instead so readers see what they could do if they need a different structure.
 
 # Page 752 - Creating data repositories with caching for entities
 
