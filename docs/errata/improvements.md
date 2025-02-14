@@ -413,9 +413,11 @@ In the next edition, I will add a new section that explains some of the recent h
 Let's start by explaining some terminology:
 - **Swagger**: Originally, Swagger was a framework for describing, documenting, and trying out REST APIs. It included tools like the Swagger UI and Swagger Editor. However, Swagger evolved into the **OpenAPI Specification (OAS)**, which is now the industry standard for defining RESTful APIs in a machine-readable format (YAML or JSON).
 - **OpenAPI**: This is the formalized specification that defines how to describe and document REST APIs. The **OpenAPI Specification (OAS)** provides a standardized way to describe API endpoints, request/response models, authentication, and more. OpenAPI is maintained by the **OpenAPI Initiative (OAI)** under the Linux Foundation.
-- **Swashbuckle**: This is a .NET library that automatically generates OpenAPI documentation for ASP.NET Core Web API web services. It integrates with Swagger UI, allowing you to visualize and test API endpoints directly in the browser. 
+- **Swashbuckle**: This is a .NET library that automatically generates OpenAPI documentation for ASP.NET Core Web API web services. It implements a Swagger UI, allowing you to visualize and test API endpoints directly in the browser. 
 
-It is easy to confuse *Swashbuckle* and *Swagger* because they start with similar letters: **Swa**. Try to remember that you shouldn't use either term. Replace "Swagger" with "OpenAPI", and replace "Swashbuckle" with a more modern package like Scalar.
+It is easy to confuse *Swashbuckle* and *Swagger* because they start with similar letters: **Swa**. Try to remember that you shouldn't use either:
+- When talking about the specification that defines how to describe and document REST APIs, replace *Swagger* with *OpenAPI*.
+- When referencing a package to describe and document a web service project, replace `Swashbuckle` with a more modern package like `Scalar` or `NSwag`.
 
 ## Recent editions of this book and documenting web services
 
