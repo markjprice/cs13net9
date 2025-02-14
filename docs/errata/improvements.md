@@ -437,7 +437,7 @@ public async Task<Customer?> CreateAsync(Customer c)
 }
 ```
 
-The return value of the EF Core `DbSet<Customer>.AddAsync` method is an `EntityEntry<Customer>`. The code stores this in a local vaariable named `added` but we do not do anything with it. We could simplify the code by not defining and setting the `added` variable, as shown in the following code:
+The return value of the EF Core `DbSet<Customer>.AddAsync` method is an `EntityEntry<Customer>`. The code stores this in a local variable named `added` but we do not do anything with it. We could simplify the code by not defining and setting the `added` variable, as shown in the following code:
 ```cs
 public async Task<Customer?> CreateAsync(Customer c)
 {
