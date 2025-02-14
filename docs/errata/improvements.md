@@ -1,4 +1,4 @@
-**Improvements** (20 items)
+**Improvements** (21 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -24,6 +24,9 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [3. Deployed Artifacts Diagram](#3-deployed-artifacts-diagram)
   - [Comparison of the Three Perspectives](#comparison-of-the-three-perspectives)
   - [Where do DTOs fit?](#where-do-dtos-fit)
+- [Page 733 - Building web services using ASP.NET Core](#page-733---building-web-services-using-aspnet-core)
+  - [What are Swagger, OpenAPI, and Swashbuckle?](#what-are-swagger-openapi-and-swashbuckle)
+  - [Recent editions of this book and documenting web services](#recent-editions-of-this-book-and-documenting-web-services)
 - [Page 737 - ASP.NET Core Minimal APIs projects, Page 770 - Getting customers as JSON in a Blazor component](#page-737---aspnet-core-minimal-apis-projects-page-770---getting-customers-as-json-in-a-blazor-component)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
@@ -400,6 +403,37 @@ ProductsSolution
 ```
 
 This ensures clear separation of the DTOs and avoids coupling them too tightly to a specific layer.
+
+# Page 733 - Building web services using ASP.NET Core
+
+In the next edition, I will add a new section that explains some of the recent history with documenting web services in .NET projects. 
+
+## What are Swagger, OpenAPI, and Swashbuckle?
+
+Let's start by explaining some terminology:
+- **Swagger**: Originally, Swagger was a framework for describing, documenting, and trying out REST APIs. It included tools like the Swagger UI and Swagger Editor. However, Swagger evolved into the **OpenAPI Specification (OAS)**, which is now the industry standard for defining RESTful APIs in a machine-readable format (YAML or JSON).
+- **OpenAPI**: This is the formalized specification that defines how to describe and document REST APIs. The **OpenAPI Specification (OAS)** provides a standardized way to describe API endpoints, request/response models, authentication, and more. OpenAPI is maintained by the **OpenAPI Initiative (OAI)** under the Linux Foundation.
+- **Swashbuckle**: This is a .NET library that automatically generates OpenAPI documentation for ASP.NET Core Web API web services. It integrates with Swagger UI, allowing you to visualize and test API endpoints directly in the browser. 
+
+It is easy to confuse *Swashbuckle* and *Swagger* because they start with similar letters: **Swa**. Try to remember that you shouldn't use either term. Replace "Swagger" with "OpenAPI", and replace "Swashbuckle" with a more modern package like Scalar.
+
+## Recent editions of this book and documenting web services
+
+Recently, the ASP.NET Core team has changed how these technologies are used in ASP.NET Core projects:
+- In **ASP.NET Core 8 and earlier**, the third-party `Swashbuckle.AspNetCore` package was used to generate an OpenAPI JSON document to formally describe the web service. Swashbuckle includes a Swagger UI that provides an interactive webpage to explore and try out API endpoints. But the Swashbuckle package is third-party so out of the control of Microsoft and it has not been maintained well-enough by its owner for Microsoft to want to use it.
+- In **ASP.NET Core 9 and later**, the first-party `Microsoft.AspNetCore.OpenApi` package is used to generate an OpenAPI JSON document to formally describe the web service. But this package does not provide an interactive UI for trying out the web service.
+
+Here's a summary table of recent versions of ASP.NET Core and how they document web services:
+
+Version|Packages|Book
+---|---|---
+8|`Swashbuckle.AspNetCore`|The 8th edition describes (1) how to request a JSON document that documents a web service, (2) how to use the Swashbuckle package to try out a web service using a web user interface, and (3) how to try out a web service using REST Client in VS Code and HTTP Editor in Visual Studio.
+9|`Microsoft.AspNetCore.OpenApi`|The 9th edition describes (1) how to request a JSON document that documents a web service and (2) how to try out a web service using REST Client in VS Code and HTTP Editor in Visual Studio.
+10|`Microsoft.AspNetCore.OpenApi`, `Scalar.AspNetCore`|The 10th edition will describe (1) how to request a JSON document that documents a web service, (2) how to use the Scalar package to try out a web service using a web user interface, and (3) how to try out a web service using REST Client in VS Code and HTTP Editor in Visual Studio. 
+
+> **More Information**: You can learn more about how to use OpenAPI documentation at the following link: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/using-openapi-documents.
+
+> **More Information**: You can learn more about Scalar at the following link: https://scalar.com/. Or wait for the .NET 10 editions of my books. ;)
 
 # Page 737 - ASP.NET Core Minimal APIs projects, Page 770 - Getting customers as JSON in a Blazor component
 
