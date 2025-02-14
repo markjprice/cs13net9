@@ -1,4 +1,4 @@
-**Improvements** (18 items)
+**Improvements** (19 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -17,6 +17,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 484 - Managing directories](#page-484---managing-directories)
 - [Page 488 - Controlling how you work with files](#page-488---controlling-how-you-work-with-files)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
+- [Page 620 - History of ASP.NET Core](#page-620---history-of-aspnet-core)
 - [Page 628 - Structuring projects](#page-628---structuring-projects)
   - [1. Logical Architectural Layer Diagram](#1-logical-architectural-layer-diagram)
   - [2. Project Source Code Structure](#2-project-source-code-structure)
@@ -260,6 +261,16 @@ In the 10th edition, I will improve the grammar of the sentence:
 This chapter introduces EF Core and how to use it to query and manipulate data in a relational database like SQLite or SQL Server. All code examples are shown in a console app and use synchronous code. This is best for learning EF Core because it keeps the code as simple as possible and focussed on the topic covered, but once a reader needs to implement EF Core in a server-side project like an ASP.NET Core Web API project, it is important to use asynchronous code. 
 
 In the next edition, I will add a new section at the end to highlight how to use tasks and the asynchronous methods to avoid thread exhaustion.
+
+# Page 620 - History of ASP.NET Core
+
+> Thanks to [Paul Marangoni](https://github.com/pmarangoni) for raising [this issue on February 13, 2025](https://github.com/markjprice/web-dev-net9/issues/35).
+
+In the second bullet, I describe ASP:
+- **Active Server Pages (ASP)** was released in 1996 and was Microsoft’s first attempt at a platform for dynamic server-side execution of website code. ASP files contain a mix of HTML and code that executes on the server written in the VBScript language.
+
+Readers do not need to know any details of this 30-year-old technology so I will remove the second sentence in the next edition and add a note to explain why I include the bullet for ASP:
+- **Active Server Pages (ASP)** was released in 1996 and was Microsoft’s first attempt at a platform for dynamic server-side execution of website code. I include this bullet so that you understand where the **ASP** initialism comes from because it is still used today in modern ASP.NET Core.
 
 # Page 628 - Structuring projects
 
