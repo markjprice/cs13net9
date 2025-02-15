@@ -1,4 +1,4 @@
-**Errata** (20 items)
+**Errata** (21 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -7,6 +7,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 112 - Custom number formatting](#page-112---custom-number-formatting)
 - [Page 147 - Understanding how foreach works internally](#page-147---understanding-how-foreach-works-internally)
 - [Page 175 - Throwing overflow exceptions with the checked statement](#page-175---throwing-overflow-exceptions-with-the-checked-statement)
+- [Page 179 - Test your knowledge of operators](#page-179---test-your-knowledge-of-operators)
 - [Page 208 - Using the Visual Studio Code integrated terminal during debugging](#page-208---using-the-visual-studio-code-integrated-terminal-during-debugging)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
 - [Page 400 - Publishing a native AOT project](#page-400---publishing-a-native-aot-project)
@@ -84,6 +85,12 @@ In the next edition, I will use a `List<string>` instead of an array for the `na
 > Thanks to [Justin Treher](https://github.com/jtreher) for raising [this issue on January 3, 2025](https://github.com/markjprice/cs13net9/issues/7).
 
 In Step 3, I wrote, "let’s get the compiler to warn us about the overflow by wrapping the statements using a `checked` statement block", but it is not the compiler that warns us, it is the runtime that detects the overflow and throws the exception. In the next edition I will replace "compiler" with "runtime".
+
+# Page 179 - Test your knowledge of operators
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on February 15, 2025](https://github.com/markjprice/cs13net9/issues/17).
+
+For the name of the exercise project I wrote `Ch03Ex03Operators` when I should have written `Exercise_Operators`.
 
 # Page 208 - Using the Visual Studio Code integrated terminal during debugging
 
