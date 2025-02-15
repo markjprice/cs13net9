@@ -1,4 +1,4 @@
-**Errata** (19 items)
+**Errata** (20 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -21,6 +21,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 - [Appendix - Page 3](#appendix---page-3)
+- [Appendix - Page 5](#appendix---page-5)
 
 # Page 24 - Revealing the namespace for the Program class
 
@@ -214,6 +215,17 @@ https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.Blazor
 > Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on February 5, 2025](https://github.com/markjprice/cs13net9/issues/14).
 
 I re-arranged the practices and exercises at the end of Chapter 2 but forgot to also update the order in the appendix:
-- **Exercise 2.1 – Test your knowledge** should be **Exercise 2.3**.
+- **Exercise 2.1 – Test your knowledge** should be **Exercise 2.3 – Test your knowledge**.
 - **Exercise 2.2 – Test your knowledge of number types** is a second part to **Exercise 2.3**.
 - **Exercise 2.3 – Practice number sizes and ranges** should be **Exercise 2.2**.
+
+# Appendix - Page 5
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on February 15, 2025](https://github.com/markjprice/cs13net9/issues/17).
+
+I re-arranged the practices and exercises at the end of Chapter 2 but forgot to also update the order in the appendix:
+- **Exercise 3.1 – Test your knowledge** should be **Exercise 3.3 – Test your knowledge**.
+- **Exercise 3.2 – Explore loops and overflow** should be **Exercise 3.2 - Practice exercises** with sub-sections **Loops and overflow**, **Practice loops and operators**, and **Practice exception handling**.
+- **Exercise 3.3 – Test your knowledge of operators** should be a subsection of **Exercise 3.3 – Test your knowledge**.
+
+It looks like I forgot to update all chapters in the appendix but it should be obvious enough for readers to understand. I will fix them all in the next edition. 
