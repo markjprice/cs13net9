@@ -1,4 +1,4 @@
-**Improvements** (21 items)
+**Improvements** (22 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -29,6 +29,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Recent editions of this book and documenting web services](#recent-editions-of-this-book-and-documenting-web-services)
 - [Page 737 - ASP.NET Core Minimal APIs projects, Page 770 - Getting customers as JSON in a Blazor component](#page-737---aspnet-core-minimal-apis-projects-page-770---getting-customers-as-json-in-a-blazor-component)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
+- [Page 749 - Creating data repositories with caching for entities](#page-749---creating-data-repositories-with-caching-for-entities)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
 # Introducing C# and .NET
@@ -521,6 +522,14 @@ public async Task<Shipper?> CreateAsync(Shipper s)
 In the next edition, I will add some information about this, similar to the preceding explanation. 
 
 > **More Information**: You can learn more at the following link: https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries.
+
+# Page 749 - Creating data repositories with caching for entities
+
+> Thanks to **rene**/`rene510` in the Discord channel for asking a question about this on February 16, 2025.
+
+In this section, the reader will implement a data repository service that can create, update, and delete customers. This works if the reader creates a new customer, then updates that customer, and then deletes that customer, because that customer does not have any related data. But if the reader runs the project and attempts to delete a customer that has related orders (for example, any of the customers that are in the original database), then an exception is thrown because of a referential integrity constraint defined by a foreign key in the table.
+
+In the next edition, I will add some explanation of this and warn the reader not to try to delete a customer that has related orders. I will also note that they could implement cascading deletes by deleting related orders before deleting a customer (but you would also need to delete all the related order details rows too). So to simplify the example we just throw an exception and fail to delete the customer.
 
 # Appendix - Exercise 3.1 – Test your knowledge
 
