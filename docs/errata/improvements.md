@@ -1,4 +1,4 @@
-**Improvements** (22 items)
+**Improvements** (23 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -30,6 +30,11 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 737 - ASP.NET Core Minimal APIs projects, Page 770 - Getting customers as JSON in a Blazor component](#page-737---aspnet-core-minimal-apis-projects-page-770---getting-customers-as-json-in-a-blazor-component)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
 - [Page 749 - Creating data repositories with caching for entities](#page-749---creating-data-repositories-with-caching-for-entities)
+  - [When to Call `await` Inside a Method](#when-to-call-await-inside-a-method)
+  - [When to Return a Task Without `await`](#when-to-return-a-task-without-await)
+  - [When to Decorate a Method with `async`](#when-to-decorate-a-method-with-async)
+  - [Examples](#examples)
+  - [Key Takeaways](#key-takeaways)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
 # Introducing C# and .NET
@@ -525,11 +530,116 @@ In the next edition, I will add some information about this, similar to the prec
 
 # Page 749 - Creating data repositories with caching for entities
 
-> Thanks to **rene**/`rene510` in the Discord channel for asking a question about this on February 16, 2025.
+> Thanks to **rene**/`rene510` in the Discord channel for asking two questions about this on February 16, 2025.
 
 In this section, the reader will implement a data repository service that can create, update, and delete customers. This works if the reader creates a new customer, then updates that customer, and then deletes that customer, because that customer does not have any related data. But if the reader runs the project and attempts to delete a customer that has related orders (for example, any of the customers that are in the original database), then an exception is thrown because of a referential integrity constraint defined by a foreign key in the table.
 
 In the next edition, I will add some explanation of this and warn the reader not to try to delete a customer that has related orders. I will also note that they could implement cascading deletes by deleting related orders before deleting a customer (but you would also need to delete all the related order details rows too). So to simplify the example we just throw an exception and fail to delete the customer.
+
+Also in this section, the reader will implement a data repository service with multiple methods, all of which return a `Task<T>`, but only some will call `await` within the method implementation and therefore need to be decorated with `async`. But I do not explain why.
+
+In the next edition, I will add a new section that gives some guidance for use of `async`, `await`, and what to return from `Task<T>` methods, similar to the following.
+
+## When to Call `await` Inside a Method
+
+A method should call `await` inside its implementation if:
+1. **You need to handle exceptions within the method.**  
+   - `await` unwraps exceptions, meaning you can catch them using a `try-catch` inside the method.
+   - Without `await`, the method would return a `Task<T>` that, when `await`-ed elsewhere, would throw an `AggregateException` wrapping the real exception.
+
+2. **You need to perform additional logic after the awaited task completes.**  
+   - If the method needs to do something after the asynchronous operation, it must `await` it. For example, after successfully creating a row in a table, you might need to store it in a cache, as show in the following code:
+   ```csharp
+   public async Task<Customer?> CreateAsync(Customer c)
+   {
+     c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
+
+     // Add to database using EF Core.
+     EntityEntry<Customer> added =
+    
+     await _db.Customers.AddAsync(c);
+     int affected = await _db.SaveChangesAsync();
+    
+     if (affected == 1)
+     {
+       // If saved to database then store in cache.
+       await _cache.SetAsync(c.CustomerId, c);
+       return c;
+     }
+     return null;
+   }
+   ```
+
+3. **You need to capture the execution context.**  
+   - By default, `await` captures the current execution context (e.g., `SynchronizationContext` or `TaskScheduler`). If you need this behavior (e.g., when updating UI components in a desktop application), you should `await`.
+
+## When to Return a Task Without `await`
+
+A method should **not** use `await` and should return a `Task<T>` directly if:
+1. **The method is a simple wrapper.**  
+   - If you’re just returning the result of another asynchronous call, there’s no need for `await`. Instead, return the `Task<T>` directly.
+   ```csharp
+   public Task<List<Customer>> GetCustomersAsync()
+   {
+     return _db.Customers.ToListAsync();
+   }
+   ```
+
+2. **You don’t need to handle exceptions inside the method.**  
+   - If you’re fine with exceptions being handled by the caller, returning a `Task<T>` directly avoids the extra state machine that `async`/`await` introduces.
+
+3. **The method doesn't need to resume execution after the awaited call.**  
+   - If there’s nothing to do after the asynchronous operation, just return the `Task`.
+
+## When to Decorate a Method with `async`
+
+A method needs the `async` keyword if:
+1. **It contains an `await` expression.**  
+   - `await` can only be used inside `async` methods.
+
+2. **You want to return a `Task<T>` without manually wrapping the result.**  
+   - An `async` method automatically wraps return values in a `Task<T>`, whereas a non-async method must explicitly return `Task.FromResult(value)`.
+
+## Examples
+
+Calling `await` inside an `async` method because a method **handles exceptions** inside itself and the method **needs to do something after the await** (multiplying `value * 2`):
+```csharp
+public async Task<int> ComputeValueAsync()
+{
+  try
+  {
+    int value = await GetNumberAsync();
+    return value * 2;
+  }
+  catch (Exception ex)
+  {
+    Console.WriteLine($"Error: {ex.Message}");
+    return -1;
+  }
+}
+```
+
+Returning a `Task<T>` without `await`:
+```csharp
+public Task<int> ComputeValueAsync() => GetNumberAsync();
+```
+**Why?**  
+- The method does **nothing after the awaited call**.
+- The method **does not need to handle exceptions**.
+- Avoids unnecessary state machine overhead.
+
+---
+
+## Key Takeaways
+| Scenario | Use `async` & `await`? |
+|----------|----------------------|
+| Need to handle exceptions inside the method | ✅ Yes |
+| Need to perform logic after the awaited task | ✅ Yes |
+| Need to capture execution context (UI apps) | ✅ Yes |
+| Just returning a `Task` from another method | ❌ No |
+| No exception handling or additional logic | ❌ No |
+
+In general, **only use `await` if necessary** to avoid unnecessary overhead from the async state machine. Otherwise, return the `Task` directly.
 
 # Appendix - Exercise 3.1 – Test your knowledge
 
