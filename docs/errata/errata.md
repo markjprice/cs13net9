@@ -1,4 +1,4 @@
-**Errata** (21 items)
+**Errata** (22 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -9,6 +9,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 175 - Throwing overflow exceptions with the checked statement](#page-175---throwing-overflow-exceptions-with-the-checked-statement)
 - [Page 179 - Test your knowledge of operators](#page-179---test-your-knowledge-of-operators)
 - [Page 208 - Using the Visual Studio Code integrated terminal during debugging](#page-208---using-the-visual-studio-code-integrated-terminal-during-debugging)
+- [Page 298 - Defining a primary constructor for a class](#page-298---defining-a-primary-constructor-for-a-class)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
 - [Page 400 - Publishing a native AOT project](#page-400---publishing-a-native-aot-project)
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
@@ -101,6 +102,26 @@ In Step 7, I wrote, "In the `launch.json` file editor, click the **Add Configura
 The name of this option is now called **.NET: Launch Executable file (Console)**, as shown in the following figure:
 
 ![.NET: Launch Executable file (Console)](errata-p196.png)
+
+# Page 298 - Defining a primary constructor for a class
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 16, 2025](https://github.com/markjprice/cs13net9/issues/19).
+
+In Step 6, I wrote, "In `Headset.cs`, add a default parameterless constructor, as highlighted in the following code:"
+```cs
+namespace Packt.Shared;
+
+public class Headset(string manufacturer, string productName)
+{
+  public string Manufacturer { get; set; } = manufacturer;
+  public string ProductName { get; set; } = productName;
+  
+  // Default parameterless constructor calls the primary constructor.
+  public Headset() : this("Microsoft", "HoloLens") { }
+}
+```
+
+But the note box underneath the code says, "Note the use of `this()` to call the constructor of the base class and pass two parameters to it when the default constructor of `Headset` is called." The note box should say, "Note the use of `this()` to call the primary constructor and pass two parameters to it when the default constructor of `Headset` is called."
 
 # Page 393 - Publishing a single-file app
 
