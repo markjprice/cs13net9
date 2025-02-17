@@ -1,4 +1,4 @@
-**Improvements** (23 items)
+**Improvements** (24 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -10,6 +10,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
 - [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
+- [Page 246 - Member access modifiers](#page-246---member-access-modifiers)
 - [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
@@ -151,6 +152,20 @@ https://github.com/markjprice/cs13net9/blob/main/code/Chapter04/CallStackExcepti
 But some readers do the opposite, i.e. try to reference the console app in the class library project, or they try to edit a "generated" file instead of the proper project file. In the next edition, I will change the text to say, "In the `CallStackExceptionHandling.csproj` console app project file," and I will add a warning box below Step 5:
 
 > **Warning!** Make sure that you add the project reference in the `CallStackExceptionHandling.csproj` file. Do not edit the `CallStackExceptionHandling.csproj.nuget.g.props` file because this is a file that is "generated" (that's what the ".g." in its name means). Every time you build the project this and other ".g." files are recreated so any changes will be lost. Also, do not add a project reference to the `CallStackExceptionHandling` console app project in the `CallStackExceptionHandlingLib.csproj` file. You can only reference class library projects. You cannot reference console app projects.
+
+# Page 246 - Member access modifiers
+
+> Thanks to [P9avel](https://github.com/P9avel) who raised an [issue on February 16, 2025](https://github.com/markjprice/cs13net9/issues/18) that prompted this improvement.
+
+In this section, I wrote, "There are four member access modifier keywords, and two combinations of access modifier keywords that you can apply to a class member, like a field or method. Member access modifiers apply to an individual member. They are similar to but separate from type access modifiers that apply to the whole
+type. The six possible combinations are shown in Table 5.1:"
+
+Previously, on page 238, in the *Understanding type access modifiers* section, I wrote, "Introduced with .NET 7, the `file` access modifier applied to a type means that type can only be used within its code file. This would only be useful if you define multiple classes in the same code file, which is rarely good practice but is used with source generators."
+
+On page 299, in *Exercise 5.3 - test your knowledge*, question 1. asks, "What are the seven access modifier keywords and combinations of keywords, and what do
+they do?"
+
+In the next edition, I will add more text to all these places to try to make it clearer that there are seven access modifiers (or combinations of access modifiers) that apply to types and members but only six access modifiers (or combinations of access modifiers) that apply only to members. Or perhaps I will change the question to only ask about member access modifiers.
 
 # Page 403 - Fixing dependencies
 
