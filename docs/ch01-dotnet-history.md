@@ -51,7 +51,7 @@ Microsoft purchased Xamarin in 2016 and now gives away what used to be an expens
 
 With Visual Studio 2022 for Mac, Microsoft has replaced parts of the Xamarin Studio editor with parts from Visual Studio 2022 for Windows to provide closer parity of experience and performance. Visual Studio 2022 for Mac was also rewritten to be a truly native macOS UI app to improve reliability and work with macOS's built-in assistive technologies.
 
-Unfortunately, a lot of the user interface of Visual Studio 2022 for Mac is very different from Visual Studio 2022 for Windows so the screenshots in the book can be confusing. That is why I provide online step-by-step instructions for multiple [code editors](../code-editors/README.md).
+Unfortunately, a lot of the user interface of Visual Studio 2022 for Mac is very different from Visual Studio 2022 for Windows so the screenshots in the book can be confusing. That is why I provide online step-by-step instructions for multiple [code editors](code-editors/README.md).
 
 ## Understanding .NET Core
 
