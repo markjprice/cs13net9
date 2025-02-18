@@ -146,7 +146,7 @@ I should have written, "A console app that functions correctly during developmen
 
 > Thanks to **rene** in the book's Discord channel for raising this issue.
 
-In *Table 8.6*, the entry for `{,3}` is wrong. That is not a valid range and so it actually matches the exact string `{,3}`! To match "Up to three", you should use `{0,3}` or `{1,3}` depending on whether you want to accept zero or one as the lowest value. I will fix this in the 10th edition.
+In *Table 8.7*, the entry for `{,3}` is wrong. That is not a valid range and so it actually matches the exact string `{,3}`! To match "Up to three", you should use `{0,3}` or `{1,3}` depending on whether you want to accept zero or one as the lowest value. I will fix this in the 10th edition.
 
 # Page 483 - Managing directories, Managing files
 
