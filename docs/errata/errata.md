@@ -1,4 +1,4 @@
-**Errata** (24 items)
+**Errata** (25 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -12,6 +12,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 298 - Defining a primary constructor for a class](#page-298---defining-a-primary-constructor-for-a-class)
 - [Page 383 - Creating a .NET Standard class library](#page-383---creating-a-net-standard-class-library)
 - [Page 392 - Publishing a self-contained app](#page-392---publishing-a-self-contained-app)
+- [Page 392 - Publishing a self-contained app](#page-392---publishing-a-self-contained-app-1)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
 - [Page 400 - Publishing a native AOT project](#page-400---publishing-a-native-aot-project)
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
@@ -136,6 +137,12 @@ In the **Good Practice** box, the final version number was written as `0`. It sh
 > Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 18, 2025](https://github.com/markjprice/cs13net9/issues/22).
 
 In Step 5, I wrote, "note the output folders for the five OSes." There were five folders in earlier editions but in the 9th edition I reduced this. In the next edition, I will remove the word "five".
+
+# Page 392 - Publishing a self-contained app
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 18, 2025](https://github.com/markjprice/cs13net9/issues/23).
+
+In Step 7, *Figure 7.3*, the screenshot shows `net8.0` in the address bar. It should be `net9.0`.
 
 # Page 393 - Publishing a single-file app
 
