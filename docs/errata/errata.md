@@ -1,9 +1,10 @@
-**Errata** (25 items)
+**Errata** (26 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
+- [Page 91 - Comparing double and decimal types](#page-91---comparing-double-and-decimal-types)
 - [Page 112 - Custom number formatting](#page-112---custom-number-formatting)
 - [Page 147 - Understanding how foreach works internally](#page-147---understanding-how-foreach-works-internally)
 - [Page 175 - Throwing overflow exceptions with the checked statement](#page-175---throwing-overflow-exceptions-with-the-checked-statement)
@@ -44,6 +45,12 @@ I wrote, "In the preceding steps, I showed you how to use the dotnet CLI to crea
 ```
 
 This feature is no longer in preview so you do not need to enable it. In the next edition, I will remove the sentence about enabling it and the setting.
+
+# Page 91 - Comparing double and decimal types
+
+> Thanks to [Anass Sabiri](https://github.com/lambdacore12) for raising [this issue on February 19, 2025](https://github.com/markjprice/cs13net9/issues/24).
+
+In the **Good Practice** box, the first link has moved to https://www-users.cse.umn.edu/~arnold/disasters/patriot.html.
 
 # Page 112 - Custom number formatting
 
