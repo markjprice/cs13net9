@@ -1,10 +1,11 @@
-**Errata** (26 items)
+**Errata** (27 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
 - [Page 91 - Comparing double and decimal types](#page-91---comparing-double-and-decimal-types)
+- [Page 106 - Rider and its warnings about boxing](#page-106---rider-and-its-warnings-about-boxing)
 - [Page 112 - Custom number formatting](#page-112---custom-number-formatting)
 - [Page 147 - Understanding how foreach works internally](#page-147---understanding-how-foreach-works-internally)
 - [Page 175 - Throwing overflow exceptions with the checked statement](#page-175---throwing-overflow-exceptions-with-the-checked-statement)
@@ -51,6 +52,12 @@ This feature is no longer in preview so you do not need to enable it. In the nex
 > Thanks to [Anass Sabiri](https://github.com/lambdacore12) for raising [this issue on February 19, 2025](https://github.com/markjprice/cs13net9/issues/24).
 
 In the **Good Practice** box, the first link has moved to https://www-users.cse.umn.edu/~arnold/disasters/patriot.html.
+
+# Page 106 - Rider and its warnings about boxing
+
+> Thanks to [Anass Sabiri](https://github.com/lambdacore12) for raising [this issue on February 20, 2025](https://github.com/markjprice/cs13net9/issues/25).
+
+The link for best practices has moved to this link: https://docs.unity3d.com/Manual/performance-reference-types.html, and you need to scroll down to one of the last sections, titled *Avoid converting value types to reference types*.
 
 # Page 112 - Custom number formatting
 
