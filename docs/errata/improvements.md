@@ -1,4 +1,4 @@
-**Improvements** (24 items)
+**Improvements** (25 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -9,6 +9,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
+- [Page 205 - Navigating with the debugging toolbar](#page-205---navigating-with-the-debugging-toolbar)
 - [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 246 - Member access modifiers](#page-246---member-access-modifiers)
 - [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
@@ -136,6 +137,12 @@ I will also mention the useful `""` sequence and that it is enabled with both `@
 In the last bullet I wrote, "bob has a value of `null` and 4 bytes of memory have been allocated in stack memory. No heap memory has been allocated for the object."
 
 In the next edition, I will change this to say that the size of the reference is typically 4 bytes on a 32-bit system and 8 bytes on a 64-bit system, corresponding to the size of a memory pointer. I cover this in more detail in an online-only section here: https://github.com/markjprice/cs13net9/blob/main/docs/ch06-memory.md.
+
+# Page 205 - Navigating with the debugging toolbar
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) who raised an [issue on February 21, 2025](https://github.com/markjprice/cs13net9/issues/26) that prompted this improvement.
+
+In *Figure 4.7*, the Visual Studio 2022 **Show Next Statement** button has an icon of a down-pointing arrow. In more recent versions, this icon was changed to a right-pointing arrow. In the next edition, I will update the screenshot.
 
 # Page 223 - Understanding the call stack
 
