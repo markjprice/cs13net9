@@ -1,4 +1,4 @@
-**Improvements** (25 items)
+**Improvements** (26 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -16,6 +16,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
 - [Page 467 - Good practice with collections](#page-467---good-practice-with-collections)
+- [Page 469 - Working with spans, indexes, and ranges](#page-469---working-with-spans-indexes-and-ranges)
 - [Page 484 - Managing directories](#page-484---managing-directories)
 - [Page 488 - Controlling how you work with files](#page-488---controlling-how-you-work-with-files)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
@@ -250,6 +251,12 @@ private const string CommaSeparatorText =
 > Thanks to **rene** in the book's Discord channel for suggesting this improvement.
 
 Before this final section in the *Storing multiple objects in collections* topic, I will add a summary table for collection types based on **rene**'s [initial document](../ch08-collections.md)
+
+# Page 469 - Working with spans, indexes, and ranges
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 22, 2025](https://github.com/markjprice/cs13net9/issues/33).
+
+In the next edition, I will add more explanation about when the end index is included. For example, `"1234".AsSpan()[1..3]` returns: `23`.
 
 # Page 484 - Managing directories
 
