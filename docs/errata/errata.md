@@ -1,4 +1,4 @@
-**Errata** (29 items)
+**Errata** (30 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -20,6 +20,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
 - [Page 444 - Improving regular expression performance with source generators](#page-444---improving-regular-expression-performance-with-source-generators)
 - [Page 446 - Storing multiple objects in collections](#page-446---storing-multiple-objects-in-collections)
+- [Page 461 - Read-only, immutable, and frozen collections](#page-461---read-only-immutable-and-frozen-collections)
 - [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
@@ -196,6 +197,12 @@ In Steps 2, 3, and 4, I wrote "`partial` method", when I should have written "`p
 > Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 21, 2025](https://github.com/markjprice/cs13net9/issues/28).
 
 In *Table 8.9*, I wrote `Dictionary<T>`. This should be `Dictionary<TKey, TValue>`. I will also change the order to put it last in the list of collection examples for that row, and add a sentence to the description to explain, "Dictionaries need two types to be specified: one for the key and one for the value."
+
+# Page 461 - Read-only, immutable, and frozen collections
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 22, 2025](https://github.com/markjprice/cs13net9/issues/30).
+
+I wrote, "Although the `ReadOnlyCollection<T>` has to have an `Add` and a `Remove` method because it implements `ICollection<T>`, it throws a `NotImplementedException` to prevent changes." But it actually throws a `NotSupportedException`.
 
 # Page 483 - Managing directories, Managing files
 
