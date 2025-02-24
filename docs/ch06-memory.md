@@ -178,8 +178,8 @@ WriteLine($"({dv4.X}, {dv4.Y})");
 7.	In `Program.cs`, add statements to create a new instance of `DisplacementVector`, and compare it to `dv1`, as shown in the following code:
 ```cs
 DisplacementVector dv5 = new(3, 5);
-WriteLine($"dv1.Equals(dv5): {dv1.Equals(dv5)})");
-WriteLine($"dv1 == dv5: {dv1 == dv5})");
+WriteLine($"dv1.Equals(dv5): {dv1.Equals(dv5)}");
+WriteLine($"dv1 == dv5: {dv1 == dv5}");
 ```
 
 Note that you cannot compare `struct` variables using `==`, but you can call the `Equals` method, which has a default implementation that compares all fields within the struct for equality. We could now make our `struct` overload the `==` operator ourselves, but an easier way is to use a feature introduced with C# 10: `record struct` types.
@@ -195,8 +195,8 @@ public record struct DisplacementVector
 2.	In `Program.cs`, note that `==` now does not have a compiler error.
 3.	Run the `PeopleApp` project and view the result, as shown in the following output:
 ```
-dv1.Equals(dv5): True)
-dv1 == dv5: True)
+dv1.Equals(dv5): True
+dv1 == dv5: True
 ```
 
 A `record struct` has all the same benefits over a `record` class that a `struct` has over a `class`. One difference between `record struct` and `record class` declared using primary constructor syntax is that `record struct` is not immutable, unless you also apply the `readonly` keyword to the `record struct` declaration. A `struct` does not implement the `==` and `!=` operators, but they are automatically implemented with a `record struct`.
