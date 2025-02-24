@@ -1,4 +1,4 @@
-**Improvements** (26 items)
+**Improvements** (27 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -18,6 +18,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 467 - Good practice with collections](#page-467---good-practice-with-collections)
 - [Page 469 - Working with spans, indexes, and ranges](#page-469---working-with-spans-indexes-and-ranges)
 - [Page 484 - Managing directories](#page-484---managing-directories)
+- [Page 485 - Managing files](#page-485---managing-files)
 - [Page 488 - Controlling how you work with files](#page-488---controlling-how-you-work-with-files)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
 - [Page 620 - History of ASP.NET Core](#page-620---history-of-aspnet-core)
@@ -280,6 +281,43 @@ To confirm that OneDrive is causing the exception by locking the directory while
 A similar issue is caused by some anti-virus software. For example, Avast has a monitor that activates as soon as a new directory or file is created and scans it for viruses. This can temporarily lock a newly created directory or file.
 
 In the next edition, I will add a warning box to explain these potential issues to the reader.
+
+# Page 485 - Managing files
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 23, 2025](https://github.com/markjprice/cs13net9/issues/34).
+
+In Step 1, I tell the reader to write some code that creates a text file using the `File.CreateText` method and the `StreamWriter` that it returns and reads a backup of that file using the `File.OpenText` method and the `StreamReader` that it returns, as shown in the following code:
+```cs
+// Create a new text file and write a line to it.
+StreamWriter textWriter = File.CreateText(textFile);
+textWriter.WriteLine("Hello, C#!");
+textWriter.Close(); // Close file and release resources.
+```
+And:
+```cs
+// Read from the text file backup.
+WriteLine($"Reading contents of {backupFile}:");
+StreamReader textReader = File.OpenText(backupFile);
+WriteLine(textReader.ReadToEnd());
+textReader.Close();
+```
+
+I explicitly call the writer's and reader's `Close` methods which internally disposes the resources immediately. 
+
+Alternatively, if you add a simplified `using` statement, as shown in the following code, then `Dispose` is not called until the end of the scope of the `textWriter` variable, in this case, the `Main` method:
+```cs
+using StreamWriter textWriter = File.CreateText(textFile); // The object will have its Dispose method called at the end of the scope.
+```
+
+Or, if you add a full `using` block, as shown in the following code, then `Dispose` is called at the end of the local scope:
+```cs
+using (StreamWriter textWriter = File.CreateText(textFile)) // The object will have its Dispose method called at the end of the scope.
+{
+  textWriter.WriteLine("Hello, C#!");
+} // Dispose called here.
+```
+
+In the next edition, I will add the preceding explanation so the reader knows why I do not use the `using` statement for this code, and I will tell the reader that they will see examples of using `using` to dispose a resource later in the chapter.
 
 # Page 488 - Controlling how you work with files
 
