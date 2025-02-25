@@ -13,16 +13,16 @@ Microsoft will release previews of .NET 10 regularly starting in February 2025 u
 
 - [Download .NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - .NET 10 Release Index
-- February 11, 2024: [Our Vision for .NET 10](https://devblogs.microsoft.com/dotnet/our-vision-for-dotnet-10/)
-- March 11, 2024: .NET 10 Preview 2
-- April 8, 2024: .NET 10 Preview 3
-- May 13, 2024: .NET 10 Preview 4
-- June 10, 2024: .NET 10 Preview 5
-- July 8, 2024: .NET 10 Preview 6
-- August 12, 2024: .NET 10 Preview 7
-- September 9, 2024: .NET 10 Release Candidate 1
-- October 14, 2024: .NET 10 Release Candidate 2
-- November 11, 2024: .NET 10.0 GA (general availability)
+- February 25, 2025: [.NET 10 Preview 1 #344](https://github.com/dotnet/announcements/issues/344)
+- March 11, 2025: .NET 10 Preview 2
+- April 8, 2025: .NET 10 Preview 3
+- May 13, 2025: .NET 10 Preview 4
+- June 10, 2025: .NET 10 Preview 5
+- July 8, 2025: .NET 10 Preview 6
+- August 12, 2025: .NET 10 Preview 7
+- September 9, 2025: .NET 10 Release Candidate 1
+- October 14, 2025: .NET 10 Release Candidate 2
+- November 11, 2025: .NET 10.0 GA (general availability)
 
 # How to switch from .NET 9 to .NET 10
 
@@ -57,12 +57,12 @@ For projects that reference additional NuGet packages, use the latest NuGet pack
 </ItemGroup>
 ```
 
-To use .NET 10 Preview 1 packages, search https://www.nuget.org for the package and find its latest preview version number. For example, for Preview 1, as shown in the following markup:
+To use .NET 10 Preview 1 packages, search https://www.nuget.org for the package and find its latest preview version number. For example, for [Preview 1](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/10.0.0-preview.1.25080.5), as shown in the following markup:
 ```xml
 <ItemGroup>
   <PackageReference
     Include="Microsoft.Extensions.Configuration.Binder"
-    Version="10.0.0-preview.1.14128.5" />
+    Version="10.0.0-preview.1.25080.5" />
 </ItemGroup>
 ```
 
