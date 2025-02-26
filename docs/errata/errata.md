@@ -136,9 +136,9 @@ public void PassingParameters(int w, in int x, ref int y, out int z)
 {
 ```
 
-I should have written, "In `Person.cs`, add statements to define a method with four parameters: one parameter without any modifier, and three parameters decorated with modifiers: one `in` parameter, one `ref` parameter, and one `out` parameter, as shown in the following method:"
+I should have written, "In `Person.cs`, add statements to define a method with four `int` parameters: one parameter without any modifier, and three parameters decorated with the modifiers `in`, `ref`, and `out`, as shown in the following method:"
 
-I will also change the order of the bullets to match the order of the parameters in the method.
+I will also change the order of the bullet descriptions to match the order of the parameters in the method.
 
 # Page 298 - Defining a primary constructor for a class
 
