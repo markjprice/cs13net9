@@ -1,4 +1,4 @@
-**Errata** (31 items)
+**Errata** (32 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 175 - Throwing overflow exceptions with the checked statement](#page-175---throwing-overflow-exceptions-with-the-checked-statement)
 - [Page 179 - Test your knowledge of operators](#page-179---test-your-knowledge-of-operators)
 - [Page 208 - Using the Visual Studio Code integrated terminal during debugging](#page-208---using-the-visual-studio-code-integrated-terminal-during-debugging)
+- [Page 267 - Controlling how parameters are passed](#page-267---controlling-how-parameters-are-passed)
 - [Page 298 - Defining a primary constructor for a class](#page-298---defining-a-primary-constructor-for-a-class)
 - [Page 383 - Creating a .NET Standard class library](#page-383---creating-a-net-standard-class-library)
 - [Page 392 - Publishing a self-contained app](#page-392---publishing-a-self-contained-app)
@@ -123,6 +124,21 @@ In Step 7, I wrote, "In the `launch.json` file editor, click the **Add Configura
 The name of this option is now called **.NET: Launch Executable file (Console)**, as shown in the following figure:
 
 ![.NET: Launch Executable file (Console)](errata-p196.png)
+
+# Page 267 - Controlling how parameters are passed
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on February 26, 2025](https://github.com/markjprice/cs13net9/issues/35).
+
+In Step 1, I wrote, "In `Person.cs`, add statements to define a method with three parameters, one `in` parameter,
+one `ref` parameter, and one `out` parameter, as shown in the following method:"
+```cs
+public void PassingParameters(int w, in int x, ref int y, out int z)
+{
+```
+
+I should have written, "In `Person.cs`, add statements to define a method with four parameters: one parameter without any modifier, and three parameters decorated with modifiers: one `in` parameter, one `ref` parameter, and one `out` parameter, as shown in the following method:"
+
+I will also change the order of the bullets to match the order of the parameters in the method.
 
 # Page 298 - Defining a primary constructor for a class
 
