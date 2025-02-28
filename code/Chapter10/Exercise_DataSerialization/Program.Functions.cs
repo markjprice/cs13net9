@@ -16,7 +16,7 @@ partial class Program
   static void GenerateXmlFile(
     IQueryable<Category> categories, bool useAttributes = true)
   {
-    string which = useAttributes ? "attibutes" : "elements";
+    string which = useAttributes ? "attributes" : "elements";
 
     string xmlFile = $"categories-and-products-using-{which}.xml";
 
