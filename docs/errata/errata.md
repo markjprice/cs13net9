@@ -1,4 +1,4 @@
-**Errata** (32 items)
+**Errata** (33 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -24,6 +24,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 461 - Read-only, immutable, and frozen collections](#page-461---read-only-immutable-and-frozen-collections)
 - [Page 469 - Returning collections from members](#page-469---returning-collections-from-members)
 - [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
+- [Page 532 - Setting up SQLite CLI tools for Windows](#page-532---setting-up-sqlite-cli-tools-for-windows)
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
@@ -242,6 +243,12 @@ After prompting the user to press any key to delete the directory or file, the c
 
 This has been fixed in the code solutions here:
 https://github.com/markjprice/cs13net9/commit/d75644ad74bf3ffbd9ff202e0bf6f2ad665ca5ea
+
+# Page 532 - Setting up SQLite CLI tools for Windows
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 28, 2025](https://github.com/markjprice/cs13net9/issues/36).
+
+In Step 3, I wrote `sqlite-tools-win32-x86-3460100.zip` when I should have written `sqlite-tools-win-x64-3460100.zip`.
 
 # Page 570 - Getting a single entity
 
