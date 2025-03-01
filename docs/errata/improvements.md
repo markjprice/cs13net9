@@ -1,4 +1,4 @@
-**Improvements** (27 items)
+**Improvements** (28 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -21,6 +21,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 485 - Managing files](#page-485---managing-files)
 - [Page 488 - Controlling how you work with files](#page-488---controlling-how-you-work-with-files)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
+- [Page 540 - Using EF Core conventions to define the model](#page-540---using-ef-core-conventions-to-define-the-model)
 - [Page 620 - History of ASP.NET Core](#page-620---history-of-aspnet-core)
 - [Page 628 - Structuring projects](#page-628---structuring-projects)
   - [1. Logical Architectural Layer Diagram](#1-logical-architectural-layer-diagram)
@@ -338,6 +339,15 @@ In the 10th edition, I will improve the grammar of the sentence:
 This chapter introduces EF Core and how to use it to query and manipulate data in a relational database like SQLite or SQL Server. All code examples are shown in a console app and use synchronous code. This is best for learning EF Core because it keeps the code as simple as possible and focussed on the topic covered, but once a reader needs to implement EF Core in a server-side project like an ASP.NET Core Web API project, it is important to use asynchronous code. 
 
 In the next edition, I will add a new section at the end to highlight how to use tasks and the asynchronous methods to avoid thread exhaustion.
+
+# Page 540 - Using EF Core conventions to define the model
+
+> Thanks to [P9avel](https://github.com/P9avel) who raised an [issue in the book's GitHub repository on February 28, 2025](https://github.com/markjprice/cs13net9/issues/38) that prompted this improvement.
+
+This section contains a bulleted list with some of the conventions that EF Core uses to map database tables to C# classes. Most work the same for any database system. For example, "The names of the columns are assumed to match the names of properties in the entity model class, for example, ProductId." works the same for SQLite, SQL Server, and any other RDBMS. But some conventions will vary depending on the database provider. For example, "The `string` .NET type is assumed to be a `nvarchar` type in the database." Although this is most common, a particular RDBMS might not have the `nvarchar` datatype and so use a different type like `text`.
+
+In the next edition, I will add a note so that the reader understands the preceding point. I will also add more clarification to some bullets. For example:
+- The name of a table is assumed to match the name of a `DbSet<T>` property in the `DbContext` class, for example, `Products`. EF Core can match against singular or plural names.
 
 # Page 620 - History of ASP.NET Core
 
