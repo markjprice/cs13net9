@@ -367,7 +367,7 @@ public class CustomersController : ControllerBase
 
 > **Note**: You can decorate the parameters with `[FromServices]` to explicitly indicate where those parameters will be set from, as shown in the following code: `[FromServices] ICustomerRepository _repo`, but this is optional.
 
-In the next edition, I will add the preceding information.
+In the next edition, I will change the **Good Practice** box text to explain that the inefficiency can be avoided but that it is a common pattern because the project template uses it to define a logger and many developers follow that convention for their own dependency services. I will also show more detailed code for using both the constructor and methods to set dependency services in my *Real-World Web Development with .NET 10* book which teaches controller-based ASP.NET Core Web API projects. 
 
 # Page 750 - Creating data repositories with caching for entities
 
