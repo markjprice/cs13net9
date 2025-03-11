@@ -1,4 +1,4 @@
-**Errata** (36 items)
+**Errata** (37 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -34,6 +34,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 748 - Distributed caching](#page-748---distributed-caching)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
+- [Page 757 - Configuring the customer repository](#page-757---configuring-the-customer-repository)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 - [Appendix - Page 3](#appendix---page-3)
@@ -422,6 +423,14 @@ return TypedResults.NoContent(); // 204 No content.
 
 It was already correct in the code solution repo:
 https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.WebApi/Program.Customers.cs#L79
+
+# Page 757 - Configuring the customer repository
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on March 10, 2025](https://github.com/markjprice/cs13net9/issues/41).
+
+In the paragraph after Step 10, I wrote, "When an HTTP request is received by the service, it will create an instance of the Controller class, call the appropriate action method, return the response in the format preferred by the client, and release the resources used by the controller, including the repository and its data context."
+
+I should have written, "When an HTTP request is received by the service, it will use the mapped routes to call the appropriate endpoint lambda statement handler, get the registered dependency service(s) and use them, and then at the end of the scope, release those resources, including the repository and its data context."
 
 # Page 780 - Companion books to continue your learning journey
 
