@@ -414,7 +414,7 @@ builder.Services.AddHybridCache(options =>
 
 In the **Good Practice** box, I wrote, "Our repository uses a database context that is registered as a scoped dependency. You can only use scoped dependencies inside other scoped dependencies, so we cannot register the repository as a singleton."
 
-I should have written, "By default, a database context is registered as a scoped dependency. Our repository uses a database context that is registered as a transient dependency. You can only use scoped or transient dependencies inside other scoped or transient dependencies, so we cannot register the repository as a singleton. In this case, we can register it as a scoped dependency so during a single HTTP request, it can be reused by multiple scoped or transient dependency services."
+I should have written, "By default, a database context is registered as a scoped dependency. Our repository uses a database context that is registered as a transient dependency. This is only necessary if you want to use the database context in a Blazor Server project otherwise we could leave it as a scoped dependency. You can only use scoped or transient dependencies inside other scoped or transient dependencies, so we cannot register the repository as a singleton. In this case, we can register it as a scoped dependency so during a single HTTP request, it can be reused by multiple scoped or transient dependency services."
 
 # Page 756 - Configuring the customer repository
 
