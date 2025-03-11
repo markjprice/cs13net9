@@ -1,4 +1,4 @@
-**Errata** (34 items)
+**Errata** (35 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -30,6 +30,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
+- [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
@@ -284,6 +285,89 @@ In Step 1, I describe the options when creating a new ASP.NET Core project. The 
 > Thanks to [Taylor Fore](https://github.com/trfore) for raising [this issue on January 8, 2025](https://github.com/markjprice/cs13net9/issues/8).
 
 In Step 1, I wrote, `Index.cshtml` when I should have written `Index.razor`.
+
+# Page 737 - ASP.NET Core Minimal APIs projects
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on March 10, 2025](https://github.com/markjprice/cs13net9/issues/39).
+
+In the **Good Practice** box, I wrote, "A major benefit of Minimal APIs over a controller-based Web API is that each Minimal API endpoint only needs to instantiate the dependency injection (DI) services that it needs. With controllers, to execute any action method within that controller, all DI services used in any of the action methods must be instantiated for every call. This is a waste of time and resources!"
+
+This is only true if the controller follows the common pattern of getting dependency services in the constructor of the class and storing them in private fields, as shown in the following code:
+```cs
+// Base address: api/customers
+[Route("api/[controller]")]
+[ApiController]
+public class CustomersController : ControllerBase
+{
+  private readonly ICustomerRepository _repo;
+  private readonly ILogger<CustomersController> _logger;
+
+  // Constructor injects repository registered in Program.cs.
+  public CustomersController(ICustomerRepository repo,
+    ILogger<CustomersController> logger)
+  {
+    _repo = repo;
+    _logger = logger;
+  }
+
+  // GET: api/customers
+  // GET: api/customers/?country=[country]
+  // this will always return a list of customers (but it might be empty)
+  [HttpGet]
+  [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
+  public async Task<IEnumerable<Customer>> GetCustomers(string? country)
+  {
+    if (string.IsNullOrWhiteSpace(country))
+    {
+      _logger.LogInformation("GetCustomers called for all countries.");
+      return await _repo.RetrieveAllAsync();
+    }
+    else
+    {
+      _logger.LogInformation("GetCustomers called with country={country}", country);
+      return (await _repo.RetrieveAllAsync())
+        .Where(customer => customer.Country == country);
+    }
+  }
+  ...
+}
+```
+
+A better practice is to use method injection, as shown in the following code:
+```cs
+// Base address: api/customers
+[Route("api/[controller]")]
+[ApiController]
+public class CustomersController : ControllerBase
+{
+  // GET: api/customers
+  // GET: api/customers/?country=[country]
+  // this will always return a list of customers (but it might be empty)
+  [HttpGet]
+  [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
+  public async Task<IEnumerable<Customer>> GetCustomers(string? country,
+    ICustomerRepository _repo,
+    ILogger<CustomersController> _logger)
+  {
+    if (string.IsNullOrWhiteSpace(country))
+    {
+      _logger.LogInformation("GetCustomers called for all countries.");
+      return await _repo.RetrieveAllAsync();
+    }
+    else
+    {
+      _logger.LogInformation("GetCustomers called with country={country}", country);
+      return (await _repo.RetrieveAllAsync())
+        .Where(customer => customer.Country == country);
+    }
+  }
+  ...
+}
+```
+
+> **Note**: You can decorate the parameters with `[FromServices]` to explicitly indicate where those parameters will be set from, as shown in the following code: `[FromServices] ICustomerRepository _repo`, but this is optional.
+
+In the next edition, I will add the preceding information.
 
 # Page 750 - Creating data repositories with caching for entities
 
