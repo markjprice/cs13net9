@@ -1,4 +1,4 @@
-**Errata** (35 items)
+**Errata** (36 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -31,6 +31,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
+- [Page 748 - Distributed caching](#page-748---distributed-caching)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
@@ -368,6 +369,22 @@ public class CustomersController : ControllerBase
 > **Note**: You can decorate the parameters with `[FromServices]` to explicitly indicate where those parameters will be set from, as shown in the following code: `[FromServices] ICustomerRepository _repo`, but this is optional.
 
 In the next edition, I will change the **Good Practice** box text to explain that the inefficiency can be avoided but that it is a common pattern because the project template uses it to define a logger and many developers follow that convention for their own dependency services. I will also show more detailed code for using both the constructor and methods to set dependency services in my *Real-World Web Development with .NET 10* book which teaches controller-based ASP.NET Core Web API projects. 
+
+# Page 748 - Distributed caching
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on March 10, 2025](https://github.com/markjprice/cs13net9/issues/40).
+
+After the four bullets, I wrote, "To implement in-memory caching, add it to the services collection in `Program.cs`, as shown in the
+following code:"
+```cs
+services.AddStackExchangeRedisCache(options =>
+  options.Configuration = "localhost:6379";
+  options.InstanceName = "SampleInstance";
+});
+```
+
+Instead of "in-memory", I should have written, "To implement distributed caching, add a distributed caching implementation, like Redis, to the services collection in `Program.cs`, as shown in the
+following code:"
 
 # Page 750 - Creating data repositories with caching for entities
 
