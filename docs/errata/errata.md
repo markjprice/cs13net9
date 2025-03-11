@@ -1,4 +1,4 @@
-**Errata** (37 items)
+**Errata** (38 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -33,6 +33,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
 - [Page 748 - Distributed caching](#page-748---distributed-caching)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
+- [Page 754 - Configuring the customer repository](#page-754---configuring-the-customer-repository)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
 - [Page 757 - Configuring the customer repository](#page-757---configuring-the-customer-repository)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
@@ -406,6 +407,14 @@ builder.Services.AddHybridCache(options =>
 });
 #pragma warning restore EXTEXP0018 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 ```
+
+# Page 754 - Configuring the customer repository
+
+> Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on March 10, 2025](https://github.com/markjprice/cs13net9/issues/42).
+
+In the **Good Practice** box, I wrote, "Our repository uses a database context that is registered as a scoped dependency. You can only use scoped dependencies inside other scoped dependencies, so we cannot register the repository as a singleton."
+
+I should have written, "By default, a database context is registered as a scoped dependency. Our repository uses a database context that is registered as a transient dependency. You can only use scoped or transient dependencies inside other scoped or transient dependencies, so we cannot register the repository as a singleton. In this case, we can register it as a scoped dependency so during a single HTTP request, it can be reused by multiple scoped or transient dependency services."
 
 # Page 756 - Configuring the customer repository
 
