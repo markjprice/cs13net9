@@ -71,33 +71,29 @@
   - [LINQ concepts](#linq-concepts)
   - [LINQ providers](#linq-providers)
   - [LINQ samples and tools](#linq-samples-and-tools)
-- [Chapter 12 - Introducing Web Development Using ASP.NET Core](#chapter-12---introducing-web-development-using-aspnet-core)
+- [Chapter 12 - Introducing Modern Web Development Using .NET](#chapter-12---introducing-modern-web-development-using-net)
   - [.NET apps](#net-apps)
   - [.NET Content Management Systems](#net-content-management-systems)
   - [General web development](#general-web-development)
   - [ASP.NET versions and features](#aspnet-versions-and-features)
-- [Chapter 13 - Building Websites Using ASP.NET Core Razor Pages](#chapter-13---building-websites-using-aspnet-core-razor-pages)
+- [Chapter 13 - Building Websites Using ASP.NET Core](#chapter-13---building-websites-using-aspnet-core)
   - [ASP.NET Core](#aspnet-core)
-  - [Razor Pages and layouts](#razor-pages-and-layouts)
+  - [Razor syntax](#razor-syntax)
   - [Endpoint routing](#endpoint-routing)
-  - [Setting up and configuring MVC](#setting-up-and-configuring-mvc)
-  - [MVC Controllers](#mvc-controllers)
-  - [MVC Models](#mvc-models)
-  - [MVC Views](#mvc-views)
   - [Security and privacy](#security-and-privacy)
   - [Miscellaneous](#miscellaneous-1)
-- [Chapter 14 - Building and Consuming Web Services](#chapter-14---building-and-consuming-web-services)
+- [Chapter 14 - Building Interactive Web Components Using Blazor](#chapter-14---building-interactive-web-components-using-blazor)
+  - [Blazor hosting models](#blazor-hosting-models)
+  - [Blazor components](#blazor-components)
+  - [Advanced techniques](#advanced-techniques)
+  - [Other resources](#other-resources)
+- [Chapter 15 - Building and Consuming Web Services](#chapter-15---building-and-consuming-web-services)
   - [Web service technologies](#web-service-technologies)
   - [Web service routing](#web-service-routing)
   - [Web service clients](#web-service-clients)
   - [Documenting web services](#documenting-web-services)
   - [Securing web services](#securing-web-services)
   - [Health checks and reliable web services](#health-checks-and-reliable-web-services)
-- [Chapter 15 - Building User Interfaces Using Blazor](#chapter-15---building-user-interfaces-using-blazor)
-  - [Blazor hosting models](#blazor-hosting-models)
-  - [Blazor components](#blazor-components)
-  - [Advanced techniques](#advanced-techniques)
-  - [Other resources](#other-resources)
 - [Epilogue](#epilogue)
   - [Next steps on your C# and .NET learning journey](#next-steps-on-your-c-and-net-learning-journey)
   - [Learn from other Packt books](#learn-from-other-packt-books)
@@ -610,7 +606,7 @@ The official announcement links are useful because they describe the most import
 - [101 LINQ Samples](https://learn.microsoft.com/en-us/samples/dotnet/try-samples/101-linq-samples/)
 - [LINQPad](https://www.linqpad.net/)
 
-# Chapter 12 - Introducing Web Development Using ASP.NET Core
+# Chapter 12 - Introducing Modern Web Development Using .NET
 
 ## .NET apps
 - [.NET Architecture Guides](https://dotnet.microsoft.com/en-us/learn/dotnet/architecture-guides)
@@ -646,7 +642,7 @@ The official announcement links are useful because they describe the most import
 - [ASP.NET Core 1.1 announcement](https://devblogs.microsoft.com/aspnet/announcing-asp-net-core-1-1/)
 - [ASP.NET Core 1.0 announcement](https://devblogs.microsoft.com/aspnet/announcing-asp-net-core-1-0/)
 
-# Chapter 13 - Building Websites Using ASP.NET Core Razor Pages
+# Chapter 13 - Building Websites Using ASP.NET Core
 
 ## ASP.NET Core
 - [ASP.NET Core fundamentals](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/)
@@ -657,13 +653,11 @@ The official announcement links are useful because they describe the most import
 - [Free TLS/SSL certificates](https://letsencrypt.org)
 - [Performance Improvements in ASP.NET Core 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-aspnet-core-8/)
 
-## Razor Pages and layouts
+## Razor syntax
 - [Introducing the new Razor editor in Visual Studio 2022](https://devblogs.microsoft.com/visualstudio/introducing-the-new-razor-editor-in-visual-studio-2022/)
-- [Introduction to Razor Pages in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/razor-pages/)
 - [Razor syntax reference for ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor)
 - [Layout in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/layout)
 - [Tag Helpers in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro)
-- [ASP.NET Core Razor Pages with EF Core](https://learn.microsoft.com/en-us/aspnet/core/data/ef-rp/intro)
 - [DbContext Lifetime, Configuration, and Initialization](https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/#dbcontext-in-dependency-injection-for-aspnet-core)
 - [The `<partial>` tag helper](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper)
 - [Visual Studio Code Compact Folders feature](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer)
@@ -673,30 +667,6 @@ The official announcement links are useful because they describe the most import
 - [Automatically visualize your endpoints](https://andrewlock.net/visualizing-asp-net-core-endpoints-using-graphvizonline-and-the-dot-language/)
 - [Configuring the HTTP pipeline with middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware)
 - [DEEP DIVE: HOW IS THE ASP.NET CORE MIDDLEWARE PIPELINE BUILT?](https://www.stevejgordon.co.uk/how-is-the-asp-net-core-middleware-pipeline-built)
-
-## Setting up and configuring MVC
-- [Overview of ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/overview)
-- [Default configuration of web hosts](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host)
-- [Dependency injection for ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
-- [Configuring middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
-- [Announcing YARP 1.0 Release](https://devblogs.microsoft.com/dotnet/announcing-yarp-1-0-release/)
-
-## MVC Controllers
-- [Handle requests with controllers in ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/actions)
-- [Response caching](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/response)
-- [Microsoft.AspNetCore.OutputCaching Namespace](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.outputcaching)
-- [How cache busting using query strings works](https://stackoverflow.com/questions/9692665/cache-busting-via-params)
-
-## MVC Models
-- [Model Binding in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding)
-- [Create your own model binders by implementing the IModelBinder interface](https://learn.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding)
-- [Model validation](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation)
-- [Tutorial: Get started with EF Core in an ASP.NET MVC web app](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro)
-
-## MVC Views
-- [HtmlHelper class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper)
-- [Views in ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview)
-- [Why it is good to put <script> elements at the bottom of the <body>](https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup)
 
 ## Security and privacy
 - [What’s new with identity in .NET 8](https://devblogs.microsoft.com/dotnet/whats-new-with-identity-in-dotnet-8/)
@@ -711,7 +681,33 @@ The official announcement links are useful because they describe the most import
 - [Filters for cross-concern functionality](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
 - [Free stock photos for commercial use with no attribution](https://www.pexels.com/)
 
-# Chapter 14 - Building and Consuming Web Services
+# Chapter 14 - Building Interactive Web Components Using Blazor
+
+## Blazor hosting models
+- [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
+- [Official list of supported Blazor platforms](https://learn.microsoft.com/en-us/aspnet/core/blazor/supported-platforms)
+- [Blazor hosting models](https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models)
+- [What's new for Blazor in .NET 7 | .NET Conf 2022](https://www.youtube.com/watch?v=evW4Gj4sHsk)
+
+## Blazor components
+- [The reason for needing CSS isolation for Blazor components](https://github.com/dotnet/aspnetcore/issues/10170)
+- [OI icons](https://iconify.design/icon-sets/oi/)
+- [ASP.NET Core Blazor forms and input components](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms-and-input-components)
+- [NavigationManager with Blazor routes](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing#uri-and-navigation-state-helpers)
+
+## Advanced techniques
+- [Implementing offline support for Blazor WebAssembly projects](https://learn.microsoft.com/en-us/aspnet/core/blazor/progressive-web-app#offline-support)
+- [Lazy loading assemblies](https://learn.microsoft.com/en-us/aspnet/core/blazor/webassembly-lazy-load-assemblies)
+- [Routing in Blazor Apps: Comparing the routing of popular web frameworks like React and Angular with Blazor](https://devblogs.microsoft.com/premier-developer/routing-in-blazor-apps/)
+
+## Other resources
+- [Awesome Blazor: A collection of awesome Blazor resources](https://github.com/AdrienTorris/awesome-blazor/blob/master/README.md)
+- [Blazor University: Learn the new .NET SPA framework from Microsoft](https://blazor-university.com)
+- [Blazor - app building workshop: In this workshop, we will build a complete Blazor app and learn about the various Blazor framework features along the way](https://github.com/dotnet-presentations/blazor-workshop/blob/main/README.md)
+- [Carl Franklin's Blazor Train](https://www.youtube.com/playlist?list=PL8h4jt35t1wjvwFnvcB2LlYL4jLRzRmoz)
+- [Welcome to PACMAN written in C# and running on Blazor WebAssembly](https://github.com/SteveDunn/PacManBlazor/blob/master/readme.md)
+
+# Chapter 15 - Building and Consuming Web Services
 
 ## Web service technologies
 - [Media types](http://en.wikipedia.org/wiki/Media_type)
@@ -758,32 +754,7 @@ The official announcement links are useful because they describe the most import
 - [Redis](https://redis.io)
 - [Resilience and chaos engineering](https://devblogs.microsoft.com/dotnet/resilience-and-chaos-engineering/)
 - [Dev Tunnels: A Game Changer for Mobile Developers](https://devblogs.microsoft.com/dotnet/dev-tunnels-a-game-changer-for-mobile-developers/)
-
-# Chapter 15 - Building User Interfaces Using Blazor
-
-## Blazor hosting models
-- [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
-- [Official list of supported Blazor platforms](https://learn.microsoft.com/en-us/aspnet/core/blazor/supported-platforms)
-- [Blazor hosting models](https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models)
-- [What's new for Blazor in .NET 7 | .NET Conf 2022](https://www.youtube.com/watch?v=evW4Gj4sHsk)
-
-## Blazor components
-- [The reason for needing CSS isolation for Blazor components](https://github.com/dotnet/aspnetcore/issues/10170)
-- [OI icons](https://iconify.design/icon-sets/oi/)
-- [ASP.NET Core Blazor forms and input components](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms-and-input-components)
-- [NavigationManager with Blazor routes](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing#uri-and-navigation-state-helpers)
-
-## Advanced techniques
-- [Implementing offline support for Blazor WebAssembly projects](https://learn.microsoft.com/en-us/aspnet/core/blazor/progressive-web-app#offline-support)
-- [Lazy loading assemblies](https://learn.microsoft.com/en-us/aspnet/core/blazor/webassembly-lazy-load-assemblies)
-- [Routing in Blazor Apps: Comparing the routing of popular web frameworks like React and Angular with Blazor](https://devblogs.microsoft.com/premier-developer/routing-in-blazor-apps/)
-
-## Other resources
-- [Awesome Blazor: A collection of awesome Blazor resources](https://github.com/AdrienTorris/awesome-blazor/blob/master/README.md)
-- [Blazor University: Learn the new .NET SPA framework from Microsoft](https://blazor-university.com)
-- [Blazor - app building workshop: In this workshop, we will build a complete Blazor app and learn about the various Blazor framework features along the way](https://github.com/dotnet-presentations/blazor-workshop/blob/main/README.md)
-- [Carl Franklin's Blazor Train](https://www.youtube.com/playlist?list=PL8h4jt35t1wjvwFnvcB2LlYL4jLRzRmoz)
-- [Welcome to PACMAN written in C# and running on Blazor WebAssembly](https://github.com/SteveDunn/PacManBlazor/blob/master/readme.md)
+- [Hello HybridCache! Streamlining Cache Management for ASP.NET Core Applications](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)
 
 # Epilogue
 
