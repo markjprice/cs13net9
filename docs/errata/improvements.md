@@ -1,4 +1,4 @@
-**Improvements** (28 items)
+**Improvements** (29 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -21,6 +21,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 485 - Managing files](#page-485---managing-files)
 - [Page 488 - Controlling how you work with files](#page-488---controlling-how-you-work-with-files)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
+- [Page 533 - Creating the Northwind sample database for SQLite](#page-533---creating-the-northwind-sample-database-for-sqlite)
 - [Page 540 - Using EF Core conventions to define the model](#page-540---using-ef-core-conventions-to-define-the-model)
 - [Page 620 - History of ASP.NET Core](#page-620---history-of-aspnet-core)
 - [Page 628 - Structuring projects](#page-628---structuring-projects)
@@ -339,6 +340,31 @@ In the 10th edition, I will improve the grammar of the sentence:
 This chapter introduces EF Core and how to use it to query and manipulate data in a relational database like SQLite or SQL Server. All code examples are shown in a console app and use synchronous code. This is best for learning EF Core because it keeps the code as simple as possible and focussed on the topic covered, but once a reader needs to implement EF Core in a server-side project like an ASP.NET Core Web API project, it is important to use asynchronous code. 
 
 In the next edition, I will add a new section at the end to highlight how to use tasks and the asynchronous methods to avoid thread exhaustion.
+
+# Page 533 - Creating the Northwind sample database for SQLite
+
+> Thanks to **kingace9371** in the Discord channel for asking about this which prompted this improvement.
+
+In Step 4, I wrote, "Enter the command to execute the SQL script using SQLite to create the `Northwind.db` database, as shown here:"
+```
+sqlite3 Northwind.db -init Northwind4SQLite.sql
+```
+
+In Step 5, I show the successful output, "Be patient because this command might take a while to create the database structure. Eventually,
+you will see the SQLite command prompt, as shown in the following output:"
+```
+-- Loading resources from Northwind4SQLite.sql
+SQLite version 3.42.0 2023-05-16 12:36:15
+Enter ".help" for usage hints.
+sqlite>
+```
+
+Some readers either do not have the SQL script in the current directory, or enter the wrong filename, or otherwise use the wrong path, and get the following error message:
+```
+cannot open: "Northwind4SQLite.sql"
+```
+
+In the next edition, as well as showing the expected correct output, I will show the preceding error message so that reader's know that they need to fix the path to the SQL script.
 
 # Page 540 - Using EF Core conventions to define the model
 
