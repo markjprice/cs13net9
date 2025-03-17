@@ -428,8 +428,7 @@ services.AddStackExchangeRedisCache(options =>
 });
 ```
 
-Instead of "in-memory", I should have written, "To implement distributed caching, add a distributed caching implementation, like Redis, to the services collection in `Program.cs`, as shown in the
-following code:"
+Instead of "in-memory", I should have written "distributed". In the next edition, I will change the sentence to be, "To implement distributed caching, add a distributed caching implementation, like Redis, to the services collection in `Program.cs`, as shown in the following code:"
 
 # Page 750 - Creating data repositories with caching for entities
 
@@ -437,7 +436,7 @@ following code:"
 
 In Step 3, I wrote, "In `Program.cs`, before the call to `Build`, in the section for configuring services, register the hybrid cache service..."
 
-Unfortunately, even after the release of .NET 9 on November 12, 2024, the `Microsoft.Extensions.Caching.Hybrid` package is still in preview, and the `AddHybridCache` method call causes a compiler warning. Until the package is released as GA, you will need to surround the call with a temporary warning suppression, as shown in the following code:
+Unfortunately, even after the release of .NET 9 on November 12, 2024, the `Microsoft.Extensions.Caching.Hybrid` package was still in preview, and the `AddHybridCache` method call caused a compiler warning. Until the package was [released as GA on March 11, 2025](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Hybrid/9.3.0), you had to surround the call with a temporary warning suppression, as shown in the following code:
 ```cs
 #pragma warning disable EXTEXP0018 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 builder.Services.AddHybridCache(options =>
@@ -450,6 +449,8 @@ builder.Services.AddHybridCache(options =>
 });
 #pragma warning restore EXTEXP0018 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 ```
+
+If you reference package version '9.3.0' or later then you do no longer need these `#pragma` statements in `Program.cs`.
 
 # Page 754 - Configuring the customer repository
 
