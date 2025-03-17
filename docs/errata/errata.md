@@ -1,4 +1,4 @@
-**Errata** (38 items)
+**Errata** (39 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -26,6 +26,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
 - [Page 532 - Setting up SQLite CLI tools for Windows](#page-532---setting-up-sqlite-cli-tools-for-windows)
 - [Page 538 - Defining the Northwind database context class](#page-538---defining-the-northwind-database-context-class)
+- [Page 563 - Getting the generated SQL](#page-563---getting-the-generated-sql)
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
@@ -260,6 +261,48 @@ In Step 3, I wrote `sqlite-tools-win32-x86-3460100.zip` when I should have writt
 > Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 28, 2025](https://github.com/markjprice/cs13net9/issues/37).
 
 In the first sentence of this section, I wrote "A class named `Northwind`" when I should have written "A class named `NorthwindDb`".
+
+# Page 563 - Getting the generated SQL
+
+> Thanks to **Mike_H**/`mike_h_16837` in the Discord channel for this book for raising this issue on March 16, 2025.
+
+In Step 1, I wrote, "In the `QueryingProducts` method, before using the `foreach` statement to enumerate the query,
+add a statement to output the generated SQL, as shown in the following code:"
+```cs
+// Calling ToQueryString does not execute against the database.
+// LINQ to Entities just converts the LINQ query to an SQL statement.
+Info($"ToQueryString: {products.ToQueryString()}");
+```
+
+In Step 2, I wrote, "Run the code, enter a minimum value for units in stock, like `95`, and view the result, as shown
+in the following partial output:"
+```
+Enter a minimum for units in stock: 95
+Connection: Data Source=C:\cs13net9\Chapter10\WorkingWithEFCore\bin\
+Debug\net9.0\Northwind.db
+Info > ToQueryString: .param set @__stock_0 95
+SELECT "c"."CategoryId", "c"."CategoryName", "c"."Description",
+"t"."ProductId", "t"."CategoryId", "t"."UnitPrice", "t"."Discontinued",
+"t"."ProductName", "t"."UnitsInStock"
+FROM "Categories" AS "c"
+LEFT JOIN (
+SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice",
+"p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+FROM "Products" AS "p"
+WHERE "p"."UnitsInStock" >= @__stock_0
+) AS "t" ON "c"."CategoryId" = "t"."CategoryId"
+ORDER BY "c"."CategoryId"
+Beverages has 2 products with a minimum of 95 units in stock.
+Sasquatch Ale has 111 units in stock.
+Rhönbräu Klosterbier has 125 units in stock.
+...
+```
+
+But I mixed up two methods. The output is from adding a statement to call the `ToQueryString` method in the `FilteredIncludes` method. The code solution adds the call to two methods:
+`FilteredIncludes`: https://github.com/markjprice/cs13net9/blob/main/code/Chapter10/WorkingWithEFCore/Program.Queries.cs#L90
+`QueryingProducts`: https://github.com/markjprice/cs13net9/blob/main/code/Chapter10/WorkingWithEFCore/Program.Queries.cs#L129
+
+In the next edition, I will tell the reader to add the call the `ToQueryString` method in both the `FilteredIncludes` method and the `QueryingProducts` method, and show the results of running both.
 
 # Page 570 - Getting a single entity
 
