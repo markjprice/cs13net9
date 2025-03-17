@@ -299,8 +299,8 @@ Rhönbräu Klosterbier has 125 units in stock.
 ```
 
 But I mixed up two methods. The output is from adding a statement to call the `ToQueryString` method in the `FilteredIncludes` method. The code solution adds the call to two methods:
-`FilteredIncludes`: https://github.com/markjprice/cs13net9/blob/main/code/Chapter10/WorkingWithEFCore/Program.Queries.cs#L90
-`QueryingProducts`: https://github.com/markjprice/cs13net9/blob/main/code/Chapter10/WorkingWithEFCore/Program.Queries.cs#L129
+- `FilteredIncludes`: https://github.com/markjprice/cs13net9/blob/main/code/Chapter10/WorkingWithEFCore/Program.Queries.cs#L90
+- `QueryingProducts`: https://github.com/markjprice/cs13net9/blob/main/code/Chapter10/WorkingWithEFCore/Program.Queries.cs#L129
 
 In the next edition, I will tell the reader to add the call the `ToQueryString` method in both the `FilteredIncludes` method and the `QueryingProducts` method, and show the results of running both.
 
