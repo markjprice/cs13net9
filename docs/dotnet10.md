@@ -13,8 +13,8 @@ Microsoft will release previews of .NET 10 regularly starting in February 2025 u
 
 - [Download .NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - February 25, 2025: [.NET 10 Preview 1 #344](https://github.com/dotnet/announcements/issues/344)
-- March 18, 2025: [.NET 10 Preview 2](https://github.com/dotnet/core/blob/main/release-notes/10.0/preview/preview2/README.md)
-- April 8, 2025: .NET 10 Preview 3
+- March 18, 2025: [.NET 10 Preview 2 #350](https://github.com/dotnet/announcements/issues/350)
+- April 15, 2025: .NET 10 Preview 3
 - May 13, 2025: .NET 10 Preview 4
 - June 10, 2025: .NET 10 Preview 5
 - July 8, 2025: .NET 10 Preview 6
