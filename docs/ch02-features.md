@@ -40,6 +40,7 @@ Enabled strong data typing using generics, to improve code performance and reduc
 
 Feature|Chapter|Topic
 ---|---|---
+Partial classes|5|Splitting classes using partial
 Nullable value types|6|Making a value type nullable
 Generics|6|Making types more reusable with generics
 
@@ -52,6 +53,7 @@ Enabled declarative coding with **Language INtegrated Queries (LINQ)** and relat
 Feature|Chapter|Topic
 ---|---|---
 Implicitly typed local variables|2|Inferring the type of a local variable
+Partial methods|5|Partial methods
 LINQ|11|All topics in *Chapter 11, Querying and Manipulating Data Using LINQ*
 
 *Table 2.2: Features of C# 3 covered in this book*
