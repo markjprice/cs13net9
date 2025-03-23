@@ -209,3 +209,5 @@ Partial properties|5|Partial properties
 params collection expression support|5|Passing a variable number of parameters
 
 *Table 2.14: Features of C# 13 mentioned in this book*
+
+> **More Information**, The history of C#: https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history
