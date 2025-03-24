@@ -48,12 +48,12 @@ namespace BestInTownProducts
         /// <summary>
         /// Gets or sets the product category.
         /// </summary>
-        public string Category { get; set; }
+        public ProductCategory Category { get; set; }
 
         /// <summary>
         /// Gets or sets the product price.
         /// </summary>
-        private decimal Price { get; set; }
+        public decimal Price { get; set; }
 
         /// <summary>
         /// Gets or sets the stock quantity of the product.
@@ -69,6 +69,9 @@ namespace BestInTownProducts
         /// Gets or sets the Stock Keeping Unit (SKU) of the product.
         /// </summary>
         public string SKU { get; set; }
+
+        
+        
 
         /// <summary>
         /// Gets or sets the discount percentage for the product.
@@ -246,7 +249,7 @@ namespace BestInTownProducts
                             Id = (int)reader["Id"],
                             Name = reader["Name"].ToString(),
                             Description = reader["Description"].ToString(),
-                            Category = reader["Category"].ToString(),
+                            //Category = reader["Category"].,
                             Price = (decimal)reader["Price"],
                             StockQuantity = (int)reader["StockQuantity"],
                             Manufacturer = reader["Manufacturer"].ToString(),
@@ -358,7 +361,7 @@ namespace BestInTownProducts
                             Id = (int)reader["Id"],
                             Name = reader["Name"].ToString(),
                             Description = reader["Description"].ToString(),
-                            Category = reader["Category"].ToString(),
+                           // Category = reader["Category"].ToString(),
                             Price = (decimal)reader["Price"],
                             StockQuantity = (int)reader["StockQuantity"],
                             Manufacturer = reader["Manufacturer"].ToString(),

@@ -8,7 +8,7 @@ namespace BestInTownProducts
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var nameofNamespace = typeof(Program).Namespace ?? "<null>";
             Console.WriteLine(nameofNamespace);
@@ -19,7 +19,7 @@ namespace BestInTownProducts
                 Id = 1,
                 Name = "Sample Product",
                 Description = "This is a sample product.",
-                Category = "Sample Category"
+                Category = ProductCategory.Electronics
             };
 
             // Calculate the price of the product
