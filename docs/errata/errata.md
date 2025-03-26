@@ -1,4 +1,4 @@
-**Errata** (42 items)
+**Errata** (43 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -34,6 +34,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
+- [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
 - [Page 748 - Distributed caching](#page-748---distributed-caching)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
@@ -368,6 +369,20 @@ In Step 1, I describe the options when creating a new ASP.NET Core project. The 
 > Thanks to [Taylor Fore](https://github.com/trfore) for raising [this issue on January 8, 2025](https://github.com/markjprice/cs13net9/issues/8).
 
 In Step 1, I wrote, `Index.cshtml` when I should have written `Index.razor`.
+
+# Page 692 - Configuring Entity Framework Core as a service
+
+> Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 25, 2025 in the Discord channel for this book.
+
+In Step 9, the `if` statement, as shown in the following code:
+```cs
+@if (Model.Suppliers is not null)
+```
+
+Should be:
+```cs
+@if (Companies is not null)
+```
 
 # Page 737 - ASP.NET Core Minimal APIs projects
 
