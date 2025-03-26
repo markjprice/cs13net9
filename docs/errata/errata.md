@@ -1,4 +1,4 @@
-**Errata** (43 items)
+**Errata** (44 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -35,6 +35,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
+- [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
 - [Page 748 - Distributed caching](#page-748---distributed-caching)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
@@ -383,6 +384,12 @@ Should be:
 ```cs
 @if (Companies is not null)
 ```
+
+# Page 711 - Running the Blazor Web App project template
+
+> Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 26, 2025 in the Discord channel for this book.
+
+In Step 4, "click **Weather**" should be "click **Counter**".
 
 # Page 737 - ASP.NET Core Minimal APIs projects
 
