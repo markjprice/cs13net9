@@ -1,4 +1,4 @@
-**Improvements** (29 items)
+**Improvements** (30 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -41,6 +41,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [When to Decorate a Method with `async`](#when-to-decorate-a-method-with-async)
   - [Examples](#examples)
   - [Key Takeaways](#key-takeaways)
+- [Page 770 - Configuring HTTP clients](#page-770---configuring-http-clients)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
 # Introducing C# and .NET
@@ -743,6 +744,16 @@ public Task<int> ComputeValueAsync() => GetNumberAsync();
 | No exception handling or additional logic | ❌ No |
 
 In general, **only use `await` if necessary** to avoid unnecessary overhead from the async state machine. Otherwise, return the `Task` directly.
+
+# Page 770 - Configuring HTTP clients
+
+> Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 28, 2025 in the Discord channel for this book.
+
+In Step 5, we are working on the newly-created `Northwind.WebApi.WasmClient` project.
+
+In Step 6, we switch to work on the `Northwind.WebApi` project, but it is easy for the reader not to notice that.
+
+In the next edition, I will add a new section between steps 5 and 6. It will have a brief explanation that we now need to modify the Web API service project and configure CORS.
 
 # Appendix - Exercise 3.1 – Test your knowledge
 
