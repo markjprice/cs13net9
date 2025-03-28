@@ -1,4 +1,4 @@
-**Improvements** (30 items)
+**Improvements** (31 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -41,6 +41,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [When to Decorate a Method with `async`](#when-to-decorate-a-method-with-async)
   - [Examples](#examples)
   - [Key Takeaways](#key-takeaways)
+- [Page 758 - Trying out GET requests using a browser](#page-758---trying-out-get-requests-using-a-browser)
 - [Page 770 - Configuring HTTP clients](#page-770---configuring-http-clients)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
@@ -744,6 +745,16 @@ public Task<int> ComputeValueAsync() => GetNumberAsync();
 | No exception handling or additional logic | ❌ No |
 
 In general, **only use `await` if necessary** to avoid unnecessary overhead from the async state machine. Otherwise, return the `Task` directly.
+
+# Page 758 - Trying out GET requests using a browser
+
+> Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 28, 2025 in the Discord channel for this book.
+
+In Step 3, I wrote "Navigate to https://localhost:5151/customers/in/Germany and note the JSON document
+returned, containing only the customers in Germany." There is also a note that says, "If you get an empty array `[]` returned, then make sure you have entered the country
+name using the correct casing, because the database query is case-sensitive. For example, compare the results of `uk` and `UK`."
+
+In the next edition, I will add more text explaining that if you wanted to be able to do case-insensitive queries then the most efficient solution is to enable case-insensitive text comparison for the `Country` column in the `Customers` table. Then you could use `uk` or `france` or `gErmAny` in the queries. If you cannot change the database, then you could force the country search value and country column values to be uppercase or lowercase on both sides.
 
 # Page 770 - Configuring HTTP clients
 
