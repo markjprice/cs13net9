@@ -754,7 +754,7 @@ In Step 3, I wrote "Navigate to https://localhost:5151/customers/in/Germany and 
 returned, containing only the customers in Germany." There is also a note that says, "If you get an empty array `[]` returned, then make sure you have entered the country
 name using the correct casing, because the database query is case-sensitive. For example, compare the results of `uk` and `UK`."
 
-In the next edition, I will add more text explaining that if you wanted to be able to do case-insensitive queries then the most efficient solution is to enable case-insensitive text comparison for the `Country` column in the `Customers` table. Then you could use `uk` or `france` or `gErmAny` in the queries. If you cannot change the database, then you could force the country search value and country column values to be uppercase or lowercase on both sides.
+In the next edition, I will add more text explaining that if you wanted to be able to do case-insensitive queries then the most efficient solution is to enable case-insensitive text comparison for the `Country` column in the `Customers` table. Then you could use `uk` or `france` or `gErmAny` in the queries. If you cannot change the database, then you could force the country search value and country column values to be uppercase or lowercase on both sides. But beware, because "while it may be tempting to use string.ToLower to force a case-insensitive comparison in a case-sensitive database, doing so may prevent your application from using indexes." You can read more about how to handle case-sensitivity in EF Core at the following link: https://learn.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity.
 
 # Page 770 - Configuring HTTP clients
 
