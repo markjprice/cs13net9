@@ -520,6 +520,12 @@ This ensures clear separation of the DTOs and avoids coupling them too tightly t
 
 In this section, the reader must work on three different files, but some readers get confused. In the next edition, I will add a new sub-section for Steps 5 and 6 and call it **Create a logger file in data context project**, and I will add a new sub-section for Steps 7 to 9 and call it **Move and customize the data context**.
 
+In Step 7, I wrote, "Move the `NorthwindContext.cs` file from the `Northwind.EntityModels.Sqlite` project/folder to the `Northwind.DataContext.Sqlite` project/folder."
+
+Some readers copy the file instead of move it and then get errors. 
+
+In the next edition, I will add a second sentence, "You must *move* the file and not *copy* it. If you copy it, you will have two classes with the same name and you will see the compiler warning `CS0436 The type 'NorthwindContext' in 'Northwind.DataContext.Sqlite\NorthwindContext.cs' conflicts with the imported type 'NorthwindContext' in 'Northwind.EntityModels.Sqlite, ...'."
+
 # Page 733 - Building web services using ASP.NET Core
 
 In the next edition, I will add a new section that explains some of the recent history with documenting web services in .NET projects. 
@@ -756,6 +762,8 @@ In general, **only use `await` if necessary** to avoid unnecessary overhead from
 > Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 28, 2025 in the Discord channel for this book.
 
 In Step 3, I wrote "Navigate to https://localhost:5151/customers/in/Germany and note the JSON document returned, containing only the customers in Germany." There is also a note that says, "If you get an empty array `[]` returned, then make sure you have entered the country name using the correct casing, because the database query is case-sensitive. For example, compare the results of `uk` and `UK`."
+
+> **Note**: If you've already entered a country name with the wrong case, then if you try to enter that same country name with the correct case, Chrome will auto-convert it back to the wrong cased entry! This is a well-known annoyance in the web developer community for many years but the Chrome team don't seem minded to fix it. To allow you to enter the country with its correct casing, in Chrome, navigate to **History** (or press *Ctrl*+*H*), find the wrong cased entry, click its **...** menu on the right, and then select **Remove from history**. 
 
 In the next edition, I will add more text explaining that if you wanted to be able to do case-insensitive queries then the most efficient solution is to enable case-insensitive text comparison for the `Country` column in the `Customers` table. Then you could use `uk` or `france` or `gErmAny` in the queries. If you cannot change the database, then you could force the country search value and country column values to be uppercase or lowercase on both sides. But beware, because "while it may be tempting to use string.ToLower to force a case-insensitive comparison in a case-sensitive database, doing so may prevent your application from using indexes." You can read more about how to handle case-sensitivity in EF Core at the following link: https://learn.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity.
 
