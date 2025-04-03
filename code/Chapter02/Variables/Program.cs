@@ -9,6 +9,11 @@ Console.WriteLine($"{name} is {height} metres tall.");
 //int length1 = name.Length; // This gives a compile error!
 int length2 = ((string)name).Length; // Cast name to a string.
 Console.WriteLine($"{name} has {length2} characters.");
+string localName= "Ahmed\nKhan";
+Console.WriteLine($"LocalName is : {localName}");
+Console.WriteLine($"LocalName has {localName.Length} characters.");
+
+
 
 #endregion
 
@@ -70,6 +75,7 @@ Console.WriteLine($"default(DateTime) = {
   default(DateTime)}");
 Console.WriteLine($"default(string) = {
   default(string) ?? "<NULL>"}");
+Console.WriteLine($"default(double)={default(double)}");
 
 int number = 13;
 Console.WriteLine($"number set to: {number}");
