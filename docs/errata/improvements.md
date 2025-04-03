@@ -1,4 +1,4 @@
-**Improvements** (32 items)
+**Improvements** (33 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -7,6 +7,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 20 - Compiling and running code using Visual Studio](#page-20---compiling-and-running-code-using-visual-studio)
 - [Page 21 - Understanding the compiler-generated folders and files](#page-21---understanding-the-compiler-generated-folders-and-files)
 - [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
+- [Page 43 - Searching for answers using Google](#page-43---searching-for-answers-using-google)
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
 - [Page 205 - Navigating with the debugging toolbar](#page-205---navigating-with-the-debugging-toolbar)
@@ -115,6 +116,27 @@ If you try to use the **Go To Definition** feature in VS Code and you get a `Req
 
 ![Clearing the Navigate to Source Link and And Embedded Sources setting](page-38-disable-setting.png)
 *Clearing the **Navigate to Source Link and And Embedded Sources** setting*
+
+# Page 43 - Searching for answers using Google
+
+> Thanks to [s3ba-b](https://github.com/s3ba-b) who raised an [issue on April 3, 2025 in the 8th edition repo](https://github.com/markjprice/cs12dotnet8/issues/97) that prompted this improvement.
+
+In Step 3, I suggested the following search query:
+```
+garbage collection site:stackoverflow.com +C# -Java
+```
+
+Although this gave good results in the past, either Google has changed their algorithm, or StackOverflow has restricted its content (probably against LLMs scrapping their content), so that it only gives two results now.
+
+In the next edition, I will split and simplify the search query. First, an example of adding a term like C#:
+```
+garbage collection site:stackoverflow.com +C#
+```
+
+Second, an example of removing a term like Java:
+```
+garbage collection site:stackoverflow.com -Java
+```
 
 # Page 82 - Verbatim strings
 

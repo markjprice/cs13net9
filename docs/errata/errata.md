@@ -1,4 +1,4 @@
-**Errata** (44 items)
+**Errata** (45 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -31,6 +31,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
 - [Page 644 - Improving the class-to-table mapping](#page-644---improving-the-class-to-table-mapping)
+- [Page 646 - Improving the class-to-table mapping](#page-646---improving-the-class-to-table-mapping)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
@@ -348,6 +349,10 @@ entity.Property(e => e.Discontinued)
 In Step 4, I wrote, "Set Find and Replace to search files in the Current project." But the last project you were actively working on is the `Northwind.DataContext.Sqlite` project, not the `Northwind.EntityModels.Sqlite` project. 
 
 In the next edition, I will add a preceding step to tell the reader to make the `Northwind.EntityModels.Sqlite` project the current project.
+
+# Page 646 - Improving the class-to-table mapping
+
+In Step 9, we can improve the text, as shown in [this errata from *Tools and Skills for .NET 8*](https://github.com/markjprice/tools-skills-net8/blob/main/docs/errata/improvements.md#page-29---creating-a-class-library-for-entity-models-using-sql-server).
 
 # Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions
 
