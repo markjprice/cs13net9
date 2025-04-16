@@ -1,4 +1,4 @@
-**Improvements** (33 items)
+**Improvements** (34 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -36,14 +36,15 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [What are Swagger, OpenAPI, and Swashbuckle?](#what-are-swagger-openapi-and-swashbuckle)
   - [Recent editions of this book and documenting web services](#recent-editions-of-this-book-and-documenting-web-services)
 - [Page 737 - ASP.NET Core Minimal APIs projects, Page 770 - Getting customers as JSON in a Blazor component](#page-737---aspnet-core-minimal-apis-projects-page-770---getting-customers-as-json-in-a-blazor-component)
-- [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
 - [Page 749 - Creating data repositories with caching for entities](#page-749---creating-data-repositories-with-caching-for-entities)
   - [When to Call `await` Inside a Method](#when-to-call-await-inside-a-method)
   - [When to Return a Task Without `await`](#when-to-return-a-task-without-await)
   - [When to Decorate a Method with `async`](#when-to-decorate-a-method-with-async)
   - [Examples](#examples)
   - [Key Takeaways](#key-takeaways)
+- [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
 - [Page 758 - Trying out GET requests using a browser](#page-758---trying-out-get-requests-using-a-browser)
+- [Page 762 - Making other requests using HTTP/REST tools](#page-762---making-other-requests-using-httprest-tools)
 - [Page 770 - Configuring HTTP clients](#page-770---configuring-http-clients)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
@@ -594,78 +595,6 @@ Instead of reusing the entity models in both the client and service, you might d
 
 In the next edition, I will add a new section at the start of the chapter to explain all the above and the design decision to not define separate DTO classes. And I might add a new section after implementing the client using the `Customer` entity model class and define a DTO class to use instead so readers see what they could do if they need a different structure.
 
-# Page 752 - Creating data repositories with caching for entities
-
-In Step 10, I wrote, "Implement the `Create` method, as shown in the following code:"
-```cs
-public async Task<Customer?> CreateAsync(Customer c)
-{
-  c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
-
-  // Add to database using EF Core.
-  EntityEntry<Customer> added =
-    await _db.Customers.AddAsync(c);
-  
-  int affected = await _db.SaveChangesAsync();
-  if (affected == 1)
-  {
-    // If saved to database then store in cache.
-    await _cache.SetAsync(c.CustomerId, c);
-    return c;
-  }
-  return null;
-}
-```
-
-The return value of the EF Core `DbSet<Customer>.AddAsync` method is an `EntityEntry<Customer>`. The code stores this in a local variable named `added` but we do not do anything with it. We could simplify the code by not defining and setting the `added` variable, as shown in the following code:
-```cs
-public async Task<Customer?> CreateAsync(Customer c)
-{
-  c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
-
-  // Add to database using EF Core.
-  await _db.Customers.AddAsync(c);
-  
-  int affected = await _db.SaveChangesAsync();
-  if (affected == 1)
-  {
-    // If saved to database then store in cache.
-    await _cache.SetAsync(c.CustomerId, c);
-    return c;
-  }
-  return null;
-}
-```
-
-A reason you might want the local variable is to discover database-assigned values like an identifier. But the `Customers` table uses a five-character text value for its primary key column that must be supplied by client code before adding to the database so it's not necessary in this scenario.
-
-But instead of the `Customers` table, if we were adding a new entity to the `Shippers` table which has an auto-incrementing integer primary key column (or any other database-assigned value like a GUID or calculated value), then you could use the local `added` variable to read that assigned value, as shown in the following code:
-```cs
-public async Task<Shipper?> CreateAsync(Shipper s)
-{
-  // Add to database using EF Core.
-  EntityEntry<Shipper> added = await _db.Shippers.AddAsync(s);
-
-  int affected = await _db.SaveChangesAsync();
-  if (affected == 1)
-  {
-    // If saved to database then store in cache.
-    await _cache.SetAsync(s.ShipperId, s);
-
-    // You can also read any database-assigned values.
-    int assignedShipperId = added.Entity.ShipperId;
-
-    return s;
-  }
-  return null;
-}
-
-```
-
-In the next edition, I will add some information about this, similar to the preceding explanation. 
-
-> **More Information**: You can learn more at the following link: https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries.
-
 # Page 749 - Creating data repositories with caching for entities
 
 > Thanks to **rene**/`rene510` in the Discord channel for asking two questions about this on February 16, 2025.
@@ -779,6 +708,78 @@ public Task<int> ComputeValueAsync() => GetNumberAsync();
 
 In general, **only use `await` if necessary** to avoid unnecessary overhead from the async state machine. Otherwise, return the `Task` directly.
 
+# Page 752 - Creating data repositories with caching for entities
+
+In Step 10, I wrote, "Implement the `Create` method, as shown in the following code:"
+```cs
+public async Task<Customer?> CreateAsync(Customer c)
+{
+  c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
+
+  // Add to database using EF Core.
+  EntityEntry<Customer> added =
+    await _db.Customers.AddAsync(c);
+  
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    await _cache.SetAsync(c.CustomerId, c);
+    return c;
+  }
+  return null;
+}
+```
+
+The return value of the EF Core `DbSet<Customer>.AddAsync` method is an `EntityEntry<Customer>`. The code stores this in a local variable named `added` but we do not do anything with it. We could simplify the code by not defining and setting the `added` variable, as shown in the following code:
+```cs
+public async Task<Customer?> CreateAsync(Customer c)
+{
+  c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
+
+  // Add to database using EF Core.
+  await _db.Customers.AddAsync(c);
+  
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    await _cache.SetAsync(c.CustomerId, c);
+    return c;
+  }
+  return null;
+}
+```
+
+A reason you might want the local variable is to discover database-assigned values like an identifier. But the `Customers` table uses a five-character text value for its primary key column that must be supplied by client code before adding to the database so it's not necessary in this scenario.
+
+But instead of the `Customers` table, if we were adding a new entity to the `Shippers` table which has an auto-incrementing integer primary key column (or any other database-assigned value like a GUID or calculated value), then you could use the local `added` variable to read that assigned value, as shown in the following code:
+```cs
+public async Task<Shipper?> CreateAsync(Shipper s)
+{
+  // Add to database using EF Core.
+  EntityEntry<Shipper> added = await _db.Shippers.AddAsync(s);
+
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    await _cache.SetAsync(s.ShipperId, s);
+
+    // You can also read any database-assigned values.
+    int assignedShipperId = added.Entity.ShipperId;
+
+    return s;
+  }
+  return null;
+}
+
+```
+
+In the next edition, I will add some information about this, similar to the preceding explanation. 
+
+> **More Information**: You can learn more at the following link: https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries.
+
 # Page 758 - Trying out GET requests using a browser
 
 > Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 28, 2025 in the Discord channel for this book.
@@ -794,6 +795,34 @@ Casing depends on need. For faster searches, you would use case-sensitive which 
 For case-insensitive searches using standard SQL features without losing the speed of indexed searches, you could store the original content in mixed/proper case for display, and also store a normalized version (for example, in all lowercase) in another column for searching/sorting/indexing, and convert the user's search input text into matching lowercase at runtime for comparison. This gives the best of both worlds at the expense of needing more storage space. 
 
 Or for a proper full-text case-insensitive search on larger amounts of more varied text, like a product description, you would implement [full-text search (FTS) capabilities, for example, in SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/search/full-text-search). Each database has its own FTS product.
+
+# Page 762 - Making other requests using HTTP/REST tools
+
+> Thanks to **kingace9371**/`kingace9371` in the Discord channel for asking a question about this on April 15, 2025 that prompted this improvement.
+
+In Steps 1 and 2, I tell the reader to send a request to thr web servoce to insert a new customer, as shown in the following code:
+```
+### Configure a variable for the web service base address.
+@base_address = https://localhost:5151/api/customers/
+
+### Make a POST request to the base address.
+POST {{base_address}}
+Content-Type: application/json
+{
+  "customerID": "ABCXY",
+  "companyName": "ABC Corp",
+  "contactName": "John Smith",
+  "contactTitle": "Sir",
+  "address": "Main Street",
+  "city": "New York",
+  "region": "NY",
+  "postalCode": "90210",
+  "country": "USA",
+  "phone": "(123) 555-1234"
+}
+```
+
+If a reader has already sent this request then they will get an exception on subsequent sent requests: `UNIQUE constraint failed: Customers.CustomerId`. This error means they are trying to insert a new customer with a `CustomerId` value that is already in use by an existing customer. In the next edition I will add a warning about this and tell the reader to change the `ABCXY` to a value that does not already exist in the table. Or delete the existing customer.
 
 # Page 770 - Configuring HTTP clients
 
