@@ -1,4 +1,4 @@
-**Errata** (45 items)
+**Errata** (46 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 175 - Throwing overflow exceptions with the checked statement](#page-175---throwing-overflow-exceptions-with-the-checked-statement)
 - [Page 179 - Test your knowledge of operators](#page-179---test-your-knowledge-of-operators)
 - [Page 208 - Using the Visual Studio Code integrated terminal during debugging](#page-208---using-the-visual-studio-code-integrated-terminal-during-debugging)
+- [Page 252 - Changing an enum base type for performance](#page-252---changing-an-enum-base-type-for-performance)
 - [Page 267 - Controlling how parameters are passed](#page-267---controlling-how-parameters-are-passed)
 - [Page 298 - Defining a primary constructor for a class](#page-298---defining-a-primary-constructor-for-a-class)
 - [Page 383 - Creating a .NET Standard class library](#page-383---creating-a-net-standard-class-library)
@@ -137,6 +138,35 @@ In Step 7, I wrote, "In the `launch.json` file editor, click the **Add Configura
 The name of this option is now called **.NET: Launch Executable file (Console)**, as shown in the following figure:
 
 ![.NET: Launch Executable file (Console)](errata-p196.png)
+
+# Page 252 - Changing an enum base type for performance
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on February 22, 2025](https://github.com/markjprice/cs13net9/issues/29) and [Bart Hofland](https://github.com/Bart76) for encouraging me to look again at [this issue on April 21, 2025](https://github.com/markjprice/cs13net9/issues/29#issuecomment-2818016903).
+
+At the end of this section, I wrote, "Let’s see some real-life examples of when you would need to change an `enum` from deriving from `int` to deriving from another integer type:
+- You want to increase the size of the integer to store more than 16 options in a flag `enum`. The default `int` only allows 16 options: 0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, and 16384. Changing to `uint` would double the number of choices to 32 without using any more space in memory. Changing to `ulong` would give 64 options. Changing to `ushort` would allow the same 16 options in half the bytes."
+
+But as Donald and Bart point out, only the first bit sets the number negative. The other 31 bits can be used for `enum` values. I should have written:
+- You want to increase the size of the integer to store more than 31 options in a flag `enum`. The default `int` only allows 31 options because one bit is needed to indicate a negative number. Changing to `uint` would an extra 32th value without using any more space in memory. The following table summarizes the number of options available for each integer type when used as the base type for a `enum`:
+
+Base Type|Maximum Values
+---|---
+`sbyte`|7
+`byte`|8
+`short`|15
+`ushort`|16
+`int`|31
+`uint`|32
+`long`|63
+`ulong`|64
+
+So if a `uint` would give one extra option, why does C# default to using an `int` as the base type for enums?
+
+C# enums default to `int` as their underlying type primarily because it's the most common and efficient integer type in .NET, not because it's the optimal choice in terms of bit range. It's a trade-off based on performance, interoperability, and historical convention rather than capacity.
+
+`uint` gives one more positive value but signed `int` is the default integer type in C# and .NET. It’s used in for-loops, array indexing, and almost every system API. That means an `enum` based on `int` is easier to work with by default, avoiding implicit cast warnings or needing explicit conversions.
+
+`int` is also CLS-compliant, `uint` is not. The **Common Language Specification (CLS)** defines a set of rules for .NET language interoperability and it doesn’t include `uint`. So if you define an `enum` with `uint`, it can’t be used as-is from some .NET languages like Visual Basic .NET. `int` enums are just safer across the .NET ecosystem.
 
 # Page 267 - Controlling how parameters are passed
 
