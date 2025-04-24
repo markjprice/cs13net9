@@ -1,4 +1,4 @@
-**Errata** (47 items)
+**Errata** (48 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -35,6 +35,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 646 - Improving the class-to-table mapping](#page-646---improving-the-class-to-table-mapping)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
+- [Page 673 - Enabling static and default files](#page-673---enabling-static-and-default-files)
 - [Page 680 - Enabling Blazor static SSR](#page-680---enabling-blazor-static-ssr)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
@@ -400,6 +401,35 @@ In these instances, "Razor Pages" or "Razor Page" should be "Blazor" or "Blazor 
 > Thanks to **rene** in the Discord channel for this book for raising this issue on February 6, 2025.
 
 In Step 1, I describe the options when creating a new ASP.NET Core project. The option that used to be labelled **Enable Docker** is now labelled **Enable container support**. And the new option labelled **Enlist in .NET Aspire orchestration** should be cleared.
+
+# Page 673 - Enabling static and default files
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on April 18, 2025](https://github.com/markjprice/cs13net9/issues/47).
+
+In Step 1, I wrote, "add statements after enabling HTTPS redirection to enable static files and default files" with the following code:
+```cs
+app.UseDefaultFiles(); // index.html, default.html, and so on.
+app.MapStaticAssets(); // .NET 9 or later.
+// app.UseStaticFiles(); // .NET 8 or earlier.
+
+app.MapGet("/env", () =>
+  $"Environment is {app.Environment.EnvironmentName}");
+```
+
+But `MapStaticAssets` method has a dependency on Razor components, so we also need to add them earlier than I currently do on page 682 in Step 12. In the next edition, I will move Step 12 to page 673 before Step 1. Here's the step:
+
+12. In `Program.cs`, after the statement that creates the `builder`, add a statement to add ASP.NET
+Core Blazor components and their related services, and optionally define a `#region`, as shown
+in the following code:
+```cs
+#region Configure the web server host and services.
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRazorComponents();
+
+var app = builder.Build();
+#endregion
+```
 
 # Page 680 - Enabling Blazor static SSR
 
