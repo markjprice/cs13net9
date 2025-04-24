@@ -1,4 +1,4 @@
-**Errata** (46 items)
+**Errata** (47 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -35,6 +35,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 646 - Improving the class-to-table mapping](#page-646---improving-the-class-to-table-mapping)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
+- [Page 680 - Enabling Blazor static SSR](#page-680---enabling-blazor-static-ssr)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
 - [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
@@ -399,6 +400,23 @@ In these instances, "Razor Pages" or "Razor Page" should be "Blazor" or "Blazor 
 > Thanks to **rene** in the Discord channel for this book for raising this issue on February 6, 2025.
 
 In Step 1, I describe the options when creating a new ASP.NET Core project. The option that used to be labelled **Enable Docker** is now labelled **Enable container support**. And the new option labelled **Enlist in .NET Aspire orchestration** should be cleared.
+
+# Page 680 - Enabling Blazor static SSR
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on April 24, 2025](https://github.com/markjprice/cs13net9/issues/49).
+
+In Step 4, I wrote, "In `_Imports.razor`, add statements to import the namespaces for Blazor components routing,
+and for your `Northwind.Web` project and its components, as shown in the following markup:"
+```cs
+@using Microsoft.AspNetCore.Components.Routing
+@using Northwind.Web
+@using Northwind.Web.Components
+```
+
+I missed out a fourth import (needed to use components like `<HeadOutlet />`), as shown in the following markup:
+```cs
+@using Microsoft.AspNetCore.Components.Web
+```
 
 # Page 683 - Adding code to a Blazor static SSR page
 
