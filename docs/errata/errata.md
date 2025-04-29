@@ -1,4 +1,4 @@
-**Errata** (48 items)
+**Errata** (49 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -6,6 +6,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
 - [Page 91 - Comparing double and decimal types](#page-91---comparing-double-and-decimal-types)
 - [Page 106 - Rider and its warnings about boxing](#page-106---rider-and-its-warnings-about-boxing)
+- [Page 111 - Custom number formatting](#page-111---custom-number-formatting)
 - [Page 112 - Custom number formatting](#page-112---custom-number-formatting)
 - [Page 147 - Understanding how foreach works internally](#page-147---understanding-how-foreach-works-internally)
 - [Page 175 - Throwing overflow exceptions with the checked statement](#page-175---throwing-overflow-exceptions-with-the-checked-statement)
@@ -79,6 +80,12 @@ In the **Good Practice** box, the first link has moved to https://www-users.cse.
 > Thanks to [Anass Sabiri](https://github.com/lambdacore12) for raising [this issue on February 20, 2025](https://github.com/markjprice/cs13net9/issues/25).
 
 The link for best practices has moved to this link: https://docs.unity3d.com/Manual/performance-reference-types.html, and you need to scroll down to one of the last sections, titled *Avoid converting value types to reference types*.
+
+# Page 111 - Custom number formatting
+
+> Thanks to [Sacriflces](https://github.com/Sacriflces) for raising [this issue on April 28, 2025](https://github.com/markjprice/cs13net9/issues/50).
+
+In *Table 2.10*, in the second row, the `D` entry says, "Long date pattern. Varies by culture; for example, `en-US` uses `mmmm, MMMM d, yyyy` and `fr-FR` uses `mmmm, dd MMMM yyyy`." The `mmmm`s should be `dddd`s because they represent the full name of the day of the week, not the mpnth name. So it should say, "Long date pattern. Varies by culture; for example, `en-US` uses `dddd, MMMM d, yyyy` and `fr-FR` uses `dddd, dd MMMM yyyy`."
 
 # Page 112 - Custom number formatting
 
