@@ -1,4 +1,4 @@
-**Improvements** (34 items)
+**Improvements** (35 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -32,6 +32,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Comparison of the Three Perspectives](#comparison-of-the-three-perspectives)
   - [Where do DTOs fit?](#where-do-dtos-fit)
 - [Page 637 - Creating a class library for a database context using SQLite](#page-637---creating-a-class-library-for-a-database-context-using-sqlite)
+- [Page 664 - Creating an empty ASP.NET Core project](#page-664---creating-an-empty-aspnet-core-project)
 - [Page 733 - Building web services using ASP.NET Core](#page-733---building-web-services-using-aspnet-core)
   - [What are Swagger, OpenAPI, and Swashbuckle?](#what-are-swagger-openapi-and-swashbuckle)
   - [Recent editions of this book and documenting web services](#recent-editions-of-this-book-and-documenting-web-services)
@@ -548,6 +549,40 @@ In Step 7, I wrote, "Move the `NorthwindContext.cs` file from the `Northwind.Ent
 Some readers copy the file instead of move it and then get errors. 
 
 In the next edition, I will add a second sentence, "You must *move* the file and not *copy* it. If you copy it, you will have two classes with the same name and you will see the compiler warning `CS0436 The type 'NorthwindContext' in 'Northwind.DataContext.Sqlite\NorthwindContext.cs' conflicts with the imported type 'NorthwindContext' in 'Northwind.EntityModels.Sqlite, ...'."
+
+# Page 664 - Creating an empty ASP.NET Core project
+
+> Thanks to **kingace9371**/`kingace9371` in the Discord channel for asking a question about this on April 30, 2025 that prompted this improvement.
+
+First, this section is quite long (5 pages) so I will break it up with some extra headings. 
+
+Second, I will add some explanation of the parts of `Program.cs`:
+
+In ASP.NET Core projects, in the `Program.cs` file, the code can be divided into five steps:
+1. Create a web application builder with default configuration, as shown in the following code:
+    ```cs
+    var builder = WebApplication.CreateBuilder(args);
+    ```
+2. Configure the `builder`. This includes registering dependency services by calling `AddX` methods on the `Services` collection, as shown in the following code: 
+    ```cs
+    builder.Services.AddRazorComponents();
+    // Other service registrations and configuration.
+    ```
+3. At the end of the configuration section, call `Build` to make the web application object named `app` (this will make the `Services` collection read-only so you cannot add any more services), as shown in the following code:
+    ```cs
+    var app = builder.Build();
+    ```
+4. Register request and response handlers in the HTTP pipeline, as shown in the following code:
+    ```cs
+    app.UseHttpsRedirection();
+    // Other handler registrations and route mappings.
+    ```
+5. Run the host, as shown in the following code:
+    ```cs
+    app.Run();
+    ```
+
+On page 720, after Step 11, I will warn about a specific exception: The `InvalidOperationException: The service collection cannot be modified because it is read-only.` exception occurs if you try to register a depedency service *after* you have called `Build`. To fix it, move the service registration *before* you call `Build`.
 
 # Page 733 - Building web services using ASP.NET Core
 
