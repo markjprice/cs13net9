@@ -42,6 +42,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
 - [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
+- [Page 717 - Getting entities into a Blazor component](#page-717---getting-entities-into-a-blazor-component)
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
 - [Page 748 - Distributed caching](#page-748---distributed-caching)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
@@ -489,6 +490,24 @@ Should be:
 > Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 26, 2025 in the Discord channel for this book.
 
 In Step 4, "click **Weather**" should be "click **Counter**".
+
+# Page 717 - Getting entities into a Blazor component
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on May 6, 2025](https://github.com/markjprice/cs13net9/issues/54).
+
+In Step 3, the code shown is only for SQLite. It is different for SQL Server. The code should be as follows:
+```cs
+// If you are using SQLite that uses a database file.
+builder.Services.AddNorthwindContext(
+  relativePath: @"..\..");
+
+// If you are using SQL Server.
+// builder.Services.AddNorthwindContext();
+```
+
+And the note is only for SQLite:
+
+> If you are using SQLite then we need to explicitly set the `relativePath` because the `Northwind.db` file is in the `ModernWeb` folder and the project runs in the `ModernWeb\Northwind.Blazor\Northwind.Blazor` folder that is two levels deeper.
 
 # Page 737 - ASP.NET Core Minimal APIs projects
 
