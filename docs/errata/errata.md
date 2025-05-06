@@ -1,4 +1,4 @@
-**Errata** (49 items)
+**Errata** (50 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -14,6 +14,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 208 - Using the Visual Studio Code integrated terminal during debugging](#page-208---using-the-visual-studio-code-integrated-terminal-during-debugging)
 - [Page 252 - Changing an enum base type for performance](#page-252---changing-an-enum-base-type-for-performance)
 - [Page 267 - Controlling how parameters are passed](#page-267---controlling-how-parameters-are-passed)
+- [Page 274 - Deconstructing other types using tuples](#page-274---deconstructing-other-types-using-tuples)
 - [Page 298 - Defining a primary constructor for a class](#page-298---defining-a-primary-constructor-for-a-class)
 - [Page 383 - Creating a .NET Standard class library](#page-383---creating-a-net-standard-class-library)
 - [Page 392 - Publishing a self-contained app](#page-392---publishing-a-self-contained-app)
@@ -191,6 +192,14 @@ public void PassingParameters(int w, in int x, ref int y, out int z)
 I should have written, "In `Person.cs`, add statements to define a method with four `int` parameters: one parameter without any modifier, and three parameters decorated with the modifiers `in`, `ref`, and `out`, as shown in the following method:"
 
 I will also change the order of the bullet descriptions to match the order of the parameters in the method.
+
+# Page 274 - Deconstructing other types using tuples
+
+> Thanks to [calupca](https://github.com/calupca) for raising [this issue on May 6, 2025](https://github.com/markjprice/cs13net9/issues/53).
+
+In the first paragraph, I wrote, "You can have as many `Deconstruct` methods as you like as long as they have different signatures."
+
+I should have written, "You can have as many `Deconstruct` methods as you like as long as they have different numbers of parameters. It is not enough to have different types with the same number of parameters as you can do with method overloading because `Deconstruct` methods with the same number of parameters can't be distinguished during deconstruction overload resolution."
 
 # Page 298 - Defining a primary constructor for a class
 
