@@ -186,7 +186,7 @@ string[][] jagged = // An array of string arrays.
 }
 ```
 
-In the next edition, I will also show more modern syntax using collection expressions and point the reader to *Chapter 8* where those are discussed.
+In the next edition, I will also show more modern syntax using collection expressions and point the reader to *Chapter 8* [Page 465 - Initializing collections using collection expressions](#page-465---initializing-collections-using-collection-expressions) where those are discussed.
 ```cs
 // C# 12 and later can use collection expressions that use square brackets.
 string[][] jagged = // An array of string arrays.
