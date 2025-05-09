@@ -1,4 +1,4 @@
-**Improvements** (35 items)
+**Improvements** (36 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -10,12 +10,14 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 43 - Searching for answers using Google](#page-43---searching-for-answers-using-google)
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
+- [Page 152 - Working with jagged arrays](#page-152---working-with-jagged-arrays)
 - [Page 205 - Navigating with the debugging toolbar](#page-205---navigating-with-the-debugging-toolbar)
 - [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 246 - Member access modifiers](#page-246---member-access-modifiers)
 - [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
+- [Page 465 - Initializing collections using collection expressions](#page-465---initializing-collections-using-collection-expressions)
 - [Page 467 - Good practice with collections](#page-467---good-practice-with-collections)
 - [Page 469 - Working with spans, indexes, and ranges](#page-469---working-with-spans-indexes-and-ranges)
 - [Page 484 - Managing directories](#page-484---managing-directories)
@@ -169,6 +171,32 @@ In the last bullet I wrote, "bob has a value of `null` and 4 bytes of memory hav
 
 In the next edition, I will change this to say that the size of the reference is typically 4 bytes on a 32-bit system and 8 bytes on a 64-bit system, corresponding to the size of a memory pointer. I cover this in more detail in an online-only section here: https://github.com/markjprice/cs13net9/blob/main/docs/ch06-memory.md.
 
+# Page 152 - Working with jagged arrays
+
+> Thanks to **Quest o()xx[{:::::::::::::::>** / `_guts` in the book's Discord channel for asking a question that prompted this improvement.
+
+In Step 1, I wrote, "add statements to declare and instantiate an array of arrays of `string` values, as shown in the following code:"
+```cs
+// C# 11 and earlier must use curly braces and new[] expressions.
+string[][] jagged = // An array of string arrays.
+{
+  new[] { "Alpha", "Beta", "Gamma" },
+  new[] { "Anne", "Ben", "Charlie", "Doug" },
+  new[] { "Aardvark", "Bear" }
+}
+```
+
+In the next edition, I will also show more modern syntax using collection expressions and point the reader to *Chapter 8* where those are discussed.
+```cs
+// C# 12 and later can use collection expressions that use square brackets.
+string[][] jagged = // An array of string arrays.
+[
+  [ "Alpha", "Beta", "Gamma" ],
+  [ "Anne", "Ben", "Charlie", "Doug" ],
+  [ "Aardvark", "Bear" ]
+]
+```
+
 # Page 205 - Navigating with the debugging toolbar
 
 > Thanks to [Donald Maisey](https://github.com/donaldmaisey) who raised an [issue on February 21, 2025](https://github.com/markjprice/cs13net9/issues/26) that prompted this improvement.
@@ -275,6 +303,12 @@ private const string CommaSeparatorText =
 ```
 
 > **Warning!** The preceding regular expression was provided by a reader so treat it with caution.
+
+# Page 465 - Initializing collections using collection expressions
+
+At the end of this section I wrote, "Collection expressions do not work with all collections. For example, they do not work with dictionaries or multidimensional arrays. The documentation lists the types that a collection expression can be converted to: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/collection-expressions#conversions."
+
+In the next edition, I will expand this to highlight the difference between multidimensional arrays (that are not supported by collection expressions) and jagged arrays that are supported (because a jagged array is an "array of arrays").
 
 # Page 467 - Good practice with collections
 
