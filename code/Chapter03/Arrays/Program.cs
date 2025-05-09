@@ -49,12 +49,23 @@ for (int row = 0; row <= grid1.GetUpperBound(0); row++)
 
 #region Working with jagged arrays
 
+// C# 11 and earlier must use curly braces and new[] expressions.
 string[][] jagged = // An array of string arrays.
 {
   new[] { "Alpha", "Beta", "Gamma" },
   new[] { "Anne", "Ben", "Charlie", "Doug" },
   new[] { "Aardvark", "Bear" }
 };
+
+/*
+// C# 12 and later can use collection expressions that use square brackets.
+string[][] jagged = // An array of string arrays.
+[
+  [ "Alpha", "Beta", "Gamma" ],
+  [ "Anne", "Ben", "Charlie", "Doug" ],
+  [ "Aardvark", "Bear" ]
+]
+*/
 
 WriteLine("Upper bound of the array of arrays is: {0}",
   jagged.GetUpperBound(0));
