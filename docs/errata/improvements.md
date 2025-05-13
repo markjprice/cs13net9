@@ -1,4 +1,4 @@
-**Improvements** (36 items)
+**Improvements** (37 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
 - [Page 152 - Working with jagged arrays](#page-152---working-with-jagged-arrays)
+- [Page 159 - How negative numbers are represented in binary](#page-159---how-negative-numbers-are-represented-in-binary)
 - [Page 205 - Navigating with the debugging toolbar](#page-205---navigating-with-the-debugging-toolbar)
 - [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 246 - Member access modifiers](#page-246---member-access-modifiers)
@@ -196,6 +197,13 @@ string[][] jagged = // An array of string arrays.
   [ "Aardvark", "Bear" ]
 ]
 ```
+
+# Page 159 - How negative numbers are represented in binary
+
+> Thanks to **Quest o()xx[{:::::::::::::::>** / `_guts` in the book's Discord channel for asking a question on May 10, 2025 that prompted this improvement.
+
+In Step 4, the code uses `Console.WriteLine` when only `WriteLine` is necessary. It was already correct in the GitHub repository:
+https://github.com/markjprice/cs13net9/blob/main/code/Chapter03/CastingConverting/Program.cs#L37
 
 # Page 205 - Navigating with the debugging toolbar
 
