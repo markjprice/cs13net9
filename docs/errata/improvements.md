@@ -1,4 +1,4 @@
-**Improvements** (37 items)
+**Improvements** (38 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -10,6 +10,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 43 - Searching for answers using Google](#page-43---searching-for-answers-using-google)
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
+- [Page 137 - Why you should always use braces with if statements](#page-137---why-you-should-always-use-braces-with-if-statements)
 - [Page 152 - Working with jagged arrays](#page-152---working-with-jagged-arrays)
 - [Page 159 - How negative numbers are represented in binary](#page-159---how-negative-numbers-are-represented-in-binary)
 - [Page 205 - Navigating with the debugging toolbar](#page-205---navigating-with-the-debugging-toolbar)
@@ -171,6 +172,18 @@ I will also mention the useful `""` sequence and that it is enabled with both `@
 In the last bullet I wrote, "bob has a value of `null` and 4 bytes of memory have been allocated in stack memory. No heap memory has been allocated for the object."
 
 In the next edition, I will change this to say that the size of the reference is typically 4 bytes on a 32-bit system and 8 bytes on a 64-bit system, corresponding to the size of a memory pointer. I cover this in more detail in an online-only section here: https://github.com/markjprice/cs13net9/blob/main/docs/ch06-memory.md.
+
+# Page 137 - Why you should always use braces with if statements
+
+> Thanks to **Quest o()xx[{:::::::::::::::>** / `_guts` in the book's Discord channel for asking a question on May 14, 2025 that prompted this improvement.
+
+In the next edition, I will add a note to say that a block is zero or more statements enclosed in `{ }`. The C# specification refers to blocks as a **compound statements**. They are what allows multiple statements to be grouped together wherever a single statement is expected.
+
+All C# keywords like `if`, `else`, `while`, and `for` can use either a single statement without braces or one or more statements wrapped in braces known as an **embedded statement**. A block or compound statement is one kind of embedded statement, and a single statement without braces is another kind of embedded statement.
+
+It is clearer to always use braces for embedded statements for all keywords that allow them, note just `if` statements, so that is my recommendation. 
+
+> From the C# Language Specification (v7.3 and later): An *embedded statement* is a statement used as a substatement of a control statement. It can be a block or a single statement.
 
 # Page 152 - Working with jagged arrays
 
