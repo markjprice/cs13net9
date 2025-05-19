@@ -177,13 +177,13 @@ In the next edition, I will change this to say that the size of the reference is
 
 > Thanks to **Quest o()xx[{:::::::::::::::>** / `_guts` in the book's Discord channel for asking a question on May 14, 2025 that prompted this improvement.
 
-In the next edition, I will add a note to say that a block is zero or more statements enclosed in `{ }`. The C# specification refers to blocks as a **compound statements**. They are what allows multiple statements to be grouped together wherever a single statement is expected.
+In the next edition, I will add a note to say that a block is zero or more statements enclosed in `{ }`. The C# specification refers to blocks as a **compound statements**. They are what allow multiple statements to be grouped together wherever a single statement is expected.
 
-All C# keywords like `if`, `else`, `while`, and `for` can use either a single statement without braces or one or more statements wrapped in braces known as an **embedded statement**. A block or compound statement is one kind of embedded statement, and a single statement without braces is another kind of embedded statement.
+All C# keywords (control statements) like `if`, `else`, `while`, and `for` can use either a single statement without braces or one or more statements wrapped in braces known as an **embedded statement**. A block or compound statement is one kind of embedded statement, and a single statement without braces is another kind of embedded statement.
 
-It is clearer to always use braces for embedded statements for all keywords that allow them, note just `if` statements, so that is my recommendation. 
+It is clearer to always use braces for embedded statements for all keywords that allow them, not just `if` statements, so that is my recommendation. 
 
-> From the C# Language Specification (v7.3 and later): An *embedded statement* is a statement used as a substatement of a control statement. It can be a block or a single statement.
+> From the C# Language Specification: An *embedded statement* is a statement used as a substatement of a control statement. It can be a block or a single statement. More about statements: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/statements
 
 # Page 152 - Working with jagged arrays
 
