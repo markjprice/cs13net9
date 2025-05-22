@@ -1,4 +1,4 @@
-**Errata** (50 items)
+**Errata** (51 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -48,6 +48,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
 - [Page 754 - Configuring the customer repository](#page-754---configuring-the-customer-repository)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
+- [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository-1)
 - [Page 757 - Configuring the customer repository](#page-757---configuring-the-customer-repository)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
@@ -636,6 +637,20 @@ If you reference package version '9.3.0' or later then you do no longer need the
 In the **Good Practice** box, I wrote, "Our repository uses a database context that is registered as a scoped dependency. You can only use scoped dependencies inside other scoped dependencies, so we cannot register the repository as a singleton."
 
 I should have written, "By default, a database context is registered as a scoped dependency. Our repository uses a database context that is registered as a transient dependency. This is only necessary if you want to use the database context in a Blazor Server project otherwise we could leave it as a scoped dependency. You can only use scoped or transient dependencies inside other scoped or transient dependencies, so we cannot register the repository as a singleton. In this case, we can register it as a scoped dependency so during a single HTTP request, it can be reused by multiple scoped or transient dependency services."
+
+# Page 756 - Configuring the customer repository
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on May 22, 2025](https://github.com/markjprice/cs13net9/issues/55).
+
+In Step 6, the statement that returns a successful result should use the `Created` method, as shown in the following code:
+```cs
+return TypedResults.Created( // 201 Created.
+  uri: $"/customers/{addedCustomer.CustomerId}",
+  value: addedCustomer);
+```
+
+The code was already correct in the GitHub repository:
+https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.WebApi/Program.Customers.cs#L54
 
 # Page 756 - Configuring the customer repository
 
