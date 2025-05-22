@@ -1,4 +1,4 @@
-**Errata** (51 items)
+**Errata** (52 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -50,6 +50,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository-1)
 - [Page 757 - Configuring the customer repository](#page-757---configuring-the-customer-repository)
+- [Page 763 - Understanding the OpenAPI Specification](#page-763---understanding-the-openapi-specification)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 - [Appendix - Page 3](#appendix---page-3)
@@ -676,6 +677,16 @@ https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.WebApi
 In the paragraph after Step 10, I wrote, "When an HTTP request is received by the service, it will create an instance of the Controller class, call the appropriate action method, return the response in the format preferred by the client, and release the resources used by the controller, including the repository and its data context."
 
 I should have written, "When an HTTP request is received by the service, it will use the mapped routes to call the appropriate endpoint lambda statement handler, get the registered dependency service(s) and use them, and then at the end of the scope, release those resources, including the repository and its data context."
+
+# Page 763 - Understanding the OpenAPI Specification
+
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on May 22, 2025](https://github.com/markjprice/cs13net9/issues/56).
+
+At the end of the previous section, I wrote a paragraph to introduce the *Understanding the OpenAPI Specification* section:
+
+"Now that we’ve seen a quick and easy way to test our service, which also happens to be a great way to learn HTTP, what about external developers? We want it to be as easy as possible for them to learn about and then call our service. For that purpose, we will use Swagger." 
+
+I should have written "OpenAPI" instead of "Swagger".
 
 # Page 780 - Companion books to continue your learning journey
 
