@@ -19,7 +19,7 @@ Who|Errata|Improvements
 Mike_H/`mike_h_16837` via Discord|5|2
 `rene` via Discord|2|4
 `kingace9371` via Discord|1|3
-`Quest o()xx[{:::::::::::::::>`/'_guts` via Discord|0|3
+`Quest o()xx[{:::::::::::::::>`/`_guts` via Discord|0|3
 [s3ba-b](https://github.com/s3ba-b)|0|2
 [Vlad Alexandru Meici](https://github.com/vladmeici)|2|1
 [Justin Treher](https://github.com/jtreher)|2|0
