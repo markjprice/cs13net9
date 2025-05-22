@@ -25,17 +25,6 @@ Mike_H/`mike_h_16837` via Discord|5|2
 [Anass Sabiri](https://github.com/lambdacore12)|2|0
 John Leitch/`johnleitch` via Discord|0|2
 [s3ba-b](https://github.com/s3ba-b)|0|2
-[Jonathan Service](https://github.com/Sacriflces)|1|0
-[calupca](https://github.com/calupca)|1|0
-[Bart Hofland](https://github.com/Bart76)|1|0
-[Nathan Wolfe](https://github.com/scotswolfie)|1|0
-[Moisés Sirvente](https://github.com/es-moises)|1|0
-[Taylor Fore](https://github.com/trfore)|1|0
-[Andrea](https://github.com/Doriasamp)|1|0
-[Jort Rodenburg](https://github.com/jjrodenburg)|1|0
-[Paul Marangoni](https://github.com/pmarangoni)|0|1
-`Jeroen` via Discord|1|0
-`Andriko` via Discord|1|0
-`eddyyxxyy` via Discord|0|1
-`not_a_pigeon1277` via Discord|0|1
 Others via email|2|3
+
+One erratum or improvement item each: [Jonathan Service](https://github.com/Sacriflces), [calupca](https://github.com/calupca), [Bart Hofland](https://github.com/Bart76), [Nathan Wolfe](https://github.com/scotswolfie), [Moisés Sirvente](https://github.com/es-moises), [Taylor Fore](https://github.com/trfore), [Andrea](https://github.com/Doriasamp), [Jort Rodenburg](https://github.com/jjrodenburg), [Paul Marangoni](https://github.com/pmarangoni), `Jeroen` via Discord, `Andriko` via Discord, `eddyyxxyy` via Discord, `not_a_pigeon1277` via Discord
