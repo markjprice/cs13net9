@@ -1,6 +1,6 @@
 **Using Visual Studio Code**
 
-In this article, I provide detailed step-by-step instuctions for using Visual Studio Code for topics like creating a solution with multiple projects and using debugging tools.
+In this article, I provide detailed step-by-step instructions for using Visual Studio Code for topics like creating a solution with multiple projects and using debugging tools.
 
 - [Chapter 1 - Hello, C#! Welcome, .NET!](#chapter-1---hello-c-welcome-net)
   - [Downloading and installing Visual Studio Code](#downloading-and-installing-visual-studio-code)
