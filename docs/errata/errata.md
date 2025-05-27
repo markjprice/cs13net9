@@ -454,7 +454,7 @@ var app = builder.Build();
 
 > Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on April 24, 2025](https://github.com/markjprice/cs13net9/issues/49).
 
-In Step 4, I wrote, "In `_Imports.razor`, add statements to import the namespaces for Blazor components routing,
+In Step 9, I wrote, "In `_Imports.razor`, add statements to import the namespaces for Blazor components routing,
 and for your `Northwind.Web` project and its components, as shown in the following markup:"
 ```cs
 @using Microsoft.AspNetCore.Components.Routing
