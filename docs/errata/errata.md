@@ -629,7 +629,7 @@ builder.Services.AddHybridCache(options =>
 #pragma warning restore EXTEXP0018 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 ```
 
-If you reference package version '9.3.0' or later then you do no longer need these `#pragma` statements in `Program.cs`.
+If you reference package version `9.3.0` or later then you do no longer need these `#pragma` statements in `Program.cs`.
 
 # Page 754 - Configuring the customer repository
 
