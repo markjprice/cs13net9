@@ -387,7 +387,7 @@ In Step 3, the output in two places shows part of the `WHERE` clause as `"p"."Pr
 
 > Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 22, 2025 in the Discord channel for this book.
 
-In Step 3, the following statement should not be there because the `dotnet-ef` reverse-engineering does not add it:
+In Step 5, the following statement should not be there because the `dotnet-ef` reverse-engineering does not add it:
 ```cs
 entity.Property(e => e.Discontinued)
   .HasDefaultValue((short)0);
