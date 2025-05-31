@@ -446,16 +446,20 @@ But when running the website, the `index.html` file never downloads so a blank p
 If you manually request any of the `MapGet` endpoints, they work, e.g. `/env` or `/data`. If you manually request the stylesheet or image, they display correctly.
 
 But `MapStaticAssets` seems to have a bug with compressing HTML files. Some have [speculated in a GitHub issue](https://github.com/dotnet/aspnetcore/issues/58940) that this could be caused by:
-1. `<body>` tag.
-2. Hot Reload injecting some script. 
-3. Visual Studio injecting some script.
+1. Hot Reload. 
+2. Visual Studio Browser Link.
+3. `<body>` tag. (Likely because Browser Link looks for the end of the `</body>` to determine where to inject its script!)
+
+My best guess is that any system attempting to inject some script into the compressed file dynamically will cause problems during compression, so to fix the issue, you would need to disable Visual Studio Browser Link and Hot Reload (and anything else that dynamically modifies the response stream.) Or not use static HTML files. Or switch back to the older non-compressed static file system.
 
 A second issue is related to setting the environment to `Production` instead of `Development`. If the reader leaves the environment set to `Production`, then requests for the stylesheet will fail because the reader is still running the "development" project. To make sure the paths are matched properly, we need to manually tell the static asset system to use the current environment to find the correct files.
 
-I am currently working on the .NET 10 edition of this book, and Chapter 13, and .NET 10 Preview 4 seems to still have this bug with `.html` files. I therefore plan the following changes in my instructions:
+I am currently working on the .NET 10 edition of this book, and Chapter 13, and .NET 10 Preview 4 still has this issue with `.html` files. Based on the issue (other systems modifying the compressed files), I don't think the issue can be fixed.
+
+I therefore plan the following changes in my book instructions:
 
 1. I will tell the reader to create the stylesheet and add the image, but not create the two HTML files.
-2. I will tell the reader to add some statements to the `MapGet` for `/welcome`, as shown in the following code:
+2. I will tell the reader to add some statements to the `MapGet` for `/welcome`, and change the mapped route to just `/` so it becomes the default web page for the website, as shown in the following code:
 ```cs
 app.MapGet("/", () => Results.Content(
   content: $"""
@@ -504,6 +508,8 @@ StaticWebAssetsLoader.UseStaticWebAssets(
 
 var app = builder.Build();
 ```
+
+I will also explain the issue as simily as possible so reader's understand the limitations if they hit the problem themselves!
 
 # Page 680 - Enabling Blazor static SSR
 
