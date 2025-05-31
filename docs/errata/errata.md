@@ -435,19 +435,74 @@ app.MapGet("/env", () =>
   $"Environment is {app.Environment.EnvironmentName}");
 ```
 
-But `MapStaticAssets` method has a dependency on Razor components, so we also need to add them earlier than I currently do on page 682 in Step 12. In the next edition, I will move Step 12 to page 673 before Step 1. Here's the step:
+Preceding this, the reader is asked to create the `wwwroot` folder and create four static files within it:
+1. `index.html`: This will be the default page for the website.
+2. `site.css`: A simple stylesheet that sets `H1` elements to a dark blue color.
+3. `categories.jpeg`: An image of different categories of products.
+4. `about.html`: This webpage references the stylesheet and image.
 
-12. In `Program.cs`, after the statement that creates the `builder`, add a statement to add ASP.NET
-Core Blazor components and their related services, and optionally define a `#region`, as shown
-in the following code:
+But when running the website, the `index.html` file never downloads so a blank page is shown in Chrome. Developer Tools console shows `Failed to load resource: net::ERR_CONTENT_DECODING_FAILED`.
+
+If you manually request any of the `MapGet` endpoints, they work, e.g. `/env` or `/data`. If you manually request the stylesheet or image, they display correctly.
+
+But `MapStaticAssets` seems to have a bug with compressing HTML files. Some have [speculated in a GitHub issue](https://github.com/dotnet/aspnetcore/issues/58940) that this could be caused by:
+1. `<body>` tag.
+2. Hot Reload injecting some script. 
+3. Visual Studio injecting some script.
+
+A second issue is related to setting the environment to `Production` instead of `Development`. If the reader leaves the environment set to `Production`, then requests for the stylesheet will fail because the reader is still running the "development" project. To make sure the paths are matched properly, we need to manually tell the static asset system to use the current environment to find the correct files.
+
+I am currently working on the .NET 10 edition of this book, and Chapter 13, and .NET 10 Preview 4 seems to still have this bug with `.html` files. I therefore plan the following changes in my instructions:
+
+1. I will tell the reader to create the stylesheet and add the image, but not create the two HTML files.
+2. I will tell the reader to add some statements to the `MapGet` for `/welcome`, as shown in the following code:
 ```cs
-#region Configure the web server host and services.
+app.MapGet("/", () => Results.Content(
+  content: $"""
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="site.css" rel="stylesheet" />
+  <title>Welcome to Northwind Web!</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-3">Welcome to Northwind B2B</h1>
+      <p class="lead">We supply products to our customers.</p>
+      <hr />
+      <h2>This is a static HTML page.</h2>
+      <p>Our customers include restaurants, hotels, and cruise lines.</p>
+      <img src="categories.jpeg" height="400" width="600" />
+      <p>
+        <a class="btn btn-primary" href="https://www.asp.net/">
+          Learn more
+        </a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+""",
+  contentType: "text/html"));
+```
+3. I will tell the reader to import the `Microsoft.AspNetCore.Hosting.StaticWebAssets` namespace and then add a statement to manually switch static assets system to the appropriate environment, as shown in the following code:
+```cs
+// To use StaticWebAssetsLoader.
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRazorComponents();
+// Enable switching environments (Development, Production) during development.
+StaticWebAssetsLoader.UseStaticWebAssets(
+  builder.Environment, builder.Configuration);
 
 var app = builder.Build();
-#endregion
 ```
 
 # Page 680 - Enabling Blazor static SSR
