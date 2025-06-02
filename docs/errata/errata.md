@@ -446,7 +446,7 @@ Preceding this, the reader is asked to create the `wwwroot` folder and create fo
 
 ## Issue 1: Browsers failing to decode compressed files due to corruption because other features modify the response stream
 
-But when running the website, the `index.html` file never downloads so a blank page is shown in Chrome. Developer Tools console shows `Failed to load resource: net::ERR_CONTENT_DECODING_FAILED`.
+When running the website, the `index.html` file never downloads so a blank page is shown in Chrome. Developer Tools console shows `Failed to load resource: net::ERR_CONTENT_DECODING_FAILED`.
 
 If you manually request any of the `MapGet` endpoints, they work, e.g. `/env` or `/data`. If you manually request the stylesheet or image, they display correctly.
 
@@ -455,24 +455,24 @@ But `MapStaticAssets` has an issue with working with HTML files. Some have [spec
 2. Visual Studio Browser Link.
 3. `<body>` tag. (Possibly because Browser Link looks for the end of the `</body>` to determine where to inject its script!)
 
-`MapStaticAssets` compresses files during the build process. This is why you must rebuild your project if you add, modify, or remove files from `wwwroot`. If you do not rebuild, the compression process does not happen, and there will be a mismatch between the files in `wwwroot` and what is expected by the previously built project. In the output window, ASP.NET Core will write warnings about which files are mismatched but it will allow your project to run.
+`MapStaticAssets` compresses files during the build process. This is why you must rebuild your project if you add, modify, or remove files from `wwwroot`. If you do not rebuild, the compression process does not happen, and there will be a mismatch between the files in `wwwroot` and what is expected by the previously built project. In the output window, ASP.NET Core will write warnings about which files are mismatched but it will allow your project to run and you will experience unexpected behavior.
 
-My best guess is that any system attempting to dynamically inject some script or other elements into the compressed file at runtime will cause problems during decompression because it has literally "corrupted" the response stream! To fix the issue, you would need to do one of the following:
-1. Disable Visual Studio Browser Link and Hot Reload (and anything else that dynamically modifies the response stream). (I will show you how to do this below.)
-2. Not use static HTML files. You can map an endpoint and return raw HTML instead as I show in the book.
-3. Switch back to the non-compressed static file process by replacing `MapStaticAssets` with `UseStaticFiles`.
+My best guess is that any system attempting to dynamically inject some script or other elements into the compressed file at runtime will cause problems during decompression because it has literally "corrupted" the response stream! To fix the issue, you would need to do one of the following (each has pros and cons so there is no good fix--just choices with trade-offs):
+1. Disable the Visual Studio browser refresh and Hot Reload/Browser Link features (and anything else that dynamically modifies the response stream). I show how to do this in the *Visual Studio features that dynamically inject into HTML files* section below.
+2. Not use static HTML files. You can map an endpoint and return raw HTML instead, as I show in the book and below. But this means your HTML files are not compressed.
+3. Switch back to the non-compressed static file process by replacing `MapStaticAssets` with `UseStaticFiles`. But this means all your static files are not compressed.
 
 ## Issue 2: Simulating a "Production" environment cannot find the correct compressed files
 
 A second issue is related to setting the environment to `Production` instead of `Development`. If the reader leaves the environment set to `Production`, then requests for the stylesheet will fail because the reader is still running the "development" project. To make sure the paths are matched properly, we need to manually tell the static asset system to use the current environment to find the correct files.
 
-I am currently working on the .NET 10 edition of this book, and .NET 10 Preview 4 still has this issue with `.html` files. Based on the issue (other systems modifying the compressed files), I don't think the issue can be fixed, as its not really a bug with the `MapStaticAssets` feature. I'm guessing that the team is trying to find a way to allow both compression of HTML files and dynamic injection into them, but it's a tricky problem to fix reliably. I suspect they will document the issue as I plan to do in the .NET 10 editions of my books.
+I am currently working on the .NET 10 edition of this book, and .NET 10 Preview 4 still has this issue with `.html` files because its not really a "bug" with `MapStaticAssets` itself. Based on the issue (other systems modifying the compressed files), I don't think the issue can be easily fixed. I'm guessing that the team is trying to find a way to allow both compression of HTML files and dynamic injection into them, but it's a tricky problem to fix reliably. I suspect that for .NET 10 all they can do is document the issue and leave it to developers to decide which trade-off to make. So I will do the same in the .NET 10 editions of my books.
 
 I therefore plan the following changes in my book instructions:
 
 1. Create the `about.html`, `site.css`, and `categories.jpeg` files (but not `index.html` since it would immediately fail and confuse the reader).
-2. Show how `UseStaticFiles` works with all file types (but highlight that they is not compressed).
-3. Switch to `MapStaticAssets` and show in **Developer Tools** | **Network** tab how stylesheets and images now use GZ compression.
+2. Show how `UseStaticFiles` works with all those static file types (but highlight that they are not compressed).
+3. Switch to `MapStaticAssets` and show in **Developer Tools** | **Network** tab how stylesheets and images continue to work and now use GZ compression.
 4. Show how HTML files like `about.html` fail with the decoding error so readers will understand what to look for in their own projects to detect this issue.
 5. Add some statements to the `MapGet` for `/welcome`, and change the mapped route to just `/` so it becomes the default web page for the website, as shown in the following code:
 ```cs
@@ -510,9 +510,13 @@ app.MapGet("/", () => Results.Content(
 """,
   contentType: "text/html"));
 ```
-1. Show that the endpoint for the root `/` that returns a web page using code instead of a static file works because the static asset system doesn't know to compress it, and note the dynamically injected `<script>` blocks.
-2. Show how to disable Browser Link and browser refresh and that the `about.html` now works. (But warn that other systems that dynamically inject would need to be disabled too.)
-3. Import the `Microsoft.AspNetCore.Hosting.StaticWebAssets` namespace and then add a statement to manually switch static assets system to the appropriate environment, as shown in the following code:
+6. Show that the endpoint for the root `/` that returns a web page using code instead of a static file works because the static asset system doesn't know to compress it, and note the dynamically injected `<script>` blocks.
+7. Disable Browser Link and browser refresh and show that the `about.html` now works. (But warn that other systems that dynamically inject would need to be disabled too.)
+    - Navigate to **Tools** | **Options**.
+    - In the **Options** dialog box, navigate to **Projects and Solutions** | **ASP.NET Core**.
+    - Set the **Auto build and refresh option** dropdown listbox to **None** and the **CSS Hot Reload** dropdown listbox to **Disabled**, as shown in the following figure:
+![Disabling Visual Studio features that do dynamic script injection](errata-p673.png)
+8. Import the `Microsoft.AspNetCore.Hosting.StaticWebAssets` namespace and then add a statement to manually switch static assets system to the appropriate environment, as shown in the following code:
 ```cs
 // To use StaticWebAssetsLoader.
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
@@ -525,13 +529,6 @@ StaticWebAssetsLoader.UseStaticWebAssets(
 
 var app = builder.Build();
 ```
-
-To disable the two Visual Studio features that dynamically inject `<script>` elements into HTML pages:
-1. Navigate to **Tools** | **Options**.
-2. In the **Options** dialog box, navigate to **Projects and Solutions** | **ASP.NET Core**.
-3. Set the **Auto build and refresh option** dropdown listbox to **None** and the **CSS Hot Reload** dropdown listbox to **Disabled**, as shown in the following figure:
-![Disabling Visual Studio features that do dynamic script injection](errata-p673.png)
-4. Click **OK**.
 
 ## Visual Studio features that dynamically inject into HTML files
 
