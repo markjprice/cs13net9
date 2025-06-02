@@ -38,6 +38,8 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
 - [Page 673 - Enabling static and default files](#page-673---enabling-static-and-default-files)
+  - [Issue 1: Browsers failing to decode compressed files due to corruption because other features modify the response stream](#issue-1-browsers-failing-to-decode-compressed-files-due-to-corruption-because-other-features-modify-the-response-stream)
+  - [Issue 2: Simulating a "Production" environment cannot find the correct compressed files](#issue-2-simulating-a-production-environment-cannot-find-the-correct-compressed-files)
   - [Visual Studio features that dynamically inject into HTML files](#visual-studio-features-that-dynamically-inject-into-html-files)
 - [Page 680 - Enabling Blazor static SSR](#page-680---enabling-blazor-static-ssr)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
@@ -442,6 +444,8 @@ Preceding this, the reader is asked to create the `wwwroot` folder and create fo
 3. `categories.jpeg`: An image of different categories of products.
 4. `about.html`: This webpage references the stylesheet and image.
 
+## Issue 1: Browsers failing to decode compressed files due to corruption because other features modify the response stream
+
 But when running the website, the `index.html` file never downloads so a blank page is shown in Chrome. Developer Tools console shows `Failed to load resource: net::ERR_CONTENT_DECODING_FAILED`.
 
 If you manually request any of the `MapGet` endpoints, they work, e.g. `/env` or `/data`. If you manually request the stylesheet or image, they display correctly.
@@ -451,10 +455,14 @@ But `MapStaticAssets` has an issue with working with HTML files. Some have [spec
 2. Visual Studio Browser Link.
 3. `<body>` tag. (Possibly because Browser Link looks for the end of the `</body>` to determine where to inject its script!)
 
-`MapStaticAssets` compresses files during the build process. My best guess is that any system attempting to dynamically inject some script into the compressed file at runtime will cause problems during decompression because it has literally "corrupted" the response stream! To fix the issue, you would need to do one of the following:
-1. Disable Visual Studio Browser Link and Hot Reload (and anything else that dynamically modifies the response stream). 
-2. Not use static HTML files.
-3. Switch back to the non-compressed static file system by replacing `MapStaticAssets` with `UseStaticFiles`.
+`MapStaticAssets` compresses files during the build process. This is why you must rebuild your project if you add, modify, or remove files from `wwwroot`. If you do not rebuild, the compression process does not happen, and there will be a mismatch between the files in `wwwroot` and what is expected by the previously built project. In the output window, ASP.NET Core will write warnings about which files are mismatched but it will allow your project to run.
+
+My best guess is that any system attempting to dynamically inject some script or other elements into the compressed file at runtime will cause problems during decompression because it has literally "corrupted" the response stream! To fix the issue, you would need to do one of the following:
+1. Disable Visual Studio Browser Link and Hot Reload (and anything else that dynamically modifies the response stream). (I will show you how to do this below.)
+2. Not use static HTML files. You can map an endpoint and return raw HTML instead as I show in the book.
+3. Switch back to the non-compressed static file process by replacing `MapStaticAssets` with `UseStaticFiles`.
+
+## Issue 2: Simulating a "Production" environment cannot find the correct compressed files
 
 A second issue is related to setting the environment to `Production` instead of `Development`. If the reader leaves the environment set to `Production`, then requests for the stylesheet will fail because the reader is still running the "development" project. To make sure the paths are matched properly, we need to manually tell the static asset system to use the current environment to find the correct files.
 
@@ -462,11 +470,11 @@ I am currently working on the .NET 10 edition of this book, and .NET 10 Preview 
 
 I therefore plan the following changes in my book instructions:
 
-1. I will get the reader to create the `about.html`, `site.css`, and `categories.jpeg` files (but not index.html).
-2. I will start by showing the reader how `UseStaticFiles` works with all file types but highlight that they is not compressed.
-3. I will get the reader to switch to `MapStaticAssets` and show in **Developer Tools** | **Network** tab how stylesheets and images now use GZ compression.
-4. I will show how HTML files fail with the decoding error so readers will understand what to look for in their own projects to detect this issue.
-5. I will tell the reader to add some statements to the `MapGet` for `/welcome`, and change the mapped route to just `/` so it becomes the default web page for the website, as shown in the following code:
+1. Create the `about.html`, `site.css`, and `categories.jpeg` files (but not `index.html` since it would immediately fail and confuse the reader).
+2. Show how `UseStaticFiles` works with all file types (but highlight that they is not compressed).
+3. Switch to `MapStaticAssets` and show in **Developer Tools** | **Network** tab how stylesheets and images now use GZ compression.
+4. Show how HTML files like `about.html` fail with the decoding error so readers will understand what to look for in their own projects to detect this issue.
+5. Add some statements to the `MapGet` for `/welcome`, and change the mapped route to just `/` so it becomes the default web page for the website, as shown in the following code:
 ```cs
 app.MapGet("/", () => Results.Content(
   content: $"""
@@ -502,9 +510,9 @@ app.MapGet("/", () => Results.Content(
 """,
   contentType: "text/html"));
 ```
-6. I will show that the endpoint for the root `/` that returns a web page using code instead of a static file works because the static asset system doesn't know to compress it, and note the dynamically injected Browser Link `<script>` blocks.
-7. I will show how to disable Browser Link and browser refresh and that the `about.html` now works. (But warn that other systems that dynamically inject would need to be disabled too.)
-8. I will tell the reader to import the `Microsoft.AspNetCore.Hosting.StaticWebAssets` namespace and then add a statement to manually switch static assets system to the appropriate environment, as shown in the following code:
+1. Show that the endpoint for the root `/` that returns a web page using code instead of a static file works because the static asset system doesn't know to compress it, and note the dynamically injected `<script>` blocks.
+2. Show how to disable Browser Link and browser refresh and that the `about.html` now works. (But warn that other systems that dynamically inject would need to be disabled too.)
+3. Import the `Microsoft.AspNetCore.Hosting.StaticWebAssets` namespace and then add a statement to manually switch static assets system to the appropriate environment, as shown in the following code:
 ```cs
 // To use StaticWebAssetsLoader.
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
