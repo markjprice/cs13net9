@@ -462,6 +462,8 @@ My best guess is that any system attempting to dynamically inject some script or
 2. Not use static HTML files. You can map an endpoint and return raw HTML instead, as I show in the book and below. But this means your HTML files are not compressed.
 3. Switch back to the non-compressed static file process by replacing `MapStaticAssets` with `UseStaticFiles`. But this means all your static files are not compressed.
 
+> **Note**: Since the most common issue is caused by Visual Studio features, if you do not use Visual Studio then you can use `MapStaticAssets` without worrying. And Visual Studio only injects its scripts during development, NOT production. So in production you can use `MapStaticAssets` without worrying at all. But you may have a scenario where some other system dynamically injects into HTML pages in production, and in those scenarios, you will need to consider disabling `MapStaticAssets` for HTML files.
+
 ## Issue 2: Simulating a "Production" environment cannot find the correct compressed files
 
 A second issue is related to setting the environment to `Production` instead of `Development`. If the reader leaves the environment set to `Production`, then requests for the stylesheet will fail because the reader is still running the "development" project. To make sure the paths are matched properly, we need to manually tell the static asset system to use the current environment to find the correct files.
