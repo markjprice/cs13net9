@@ -474,7 +474,7 @@ I therefore plan the following changes in my book instructions:
 2. Show how `UseStaticFiles` works with all those static file types (but highlight that they are not compressed).
 3. Switch to `MapStaticAssets` and show in **Developer Tools** | **Network** tab how stylesheets and images continue to work and now use GZ compression.
 4. Show how HTML files like `about.html` fail with the decoding error so readers will understand what to look for in their own projects to detect this issue.
-5. Add some statements to the `MapGet` for `/welcome`, and change the mapped route to just `/` so it becomes the default web page for the website, as shown in the following code:
+5. Add some statements to the `MapGet` for `/welcome`, and move it to a separate file as an extension method, as shown in the following code:
 ```cs
 app.MapGet("/", () => Results.Content(
   content: $"""
