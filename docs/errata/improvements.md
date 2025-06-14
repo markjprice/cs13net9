@@ -1,4 +1,4 @@
-**Improvements** (38 items)
+**Improvements** (39 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -48,6 +48,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Examples](#examples)
   - [Key Takeaways](#key-takeaways)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
+- [Page 753 - Creating data repositories with caching for entities](#page-753---creating-data-repositories-with-caching-for-entities)
 - [Page 758 - Trying out GET requests using a browser](#page-758---trying-out-get-requests-using-a-browser)
 - [Page 762 - Making other requests using HTTP/REST tools](#page-762---making-other-requests-using-httprest-tools)
 - [Page 770 - Configuring HTTP clients](#page-770---configuring-http-clients)
@@ -869,6 +870,60 @@ public async Task<Shipper?> CreateAsync(Shipper s)
 In the next edition, I will add some information about this, similar to the preceding explanation. 
 
 > **More Information**: You can learn more at the following link: https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries.
+
+# Page 753 - Creating data repositories with caching for entities
+
+> Thanks to [Tim Grotenhuis](https://github.com/tgrotenhuis) who raised this [issue on June 13, 2025](https://github.com/markjprice/cs13net9/issues/58).
+
+In Step 11, we implement a method to update a customer, as shown in the following code:
+```cs
+public async Task<Customer?> UpdateAsync(Customer c)
+{
+  c.CustomerId = c.CustomerId.ToUpper();
+  _db.Customers.Update(c);
+
+  int affected = await _db.SaveChangesAsync();
+
+  if (affected == 1)
+  {
+    await _cache.SetAsync(c.CustomerId, c);
+    return c;
+  }
+  return null;
+}
+```
+
+Later in the *Making other requests using HTTP/REST tools* section on page 761, you are encouraged to try writing a `PUT` request to try out this method, with a solution available online:
+https://github.com/markjprice/cs13net9/tree/main/code/ModernWeb/HttpRequests
+
+Occasionally, you might see an exception:
+```
+System.InvalidOperationException: The instance of entity type 'Customer' cannot be tracked because another instance with the same key value for {'CustomerId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+```
+
+The customer respository should be using a new instance of the data context each time it is called, so it should not be tracking the same customer already. 
+
+There are a couple of fixes for this:
+
+1. Clear all tracked entities before calling `Update` the customer:
+```cs
+_db.ChangeTracker.Clear();
+
+_db.Customers.Update(c);
+```
+2. Manually check for an existing tracked customer, detach if necessary, and set the state of the updated customer (by doing this manually we don't need to call `Update` now):
+```cs
+// Detach the existing tracked entity if it exists.
+Customer? alreadyTracked = _db.Customers.Local
+  .FirstOrDefault(local => local.CustomerId == c.CustomerId);
+if (alreadyTracked is not null)
+{
+  _db.Entry(alreadyTracked).State = EntityState.Detached;
+}
+_db.Entry(c).State = EntityState.Modified;
+
+//_db.Customers.Update(c); // We don't need to do this now.
+```
 
 # Page 758 - Trying out GET requests using a browser
 
