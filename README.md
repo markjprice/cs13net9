@@ -8,9 +8,26 @@ Repository for the Packt Publishing book titled "C# 13 and .NET 9 - Modern Cross
 
 > **What's new in this edition?** You can read a [detailed list of changes](docs/whats-new-in-book.md) between the 8th and 9th editions.
 
-If you have purchased the paperback or Kindle edition, then you can request a free PDF copy at the following link: https://www.packtpub.com/page/companion-ebook.
+- [C# 13 and .NET 9 - Modern Cross-Platform Development Fundamentals, Ninth Edition](#c-13-and-net-9---modern-cross-platform-development-fundamentals-ninth-edition)
+- [Free PDF of the book and how to contact the publisher Packt](#free-pdf-of-the-book-and-how-to-contact-the-publisher-packt)
+- [Author's books](#authors-books)
+- [Chapters and code solutions](#chapters-and-code-solutions)
+- [Code solutions for Visual Studio and Visual Studio Code](#code-solutions-for-visual-studio-and-visual-studio-code)
+- [Important](#important)
+- [Miscellaneous](#miscellaneous)
+  - [Microsoft Certifications](#microsoft-certifications)
+  - [Microsoft .NET community support](#microsoft-net-community-support)
+  - [Interviews with me](#interviews-with-me)
+  - [Book Cover](#book-cover)
+
+
+# Free PDF of the book and how to contact the publisher Packt
+
+If you have purchased the paperback or Kindle edition, then you can request a free PDF copy and its supplementary content (like Appendix - Answers to the Test Your Knowledge Questions and Graphics Bundle PDF) at the following link: https://packt.link/supplementary-content-9781835881224. 
 
 For questions about book pricing, distribution, and so on, please contact the publisher Packt at the following email address: customercare@packt.com
+
+# Author's books
 
 My author page on Amazon: https://www.amazon.com/Mark-J-Price/e/B071DW3QGN/ 
 
@@ -18,7 +35,7 @@ All of my books on Packt's website: https://subscription.packtpub.com/search?que
 
 My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark_J_Price
 
-## Chapters and code solutions
+# Chapters and code solutions
 
 **Introduction**
 - Chapter 1 Hello C#, Welcome .NET! [code/Chapter01](code/Chapter01)
@@ -46,7 +63,7 @@ My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark
 **Appendix and online chapter**
 - [Appendix, Answers to the Test Your Knowledge Questions](docs/B22322_Appendix.pdf).
 
-## Code solutions for Visual Studio and Visual Studio Code
+# Code solutions for Visual Studio and Visual Studio Code
 
 [Figures for all of the code solution folders](docs/ch01-solution-folders.md).
 
@@ -56,14 +73,7 @@ Visual Studio Code now has an extension named **C# Dev Kit** that includes a sol
 
 > **Warning!** If you use both Visual Studio and Visual Studio Code to open these solutions, be aware that the build process can conflict. This is because Visual Studio has its own non-standard build server that is different from the standard build server used by .NET SDK CLI. My recommendation is to only have a solution open in one code editor at any time. You should also clean the solutions between opening in different code editors. For example, after closing the solution in one code editor, I delete the `bin` and `obj` folders before then opening in a different code editor.
 
-## Bonus content
-
-The appendix and color figures are available to download as PDFs:
-
-- [Appendix, Answers to the Test Your Knowledge Questions](docs/B22322_Appendix.pdf).
-- [Color images of the screenshots/diagrams used in this book](docs/9781835881224_ColorImages.pdf).
-
-## Important
+# Important
 
 Corrections for typos and other mistakes and improvements like refactoring code. Useful links to other related material. 
 
@@ -71,6 +81,8 @@ Corrections for typos and other mistakes and improvements like refactoring code.
 - [Book Links](docs/book-links.md)
 - [Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 - [Ninth edition's support for .NET 10](docs/dotnet10.md)
+
+# Miscellaneous
 
 ## Microsoft Certifications
 
@@ -103,5 +115,7 @@ Podcast interviews with me:
 Written interviews with me:
 - [C# 9 and .NET 5: Book Review and Q&A](https://www.infoq.com/articles/book-interview-mark-price/?itm_source=infoq&itm_campaign=user_page&itm_medium=link)
 - [Q&A with Episerver's Mark J. Price, author of C# 9 and .NET 5 - Modern Cross-Platform Development](https://www.episerver.com/articles/q-and-a-with-mark-price)
+
+## Book Cover
 
 ![Book Cover](B22322_Cover.png)
