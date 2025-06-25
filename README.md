@@ -23,7 +23,7 @@ Repository for the Packt Publishing book titled "C# 13 and .NET 9 - Modern Cross
 
 # Free PDF of the book and how to contact the publisher Packt
 
-If you have purchased the paperback or Kindle edition, then you can request a free PDF copy and its supplementary content (like Appendix - Answers to the Test Your Knowledge Questions and Graphics Bundle PDF) at the following link: https://packt.link/supplementary-content-9781835881224. 
+If you have purchased the paperback or Kindle edition, then you can request a free PDF copy and its supplementary content (like Appendix - Answers to the Test Your Knowledge Questions and Graphics Bundle PDF) at the following link: https://packt.link/supplementary-content/9781835881224. If the book-specific link doesn't work, you can always use this general link that works for all Packt books: https://download.packt.com/free-ebook
 
 For questions about book pricing, distribution, and so on, please contact the publisher Packt at the following email address: customercare@packt.com
 
