@@ -1,8 +1,8 @@
 ﻿using System.Reflection; // To use Assembly, TypeName, and so on.
 
 // See https://aka.ms/new-console-template for more information
-// #error version
-// WriteLine($"Computer named {Env.MachineName} says \"No.\"");
+//#error version
+WriteLine($"Computer named {E.MachineName} says \"No.\"");
 
 // Declare some unused variables using types in
 // additional assemblies to make them load too.
@@ -11,6 +11,8 @@ HttpClient client = new();
 
 // Get the assembly that is the entry point for this app.
 Assembly? myApp = Assembly.GetEntryAssembly();
+AssemblyName? myAppInfo = myApp?.GetName();
+Assembly assembly = Assembly.GetExecutingAssembly();
 
 // If the previous line returned nothing then end the app.
 if (myApp is null) return; 
