@@ -1,10 +1,11 @@
-**Errata** (52 items)
+**Errata** (53 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
 - [Page 91 - Comparing double and decimal types](#page-91---comparing-double-and-decimal-types)
+- [Page 97 - Storing dynamic types](#page-97---storing-dynamic-types)
 - [Page 106 - Rider and its warnings about boxing](#page-106---rider-and-its-warnings-about-boxing)
 - [Page 111 - Custom number formatting](#page-111---custom-number-formatting)
 - [Page 112 - Custom number formatting](#page-112---custom-number-formatting)
@@ -81,6 +82,14 @@ This feature is no longer in preview so you do not need to enable it. In the nex
 > Thanks to [Anass Sabiri](https://github.com/lambdacore12) for raising [this issue on February 19, 2025](https://github.com/markjprice/cs13net9/issues/24).
 
 In the **Good Practice** box, the first link has moved to https://www-users.cse.umn.edu/~arnold/disasters/patriot.html.
+
+# Page 97 - Storing dynamic types
+
+> Thanks to [iheartdotnet](https://github.com/iheartdotnet) for raising [this issue on August 2, 2025](https://github.com/markjprice/cs13net9/issues/61).
+
+In the last paragraph of this section, I wrote, "Dynamic types are most useful when interoperating with non-.NET systems. For example, you might need to work with a class library written in F#, Python, or some JavaScript. You might also need to interop with technologies like the Component Object Model (COM), for example, when automating Excel or Word."
+
+I included F# in the list of languages after giving the example of `dynamic` being useful when interoperating with non-.NET systems. This is too restrictive an example when then listing F# because F# is a .NET language. In the next edition, I will change "non-.NET systems" to "other .NET languages and non-.NET systems".
 
 # Page 106 - Rider and its warnings about boxing
 
