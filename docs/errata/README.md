@@ -4,7 +4,7 @@ If you find any mistakes in the ninth edition, *C# 13 and .NET 9 - Modern Cross-
 
 [**Errata** (53 items)](errata.md): Typos, tool user interface and behavior changes, or mistakes in code that would cause a compilation error that prevents a successful build.
 
-[**Improvements** (39 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
+[**Improvements** (40 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
 
 [**Common Mistakes**](https://github.com/markjprice/markjprice/blob/main/articles/common-mistakes.md): These are some of the most common mistakes that a reader might encounter when trying to get code in book tasks to work, or when trying to write your own code. (Links to the `markjprice` shared articles repository.)
 
@@ -25,7 +25,7 @@ Mike_H/`mike_h_16837` via Discord|5|2
 [Anass Sabiri](https://github.com/lambdacore12)|2|0
 John Leitch/`johnleitch` via Discord|0|2
 [s3ba-b](https://github.com/s3ba-b)|0|2
-[iheartdotnet](https://github.com/iheartdotnet)|1|0
+[iheartdotnet](https://github.com/iheartdotnet)|1|1
 Others via email|2|3
 
 One erratum or improvement item each: [Tim Grotenhuis](https://github.com/tgrotenhuis), [Jonathan Service](https://github.com/Sacriflces), [calupca](https://github.com/calupca), [Bart Hofland](https://github.com/Bart76), [Nathan Wolfe](https://github.com/scotswolfie), [Moisés Sirvente](https://github.com/es-moises), [Taylor Fore](https://github.com/trfore), [Andrea](https://github.com/Doriasamp), [Jort Rodenburg](https://github.com/jjrodenburg), [Paul Marangoni](https://github.com/pmarangoni), `Jeroen` via Discord, `Andriko` via Discord, `eddyyxxyy` via Discord, `not_a_pigeon1277` via Discord

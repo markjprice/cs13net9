@@ -1,4 +1,4 @@
-**Improvements** (39 items)
+**Improvements** (40 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -16,6 +16,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 205 - Navigating with the debugging toolbar](#page-205---navigating-with-the-debugging-toolbar)
 - [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 246 - Member access modifiers](#page-246---member-access-modifiers)
+- [Page 253 - Making a field static](#page-253---making-a-field-static)
 - [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
@@ -254,6 +255,20 @@ On page 299, in *Exercise 5.3 - test your knowledge*, question 1. asks, "What ar
 they do?"
 
 In the next edition, I will add more text to all these places to try to make it clearer that there are seven access modifiers (or combinations of access modifiers) that apply to types and members but only six access modifiers (or combinations of access modifiers) that apply only to members. Or perhaps I will change the question to only ask about member access modifiers.
+
+# Page 253 - Making a field static
+
+> Thanks to [iheartdotnet](https://github.com/iheartdotnet) who raised an [issue on August 4, 2025](https://github.com/markjprice/cs13net9/issues/63) that prompted this improvement.
+
+I will add a warning that static fields can cause issues because static fields are global variables in disguise. They encourage tight coupling, break encapsulation, and—most importantly—introduce shared, mutable state. This is dangerous.
+
+When a static field is both shared and writable, it introduces a single point of truth that can be changed from anywhere. This is a classic setup for:
+- Race conditions (if multiple threads access it without proper synchronization).
+- Hard-to-track bugs due to hidden dependencies.
+- Unexpected behavior when the field is modified unexpectedly.
+- Tight coupling that makes unit testing and reasoning about the code difficult.
+
+> **Good Practice**: Use static fields only when you have a strong, justified reason to have a single shared value (e.g., a constant or a thread-safe singleton). Prefer readonly or const for static values that never change. If you must use mutable static fields, ensure thread safety (e.g., with lock, Interlocked, or ConcurrentDictionary). Avoid using static fields as a quick-and-dirty state holder. It’s tempting, but often leads to global state that’s difficult to manage.
 
 # Page 403 - Fixing dependencies
 
