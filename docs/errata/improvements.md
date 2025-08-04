@@ -260,7 +260,7 @@ In the next edition, I will add more text to all these places to try to make it 
 
 > Thanks to [iheartdotnet](https://github.com/iheartdotnet) who raised an [issue on August 4, 2025](https://github.com/markjprice/cs13net9/issues/63) that prompted this improvement.
 
-I will add a warning that static fields can cause issues because static fields are global variables in disguise. They encourage tight coupling, break encapsulation, and—most importantly—introduce shared, mutable state. This is dangerous.
+I will add a warning that static fields can cause issues because static fields are global variables in disguise. They encourage tight coupling, break encapsulation, and introduce shared, mutable state. This is dangerous.
 
 When a static field is both shared and writable, it introduces a single point of truth that can be changed from anywhere. This is a classic setup for:
 - Race conditions (if multiple threads access it without proper synchronization).
@@ -268,7 +268,7 @@ When a static field is both shared and writable, it introduces a single point of
 - Unexpected behavior when the field is modified unexpectedly.
 - Tight coupling that makes unit testing and reasoning about the code difficult.
 
-> **Good Practice**: Use static fields only when you have a strong, justified reason to have a single shared value (e.g., a constant or a thread-safe singleton). Prefer readonly or const for static values that never change. If you must use mutable static fields, ensure thread safety (e.g., with lock, Interlocked, or ConcurrentDictionary). Avoid using static fields as a quick-and-dirty state holder. It’s tempting, but often leads to global state that’s difficult to manage.
+> **Good Practice**: Use `static` fields only when you have a strong, justified reason to have a single shared value. Prefer `readonly` or `const` for values that never change. If you must use mutable `static` fields, ensure thread safety with `lock`, `Interlocked`, or `ConcurrentDictionary`). Avoid using `static` fields as a quick-and-dirty state holder. It’s tempting, but often leads to global state that’s difficult to manage.
 
 # Page 403 - Fixing dependencies
 
