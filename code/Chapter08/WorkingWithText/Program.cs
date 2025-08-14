@@ -97,6 +97,9 @@ WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
   string.Compare(text1, text2,
   StringComparison.InvariantCultureIgnoreCase));
 
+// Reset current culture back to US English so we do not affect the rest of the code in this file.
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
 #endregion
 
 #region Joining, formatting, and other string members
@@ -107,8 +110,6 @@ WriteLine(recombined);
 string fruit = "Apples";
 decimal price = 0.39M;
 DateTime when = DateTime.Today;
-
-//CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 
 WriteLine($"Interpolated:  {fruit} cost {price:C} on {when:dddd}.");
 WriteLine(string.Format("string.Format: {0} cost {1:C} on {2:dddd}.",
