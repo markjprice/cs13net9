@@ -1,4 +1,4 @@
-**Errata** (53 items)
+**Errata** (54 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -22,6 +22,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 392 - Publishing a self-contained app](#page-392---publishing-a-self-contained-app-1)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
 - [Page 400 - Publishing a native AOT project](#page-400---publishing-a-native-aot-project)
+- [Page 430 - Comparing string values](#page-430---comparing-string-values)
 - [Page 435 - Searching in strings](#page-435---searching-in-strings)
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
 - [Page 444 - Improving regular expression performance with source generators](#page-444---improving-regular-expression-performance-with-source-generators)
@@ -272,6 +273,15 @@ I wrote, "A console app that functions correctly during development when the cod
 But I mistakenly repeated "JIT-compiled" when I meant "AOT-compiled". 
 
 I should have written, "A console app that functions correctly during development when the code is untrimmed and JIT-compiled could still fail once you publish it using native AOT because then the code is trimmed and AOT-compiled and, therefore, it is a different code with different behavior."
+
+# Page 430 - Comparing string values
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue in the Discord channel for this book.
+
+In Step 2, before comparing string values, we control the current culture by explicitly setting `CultureInfo.CurrentCulture`. First we set it to `en-US` (US English), then to `de-DE` (German). But at the end of the code, the current culture is left as German. This will affect all code examples after this point in `Program.cs`. It would be better to set the cirrent culture to US English. In the next edition, I will add an extra statement to reset the current culture:
+```cs
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+```
 
 # Page 435 - Searching in strings
 
