@@ -102,7 +102,7 @@ The link for best practices has moved to this link: https://docs.unity3d.com/Man
 
 > Thanks to [Sacriflces](https://github.com/Sacriflces) for raising [this issue on April 28, 2025](https://github.com/markjprice/cs13net9/issues/50).
 
-In *Table 2.10*, in the second row, the `D` entry says, "Long date pattern. Varies by culture; for example, `en-US` uses `mmmm, MMMM d, yyyy` and `fr-FR` uses `mmmm, dd MMMM yyyy`." The `mmmm`s should be `dddd`s because they represent the full name of the day of the week, not the mpnth name. So it should say, "Long date pattern. Varies by culture; for example, `en-US` uses `dddd, MMMM d, yyyy` and `fr-FR` uses `dddd, dd MMMM yyyy`."
+In *Table 2.10*, in the second row, the `D` entry says, "Long date pattern. Varies by culture; for example, `en-US` uses `mmmm, MMMM d, yyyy` and `fr-FR` uses `mmmm, dd MMMM yyyy`." The `mmmm`s should be `dddd`s because they represent the full name of the day of the week, not the month name. So it should say, "Long date pattern. Varies by culture; for example, `en-US` uses `dddd, MMMM d, yyyy` and `fr-FR` uses `dddd, dd MMMM yyyy`."
 
 # Page 112 - Custom number formatting
 
@@ -173,7 +173,7 @@ At the end of this section, I wrote, "Let’s see some real-life examples of whe
 - You want to increase the size of the integer to store more than 16 options in a flag `enum`. The default `int` only allows 16 options: 0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, and 16384. Changing to `uint` would double the number of choices to 32 without using any more space in memory. Changing to `ulong` would give 64 options. Changing to `ushort` would allow the same 16 options in half the bytes."
 
 But as Donald and Bart point out, only the first bit sets the number negative. The other 31 bits can be used for `enum` values. I should have written:
-- You want to increase the size of the integer to store more than 31 options in a flag `enum`. The default `int` only allows 31 options because one bit is needed to indicate a negative number. Changing to `uint` would an extra 32th value without using any more space in memory. The following table summarizes the number of options available for each integer type when used as the base type for a `enum`:
+- You want to increase the size of the integer to store more than 31 options in a flag `enum`. The default `int` only allows 31 options because one bit is needed to indicate a negative number. Changing to `uint` would an extra 32nd value without using any more space in memory. The following table summarizes the number of options available for each integer type when used as the base type for a `enum`:
 
 Base Type|Maximum Values
 ---|---
@@ -403,7 +403,7 @@ In the next edition, I will tell the reader to add the call the `ToQueryString` 
 
 > Thanks to [es-moises](https://github.com/es-moises) for raising [this issue on January 22, 2025](https://github.com/markjprice/cs12dotnet8/issues/84).
 
-In Step 3, the output in two places shows part of the `WHERE` clause as `"p"."ProductId" > @__id_0` but both should be `"p"."ProductId" = @__id_0`.
+In Step 3, the output in two places shows part of the `WHERE` clause as `"p"."ProductId" > @__id_0` but in both places it should be `"p"."ProductId" = @__id_0`.
 
 # Page 640 - Customizing the model and defining an extension method
 
