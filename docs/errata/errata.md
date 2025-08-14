@@ -28,7 +28,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 446 - Storing multiple objects in collections](#page-446---storing-multiple-objects-in-collections)
 - [Page 461 - Read-only, immutable, and frozen collections](#page-461---read-only-immutable-and-frozen-collections)
 - [Page 469 - Returning collections from members](#page-469---returning-collections-from-members)
-- [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
+- [Page 483 - Managing directories, Page 485Managing files](#page-483---managing-directories-page-485managing-files)
 - [Page 532 - Setting up SQLite CLI tools for Windows](#page-532---setting-up-sqlite-cli-tools-for-windows)
 - [Page 538 - Defining the Northwind database context class](#page-538---defining-the-northwind-database-context-class)
 - [Page 563 - Getting the generated SQL](#page-563---getting-the-generated-sql)
@@ -326,7 +326,7 @@ It should be:
 return Array.Empty<Person>();
 ```
 
-# Page 483 - Managing directories, Managing files
+# Page 483 - Managing directories, Page 485 - Managing files
 
 > Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on December 31, 2024](https://github.com/markjprice/cs12dotnet8/issues/80).
 
