@@ -278,7 +278,7 @@ I should have written, "A console app that functions correctly during developmen
 
 > Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue in the Discord channel for this book.
 
-In Step 2, before comparing string values, we control the current culture by explicitly setting `CultureInfo.CurrentCulture`. First we set it to `en-US` (US English), then to `de-DE` (German). But at the end of the code, the current culture is left as German. This will affect all code examples after this point in `Program.cs`. It would be better to set the cirrent culture to US English. In the next edition, I will add an extra statement to reset the current culture:
+In Step 2, before comparing string values, we control the current culture by explicitly setting `CultureInfo.CurrentCulture`. First we set it to `en-US` (US English), then to `de-DE` (German). But at the end of the code, the current culture is left as German. This will affect all code examples after this point in `Program.cs`. It would be better to set the current culture to US English. In the next edition, I will add an extra statement at the end of the code block in Step 2 to reset the current culture:
 ```cs
 CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 ```
