@@ -1,9 +1,10 @@
-**Errata** (54 items)
+**Errata** (55 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
+- [Page 42 - Configuring inline aka inlay hints](#page-42---configuring-inline-aka-inlay-hints)
 - [Page 91 - Comparing double and decimal types](#page-91---comparing-double-and-decimal-types)
 - [Page 97 - Storing dynamic types](#page-97---storing-dynamic-types)
 - [Page 106 - Rider and its warnings about boxing](#page-106---rider-and-its-warnings-about-boxing)
@@ -77,6 +78,14 @@ I wrote, "In the preceding steps, I showed you how to use the dotnet CLI to crea
 ```
 
 This feature is no longer in preview so you do not need to enable it. In the next edition, I will remove the sentence about enabling it and the setting.
+
+# Page 42 - Configuring inline aka inlay hints
+
+> Thanks to [Daniel Grounin](https://github.com/Daniel-Grounin) for raising [this issue on August 15, 2025](https://github.com/markjprice/cs13net9/issues/65).
+
+In *Figure 1.13* and in the bullet steps to enable inlay hinys below, I wrote, "In VS Code, navigate to **File** | **Preferences** | **Settings**, search for `inlay`, select the **C#** filter, and then select the **Display inline parameter name hints** checkbox."
+
+In the next edition, I will also say to enable the other **inlay** checkboxes: **Show hints for literals**, **Show hints for `new` expressions**, and **Show hints for everything else**, and I will include those in *Figure 1.13*.
 
 # Page 91 - Comparing double and decimal types
 
