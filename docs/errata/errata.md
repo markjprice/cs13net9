@@ -1,4 +1,4 @@
-**Errata** (55 items)
+**Errata** (56 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -31,6 +31,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 461 - Read-only, immutable, and frozen collections](#page-461---read-only-immutable-and-frozen-collections)
 - [Page 469 - Returning collections from members](#page-469---returning-collections-from-members)
 - [Page 483, 485 - Managing directories, Managing files](#page-483-485---managing-directories-managing-files)
+- [Page 497 - Writing to XML streams](#page-497---writing-to-xml-streams)
 - [Page 532 - Setting up SQLite CLI tools for Windows](#page-532---setting-up-sqlite-cli-tools-for-windows)
 - [Page 538 - Defining the Northwind database context class](#page-538---defining-the-northwind-database-context-class)
 - [Page 563 - Getting the generated SQL](#page-563---getting-the-generated-sql)
@@ -353,6 +354,35 @@ After prompting the user to press any key to delete the directory or file, the c
 
 This has been fixed in the code solutions here:
 https://github.com/markjprice/cs13net9/commit/d75644ad74bf3ffbd9ff202e0bf6f2ad665ca5ea
+
+# Page 497 - Writing to XML streams
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue in the Discord channel for this book on August 14, 2025.
+
+In Step 4, I show the output:
+```
+**** File Info ****
+The XML writer's unmanaged resources have been disposed.
+The file stream's unmanaged resources have been disposed.
+File: streams.xml
+Path: C:\cs13net9\Chapter09\WorkingWithStreams\bin\Debug\net9.0
+Size: 320 bytes.
+/------------------
+<?xml version="1.0" encoding="utf-8"?>
+```
+
+But the comments should be slightly different in the output:
+```
+*** Writing to XML streams ***
+The XML writer's unmanaged resources have been disposed.
+The file stream's unmanaged resources have been disposed.
+**** File Info ****
+File: streams.xml
+Path: C:\cs13net9\Chapter09\WorkingWithStreams\bin\Debug\net9.0
+Size: 320 bytes.
+/------------------
+<?xml version="1.0" encoding="utf-8"?>
+```
 
 # Page 532 - Setting up SQLite CLI tools for Windows
 
