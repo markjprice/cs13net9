@@ -449,7 +449,13 @@ In Step 3, the output in two places shows part of the `WHERE` clause as `"p"."Pr
 
 > Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on August 24, 2025 in the Discord channel for this book.
 
-In the last code example, I used the `await` keyword without needing to. The correct statement is shown in the following code:
+In the two code examples, I used the `await` keyword without needing to. The correct statements are shown in the following code:
+```cs
+var randomQuestions = db.Questions
+  .OrderBy(q => EF.Functions.Random())
+  .Take(10); // Select 10 random questions.
+```
+And:
 ```cs
 var randomDataSample = db.Products
   .Where(d => EF.Functions.Random() > 0.5);
