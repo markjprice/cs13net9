@@ -1,4 +1,4 @@
-**Errata** (56 items)
+**Errata** (57 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -36,6 +36,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 538 - Defining the Northwind database context class](#page-538---defining-the-northwind-database-context-class)
 - [Page 563 - Getting the generated SQL](#page-563---getting-the-generated-sql)
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
+- [Page 572 - Generating a random number in queries](#page-572---generating-a-random-number-in-queries)
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
 - [Page 644 - Improving the class-to-table mapping](#page-644---improving-the-class-to-table-mapping)
 - [Page 646 - Improving the class-to-table mapping](#page-646---improving-the-class-to-table-mapping)
@@ -443,6 +444,16 @@ In the next edition, I will tell the reader to add the call the `ToQueryString` 
 > Thanks to [es-moises](https://github.com/es-moises) for raising [this issue on January 22, 2025](https://github.com/markjprice/cs12dotnet8/issues/84).
 
 In Step 3, the output in two places shows part of the `WHERE` clause as `"p"."ProductId" > @__id_0` but in both places it should be `"p"."ProductId" = @__id_0`.
+
+# Page 572 - Generating a random number in queries
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on August 24, 2025 in the Discord channel for this book.
+
+In the last code example, I used the `await` keyword without needing to. The correct statement is shown in the following code:
+```cs
+var randomDataSample = db.Products
+  .Where(d => EF.Functions.Random() > 0.5);
+```
 
 # Page 640 - Customizing the model and defining an extension method
 
