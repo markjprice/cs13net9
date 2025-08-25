@@ -44,7 +44,7 @@ using Microsoft.EntityFrameworkCore.Storage; // To use IDbContextTransaction.
 ```cs
 static int DeleteProducts(string productNameStartsWith)
 {
-  using (Northwind db = new())
+  using (NorthwindDb db = new())
   {
     using (IDbContextTransaction t = db.Database.BeginTransaction())
     {
