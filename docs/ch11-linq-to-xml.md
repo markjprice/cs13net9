@@ -68,7 +68,7 @@ You might want to use LINQ to XML to easily query or process XML files:
 </appSettings>
 ```
 
-> **Warning!** If you are using Visual Studio 2022, then the compiled application executes in the `LinqWithEFCore\bin\Debug\net8.0` folder so it will not find the `settings.xml` file unless we indicate that it should always be copied to the output directory. Select the `settings.xml` file and set its **Copy to Output Directory** property to **Copy always**.
+> **Warning!** If you are using Visual Studio 2022, then the compiled application executes in the `LinqWithEFCore\bin\Debug\net9.0` folder so it will not find the `settings.xml` file unless we indicate that it should always be copied to the output directory. Select the `settings.xml` file and set its **Copy to Output Directory** property to **Copy always**.
 
 3.	In `Program.Functions.cs`, add a method to complete these tasks, as shown in the following code:
     - Load the XML file.
