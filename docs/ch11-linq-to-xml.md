@@ -20,7 +20,7 @@ using System.Xml.Linq; // To use XElement, XAttribute.
 
 2.	In `Program.Functions.cs`, add a method to output the products in XML format, as shown in the following code:
 ```cs
-static void OutputProductsAsXml()
+private static void OutputProductsAsXml()
 {
   SectionTitle("Output products as XML");
 
@@ -76,7 +76,7 @@ You might want to use LINQ to XML to easily query or process XML files:
     - Project the XML into an array of an anonymous type with `Key` and `Value` properties.
     - Enumerate through the array to show the results:
 ```cs
-static void ProcessSettings()
+private static void ProcessSettings()
 {
   string path = Path.Combine(
     Environment.CurrentDirectory, "settings.xml");
