@@ -29,6 +29,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
 - [Page 533 - Creating the Northwind sample database for SQLite](#page-533---creating-the-northwind-sample-database-for-sqlite)
 - [Page 540 - Using EF Core conventions to define the model](#page-540---using-ef-core-conventions-to-define-the-model)
+- [Page 615 - Aggregating and paging sequences](#page-615---aggregating-and-paging-sequences)
 - [Page 620 - History of ASP.NET Core](#page-620---history-of-aspnet-core)
 - [Page 628 - Structuring projects](#page-628---structuring-projects)
   - [1. Logical Architectural Layer Diagram](#1-logical-architectural-layer-diagram)
@@ -472,6 +473,24 @@ This section contains a bulleted list with some of the conventions that EF Core 
 
 In the next edition, I will add a note so that the reader understands the preceding point. I will also add more clarification to some bullets. For example:
 - The name of a table is assumed to match the name of a `DbSet<T>` property in the `DbContext` class, for example, `Products`. EF Core can match against singular or plural names.
+
+# Page 615 - Aggregating and paging sequences
+
+> Thanks to **Quest o()xx[{:::::::::::::::>** / `_guts` in the book's Discord channel for asking a question on September 2, 2025 that prompted this improvement.
+
+In this online-only section, the code calls `db.Products.TryGetNonEnumeratedCount(out int countDbSet)` which looks like it needs to populate the `Products` table and therefore trigger the `OnConfiguring` method that outputs logging information about the connection. Most other extension method would. 
+
+But this method does not because `TryGetNonEnumeratedCount` looks for cheap ways to get a count by checking whether the source implements interfaces like `ICollection<T>` or similar internal LINQ types with a direct `Count` property. `DbSet<T>` is an `IQueryable<T>`, not a collection with a `Count` property, so the method returns `false` and does not execute any query and does not cause EF to spin up its infrastructure. Later the code calls `Products.ToList()` which does require accessing the database and therefore triggers the `OnConfiguring` method. 
+
+I show the output without the logging information, but due to the above, the logging information appears after the message, "Products DbSet does not have a Count property."
+
+If you want to force `OnConfiguring` earlier without materializing entities, call something that needs the provider, for example:
+```cs
+// Forces configuration without loading entities
+db.Database.CanConnect();
+```
+
+In the next edition, I will explain this and add this statement immediately after instantiating the context with `new`.
 
 # Page 620 - History of ASP.NET Core
 

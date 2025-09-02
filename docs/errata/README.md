@@ -4,7 +4,7 @@ If you find any mistakes in the ninth edition, *C# 13 and .NET 9 - Modern Cross-
 
 [**Errata** (57 items)](errata.md): Typos, tool user interface and behavior changes, or mistakes in code that would cause a compilation error that prevents a successful build.
 
-[**Improvements** (40 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
+[**Improvements** (41 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
 
 [**Common Mistakes**](https://github.com/markjprice/markjprice/blob/main/articles/common-mistakes.md): These are some of the most common mistakes that a reader might encounter when trying to get code in book tasks to work, or when trying to write your own code. (Links to the `markjprice` shared articles repository.)
 
@@ -17,7 +17,7 @@ Who|Errata|Improvements
 [P9avel](https://github.com/P9avel)|14|6
 [Donald Maisey](https://github.com/donaldmaisey)|12|1
 Mike_H/`mike_h_16837` via Discord|5|2
-`Quest o()xx[{:::::::::::::::>`/`_guts` via Discord|2|4
+`Quest o()xx[{:::::::::::::::>`/`_guts` via Discord|2|5
 `rene` via Discord|2|4
 `kingace9371` via Discord|1|3
 [Vlad Alexandru Meici](https://github.com/vladmeici)|2|1
