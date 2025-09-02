@@ -42,9 +42,9 @@ using Microsoft.EntityFrameworkCore.Storage; // To use IDbContextTransaction.
 
 2.	In the `DeleteProducts` method, after the instantiation of the `db` variable, add statements to start an explicit transaction and output its isolation level. At the bottom of the method, commit the transaction, and close the brace, as shown in the following code:
 ```cs
-static int DeleteProducts(string productNameStartsWith)
+private static int DeleteProducts(string productNameStartsWith)
 {
-  using (Northwind db = new())
+  using (NorthwindDb db = new())
   {
     using (IDbContextTransaction t = db.Database.BeginTransaction())
     {
