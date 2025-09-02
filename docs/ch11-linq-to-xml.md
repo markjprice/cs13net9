@@ -20,7 +20,7 @@ using System.Xml.Linq; // To use XElement, XAttribute.
 
 2.	In `Program.Functions.cs`, add a method to output the products in XML format, as shown in the following code:
 ```cs
-static void OutputProductsAsXml()
+private static void OutputProductsAsXml()
 {
   SectionTitle("Output products as XML");
 
@@ -68,7 +68,7 @@ You might want to use LINQ to XML to easily query or process XML files:
 </appSettings>
 ```
 
-> **Warning!** If you are using Visual Studio 2022, then the compiled application executes in the `LinqWithEFCore\bin\Debug\net8.0` folder so it will not find the `settings.xml` file unless we indicate that it should always be copied to the output directory. Select the `settings.xml` file and set its **Copy to Output Directory** property to **Copy always**.
+> **Warning!** If you are using Visual Studio 2022, then the compiled application executes in the `LinqWithEFCore\bin\Debug\net9.0` folder so it will not find the `settings.xml` file unless we indicate that it should always be copied to the output directory. Select the `settings.xml` file and set its **Copy to Output Directory** property to **Copy always**.
 
 3.	In `Program.Functions.cs`, add a method to complete these tasks, as shown in the following code:
     - Load the XML file.
@@ -76,7 +76,7 @@ You might want to use LINQ to XML to easily query or process XML files:
     - Project the XML into an array of an anonymous type with `Key` and `Value` properties.
     - Enumerate through the array to show the results:
 ```cs
-static void ProcessSettings()
+private static void ProcessSettings()
 {
   string path = Path.Combine(
     Environment.CurrentDirectory, "settings.xml");

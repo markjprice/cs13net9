@@ -146,7 +146,7 @@ Next, we will try using the `Mode` and `Median` methods to calculate other kinds
 
 1.	In `Program.Functions.cs`, add a method to output the mean, median, and mode for the `UnitsInStock` and `UnitPrice` for products, using your custom extension methods and the built-in `Average` extension method, as shown in the following code:
 ```cs
-static void CustomExtensionMethods()
+private static void CustomExtensionMethods()
 {
   SectionTitle("Custom aggregate extension methods");
 
