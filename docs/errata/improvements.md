@@ -1,4 +1,4 @@
-**Improvements** (40 items)
+**Improvements** (42 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 21 - Understanding the compiler-generated folders and files](#page-21---understanding-the-compiler-generated-folders-and-files)
 - [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
 - [Page 43 - Searching for answers using Google](#page-43---searching-for-answers-using-google)
+- [Page 73 - Implicitly and globally importing namespaces](#page-73---implicitly-and-globally-importing-namespaces)
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
 - [Page 137 - Why you should always use braces with if statements](#page-137---why-you-should-always-use-braces-with-if-statements)
@@ -146,6 +147,12 @@ Second, an example of removing a term like Java:
 ```
 garbage collection site:stackoverflow.com -Java
 ```
+
+# Page 73 - Implicitly and globally importing namespaces
+
+> Thanks to [alhi44](https://github.com/alhi44) who raised an [issue on September 3, 2025](https://github.com/markjprice/cs13net9/issues/71) that prompted this improvement.
+
+In Step 5, I wrote, "In **Solution Explorer**, open the `Vocabulary.csproj` project file, ..." but some readers forget how to do this. In the next edition, I will change the text to say, "In **Solution Explorer**, open the `Vocabulary.csproj` project file by double-clicking the project name, ..."
 
 # Page 82 - Verbatim strings
 
