@@ -2,7 +2,7 @@
 
 If you find any mistakes in the ninth edition, *C# 13 and .NET 9 - Modern Cross-Platform Development Fundamentals*, or if you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
-[**Errata** (57 items)](errata.md): Typos, tool user interface and behavior changes, or mistakes in code that would cause a compilation error that prevents a successful build.
+[**Errata** (58 items)](errata.md): Typos, tool user interface and behavior changes, or mistakes in code that would cause a compilation error that prevents a successful build.
 
 [**Improvements** (42 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
 
@@ -16,8 +16,8 @@ Who|Errata|Improvements
 ---|---|---
 [P9avel](https://github.com/P9avel)|14|6
 [Donald Maisey](https://github.com/donaldmaisey)|12|1
+[Quest](https://github.com/QuestSWE) via Discord|3|5
 Mike_H/`mike_h_16837` via Discord|5|2
-[Quest](https://github.com/QuestSWE) via Discord|2|5
 `rene` via Discord|2|4
 `kingace9371` via Discord|1|3
 [Vlad Alexandru Meici](https://github.com/vladmeici)|2|1

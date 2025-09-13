@@ -1,4 +1,4 @@
-**Errata** (57 items)
+**Errata** (58 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -48,6 +48,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
   - [Visual Studio features that dynamically inject into HTML files](#visual-studio-features-that-dynamically-inject-into-html-files)
 - [Page 680 - Enabling Blazor static SSR](#page-680---enabling-blazor-static-ssr)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
+- [Page 688 - Creating a suppliers page](#page-688---creating-a-suppliers-page)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
 - [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
 - [Page 717 - Getting entities into a Blazor component](#page-717---getting-entities-into-a-blazor-component)
@@ -636,6 +637,12 @@ I missed out a fourth import (needed to use components like `<HeadOutlet />`), a
 > Thanks to [Taylor Fore](https://github.com/trfore) for raising [this issue on January 8, 2025](https://github.com/markjprice/cs13net9/issues/8).
 
 In Step 1, I wrote, `Index.cshtml` when I should have written `Index.razor`.
+
+# Page 688 - Creating a suppliers page
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 13, 2025 in the Discord channel for this book.
+
+In the note bullets after Step 3, I wrote, "The page uses Razor syntax `@if` and `@for` statements to embed C# code in HTML." I should have written `@foreach` instead of `@for`.
 
 # Page 692 - Configuring Entity Framework Core as a service
 
