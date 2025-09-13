@@ -1,4 +1,4 @@
-**Improvements** (42 items)
+**Improvements** (43 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 73 - Implicitly and globally importing namespaces](#page-73---implicitly-and-globally-importing-namespaces)
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
+- [Page 130 - Null-coalescing operators](#page-130---null-coalescing-operators)
 - [Page 137 - Why you should always use braces with if statements](#page-137---why-you-should-always-use-braces-with-if-statements)
 - [Page 152 - Working with jagged arrays](#page-152---working-with-jagged-arrays)
 - [Page 159 - How negative numbers are represented in binary](#page-159---how-negative-numbers-are-represented-in-binary)
@@ -182,6 +183,61 @@ I will also mention the useful `""` sequence and that it is enabled with both `@
 In the last bullet I wrote, "bob has a value of `null` and 4 bytes of memory have been allocated in stack memory. No heap memory has been allocated for the object."
 
 In the next edition, I will change this to say that the size of the reference is typically 4 bytes on a 32-bit system and 8 bytes on a 64-bit system, corresponding to the size of a memory pointer. I cover this in more detail in an online-only section here: https://github.com/markjprice/cs13net9/blob/main/docs/ch06-memory.md.
+
+# Page 130 - Null-coalescing operators
+
+> Thanks to [alhi44](https://github.com/alhi44) who raised an [issue on September 13, 2025](https://github.com/markjprice/cs13net9/issues/72) that prompted this improvement.
+
+This section is short with a potentially confusing code example so in the next edition I will improve it, as follows...
+
+Related operators to the assignment operators are the null-coalescing operators. Sometimes, you want to either assign a variable to a result or, if the variable is `null`, assign an alternative value.
+
+Some null-related operators and their behaviors are described in the following table:
+
+Operator|Name|Description
+---|---|---
+`?.`|Null-conditional operator|If an object is `null`, return `null`, else return the value of one of its members.
+`??`|Null-coalescing operator|If the expression on the left is `null`, return the value on the right, else do nothing.
+`??=`|Null-coalescing assignment operator|If the expression on the left is `null`, assign the value on the right, else do nothing. Unlike `??`, which is just for evaluating an expression, `??=` actively updates the variable if it’s `null`.
+
+Let's review an example of using the null-coalescing operators, `??` and `??=`, as shown in the following code:
+```cs
+
+string? authorName = GetAuthorName(); // A fictional function.
+
+// The maxLength variable will be the length of authorName if it is
+// not null, or 30 if authorName is null.
+int maxLength = authorName?.Length ?? 30;
+
+// The authorName variable will be "unknown" if authorName was null.
+authorName ??= "unknown";
+```
+
+Notes about the preceding code:
+- The `string?` means authorName can either hold a `string` value or `null`.
+- The fictional function `GetAuthorName()` might return a `string` (e.g., "Mark") or it might return `null`.
+- `authorName?.Length` checks whether `authorName` is `null` before accessing `.Length`. If `authorName` is not `null`, then `authorName?.Length` evaluates to the integer length of the string. If `authorName` is `null`, the whole expression `authorName?.Length` evaluates to `null` instead of throwing a `NullReferenceException`.
+- The `??` operator says if the expression on the left is `null`, use the value on the right. So if `authorName` is not `null`, you get its length, or if `authorName` is `null`, you fall back to `30`.
+
+Examples:
+- If `GetAuthorName()` returns `"Mark"`, then `authorName?.Length = 4`, so `maxLength = 4`.
+- If `GetAuthorName()` returns `null`, then `authorName?.Length = null`, so `maxLength = 30`.
+
+Without these operators, you’d have to write the longer, more old-fashioned version, as shown in the following code:
+```cs
+int maxLength;
+
+if (authorName != null)
+{
+  maxLength = authorName.Length;
+}
+else
+{
+  maxLength = 30;
+}
+```
+
+The `?.` and `??` combo makes it concise and safe.
 
 # Page 137 - Why you should always use braces with if statements
 
