@@ -1,7 +1,8 @@
-**Errata** (60 items)
+**Errata** (61 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
+- [Page 13 - Understanding .NET support](#page-13---understanding-net-support)
 - [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
 - [Page 42 - Configuring inline aka inlay hints](#page-42---configuring-inline-aka-inlay-hints)
@@ -66,6 +67,24 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 - [Appendix - Page 3](#appendix---page-3)
 - [Appendix - Page 5](#appendix---page-5)
+
+# Page 13 - Understanding .NET support
+
+> This "errata" is due to a change in Microsoft policy, announced on September 16, 2025. Microsoft has extended the support period for STS releases to 24 months, including for .NET 9, as you can read about in the following link: https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/
+
+In the second bullet, I wrote, "STS releases are supported by Microsoft for 18 months after GA, or 6 months after the next STS or LTS release ships, whichever is longer." This should now say, "STS releases are supported by Microsoft for 24 months after GA, or 12 months after the next STS or LTS release ships, whichever is longer."
+
+In *Figure 1.3*, the gray bars for STS releases should be six months longer, and the lead-in sentence should say, "2-year-long gray bars for STS releases".
+
+I wrote, "This is because .NET 9 is an STS release, and therefore, it will lose support in May 2026, before .NET 8 does in November 2026." This should now be, "This is because .NET 9 is an STS release, and therefore, it will lose support on the same day that .NET 8 does in November 2026."
+
+The first bullet says, ".NET 9 will reach EOL in May 2026." It should now say, ".NET 9 will reach EOL in November 2026."
+
+In the section, *Understanding .NET support phases*, the last three bullets should now say:
+- **Active**: .NET 9 will be in this support phase from November 2024 to May 2026.
+- **Maintenance**: Supported only with security fixes for the last 6 months of its lifetime. .NET 9
+will be in this support phase from May 2026 to November 2026.
+- **EOL**: Not supported. .NET 9 will reach its EOL in November 2026.
 
 # Page 24 - Revealing the namespace for the Program class
 
