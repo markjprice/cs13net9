@@ -1,4 +1,4 @@
-**Errata** (61 items)
+**Errata** (62 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -53,6 +53,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 688 - Creating a suppliers page](#page-688---creating-a-suppliers-page-1)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service-1)
+- [Page 698 - Creating a Blazor Web App project](#page-698---creating-a-blazor-web-app-project)
 - [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
 - [Page 717 - Getting entities into a Blazor component](#page-717---getting-entities-into-a-blazor-component)
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
@@ -690,6 +691,12 @@ Should be:
 ```cs
 @if (Companies is not null)
 ```
+
+# Page 698 - Creating a Blazor Web App project
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 18, 2025 in the Discord channel for this book.
+
+In Step 3, I wrote, "in `Directory.Packages.props`, add an `<ItemGroup>` to set version numbers for server-side hosting and defining Blazor WebAssembly packages". But this was already done earlier, so in the next edition I will delete this step.
 
 # Page 711 - Running the Blazor Web App project template
 
