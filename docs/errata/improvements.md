@@ -1,4 +1,4 @@
-**Improvements** (43 items)
+**Improvements** (44 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -41,6 +41,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Where do DTOs fit?](#where-do-dtos-fit)
 - [Page 637 - Creating a class library for a database context using SQLite](#page-637---creating-a-class-library-for-a-database-context-using-sqlite)
 - [Page 664 - Creating an empty ASP.NET Core project](#page-664---creating-an-empty-aspnet-core-project)
+- [Page 714 - Using Bootstrap icons](#page-714---using-bootstrap-icons)
 - [Page 733 - Building web services using ASP.NET Core](#page-733---building-web-services-using-aspnet-core)
   - [What are Swagger, OpenAPI, and Swashbuckle?](#what-are-swagger-openapi-and-swashbuckle)
   - [Recent editions of this book and documenting web services](#recent-editions-of-this-book-and-documenting-web-services)
@@ -736,6 +737,12 @@ In ASP.NET Core projects, in the `Program.cs` file, the code can be divided into
     ```
 
 On page 720, after Step 11, I will warn about a specific exception: The `InvalidOperationException: The service collection cannot be modified because it is read-only.` exception occurs if you try to register a depedency service *after* you have called `Build`. To fix it, move the service registration *before* you call `Build`.
+
+# Page 714 - Using Bootstrap icons
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 18, 2025 in the Discord channel for this book.
+
+In Step 3, I wrote, "In the **Filter Icons** box, enter `globe`, and note that six globe icons are found." There are now ten globe icons and this is likely to change over time. In the next edition, I will say, "multiple" instead of "six".
 
 # Page 733 - Building web services using ASP.NET Core
 
