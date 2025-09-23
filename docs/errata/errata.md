@@ -63,7 +63,9 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository-1)
 - [Page 757 - Configuring the customer repository](#page-757---configuring-the-customer-repository)
+- [Page 760 - Making GET requests using HTTP/REST tools](#page-760---making-get-requests-using-httprest-tools)
 - [Page 763 - Understanding the OpenAPI Specification](#page-763---understanding-the-openapi-specification)
+- [Page 769 - Configuring HTTP clients](#page-769---configuring-http-clients)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 - [Appendix - Page 3](#appendix---page-3)
@@ -889,6 +891,12 @@ In the paragraph after Step 10, I wrote, "When an HTTP request is received by th
 
 I should have written, "When an HTTP request is received by the service, it will use the mapped routes to call the appropriate endpoint lambda statement handler, get the registered dependency service(s) and use them, and then at the end of the scope, release those resources, including the repository and its data context."
 
+# Page 760 - Making GET requests using HTTP/REST tools
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 22, 2025 in the Discord channel for this book.
+
+In Step 7, I wrote "click the **Raw** tab" but it would be better to say "click the **Formatted** tab" even though both show the JSON.
+
 # Page 763 - Understanding the OpenAPI Specification
 
 > Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on May 22, 2025](https://github.com/markjprice/cs13net9/issues/56).
@@ -898,6 +906,14 @@ At the end of the previous section, I wrote a paragraph to introduce the *Unders
 "Now that we’ve seen a quick and easy way to test our service, which also happens to be a great way to learn HTTP, what about external developers? We want it to be as easy as possible for them to learn about and then call our service. For that purpose, we will use Swagger." 
 
 I should have written "OpenAPI" instead of "Swagger".
+
+# Page 769 - Configuring HTTP clients
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 22, 2025 in the Discord channel for this book.
+
+In Step 5, I wrote, "add a statement to enable HttpClientFactory with a named client to make calls to the Northwind Web API service using HTTPS on port 5151 and request JSON as the default response format". 
+
+I should have written, "add a statement to change the URL to make calls to the Northwind Minimal API web service using HTTPS on port 5151".
 
 # Page 780 - Companion books to continue your learning journey
 
