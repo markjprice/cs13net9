@@ -80,5 +80,25 @@ Console.WriteLine(me.ToString());
 #endregion
 
 #region Parsing from Strings to Numbers or Dates and Times
+//Set the current culture to make sure data parsing works
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 
+int friends = int.Parse("27");
+DateTime birthday = DateTime.Parse("4 June 1980");
+Console.WriteLine($"Number of friends at the party on {birthday} is {friends}");
+Console.WriteLine($"Output on the date using {birthday:D}"); //format is Wendsday, June 5th, 1980
+#endregion
+
+#region Avoid Parse Exceptions by using TryParse Method
+Console.Write("How many chickens are there? ");
+string? input = Console.ReadLine();
+if (int.TryParse(input, out int count))
+{
+    Console.WriteLine($"There are {input} chickens");
+}
+
+else
+{
+    Console.WriteLine("Invalid Input");
+}
 #endregion
