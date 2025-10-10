@@ -24,7 +24,6 @@ int h = ToInt32(g);
 Console.WriteLine($" g is {g} and h is {h}");
 #endregion
 
-
 #region Rounding Numbers and default rounding rules
 double[,] doubles = {
   { 9.49, 9.5, 9.51 },
