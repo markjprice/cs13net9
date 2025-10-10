@@ -1,4 +1,4 @@
-**Errata** (62 items)
+**Errata** (64 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 91 - Comparing double and decimal types](#page-91---comparing-double-and-decimal-types)
 - [Page 97 - Storing dynamic types](#page-97---storing-dynamic-types)
 - [Page 106 - Rider and its warnings about boxing](#page-106---rider-and-its-warnings-about-boxing)
+- [Page 109 - Custom number formatting](#page-109---custom-number-formatting)
 - [Page 111 - Custom number formatting](#page-111---custom-number-formatting)
 - [Page 112 - Custom number formatting](#page-112---custom-number-formatting)
 - [Page 147 - Understanding how foreach works internally](#page-147---understanding-how-foreach-works-internally)
@@ -135,6 +136,14 @@ I included F# in the list of languages after giving the example of `dynamic` bei
 > Thanks to [Anass Sabiri](https://github.com/lambdacore12) for raising [this issue on February 20, 2025](https://github.com/markjprice/cs13net9/issues/25).
 
 The link for best practices has moved to this link: https://docs.unity3d.com/Manual/performance-reference-types.html, and you need to scroll down to one of the last sections, titled *Avoid converting value types to reference types*.
+
+# Page 109 - Custom number formatting
+
+> Thanks to [s3ba-b](https://github.com/s3ba-b) for raising [this issue on October 9, 2025](https://github.com/markjprice/cs12dotnet8/issues/105).
+
+I wrote, "You can apply standard number formatting using simpler format codes, like `C` and `N`. They support a precision number to indicate how many digits of precision you want. The default is two."
+
+Although the default precision for the `C` and `N` format codes is two decimal places, other codes are different. In the 10th edition, I will write, "You can apply standard number formatting using simpler format codes, like `C` and `N`. They support a precision number to indicate how many digits of precision you want, for example, `C0` and `N4`. The default is 2 for `C` and `N` but are different for other format codes. For example, `D`, the default precision is the minimum number of digits required, and for `E` the default precision is 6."
 
 # Page 111 - Custom number formatting
 
