@@ -1,6 +1,7 @@
 ﻿using static System.Convert;
 using static System.Object;
 using System.Globalization; //To use culture info+
+using System.Exception; //To declare an Exception ex in catch 
 
 #region Casting numbers implicitly and explicitly
 int a = 10;
@@ -102,3 +103,23 @@ else
     Console.WriteLine("Invalid Input");
 }
 #endregion
+
+Console.WriteLine();
+
+#region Wrapping error prone code in a try black
+Console.WriteLine("Before Parsing!");
+Console.Write("What is your age?");
+string? input2 = Console.ReadLine();
+
+try
+{
+    int age = int.Parse(input2);
+    Console.WriteLine($"You are {age} years old");
+}
+catch ()
+{
+}
+
+Console.WriteLine("After parsing.");
+#endregion
+
