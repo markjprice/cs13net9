@@ -142,7 +142,8 @@ Console.WriteLine("After parsing.");
 Console.WriteLine();
 
 #region Catching with filters
-Console.Write("Enter an amoung: ");
+//How to format a decimal to currency
+Console.Write("Enter an amount: ");
 string? amount = Console.ReadLine()!; //null-forgiving operator...assures compilter variable is not null
 if (string.IsNullOrEmpty(amount)) return;
 
