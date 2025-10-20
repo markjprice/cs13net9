@@ -1,7 +1,7 @@
 ﻿using static System.Convert;
 using static System.Object;
 using System.Globalization; //To use culture info+
-using System.Exception; //To declare an Exception ex in catch 
+using static System.Exception; //To declare an Exception ex in catch 
 
 #region Casting numbers implicitly and explicitly
 int a = 10;
@@ -116,10 +116,48 @@ try
     int age = int.Parse(input2);
     Console.WriteLine($"You are {age} years old");
 }
-catch ()
+
+catch (OverflowException)
 {
+    // Thrown when the parsed numeric value is outside the range of the target type
+    // (e.g., the entered number is larger than int.MaxValue or smaller than int.MinValue).
+    Console.WriteLine("Your age is a valid number format but is either too large or small");
+}
+catch (FormatException)
+{
+    // Thrown when the input string is not in a valid numeric format
+    // (e.g., contains letters, symbols, or is otherwise unparsable as an integer).
+    Console.WriteLine("The age you entered is not a valid number");
+}
+catch (Exception ex)
+{
+    // Catches any other unexpected exceptions as a fallback.
+    // Prints the runtime exception type and its message for diagnostic purposes.
+    Console.WriteLine($"{ex.GetType()} says {ex.Message}");
 }
 
 Console.WriteLine("After parsing.");
+#endregion
+
+Console.WriteLine();
+
+#region Catching with filters
+Console.Write("Enter an amoung: ");
+string? amount = Console.ReadLine()!; //null-forgiving operator...assures compilter variable is not null
+if (string.IsNullOrEmpty(amount)) return;
+
+try
+{
+    decimal amountValue = decimal.Parse(amount);
+    Console.WriteLine($"Amount formatted is currency: {amountValue:C}");
+}
+catch (FormatException) when (amount.Contains('$'))
+{
+    Console.WriteLine("Amounts cannot use the dollar sign");
+}
+catch (FormatException)
+{
+    Console.WriteLine("Amount must only contain digits");
+}
 #endregion
 
