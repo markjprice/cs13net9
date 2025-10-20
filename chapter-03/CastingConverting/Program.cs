@@ -162,3 +162,29 @@ catch (FormatException)
 }
 #endregion
 
+Console.WriteLine();
+
+#region Throwing overflow exceptions with the checked statement 
+// The `checked` statement forces runtime checking of arithmetic operations in this block.
+// If an arithmetic operation (like incrementing `z`) exceeds the range of `int`,
+// the runtime throws an `OverflowException` instead of silently wrapping the value.
+try
+{
+    checked
+    {
+        int z = int.MaxValue - 1;
+        Console.WriteLine($"Initial value: {z}");
+        z++;
+        Console.WriteLine($"After incrementing: {z}");
+        z++;
+        Console.WriteLine($"After incrementing: {z}");
+        z++;
+        Console.WriteLine($"After incrementing: {z}");
+    }
+}
+catch (OverflowException)
+{
+    Console.WriteLine("Code overflowed but exception caught");
+}
+#endregion
+
