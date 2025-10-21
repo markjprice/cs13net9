@@ -2,11 +2,12 @@
 
 byte min = 0;
 byte max = 255;
-byte output1, output2, result;
+byte output1, output2;
+int result;
 
 while (true)
 {
-    string input1 = Console.ReadLine();
+    string? input1 = Console.ReadLine();
 
     if (byte.TryParse(input1, out output1))
     {
@@ -22,13 +23,13 @@ while (true)
     }
     else
     {
-        Console.WriteLine($"{input1} is not a valid ineger");
+        Console.WriteLine($"{input1} is not a valid byte");
     }
 }
 
 while (true)
 {
-    string input2 = Console.ReadLine();
+    string? input2 = Console.ReadLine();
 
     if (byte.TryParse(input2, out output2))
     {
