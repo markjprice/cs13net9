@@ -1,1 +1,1 @@
-﻿TimesTable(7); 
+﻿TimesTable(7, 10); 

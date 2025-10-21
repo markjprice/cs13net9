@@ -1,6 +1,6 @@
 ﻿partial class Program
 {
-    static void TimesTable(byte number, byte size = 12)
+    static void TimesTable(byte number, byte size)
     {
         Console.WriteLine($"This is the {number} times table with {size} rows: ");
         Console.WriteLine();
@@ -10,5 +10,22 @@
             Console.WriteLine($"{row} x {number} = {row * number}");
         }
         Console.WriteLine();
+    }
+
+    static decimal CalculateTax(decimal amount, string twoLeterRegion)
+    {
+        decimal rate = twoLeterRegion switch
+        {
+            "CH" => 0.08M,
+            "CH" or "NO" => 0.258M,
+            "GB" or "FR" => 0.2M,
+            "HU" => 0.27M,
+            "OR" or "AK" or "MT" => 0.00M,
+            "ND" or "WI" or "ME" or "VA" => 0.08M,
+            "CA" => 0.0825M,
+            _ => 0.06M //default case
+        };
+
+        return amount * rate;
     }
 }
