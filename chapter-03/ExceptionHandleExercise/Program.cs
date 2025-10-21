@@ -2,7 +2,8 @@
 
 byte min = 0;
 byte max = 255;
-byte output1, output2;
+byte output1 = 0; 
+byte output2 = 0;
 int result;
 
 while (true)
@@ -35,6 +36,7 @@ while (true)
     {
         if (output2 >= min && output2 <= max)
         {
+            Console.WriteLine("Computing answer");
             break;
         }
         else
@@ -51,7 +53,7 @@ while (true)
 try
 {
     result = output1 / output2;
-    Console.WriteLine();
+    Console.WriteLine(result);
 }
 catch (DivideByZeroException ex)
 {
