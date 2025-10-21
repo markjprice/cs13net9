@@ -1,5 +1,5 @@
 ﻿Console.WriteLine("Enter a number between 0 and 255: ");
-]
+
 byte min = 0;
 byte max = 255;
 byte output1, output2, result;
@@ -13,7 +13,7 @@ while (true)
         if (output1 >= min && output1 <= max)
         {
             Console.WriteLine("Enter another number between 0 and 255: ");
-            break
+            break;
         }
         else
         {
@@ -34,7 +34,7 @@ while (true)
     {
         if (output2 >= min && output2 <= max)
         {
-            break
+            break;
         }
         else
         {
