@@ -1,4 +1,6 @@
-﻿partial class Program
+﻿using System.Globalization;
+
+partial class Program
 {
     static void TimesTable(byte number, byte size)
     {
@@ -27,5 +29,18 @@
         };
 
         return amount * rate;
+    }
+
+    static void ConfigureConsole(string culture = "en-US", bool useComputerCulture = false)
+    {
+        //To enable Unicode characters like euro symbol
+        OutputEncoding = System.Text.Encoding.UTF8;
+
+        if (!useComputerCulture)
+        {
+            CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(culture);
+        }
+
+        Console.WriteLine($"CurrentCulture: {CultureInfo.CurrentCulture.DisplayName}");
     }
 }
