@@ -21,7 +21,7 @@ public class NorthwindDb : DbContext
     // We will automatically adjust the relative path to 
     // account for running in VS2022 or from terminal.
 
-    if (dir.EndsWith("net8.0"))
+    if (dir.EndsWith("net9.0"))
     {
       // Running in the <project>\bin\<Debug|Release>\net8.0 directory.
       path = Path.Combine("..", "..", "..", database);

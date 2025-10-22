@@ -15,6 +15,13 @@ private static void AggregateProducts()
 
   using NorthwindDb db = new();
 
+  // Triggers the OnConfiguring method without loading entities.
+  // If we don't do this, then the OnConfiguring method would 
+  // not execute until we need to access the database, e.g.
+  // when calling ToList. TryGetNonEnumeratedCount does not
+  // need to access the database.
+  db.Database.CanConnect();
+
   // Try to get an efficient count from EF Core DbSet<T>.
   if (db.Products.TryGetNonEnumeratedCount(out int countDbSet))
   {

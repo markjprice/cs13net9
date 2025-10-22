@@ -234,7 +234,7 @@ Finally, we will use the source generator in our console app:
 
 *Figure 7B.1: The source generated Program.Methods.g.cs file*
 
-> **Good Practice**: Microsoft's naming convention for proejcts that implement source generators seems to be to suffix with either `.SourceGeneration` or `.Generator`. That is why I told you to use `Packt.SourceGeneration` for the class library project name.
+> **Good Practice**: Microsoft's naming convention for projects that implement source generators seems to be to suffix with either `.SourceGeneration` or `.Generator`. That is why I told you to use `Packt.SourceGeneration` for the class library project name.
 
 - In Visual Studio Code, in **EXPLORER** | **CHAPTER07**, in the `obj/Debug/net8.0` folder, note the `generated` folder and its subfolder `Packt.SourceGeneration/Packt.Shared.ProgramSourceGenerator`folder, and then open the `Program.Methods.g.cs` file, as shown in *Figure 7B.2*:
 

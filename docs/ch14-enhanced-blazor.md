@@ -78,16 +78,16 @@ function getColorFromStorage() {
 }
 ```
 5.	Start the `Northwind.Blazor` project.
-6.	Start Chrome and navigate to https://localhost:5161/.
+6.	Start Chrome and navigate to https://localhost:5141/.
 7.	On the home page, in the textbox, enter `red` and then click the **Set Color** button.
-8.	Show **Developer Tools**, select the **Application** tab, expand **Local Storage**, select https://localhost:5161, and note the key-value pair `color-red`, as shown in *Figure 16A.3*:
+8.	Show **Developer Tools**, select the **Application** tab, expand **Local Storage**, select https://localhost:5141, and note the key-value pair `color-red`, as shown in *Figure 16A.3*:
 
 ![Storing a color in browser local storage using JavaScript Interop](assets/B19586_16A_03.png) 
 *Figure 16A.3: Storing a color in browser local storage using JavaScript Interop*
 
 9.	Close Chrome and shut down the web server.
 10.	Start the `Northwind.Blazor` project.
-11.	Start Chrome and navigate to https://localhost:5161/.
+11.	Start Chrome and navigate to https://localhost:5141/.
 12.	On the home page, click the **Get Color** button and note that the value `red` is shown in the textbox, retrieved from local storage between visitor sessions.
 13.	Click the **Poke the browser** button and note the message that appears.
 14.	Close Chrome and shut down the web server.
@@ -172,7 +172,7 @@ Without AOT, the downloaded Blazor WebAssembly app took up about 10.65 MB of spa
 
 Let's see PWA support in action:
 1.	Start the `Northwind.Blazor` project.
-2.	Start Chrome and navigate to https://localhost:5161/.
+2.	Start Chrome and navigate to https://localhost:5141/.
 3.	In Chrome, in the address bar on the right, click the icon with the tooltip **Install Northwind.Blazor**, as shown in *Figure 16A.1*:
 
 ![Installing Northwind.BlazorWasm as an app](assets/B19586_16A_01.png)
@@ -330,7 +330,7 @@ Let's prevent the visitor from navigating away from the `EditCustomer` page comp
 }
 ```
 3.	Start the `Northwind.Blazor` project.
-4.	Start Chrome and navigate to https://localhost:5161/.
+4.	Start Chrome and navigate to https://localhost:5141/.
 5.	Select **Customers in France**, and then in the **BLONP** row, click the **Edit** button.
 6.	Click in any textbox but do not make any changes.
 7.	Click **Update** and note that you are not prevented from navigating to it.

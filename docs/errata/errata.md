@@ -1,11 +1,17 @@
-**Errata** (52 items)
+**Errata** (64 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
+> **Warning!** Avoid copying and pasting links that break over multiple lines and include hyphens or dashes because your PDF reader might remove a hyphen thinking that it being helpful but break the link! Just click on the links and they will work. Or carefully check that your PDF reader has not removed a hyphen after pasting into your web browser address bar. [See an example of this issue here](https://github.com/markjprice/cs13net9/issues/77).
+
+- [Page 13 - Understanding .NET support](#page-13---understanding-net-support)
 - [Page 24 - Revealing the namespace for the Program class](#page-24---revealing-the-namespace-for-the-program-class)
 - [Page 29 - Writing code using VS Code](#page-29---writing-code-using-vs-code)
+- [Page 42 - Configuring inline aka inlay hints](#page-42---configuring-inline-aka-inlay-hints)
 - [Page 91 - Comparing double and decimal types](#page-91---comparing-double-and-decimal-types)
+- [Page 97 - Storing dynamic types](#page-97---storing-dynamic-types)
 - [Page 106 - Rider and its warnings about boxing](#page-106---rider-and-its-warnings-about-boxing)
+- [Page 109 - Custom number formatting](#page-109---custom-number-formatting)
 - [Page 111 - Custom number formatting](#page-111---custom-number-formatting)
 - [Page 112 - Custom number formatting](#page-112---custom-number-formatting)
 - [Page 147 - Understanding how foreach works internally](#page-147---understanding-how-foreach-works-internally)
@@ -21,17 +27,20 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 392 - Publishing a self-contained app](#page-392---publishing-a-self-contained-app-1)
 - [Page 393 - Publishing a single-file app](#page-393---publishing-a-single-file-app)
 - [Page 400 - Publishing a native AOT project](#page-400---publishing-a-native-aot-project)
+- [Page 430 - Comparing string values](#page-430---comparing-string-values)
 - [Page 435 - Searching in strings](#page-435---searching-in-strings)
 - [Page 437 - Understanding the syntax of a regular expression](#page-437---understanding-the-syntax-of-a-regular-expression)
 - [Page 444 - Improving regular expression performance with source generators](#page-444---improving-regular-expression-performance-with-source-generators)
 - [Page 446 - Storing multiple objects in collections](#page-446---storing-multiple-objects-in-collections)
 - [Page 461 - Read-only, immutable, and frozen collections](#page-461---read-only-immutable-and-frozen-collections)
 - [Page 469 - Returning collections from members](#page-469---returning-collections-from-members)
-- [Page 483 - Managing directories, Managing files](#page-483---managing-directories-managing-files)
+- [Page 483, 485 - Managing directories, Managing files](#page-483-485---managing-directories-managing-files)
+- [Page 497 - Writing to XML streams](#page-497---writing-to-xml-streams)
 - [Page 532 - Setting up SQLite CLI tools for Windows](#page-532---setting-up-sqlite-cli-tools-for-windows)
 - [Page 538 - Defining the Northwind database context class](#page-538---defining-the-northwind-database-context-class)
 - [Page 563 - Getting the generated SQL](#page-563---getting-the-generated-sql)
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
+- [Page 572 - Generating a random number in queries](#page-572---generating-a-random-number-in-queries)
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
 - [Page 644 - Improving the class-to-table mapping](#page-644---improving-the-class-to-table-mapping)
 - [Page 646 - Improving the class-to-table mapping](#page-646---improving-the-class-to-table-mapping)
@@ -43,7 +52,11 @@ If you find any mistakes, then please [raise an issue in this repository](https:
   - [Visual Studio features that dynamically inject into HTML files](#visual-studio-features-that-dynamically-inject-into-html-files)
 - [Page 680 - Enabling Blazor static SSR](#page-680---enabling-blazor-static-ssr)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
+- [Page 688 - Creating a suppliers page](#page-688---creating-a-suppliers-page)
+- [Page 688 - Creating a suppliers page](#page-688---creating-a-suppliers-page-1)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
+- [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service-1)
+- [Page 698 - Creating a Blazor Web App project](#page-698---creating-a-blazor-web-app-project)
 - [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
 - [Page 717 - Getting entities into a Blazor component](#page-717---getting-entities-into-a-blazor-component)
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
@@ -53,11 +66,31 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository)
 - [Page 756 - Configuring the customer repository](#page-756---configuring-the-customer-repository-1)
 - [Page 757 - Configuring the customer repository](#page-757---configuring-the-customer-repository)
+- [Page 760 - Making GET requests using HTTP/REST tools](#page-760---making-get-requests-using-httprest-tools)
 - [Page 763 - Understanding the OpenAPI Specification](#page-763---understanding-the-openapi-specification)
+- [Page 769 - Configuring HTTP clients](#page-769---configuring-http-clients)
 - [Page 780 - Companion books to continue your learning journey](#page-780---companion-books-to-continue-your-learning-journey)
 - [Exercise 13.2 – practice exercises - Build web pages for functions](#exercise-132--practice-exercises---build-web-pages-for-functions)
 - [Appendix - Page 3](#appendix---page-3)
 - [Appendix - Page 5](#appendix---page-5)
+
+# Page 13 - Understanding .NET support
+
+> This "errata" is due to a change in Microsoft policy, announced on September 16, 2025. Microsoft has extended the support period for STS releases to 24 months, including for .NET 9, as you can read about in the following link: https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/
+
+In the second bullet, I wrote, "STS releases are supported by Microsoft for 18 months after GA, or 6 months after the next STS or LTS release ships, whichever is longer." This should now say, "STS releases are supported by Microsoft for 24 months after GA, or 12 months after the next STS or LTS release ships, whichever is longer."
+
+In *Figure 1.3*, the gray bars for STS releases should be six months longer, and the lead-in sentence should say, "2-year-long gray bars for STS releases".
+
+I wrote, "This is because .NET 9 is an STS release, and therefore, it will lose support in May 2026, before .NET 8 does in November 2026." This should now be, "This is because .NET 9 is an STS release, and therefore, it will lose support on the same day that .NET 8 does in November 2026."
+
+The first bullet says, ".NET 9 will reach EOL in May 2026." It should now say, ".NET 9 will reach EOL in November 2026."
+
+In the section, *Understanding .NET support phases*, the last three bullets should now say:
+- **Active**: .NET 9 will be in this support phase from November 2024 to May 2026.
+- **Maintenance**: Supported only with security fixes for the last 6 months of its lifetime. .NET 9
+will be in this support phase from May 2026 to November 2026.
+- **EOL**: Not supported. .NET 9 will reach its EOL in November 2026.
 
 # Page 24 - Revealing the namespace for the Program class
 
@@ -76,11 +109,27 @@ I wrote, "In the preceding steps, I showed you how to use the dotnet CLI to crea
 
 This feature is no longer in preview so you do not need to enable it. In the next edition, I will remove the sentence about enabling it and the setting.
 
+# Page 42 - Configuring inline aka inlay hints
+
+> Thanks to [Daniel Grounin](https://github.com/Daniel-Grounin) for raising [this issue on August 15, 2025](https://github.com/markjprice/cs13net9/issues/65).
+
+In *Figure 1.13* and in the bullet steps to enable inlay hinys below, I wrote, "In VS Code, navigate to **File** | **Preferences** | **Settings**, search for `inlay`, select the **C#** filter, and then select the **Display inline parameter name hints** checkbox."
+
+In the next edition, I will also say to enable the other **inlay** checkboxes: **Show hints for literals**, **Show hints for `new` expressions**, and **Show hints for everything else**, and I will include those in *Figure 1.13*.
+
 # Page 91 - Comparing double and decimal types
 
 > Thanks to [Anass Sabiri](https://github.com/lambdacore12) for raising [this issue on February 19, 2025](https://github.com/markjprice/cs13net9/issues/24).
 
 In the **Good Practice** box, the first link has moved to https://www-users.cse.umn.edu/~arnold/disasters/patriot.html.
+
+# Page 97 - Storing dynamic types
+
+> Thanks to [iheartdotnet](https://github.com/iheartdotnet) for raising [this issue on August 2, 2025](https://github.com/markjprice/cs13net9/issues/61).
+
+In the last paragraph of this section, I wrote, "Dynamic types are most useful when interoperating with non-.NET systems. For example, you might need to work with a class library written in F#, Python, or some JavaScript. You might also need to interop with technologies like the Component Object Model (COM), for example, when automating Excel or Word."
+
+I included F# in the list of languages after giving the example of `dynamic` being useful when interoperating with non-.NET systems. This accidently implies that F# is not a .NET language when it is. In the next edition, I will change "non-.NET systems" to "other .NET languages and non-.NET systems". Or I might change the second sentence to, "For example, you might need to work with a library written in Python or some JavaScript (or even a .NET language like F#)."
 
 # Page 106 - Rider and its warnings about boxing
 
@@ -88,11 +137,19 @@ In the **Good Practice** box, the first link has moved to https://www-users.cse.
 
 The link for best practices has moved to this link: https://docs.unity3d.com/Manual/performance-reference-types.html, and you need to scroll down to one of the last sections, titled *Avoid converting value types to reference types*.
 
+# Page 109 - Custom number formatting
+
+> Thanks to [s3ba-b](https://github.com/s3ba-b) for raising [this issue on October 9, 2025](https://github.com/markjprice/cs12dotnet8/issues/105).
+
+I wrote, "You can apply standard number formatting using simpler format codes, like `C` and `N`. They support a precision number to indicate how many digits of precision you want. The default is two."
+
+Although the default precision for the `C` and `N` format codes is two decimal places, other codes are different. In the 10th edition, I will write, "You can apply standard number formatting using simpler format codes, like `C` and `N`. They support a precision number to indicate how many digits of precision you want, for example, `C0` and `N4`. The default is 2 for `C` and `N` but are different for other format codes. For example, `D`, the default precision is the minimum number of digits required, and for `E` the default precision is 6."
+
 # Page 111 - Custom number formatting
 
 > Thanks to [Sacriflces](https://github.com/Sacriflces) for raising [this issue on April 28, 2025](https://github.com/markjprice/cs13net9/issues/50).
 
-In *Table 2.10*, in the second row, the `D` entry says, "Long date pattern. Varies by culture; for example, `en-US` uses `mmmm, MMMM d, yyyy` and `fr-FR` uses `mmmm, dd MMMM yyyy`." The `mmmm`s should be `dddd`s because they represent the full name of the day of the week, not the mpnth name. So it should say, "Long date pattern. Varies by culture; for example, `en-US` uses `dddd, MMMM d, yyyy` and `fr-FR` uses `dddd, dd MMMM yyyy`."
+In *Table 2.10*, in the second row, the `D` entry says, "Long date pattern. Varies by culture; for example, `en-US` uses `mmmm, MMMM d, yyyy` and `fr-FR` uses `mmmm, dd MMMM yyyy`." The `mmmm`s should be `dddd`s because they represent the full name of the day of the week, not the month name. So it should say, "Long date pattern. Varies by culture; for example, `en-US` uses `dddd, MMMM d, yyyy` and `fr-FR` uses `dddd, dd MMMM yyyy`."
 
 # Page 112 - Custom number formatting
 
@@ -163,7 +220,7 @@ At the end of this section, I wrote, "Let’s see some real-life examples of whe
 - You want to increase the size of the integer to store more than 16 options in a flag `enum`. The default `int` only allows 16 options: 0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, and 16384. Changing to `uint` would double the number of choices to 32 without using any more space in memory. Changing to `ulong` would give 64 options. Changing to `ushort` would allow the same 16 options in half the bytes."
 
 But as Donald and Bart point out, only the first bit sets the number negative. The other 31 bits can be used for `enum` values. I should have written:
-- You want to increase the size of the integer to store more than 31 options in a flag `enum`. The default `int` only allows 31 options because one bit is needed to indicate a negative number. Changing to `uint` would an extra 32th value without using any more space in memory. The following table summarizes the number of options available for each integer type when used as the base type for a `enum`:
+- You want to increase the size of the integer to store more than 31 options in a flag `enum`. The default `int` only allows 31 options because one bit is needed to indicate a negative number. Changing to `uint` would an extra 32nd value without using any more space in memory. The following table summarizes the number of options available for each integer type when used as the base type for a `enum`:
 
 Base Type|Maximum Values
 ---|---
@@ -264,6 +321,15 @@ But I mistakenly repeated "JIT-compiled" when I meant "AOT-compiled".
 
 I should have written, "A console app that functions correctly during development when the code is untrimmed and JIT-compiled could still fail once you publish it using native AOT because then the code is trimmed and AOT-compiled and, therefore, it is a different code with different behavior."
 
+# Page 430 - Comparing string values
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue in the Discord channel for this book.
+
+In Step 2, before comparing string values, we control the current culture by explicitly setting `CultureInfo.CurrentCulture`. First we set it to `en-US` (US English), then to `de-DE` (German). But at the end of the code, the current culture is left as German. This will affect all code examples after this point in `Program.cs`. It would be better to set the current culture to US English. In the next edition, I will add an extra statement at the end of the code block in Step 2 to reset the current culture:
+```cs
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+```
+
 # Page 435 - Searching in strings
 
 > Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on March 21, 2025](https://github.com/markjprice/cs13net9/issues/43).
@@ -317,7 +383,7 @@ It should be:
 return Array.Empty<Person>();
 ```
 
-# Page 483 - Managing directories, Managing files
+# Page 483, 485 - Managing directories, Managing files
 
 > Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on December 31, 2024](https://github.com/markjprice/cs12dotnet8/issues/80).
 
@@ -325,6 +391,35 @@ After prompting the user to press any key to delete the directory or file, the c
 
 This has been fixed in the code solutions here:
 https://github.com/markjprice/cs13net9/commit/d75644ad74bf3ffbd9ff202e0bf6f2ad665ca5ea
+
+# Page 497 - Writing to XML streams
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue in the Discord channel for this book on August 14, 2025.
+
+In Step 4, I show the output:
+```
+**** File Info ****
+The XML writer's unmanaged resources have been disposed.
+The file stream's unmanaged resources have been disposed.
+File: streams.xml
+Path: C:\cs13net9\Chapter09\WorkingWithStreams\bin\Debug\net9.0
+Size: 320 bytes.
+/------------------
+<?xml version="1.0" encoding="utf-8"?>
+```
+
+But the comments should be slightly different in the output:
+```
+*** Writing to XML streams ***
+The XML writer's unmanaged resources have been disposed.
+The file stream's unmanaged resources have been disposed.
+**** File Info ****
+File: streams.xml
+Path: C:\cs13net9\Chapter09\WorkingWithStreams\bin\Debug\net9.0
+Size: 320 bytes.
+/------------------
+<?xml version="1.0" encoding="utf-8"?>
+```
 
 # Page 532 - Setting up SQLite CLI tools for Windows
 
@@ -384,7 +479,23 @@ In the next edition, I will tell the reader to add the call the `ToQueryString` 
 
 > Thanks to [es-moises](https://github.com/es-moises) for raising [this issue on January 22, 2025](https://github.com/markjprice/cs12dotnet8/issues/84).
 
-In Step 3, the output in two places shows part of the `WHERE` clause as `"p"."ProductId" > @__id_0` but both should be `"p"."ProductId" = @__id_0`.
+In Step 3, the output in two places shows part of the `WHERE` clause as `"p"."ProductId" > @__id_0` but in both places it should be `"p"."ProductId" = @__id_0`.
+
+# Page 572 - Generating a random number in queries
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on August 24, 2025 in the Discord channel for this book.
+
+In the two code examples, I used the `await` keyword without needing to. The correct statements are shown in the following code:
+```cs
+var randomQuestions = db.Questions
+  .OrderBy(q => EF.Functions.Random())
+  .Take(10); // Select 10 random questions.
+```
+And:
+```cs
+var randomDataSample = db.Products
+  .Where(d => EF.Functions.Random() > 0.5);
+```
 
 # Page 640 - Customizing the model and defining an extension method
 
@@ -562,6 +673,24 @@ I missed out a fourth import (needed to use components like `<HeadOutlet />`), a
 
 In Step 1, I wrote, `Index.cshtml` when I should have written `Index.razor`.
 
+# Page 688 - Creating a suppliers page
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 13, 2025 in the Discord channel for this book.
+
+In the note bullets after Step 3, I wrote, "The page uses Razor syntax `@if` and `@for` statements to embed C# code in HTML." I should have written `@foreach` instead of `@for`.
+
+# Page 688 - Creating a suppliers page
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 13, 2025 in the Discord channel for this book.
+
+In Step 4, I wrote, "Click on the button to learn more about suppliers", when I should have written, "In the top navigation bar, click **Suppliers**".
+
+# Page 692 - Configuring Entity Framework Core as a service
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 13, 2025 in the Discord channel for this book.
+
+In Step 11, I wrote, "Click **Learn more about our suppliers**", when I should have written, "In the top navigation bar, click **Suppliers**".
+
 # Page 692 - Configuring Entity Framework Core as a service
 
 > Thanks to **Mike_H**/`mike_h_16837` for raising this issue on March 25, 2025 in the Discord channel for this book.
@@ -575,6 +704,12 @@ Should be:
 ```cs
 @if (Companies is not null)
 ```
+
+# Page 698 - Creating a Blazor Web App project
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 18, 2025 in the Discord channel for this book.
+
+In Step 3, I wrote, "in `Directory.Packages.props`, add an `<ItemGroup>` to set version numbers for server-side hosting and defining Blazor WebAssembly packages". But this was already done earlier, so in the next edition I will delete this step.
 
 # Page 711 - Running the Blazor Web App project template
 
@@ -767,6 +902,12 @@ In the paragraph after Step 10, I wrote, "When an HTTP request is received by th
 
 I should have written, "When an HTTP request is received by the service, it will use the mapped routes to call the appropriate endpoint lambda statement handler, get the registered dependency service(s) and use them, and then at the end of the scope, release those resources, including the repository and its data context."
 
+# Page 760 - Making GET requests using HTTP/REST tools
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 22, 2025 in the Discord channel for this book.
+
+In Step 7, I wrote "click the **Raw** tab" but it would be better to say "click the **Formatted** tab" even though both show the JSON.
+
 # Page 763 - Understanding the OpenAPI Specification
 
 > Thanks to [Donald Maisey](https://github.com/donaldmaisey) for raising [this issue on May 22, 2025](https://github.com/markjprice/cs13net9/issues/56).
@@ -776,6 +917,14 @@ At the end of the previous section, I wrote a paragraph to introduce the *Unders
 "Now that we’ve seen a quick and easy way to test our service, which also happens to be a great way to learn HTTP, what about external developers? We want it to be as easy as possible for them to learn about and then call our service. For that purpose, we will use Swagger." 
 
 I should have written "OpenAPI" instead of "Swagger".
+
+# Page 769 - Configuring HTTP clients
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 22, 2025 in the Discord channel for this book.
+
+In Step 5, I wrote, "add a statement to enable HttpClientFactory with a named client to make calls to the Northwind Web API service using HTTPS on port 5151 and request JSON as the default response format". 
+
+I should have written, "add a statement to change the URL to make calls to the Northwind Minimal API web service using HTTPS on port 5151".
 
 # Page 780 - Companion books to continue your learning journey
 

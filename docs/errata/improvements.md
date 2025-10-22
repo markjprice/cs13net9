@@ -1,4 +1,4 @@
-**Improvements** (38 items)
+**Improvements** (45 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,14 +8,18 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 21 - Understanding the compiler-generated folders and files](#page-21---understanding-the-compiler-generated-folders-and-files)
 - [Page 38 - Getting definitions of types and their members](#page-38---getting-definitions-of-types-and-their-members)
 - [Page 43 - Searching for answers using Google](#page-43---searching-for-answers-using-google)
+- [Page 73 - Implicitly and globally importing namespaces](#page-73---implicitly-and-globally-importing-namespaces)
 - [Page 82 - Verbatim strings](#page-82---verbatim-strings)
 - [Page 102 - What does new do?](#page-102---what-does-new-do)
+- [Page 130 - Null-coalescing operators](#page-130---null-coalescing-operators)
 - [Page 137 - Why you should always use braces with if statements](#page-137---why-you-should-always-use-braces-with-if-statements)
 - [Page 152 - Working with jagged arrays](#page-152---working-with-jagged-arrays)
 - [Page 159 - How negative numbers are represented in binary](#page-159---how-negative-numbers-are-represented-in-binary)
 - [Page 205 - Navigating with the debugging toolbar](#page-205---navigating-with-the-debugging-toolbar)
 - [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 246 - Member access modifiers](#page-246---member-access-modifiers)
+- [Page 253 - Making a field static](#page-253---making-a-field-static)
+- [Page 267 - Controlling how parameters are passed](#page-267---controlling-how-parameters-are-passed)
 - [Page 403 - Fixing dependencies](#page-403---fixing-dependencies)
 - [Page 438 - Examples of regular expressions](#page-438---examples-of-regular-expressions)
 - [Page 439 - Splitting a complex comma-separated string](#page-439---splitting-a-complex-comma-separated-string)
@@ -28,6 +32,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
 - [Page 533 - Creating the Northwind sample database for SQLite](#page-533---creating-the-northwind-sample-database-for-sqlite)
 - [Page 540 - Using EF Core conventions to define the model](#page-540---using-ef-core-conventions-to-define-the-model)
+- [Page 615 - Aggregating and paging sequences](#page-615---aggregating-and-paging-sequences)
 - [Page 620 - History of ASP.NET Core](#page-620---history-of-aspnet-core)
 - [Page 628 - Structuring projects](#page-628---structuring-projects)
   - [1. Logical Architectural Layer Diagram](#1-logical-architectural-layer-diagram)
@@ -37,6 +42,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Where do DTOs fit?](#where-do-dtos-fit)
 - [Page 637 - Creating a class library for a database context using SQLite](#page-637---creating-a-class-library-for-a-database-context-using-sqlite)
 - [Page 664 - Creating an empty ASP.NET Core project](#page-664---creating-an-empty-aspnet-core-project)
+- [Page 714 - Using Bootstrap icons](#page-714---using-bootstrap-icons)
 - [Page 733 - Building web services using ASP.NET Core](#page-733---building-web-services-using-aspnet-core)
   - [What are Swagger, OpenAPI, and Swashbuckle?](#what-are-swagger-openapi-and-swashbuckle)
   - [Recent editions of this book and documenting web services](#recent-editions-of-this-book-and-documenting-web-services)
@@ -48,6 +54,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Examples](#examples)
   - [Key Takeaways](#key-takeaways)
 - [Page 752 - Creating data repositories with caching for entities](#page-752---creating-data-repositories-with-caching-for-entities)
+- [Page 753 - Creating data repositories with caching for entities](#page-753---creating-data-repositories-with-caching-for-entities)
 - [Page 758 - Trying out GET requests using a browser](#page-758---trying-out-get-requests-using-a-browser)
 - [Page 762 - Making other requests using HTTP/REST tools](#page-762---making-other-requests-using-httprest-tools)
 - [Page 770 - Configuring HTTP clients](#page-770---configuring-http-clients)
@@ -144,6 +151,12 @@ Second, an example of removing a term like Java:
 garbage collection site:stackoverflow.com -Java
 ```
 
+# Page 73 - Implicitly and globally importing namespaces
+
+> Thanks to [alhi44](https://github.com/alhi44) who raised an [issue on September 3, 2025](https://github.com/markjprice/cs13net9/issues/71) that prompted this improvement.
+
+In Step 5, I wrote, "In **Solution Explorer**, open the `Vocabulary.csproj` project file, ..." but some readers forget how to do this. In the next edition, I will change the text to say, "In **Solution Explorer**, open the `Vocabulary.csproj` project file by double-clicking the project name, ..."
+
 # Page 82 - Verbatim strings
 
 > Thanks to **John Leitch** `johnleitch` in the book's Discord channel for suggesting this improvement on February 3, 2025.
@@ -172,6 +185,61 @@ I will also mention the useful `""` sequence and that it is enabled with both `@
 In the last bullet I wrote, "bob has a value of `null` and 4 bytes of memory have been allocated in stack memory. No heap memory has been allocated for the object."
 
 In the next edition, I will change this to say that the size of the reference is typically 4 bytes on a 32-bit system and 8 bytes on a 64-bit system, corresponding to the size of a memory pointer. I cover this in more detail in an online-only section here: https://github.com/markjprice/cs13net9/blob/main/docs/ch06-memory.md.
+
+# Page 130 - Null-coalescing operators
+
+> Thanks to [alhi44](https://github.com/alhi44) who raised an [issue on September 13, 2025](https://github.com/markjprice/cs13net9/issues/72) that prompted this improvement.
+
+This section is short with a potentially confusing code example so in the next edition I will improve it, as follows...
+
+Related operators to the assignment operators are the null-coalescing operators. Sometimes, you want to either assign a variable to a result or, if the variable is `null`, assign an alternative value.
+
+Some null-related operators and their behaviors are described in the following table:
+
+Operator|Name|Description
+---|---|---
+`?.`|Null-conditional operator|If an object is `null`, return `null`, else return the value of one of its members.
+`??`|Null-coalescing operator|If the expression on the left is `null`, return the value on the right, else do nothing.
+`??=`|Null-coalescing assignment operator|If the expression on the left is `null`, assign the value on the right, else do nothing. Unlike `??`, which is just for evaluating an expression, `??=` actively updates the variable if it’s `null`.
+
+Let's review an example of using the null-coalescing operators, `??` and `??=`, as shown in the following code:
+```cs
+
+string? authorName = GetAuthorName(); // A fictional function.
+
+// The maxLength variable will be the length of authorName if it is
+// not null, or 30 if authorName is null.
+int maxLength = authorName?.Length ?? 30;
+
+// The authorName variable will be "unknown" if authorName was null.
+authorName ??= "unknown";
+```
+
+Notes about the preceding code:
+- The `string?` means authorName can either hold a `string` value or `null`.
+- The fictional function `GetAuthorName()` might return a `string` (e.g., "Mark") or it might return `null`.
+- `authorName?.Length` checks whether `authorName` is `null` before accessing `.Length`. If `authorName` is not `null`, then `authorName?.Length` evaluates to the integer length of the string. If `authorName` is `null`, the whole expression `authorName?.Length` evaluates to `null` instead of throwing a `NullReferenceException`.
+- The `??` operator says if the expression on the left is `null`, use the value on the right. So if `authorName` is not `null`, you get its length, or if `authorName` is `null`, you fall back to `30`.
+
+Examples:
+- If `GetAuthorName()` returns `"Mark"`, then `authorName?.Length = 4`, so `maxLength = 4`.
+- If `GetAuthorName()` returns `null`, then `authorName?.Length = null`, so `maxLength = 30`.
+
+Without these operators, you’d have to write the longer, more old-fashioned version, as shown in the following code:
+```cs
+int maxLength;
+
+if (authorName != null)
+{
+  maxLength = authorName.Length;
+}
+else
+{
+  maxLength = 30;
+}
+```
+
+The `?.` and `??` combo makes it concise and safe.
 
 # Page 137 - Why you should always use braces with if statements
 
@@ -253,6 +321,33 @@ On page 299, in *Exercise 5.3 - test your knowledge*, question 1. asks, "What ar
 they do?"
 
 In the next edition, I will add more text to all these places to try to make it clearer that there are seven access modifiers (or combinations of access modifiers) that apply to types and members but only six access modifiers (or combinations of access modifiers) that apply only to members. Or perhaps I will change the question to only ask about member access modifiers.
+
+# Page 253 - Making a field static
+
+> Thanks to [iheartdotnet](https://github.com/iheartdotnet) who raised an [issue on August 4, 2025](https://github.com/markjprice/cs13net9/issues/63) that prompted this improvement.
+
+I will add a warning that static fields can cause issues because static fields are global variables in disguise. They encourage tight coupling, break encapsulation, and introduce shared, mutable state. This is dangerous.
+
+When a static field is both shared and writable, it introduces a single point of truth that can be changed from anywhere. This is a classic setup for:
+- Race conditions (if multiple threads access it without proper synchronization).
+- Hard-to-track bugs due to hidden dependencies.
+- Unexpected behavior when the field is modified unexpectedly.
+- Tight coupling that makes unit testing and reasoning about the code difficult.
+
+> **Good Practice**: Use `static` fields only when you have a strong, justified reason to have a single shared value. Prefer `readonly` or `const` for values that never change. If you must use mutable `static` fields, ensure thread safety with `lock`, `Interlocked`, or `ConcurrentDictionary`). Avoid using `static` fields as a quick-and-dirty state holder. It’s tempting, but often leads to global state that’s difficult to manage.
+
+# Page 267 - Controlling how parameters are passed
+
+> Thanks to [alhi44](https://github.com/alhi44) who raised an [issue on September 14, 2025](https://github.com/markjprice/cs13net9/issues/78) that prompted this improvement.
+
+It is too late for the 10th edition in 2025, but in the 11th edition I will add an analogy about passing pieces of paper, as follows: 
+
+When a parameter is passed into a method, it can be passed in one of several ways:
+
+1. By **value** (this is the default): Think of these as being *in-only*. Although the value can be changed, this only affects the parameter in the method. Imagine someone has a piece of paper with a number written on it. They pass a photocopy of the paper, not the original. The function can write on the photocopy, but the original remains unchanged.
+2. As an `out` parameter: Think of these as being *out-only*. `out` parameters cannot have a default value assigned in their declaration and cannot be left uninitialized. They must be set inside the method; otherwise, the compiler will give an error. Imagine someone has a blank piece of paper and asks the function to write on it. They cannot pass a piece of paper with something written on it; it *must* be blank. And the function *must* write on it before returning it.
+3. By reference as a `ref` parameter: Think of these as being *in-and-out*. Like `out` parameters, `ref` parameters also cannot have default values, but since they can already be set outside the method, they do not need to be set inside the method. Imagine someone has a piece of paper with a number written on it. They pass the original piece of paper and allow the function to write on it. This means that any changes made are immediately visible to them as well as you. The paper *must* have a number written on it before it is passed.
+4. As an `in` parameter: Think of these as being a reference parameter that is read-only. `in` parameters cannot have their values changed and the compiler will show an error if you try. Imagine someone has a piece of paper with a number written on it. They pass the original piece of paper and allow the function to read it but not write on it.
 
 # Page 403 - Fixing dependencies
 
@@ -457,6 +552,24 @@ This section contains a bulleted list with some of the conventions that EF Core 
 In the next edition, I will add a note so that the reader understands the preceding point. I will also add more clarification to some bullets. For example:
 - The name of a table is assumed to match the name of a `DbSet<T>` property in the `DbContext` class, for example, `Products`. EF Core can match against singular or plural names.
 
+# Page 615 - Aggregating and paging sequences
+
+> Thanks to **Quest o()xx[{:::::::::::::::>** / `_guts` in the book's Discord channel for asking a question on September 2, 2025 that prompted this improvement.
+
+In this online-only section, the code calls `db.Products.TryGetNonEnumeratedCount(out int countDbSet)` which looks like it needs to populate the `Products` table and therefore trigger the `OnConfiguring` method that outputs logging information about the connection. Most other extension method would. 
+
+But this method does not because `TryGetNonEnumeratedCount` looks for cheap ways to get a count by checking whether the source implements interfaces like `ICollection<T>` or similar internal LINQ types with a direct `Count` property. `DbSet<T>` is an `IQueryable<T>`, not a collection with a `Count` property, so the method returns `false` and does not execute any query and does not cause EF to spin up its infrastructure. Later the code calls `Products.ToList()` which does require accessing the database and therefore triggers the `OnConfiguring` method. 
+
+I show the output without the logging information, but due to the above, the logging information appears after the message, "Products DbSet does not have a Count property."
+
+If you want to force `OnConfiguring` earlier without materializing entities, call something that needs the provider, for example:
+```cs
+// Forces configuration without loading entities
+db.Database.CanConnect();
+```
+
+In the next edition, I will explain this and add this statement immediately after instantiating the context with `new`.
+
 # Page 620 - History of ASP.NET Core
 
 > Thanks to [Paul Marangoni](https://github.com/pmarangoni) for raising [this issue on February 13, 2025](https://github.com/markjprice/web-dev-net9/issues/35).
@@ -638,6 +751,12 @@ In ASP.NET Core projects, in the `Program.cs` file, the code can be divided into
     ```
 
 On page 720, after Step 11, I will warn about a specific exception: The `InvalidOperationException: The service collection cannot be modified because it is read-only.` exception occurs if you try to register a depedency service *after* you have called `Build`. To fix it, move the service registration *before* you call `Build`.
+
+# Page 714 - Using Bootstrap icons
+
+> Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 18, 2025 in the Discord channel for this book.
+
+In Step 3, I wrote, "In the **Filter Icons** box, enter `globe`, and note that six globe icons are found." There are now ten globe icons and this is likely to change over time. In the next edition, I will say, "multiple" instead of "six".
 
 # Page 733 - Building web services using ASP.NET Core
 
@@ -869,6 +988,60 @@ public async Task<Shipper?> CreateAsync(Shipper s)
 In the next edition, I will add some information about this, similar to the preceding explanation. 
 
 > **More Information**: You can learn more at the following link: https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries.
+
+# Page 753 - Creating data repositories with caching for entities
+
+> Thanks to [Tim Grotenhuis](https://github.com/tgrotenhuis) who raised this [issue on June 13, 2025](https://github.com/markjprice/cs13net9/issues/58).
+
+In Step 11, we implement a method to update a customer, as shown in the following code:
+```cs
+public async Task<Customer?> UpdateAsync(Customer c)
+{
+  c.CustomerId = c.CustomerId.ToUpper();
+  _db.Customers.Update(c);
+
+  int affected = await _db.SaveChangesAsync();
+
+  if (affected == 1)
+  {
+    await _cache.SetAsync(c.CustomerId, c);
+    return c;
+  }
+  return null;
+}
+```
+
+Later in the *Making other requests using HTTP/REST tools* section on page 761, you are encouraged to try writing a `PUT` request to try out this method, with a solution available online:
+https://github.com/markjprice/cs13net9/tree/main/code/ModernWeb/HttpRequests
+
+Occasionally, you might see an exception:
+```
+System.InvalidOperationException: The instance of entity type 'Customer' cannot be tracked because another instance with the same key value for {'CustomerId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+```
+
+The customer respository should be using a new instance of the data context each time it is called, so it should not be tracking the same customer already. 
+
+There are a couple of fixes for this:
+
+1. Clear all tracked entities before calling `Update` the customer:
+```cs
+_db.ChangeTracker.Clear();
+
+_db.Customers.Update(c);
+```
+2. Manually check for an existing tracked customer, detach if necessary, and set the state of the updated customer (by doing this manually we don't need to call `Update` now):
+```cs
+// Detach the existing tracked entity if it exists.
+Customer? alreadyTracked = _db.Customers.Local
+  .FirstOrDefault(local => local.CustomerId == c.CustomerId);
+if (alreadyTracked is not null)
+{
+  _db.Entry(alreadyTracked).State = EntityState.Detached;
+}
+_db.Entry(c).State = EntityState.Modified;
+
+//_db.Customers.Update(c); // We don't need to do this now.
+```
 
 # Page 758 - Trying out GET requests using a browser
 

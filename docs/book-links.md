@@ -1,3 +1,5 @@
+**Book Links**
+
 - [Chapter 1 - Hello, C#! Welcome, .NET!](#chapter-1---hello-c-welcome-net)
   - [Visual Studio](#visual-studio)
   - [VS Code](#vs-code)
@@ -172,6 +174,7 @@
 - [.NET 6 is now in Ubuntu 22.04](https://devblogs.microsoft.com/dotnet/dotnet-6-is-now-in-ubuntu-2204/)
 
 ## .NET performance improvements
+- [Performance Improvements in .NET 10](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/)
 - [Performance Improvements in .NET 9](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-9/)
 - [Performance Improvements in .NET 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-8/)
 - [Arm64 Performance Improvements in .NET 7](https://devblogs.microsoft.com/dotnet/arm64-performance-improvements-in-dotnet-7/)
@@ -603,7 +606,10 @@ The official announcement links are useful because they describe the most import
 - [LINQ to XML Overview (C#)](https://learn.microsoft.com/en-us/dotnet/standard/linq/linq-xml-overview)
 
 ## LINQ samples and tools
-- [101 LINQ Samples](https://learn.microsoft.com/en-us/samples/dotnet/try-samples/101-linq-samples/)
+- 101 LINQ Samples (third-party copies of the original Microsoft document): 
+    - https://github.com/tigerbluejay/FullLINQ101Implementations
+    - http://linq101.nilzorblog.com/linq101-lambda.php
+    - https://jonlabelle.com/snippets/view/csharp/101-linq-query-samples
 - [LINQPad](https://www.linqpad.net/)
 
 # Chapter 12 - Introducing Modern Web Development Using .NET

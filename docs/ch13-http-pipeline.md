@@ -32,12 +32,13 @@ Endpoint routing uses the same route template syntax that has been used in ASP.N
 Review the statements in `Program.cs`, as shown in the following code:
 ```cs
 using Northwind.EntityModels; // To use AddNorthwindContext method.
+using Northwind.Web.Components; // To use App.
 
 #region Configure the web server host and services
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRazorPages();
+builder.Services.AddRazorComponents();
 builder.Services.AddNorthwindContext();
 
 var app = builder.Build();
@@ -53,11 +54,15 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseDefaultFiles(); // index.html, default.html, and so on.
-app.UseStaticFiles();
+app.UseAntiforgery();
 
-app.MapRazorPages();
-app.MapGet("/", () =>
+app.UseDefaultFiles(); // index.html, default.html, and so on.
+app.MapStaticAssets(); // .NET 9 or later.
+//app.UseStaticFiles(); // .NET 8 or earlier.
+
+app.MapRazorComponents<App>();
+
+app.MapGet("/env", () =>
   $"Environment is {app.Environment.EnvironmentName}");
 
 #endregion
@@ -67,7 +72,7 @@ app.Run(); // This is a thread-blocking call.
 WriteLine("This executes after the web server has stopped!");
 ```
 
-The web application builder registers services that can then be retrieved when the functionality they provide is needed using dependency injection. The naming convention for a method that registers a service is `AddService` where `Service` is the service name. For example, `AddRazorPages` or `AddNorthwindContext`. Our code registers two services: Razor Pages and an EF Core database context.
+The web application builder registers services that can then be retrieved when the functionality they provide is needed using dependency injection. The naming convention for a method that registers a service is `AddService` where `Service` is the service name. For example, `AddRazorComponents` or `AddNorthwindContext`. Our code registers two services: Razor Components (for Blazor SSR) and an EF Core database context.
 
 Common methods that register dependency services, including services that combine other method calls that register services, are shown in *Table 13.2*:
 
@@ -77,13 +82,14 @@ Method|Services that it registers
 `AddAuthorization`|Authentication and authorization services.
 `AddDataAnnotations`|MVC data annotations service.
 `AddCacheTagHelper`|MVC cache tag helper service.
+`AddRazorComponents`|Razor Components service for Blazor support.
 `AddRazorPages`|Razor Pages service, including the Razor view engine. Commonly used in simple website projects. It calls the following additional methods: `AddMvcCore`, `AddAuthorization`, `AddDataAnnotations`, `AddCacheTagHelper`.
 `AddApiExplorer`|Web API explorer service.
 `AddCors`|Cross-origin resource sharing (CORS) support for enhanced security.
 `AddFormatterMappings`|Mappings between a URL format and its corresponding media type.
 `AddControllers`|Controller services but not services for views or pages. Commonly used in ASP.NET Core Web API projects. It calls the following additional methods: AddMvcCore, AddAuthorization, AddDataAnnotations, AddCacheTagHelper, AddApiExplorer, AddCors, AddFormatterMappings
 `AddViews`|Support for .cshtml views including default conventions.
-`AddRazorViewEngine`|Support for the Razor view engine including processing the @ symbol.
+`AddRazorViewEngine`|Support for the Razor view engine including processing the `@` symbol.
 `AddControllersWithViews`|Controller, view, and page services. Commonly used in ASP.NET Core MVC website projects. It calls the following additional methods: `AddMvcCore`, `AddAuthorization`, `AddDataAnnotations`, `AddCacheTagHelper`, `AddApiExplorer`, `AddCors`, `AddFormatterMappings`, `AddViews`, `AddRazorViewEngine`.
 `AddMvc`|Similar to `AddControllersWithViews`, but you should only use it for backward compatibility.
 `AddDbContext<T>`|Your `DbContext` type and its optional `DbContextOptions<TContext>`.
@@ -91,7 +97,7 @@ Method|Services that it registers
 
 *Table 13.2: Common methods that register dependency services*
 
-You will see more examples of using these extension methods to register services in the next few chapters when working with ASP.NET Core MVC and ASP.NET Core Web API services.
+You will see more examples of using these extension methods to register services in the next few chapters when working with ASP.NET Core Blazor and ASP.NET Core Web API services.
 
 # Setting up the HTTP pipeline
 
@@ -123,13 +129,9 @@ Key middleware extension methods used in our code include the following:
 - `UseHsts`: Adds middleware for using HSTS, which adds the `Strict-Transport-Security` header.
 - `UseHttpsRedirection`: Adds middleware for redirecting HTTP requests to HTTPS, so in our code a request for http://localhost:5130 would receive a `307` response telling the browser to request https://localhost:5131.
 - `UseDefaultFiles`: Adds middleware that enables default file mapping on the current path, so in our code it would identify files such as `index.html` or `default.html`.
-- `UseStaticFiles`: Adds middleware that looks in wwwroot for static files to return in the HTTP response.
-- `MapRazorPages`: Adds middleware that will map URL paths such as `/suppliers` to a Razor Page file in the `/Pages` folder named `suppliers.cshtml` and return the results as the HTTP response.
-- `MapGet`: Adds middleware that will map URL paths such as `/hello` to an inline delegate that writes plain text directly to the HTTP response.
-
-If we had chosen a different project template that supports more complex routing scenarios, for example, the ASP.NET Core MVC website project template, then we would have seen other common middleware extension methods, which include the following:
-- `UseRouting`: Adds middleware that defines a point in the pipeline where routing decisions are made and must be combined with a call to UseEndpoints where the processing is then executed
-- `UseEndpoints`: Adds middleware to execute to generate responses from decisions made earlier in the pipeline
+- `MapStaticAssets`: Adds middleware that looks in `wwwroot` for static files to return in the HTTP response. Also compresses those files during the build process.
+- `MapRazorComponents`: Adds middleware that will map URL paths such as `/suppliers` to a Razor file in the `/Components/Pages` folder named `suppliers.razor` and return the results as the HTTP response.
+- `MapGet`: Adds middleware that will map URL paths such as `/env` to an inline delegate that writes plain text directly to the HTTP response.
 
 # Visualizing the HTTP pipeline
 
@@ -139,8 +141,8 @@ The HTTP request and response pipeline can be visualized as a sequence of reques
 *Figure 13.11: The HTTP request and response pipeline*
 
 The diagram shows two HTTP requests, as described in the following list:
-- First, in yellow, an HTTP request is made for the static file `index.html`. The first middleware to process this request is HTTPS redirection, which detects that the request is not for HTTPS and responds with a `307` status code and the URL for the secure version of the resource. The browser then makes another request using HTTPS, which gets past the HTTPS redirection middleware and is passed on to the `UseDefaultFiles` and `UseStaticFiles` middleware. This finds a matching static file in the `wwwroot` folder and returns it.
-- Second, in blue, an HTTPS request is made for the relative path index. The request uses HTTPS, so the HTTPS redirection middleware passes it through to the next middleware component. No matching static file is found in the `wwwroot` folder, so the static file's middleware passes the request through to the next middleware in the pipeline. A match is found in the `Pages` folder for the Razor Page file `index.cshtml`. The Razor Page is executed to generate an HTML page that is returned as the HTTP response. Any code in the middleware that is part of the pipeline could make changes to this HTTP response as it flows back through them if needed, although in this scenario none of them do.
+- First, in yellow, an HTTP request is made for the static file `index.html`. The first middleware to process this request is HTTPS redirection, which detects that the request is not for HTTPS and responds with a `307` status code and the URL for the secure version of the resource. The browser then makes another request using HTTPS, which gets past the HTTPS redirection middleware and is passed on to the `UseDefaultFiles` and `MapStaticAssets` middleware. This finds a matching static file in the `wwwroot` folder and returns it.
+- Second, in blue, an HTTPS request is made for the relative path `/index`. The request uses HTTPS, so the HTTPS redirection middleware passes it through to the next middleware component. No matching static file is found in the `wwwroot` folder, so the static file's middleware passes the request through to the next middleware in the pipeline. A match is found in the `Components/Pages` folder for the Razor Component file `Index.razor`. The Razor Component is executed to generate an HTML page that is returned as the HTTP response. Any code in the middleware that is part of the pipeline could make changes to this HTTP response as it flows back through them if needed, although in this scenario none of them do.
 
 # Implementing an anonymous inline delegate as middleware
 
@@ -178,19 +180,19 @@ app.Use(async (HttpContext context, Func<Task> next) =>
 
 2.	Start the website using the `https` launch profile.
 3.	Arrange the command prompt or terminal and the browser window so that you can see both.
-4.	In Chrome, navigate to https://localhost:5131/, look at the console output, and note that there was a match on an endpoint route `/`; it was processed as `/index`, and the `Index.cshtml` Razor Page was executed to return the response, as shown in the following output:
+4.	In Chrome, navigate to https://localhost:5131/, look at the console output, and note that there was a match on an endpoint route `/`; it was processed as `/index`, and the `Index.razor` Razor Component was executed to return the response, as shown in the following output:
 ```
 Endpoint name: /index
 Endpoint route pattern:
 ```
 
-5.	Navigate to https://localhost:5131/suppliers and note that you can see that there was a match on an endpoint route `/Suppliers`, and the `Suppliers.cshtml` Razor Page was executed to return the response, as shown in the following output:
+5.	Navigate to https://localhost:5131/suppliers and note that you can see that there was a match on an endpoint route `/Suppliers`, and the `Suppliers.razor` Razor Component was executed to return the response, as shown in the following output:
 ```
 Endpoint name: /Suppliers
 Endpoint route pattern: Suppliers
 ```
 
-6.	Navigate to https://localhost:5131/index and note that there was a match on an endpoint route `/index`, and the `Index.cshtml` Razor Page was executed to return the response, as shown in the following output:
+6.	Navigate to https://localhost:5131/index and note that there was a match on an endpoint route `/index`, and the `Index.razor` Razor Component was executed to return the response, as shown in the following output:
 ```
 Endpoint name: /index
 Endpoint route pattern: index
