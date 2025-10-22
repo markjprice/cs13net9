@@ -14,9 +14,9 @@ partial class Program
         Console.WriteLine();
     }
 
-    static decimal CalculateTax(decimal amount, string twoLeterRegion)
+    static decimal CalculateTax(decimal amount, string twoLetterRegionCode)
     {
-        decimal rate = twoLeterRegion switch
+        decimal rate = twoLetterRegionCode switch
         {
             "CH" => 0.08M,
             "CH" or "NO" => 0.258M,
@@ -34,7 +34,7 @@ partial class Program
     static void ConfigureConsole(string culture = "en-US", bool useComputerCulture = false)
     {
         //To enable Unicode characters like euro symbol
-        OutputEncoding = System.Text.Encoding.UTF8;
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         if (!useComputerCulture)
         {
