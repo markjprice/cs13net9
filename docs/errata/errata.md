@@ -37,6 +37,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 483, 485 - Managing directories, Managing files](#page-483-485---managing-directories-managing-files)
 - [Page 497 - Writing to XML streams](#page-497---writing-to-xml-streams)
 - [Page 532 - Setting up SQLite CLI tools for Windows](#page-532---setting-up-sqlite-cli-tools-for-windows)
+- [Page 535 - Managing the Northwind sample database with SQLiteStudio, Page 632 - Creating the Northwind database](#page-535---managing-the-northwind-sample-database-with-sqlitestudio-page-632---creating-the-northwind-database)
 - [Page 538 - Defining the Northwind database context class](#page-538---defining-the-northwind-database-context-class)
 - [Page 563 - Getting the generated SQL](#page-563---getting-the-generated-sql)
 - [Page 570 - Getting a single entity](#page-570---getting-a-single-entity)
@@ -426,6 +427,14 @@ Size: 320 bytes.
 > Thanks to [P9avel](https://github.com/P9avel) for raising [this issue on February 28, 2025](https://github.com/markjprice/cs13net9/issues/36).
 
 In Step 3, I wrote `sqlite-tools-win32-x86-3460100.zip` when I should have written `sqlite-tools-win-x64-3460100.zip`.
+
+# Page 535 - Managing the Northwind sample database with SQLiteStudio, Page 632 - Creating the Northwind database
+
+> Thanks to [Amar Jamal](https://github.com/amarjamal) for raising [this issue on November 4, 2025](https://github.com/markjprice/cs13net9/issues/80).
+
+On page 535, in Step 6, I wrote, "You will see the 10 tables..." but there are only 8 tables. For many editions there were 10, but recently I simplified the script to only create 8 tables by removing the unneeded `Territories` and `EmployeeTerritories` tables. 
+
+On page 632, I wrote, "The script for SQLite is a simplified version that only creates 10 tables..." Again, this should be 8 tables. 
 
 # Page 538 - Defining the Northwind database context class
 

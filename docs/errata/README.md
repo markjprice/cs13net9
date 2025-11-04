@@ -26,6 +26,7 @@ Mike_H/`mike_h_16837` via Discord|5|2
 [Anass Sabiri](https://github.com/lambdacore12)|2|0
 John Leitch/`johnleitch` via Discord|0|2
 [iheartdotnet](https://github.com/iheartdotnet)|1|1
+[Amar Jamal](https://github.com/amarjamal)|1|0
 [Daniel Grounin](https://github.com/Daniel-Grounin)|1|0
 Others via email|2|3
 
