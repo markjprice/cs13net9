@@ -53,6 +53,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
   - [Visual Studio features that dynamically inject into HTML files](#visual-studio-features-that-dynamically-inject-into-html-files)
 - [Page 680 - Enabling Blazor static SSR](#page-680---enabling-blazor-static-ssr)
 - [Page 683 - Adding code to a Blazor static SSR page](#page-683---adding-code-to-a-blazor-static-ssr-page)
+- [Page 685 - Using shared layouts with Blazor static SSR pages](#page-685---using-shared-layouts-with-blazor-static-ssr-pages)
 - [Page 688 - Creating a suppliers page](#page-688---creating-a-suppliers-page)
 - [Page 688 - Creating a suppliers page](#page-688---creating-a-suppliers-page-1)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
@@ -682,6 +683,29 @@ I missed out a fourth import (needed to use components like `<HeadOutlet />`), a
 > Thanks to [Taylor Fore](https://github.com/trfore) for raising [this issue on January 8, 2025](https://github.com/markjprice/cs13net9/issues/8).
 
 In Step 1, I wrote, `Index.cshtml` when I should have written `Index.razor`.
+
+# Page 685 - Using shared layouts with Blazor static SSR pages
+
+> Thanks to [Amar Jamal](https://github.com/amarjamal) for raising [this issue on November 19, 2025](https://github.com/markjprice/cs13net9/issues/83).
+
+In Step 3, the markup includes the following to link to the **Suppliers** page:
+```html
+<NavLink class="nav-link" href="suppliers">
+  Suppliers
+</NavLink>
+```
+
+To prevent broken links, it would be better to use a forward-slash `/` prefix for the `href`, as shown in the following link:
+```html
+<NavLink class="nav-link" href="/suppliers">
+  Suppliers
+</NavLink>
+```
+
+The same applies when you add a link for the **Customers** page in Exercise 13.2.
+
+The code solution in the repository has been fixed:
+
 
 # Page 688 - Creating a suppliers page
 
