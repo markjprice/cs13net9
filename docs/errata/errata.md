@@ -702,10 +702,10 @@ To prevent broken links, it would be better to use a forward-slash `/` prefix fo
 </NavLink>
 ```
 
-The same applies when you add a link for the **Customers** page in Exercise 13.2.
+The same applies when you add a link for the **Customers** page in *Exercise 13.2*.
 
 The code solution in the repository has been fixed:
-
+https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.Web/Components/Layout/NavMenu.razor
 
 # Page 688 - Creating a suppliers page
 

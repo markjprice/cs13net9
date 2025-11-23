@@ -22,12 +22,11 @@ Mike_H/`mike_h_16837` via Discord|5|2
 `kingace9371` via Discord|1|3
 [Vlad Alexandru Meici](https://github.com/vladmeici)|2|1
 [s3ba-b](https://github.com/s3ba-b)|1|2
-[Amar Jamal](https://github.com/amarjamal)|2|0
+[Amar Jamal](https://github.com/amarjamal)|3|0
 [Justin Treher](https://github.com/jtreher)|2|0
 [Anass Sabiri](https://github.com/lambdacore12)|2|0
 John Leitch/`johnleitch` via Discord|0|2
 [iheartdotnet](https://github.com/iheartdotnet)|1|1
-[Amar Jamal](https://github.com/amarjamal)|1|0
 [Daniel Grounin](https://github.com/Daniel-Grounin)|1|0
 Others via email|2|3
 
