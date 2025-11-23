@@ -1,4 +1,4 @@
-**Errata** (64 items)
+**Errata** (65 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -57,6 +57,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 688 - Creating a suppliers page](#page-688---creating-a-suppliers-page-1)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service)
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service-1)
+- [Page 694 - Build web pages for functions](#page-694---build-web-pages-for-functions)
 - [Page 698 - Creating a Blazor Web App project](#page-698---creating-a-blazor-web-app-project)
 - [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
 - [Page 717 - Getting entities into a Blazor component](#page-717---getting-entities-into-a-blazor-component)
@@ -713,6 +714,13 @@ Should be:
 ```cs
 @if (Companies is not null)
 ```
+
+# Page 694 - Build web pages for functions
+
+> Thanks to [Amar Jamal](https://github.com/amarjamal) for raising [this issue on November 19, 2025](https://github.com/markjprice/cs13net9/issues/83).
+
+The link to the solution is wrong because I moved this exercise from Chapter 13 to Chapter 14. It should be:
+https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.Blazor/Northwind.Blazor/Components/Pages/Functions.razor
 
 # Page 698 - Creating a Blazor Web App project
 
