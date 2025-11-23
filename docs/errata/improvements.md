@@ -1,4 +1,4 @@
-**Improvements** (45 items)
+**Improvements** (46 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -41,6 +41,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Comparison of the Three Perspectives](#comparison-of-the-three-perspectives)
   - [Where do DTOs fit?](#where-do-dtos-fit)
 - [Page 637 - Creating a class library for a database context using SQLite](#page-637---creating-a-class-library-for-a-database-context-using-sqlite)
+- [Page 644 - Improving the class-to-table mapping](#page-644---improving-the-class-to-table-mapping)
 - [Page 664 - Creating an empty ASP.NET Core project](#page-664---creating-an-empty-aspnet-core-project)
 - [Page 714 - Using Bootstrap icons](#page-714---using-bootstrap-icons)
 - [Page 733 - Building web services using ASP.NET Core](#page-733---building-web-services-using-aspnet-core)
@@ -717,6 +718,20 @@ In Step 7, I wrote, "Move the `NorthwindContext.cs` file from the `Northwind.Ent
 Some readers copy the file instead of move it and then get errors. 
 
 In the next edition, I will add a second sentence, "You must *move* the file and not *copy* it. If you copy it, you will have two classes with the same name and you will see the compiler warning `CS0436 The type 'NorthwindContext' in 'Northwind.DataContext.Sqlite\NorthwindContext.cs' conflicts with the imported type 'NorthwindContext' in 'Northwind.EntityModels.Sqlite, ...'."
+
+# Page 644 - Improving the class-to-table mapping
+
+> Thanks to [Amar Jamal](https://github.com/amarjamal) who raised an [issue on November 7, 2025](https://github.com/markjprice/cs13net9/issues/81) that prompted this improvement.
+
+In Step 4, I use a regular expression for replace: `$0\n    [StringLength($2)]`
+
+Although this works on all operating systems, on Windows, when we open these files that have been modified we get a pop up titled: "Inconsistent Line Endings". On selecting the **Windows (CR LF)** option it highlights all the lines that where modified. Once you do a **Save All**, everything is fixed. 
+
+To avoid this, you must use the appropriate line ending for your operating system in the replace expression:
+- For Windows (CRLF): Use `$0\r\n`
+- For Unix/macOS (LF): Use `$0\n`
+
+In the next edition, I will use `$0\r\n` in the main example and add a note box to explain that Linux and Mac users should use `$0\n`.
 
 # Page 664 - Creating an empty ASP.NET Core project
 
