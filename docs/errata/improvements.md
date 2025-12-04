@@ -1,4 +1,4 @@
-**Improvements** (46 items)
+**Improvements** (47 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -48,6 +48,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [What are Swagger, OpenAPI, and Swashbuckle?](#what-are-swagger-openapi-and-swashbuckle)
   - [Recent editions of this book and documenting web services](#recent-editions-of-this-book-and-documenting-web-services)
 - [Page 737 - ASP.NET Core Minimal APIs projects, Page 770 - Getting customers as JSON in a Blazor component](#page-737---aspnet-core-minimal-apis-projects-page-770---getting-customers-as-json-in-a-blazor-component)
+- [Page 740 - Creating an ASP.NET Core Minimal API project](#page-740---creating-an-aspnet-core-minimal-api-project)
 - [Page 749 - Creating data repositories with caching for entities](#page-749---creating-data-repositories-with-caching-for-entities)
   - [When to Call `await` Inside a Method](#when-to-call-await-inside-a-method)
   - [When to Return a Task Without `await`](#when-to-return-a-task-without-await)
@@ -818,6 +819,14 @@ Author: You were already really close to answering your own question. You said: 
 Instead of reusing the entity models in both the client and service, you might define **data transfer object (DTO)** classes and then that would be a shared assembly referenced by the client and the service. But then the service would have to convert entity models into DTO models, serialize them to JSON, and return them in a response to the client, and then the client would have to deserialize the DTO models, and display them. Any two client/server projects will always have some shared assemblies to define the "shape" of any data that needs to be transferred between them. In the simple example like in the book, we want all the data from the entity models so it'd be a waste to define DTOs that have the same "shape" as the entity models.
 
 In the next edition, I will add a new section at the start of the chapter to explain all the above and the design decision to not define separate DTO classes. And I might add a new section after implementing the client using the `Customer` entity model class and define a DTO class to use instead so readers see what they could do if they need a different structure.
+
+# Page 740 - Creating an ASP.NET Core Minimal API project
+
+> Thanks to [Amar Jamal](https://github.com/amarjamal) for raising [this issue on December 3, 2025](https://github.com/markjprice/cs13net9/issues/89).
+
+In Step 2, the reader is told, "In `Program.Weather.cs`, add statements to extend the automatically generated partial `Program` class by moving (cut and paste the statements) the weather-related statements from `Program.cs`..." 
+
+The "weather-related statements" include the `record WeatherForecast` so the reader should have moved the `record` from `Program.cs`. In the 11th edition, I will make that clearer.
 
 # Page 749 - Creating data repositories with caching for entities
 
