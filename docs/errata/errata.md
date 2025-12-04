@@ -1,4 +1,4 @@
-**Errata** (66 items)
+**Errata** (67 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -63,6 +63,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 698 - Creating a Blazor Web App project](#page-698---creating-a-blazor-web-app-project-1)
 - [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
 - [Page 717 - Getting entities into a Blazor component](#page-717---getting-entities-into-a-blazor-component)
+- [Page 718 - Abstracting a service for a Blazor component](#page-718---abstracting-a-service-for-a-blazor-component)
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
 - [Page 748 - Distributed caching](#page-748---distributed-caching)
 - [Page 750 - Creating data repositories with caching for entities](#page-750---creating-data-repositories-with-caching-for-entities)
@@ -782,6 +783,15 @@ builder.Services.AddNorthwindContext(
 And the note is only for SQLite:
 
 > If you are using SQLite then we need to explicitly set the `relativePath` because the `Northwind.db` file is in the `ModernWeb` folder and the project runs in the `ModernWeb\Northwind.Blazor\Northwind.Blazor` folder that is two levels deeper.
+
+# Page 718 - Abstracting a service for a Blazor component
+
+> Thanks to [Amar Jamal](https://github.com/amarjamal) for raising [this issue on December 3, 2025](https://github.com/markjprice/cs13net9/issues/88).
+
+In Step 6, the existing reference to the data context project starts the path with `..\` when it should be `..\..\`, as shown in the following markup:
+```xml
+<ProjectReference Include="..\..\Northwind.DataContext.Sqlite\Northwind.DataContext.Sqlite.csproj" />
+```
 
 # Page 737 - ASP.NET Core Minimal APIs projects
 
