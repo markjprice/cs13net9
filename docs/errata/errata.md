@@ -1,4 +1,4 @@
-**Errata** (65 items)
+**Errata** (66 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -60,6 +60,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 692 - Configuring Entity Framework Core as a service](#page-692---configuring-entity-framework-core-as-a-service-1)
 - [Page 694 - Build web pages for functions](#page-694---build-web-pages-for-functions)
 - [Page 698 - Creating a Blazor Web App project](#page-698---creating-a-blazor-web-app-project)
+- [Page 698 - Creating a Blazor Web App project](#page-698---creating-a-blazor-web-app-project-1)
 - [Page 711 - Running the Blazor Web App project template](#page-711---running-the-blazor-web-app-project-template)
 - [Page 717 - Getting entities into a Blazor component](#page-717---getting-entities-into-a-blazor-component)
 - [Page 737 - ASP.NET Core Minimal APIs projects](#page-737---aspnet-core-minimal-apis-projects)
@@ -751,6 +752,12 @@ https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Northwind.Blazor
 > Thanks to `Quest o()xx[{:::::::::::::::>` for raising this issue on September 18, 2025 in the Discord channel for this book.
 
 In Step 3, I wrote, "in `Directory.Packages.props`, add an `<ItemGroup>` to set version numbers for server-side hosting and defining Blazor WebAssembly packages". But this was already done earlier, so in the next edition I will delete this step.
+
+# Page 698 - Creating a Blazor Web App project
+
+> Thanks to [Amar Jamal](https://github.com/amarjamal) for raising [this issue on December 3, 2025](https://github.com/markjprice/cs13net9/issues/87).
+
+In the **Good Practice** box, I wrote "The default interactive render moder is **Server**." I should have written, "The default interactive render mode is **Server**."
 
 # Page 711 - Running the Blazor Web App project template
 
