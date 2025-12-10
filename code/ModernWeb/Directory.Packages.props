@@ -1,6 +1,6 @@
 <Project>
 
-  <!--Last updated package versions: November 11, 2025.-->
+  <!--Last updated package versions: December 10, 2025.-->
 
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
@@ -16,7 +16,7 @@
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageVersion Include="xunit" Version="2.9.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.4" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup Label="For Blazor.">
@@ -28,8 +28,9 @@
   <ItemGroup Label="For web services.">
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
 		
-		<!-- The Microsoft.Extensions.Caching.Hybrid package version 10 and later targets .NET 8 and later so it works with .NET 9. -->
-    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="10.0.0" />
+    <!-- The Microsoft.Extensions.Caching.Hybrid package version 10 and later 
+         targets .NET 8 and later so it works with .NET 9. -->
+    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="10.0.1" />
   </ItemGroup>
 
 </Project>
