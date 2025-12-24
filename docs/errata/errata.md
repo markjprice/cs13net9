@@ -1,4 +1,4 @@
-**Errata** (67 items)
+**Errata** (68 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs13net9/issues) or email me at markjprice (at) gmail.com.
 
@@ -46,6 +46,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 644 - Improving the class-to-table mapping](#page-644---improving-the-class-to-table-mapping)
 - [Page 646 - Improving the class-to-table mapping](#page-646---improving-the-class-to-table-mapping)
 - [Page 650 - Testing the class libraries, Page 693 - Build a data-driven web page, Page 694 - Build web pages for functions](#page-650---testing-the-class-libraries-page-693---build-a-data-driven-web-page-page-694---build-web-pages-for-functions)
+- [Page 652 - Using Google Chrome to make HTTP requests](#page-652---using-google-chrome-to-make-http-requests)
 - [Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project](#page-660---creating-an-empty-aspnet-core-project-page-701---creating-an-aspnet-core-web-api-project)
 - [Page 673 - Enabling static and default files](#page-673---enabling-static-and-default-files)
   - [Issue 1: Browsers failing to decode compressed files due to corruption because other features modify the response stream](#issue-1-browsers-failing-to-decode-compressed-files-due-to-corruption-because-other-features-modify-the-response-stream)
@@ -541,6 +542,17 @@ In the **Build a data-driven web page** exercise, I wrote, "Add a Razor Page to 
 In the **Build web pages for functions** exercise, I wrote, "Reimplement some of the console apps from earlier chapters as Razor Pages;"
 
 In these instances, "Razor Pages" or "Razor Page" should be "Blazor" or "Blazor page component".
+
+# Page 652 - Using Google Chrome to make HTTP requests
+
+> Thanks to [alhi44](https://github.com/alhi44) for raising [this issue on December 23, 2025](https://github.com/markjprice/cs13net9/issues/94).
+
+In Step 4, I tell the reader to "enter the address of Microsoft’s website for learning ASP.NET, which is the following URL:
+https://dotnet.microsoft.com/en-us/learn/aspnet".
+
+Microsoft now redirects that URL (using a `301` redirect) to the following address: https://dotnet.microsoft.com/en-us/learn/back-end-web-dev. In Step 5, I wrote, "In **Developer Tools**, in the list of recorded requests, scroll to the top and click on the first entry, ..." Due to the redirect, the correct entry to click on would be the second entry. 
+
+In the next edition, I will change the URL so that it does not redirect. A better URL might be: https://dotnet.microsoft.com/en-us/learn/front-end-web-dev. 
 
 # Page 660 - Creating an empty ASP.NET Core project, Page 701 - Creating an ASP.NET Core Web API project
 
