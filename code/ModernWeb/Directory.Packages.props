@@ -1,15 +1,15 @@
 <Project>
 
-  <!--Last updated package versions: December 10, 2025.-->
+  <!--Last updated package versions: January 13, 2026.-->
 
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <ItemGroup Label="For EF Core 9.">
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.11" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.12" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.12" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.12" />
   </ItemGroup>
 
   <ItemGroup Label="For unit testing.">
@@ -20,17 +20,17 @@
   </ItemGroup>
 
   <ItemGroup Label="For Blazor.">
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.11" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.11" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.11" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.12" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.12" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.12" />
   </ItemGroup>
 
   <ItemGroup Label="For web services.">
-    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.12" />
 		
     <!-- The Microsoft.Extensions.Caching.Hybrid package version 10 and later 
          targets .NET 8 and later so it works with .NET 9. -->
-    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="10.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="10.1.0" />
   </ItemGroup>
 
 </Project>
