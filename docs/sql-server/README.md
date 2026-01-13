@@ -156,7 +156,7 @@ Express|`.\sqlexpress`
 Full/Developer (default instance)|`.`
 Full/Developer (named instance)|`.\csdotnetbook`
 Azure SQL Database in the cloud|`tcp:<server_name>.database.windows.net,1433`
-Azure SQL Edge in a local Docker container|`tcp:127.0.0.1,1433`
+SQL Server in a local Docker container|`tcp:127.0.0.1,1433`
 
 > **Good Practice**: Use a dot `.` as shorthand for the local computer name. Remember that server names for SQL Server are made of two parts: the name of the computer and the name of an SQL Server instance. You provide instance names during custom installation.
 
@@ -225,19 +225,16 @@ Copy the path to the version of SQL Server Configuration Manager you have instal
 
 ## Defining the Northwind database context class
 
-1.	In the `WorkingWithEFCore` project, add package references to the EF Core data provider for SQL Server and the ADO.NET Provider for SQL Server, and globally and statically import the `System.Console` class for all C# files, as shown in the following markup:
+1.	In the `WorkingWithEFCore` project, add a package reference to the EF Core data provider for SQL Server (which has a dependency on the ADO.NET Provider for SQL Server), and globally and statically import the `System.Console` class for all C# files, as shown in the following markup:
 ```xml
 <ItemGroup>
   <Using Include="System.Console" Static="true" />
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference Version="6.1.3" Include="Microsoft.Data.SqlClient" />
-  <PackageReference Version="9.0.11" Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
 </ItemGroup>
 ```
-
-> You can check for the most recent package versions at the following links: https://www.nuget.org/packages/Microsoft.Data.SqlClient#versions-body-tab and https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/#versions-body-tab.
 
 2.	Build the `WorkingWithEFCore` project to restore packages.
 3.	Add a new class file named `NorthwindDb.cs`.
@@ -302,7 +299,7 @@ Provider: Microsoft.EntityFrameworkCore.SqlServer
 The instructions for this section are in the book and are the same for both SQL Server and SQLite. But the command you must enter at the command prompt or termimal is different. 
 
 For SQL Server, change the database provider and connection string, as shown in the following command:
-```
+```shell
 dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Encrypt=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
 ```
 
