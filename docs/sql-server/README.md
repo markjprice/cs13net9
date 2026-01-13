@@ -232,7 +232,7 @@ Copy the path to the version of SQL Server Configuration Manager you have instal
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
 </ItemGroup>
 ```
 
@@ -328,6 +328,8 @@ To use SQL Server, you will not need to do anything if you already set up the No
   </PackageReference>  
 </ItemGroup>
 ```
+
+> The `ModernWeb` folder contains the `Directory.Packages.props` file that defines package version numbers centrally so that they do not need to be specified in each project file: https://github.com/markjprice/cs13net9/blob/main/code/ModernWeb/Directory.Packages.props
 
 3.	Delete the `Class1.cs` file.
 4.	Build the `Northwind.EntityModels.SqlServer` project to restore packages.
