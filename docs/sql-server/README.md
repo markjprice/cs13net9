@@ -232,8 +232,8 @@ Copy the path to the version of SQL Server Configuration Manager you have instal
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference Version="5.2.0" Include="Microsoft.Data.SqlClient" />
-  <PackageReference Version="8.0.4" Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  <PackageReference Version="6.1.3" Include="Microsoft.Data.SqlClient" />
+  <PackageReference Version="9.0.11" Include="Microsoft.EntityFrameworkCore.SqlServer" />
 </ItemGroup>
 ```
 
@@ -325,9 +325,9 @@ To use SQL Server, you will not need to do anything if you already set up the No
 ```xml
 <ItemGroup>
   <PackageReference
-    Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
   <PackageReference 
-    Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+    Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11">
     <PrivateAssets>all</PrivateAssets>
     <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
   </PackageReference>  
@@ -391,8 +391,8 @@ You will now define a database context class library:
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
-  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+  <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
 </ItemGroup>
 
 <ItemGroup>
