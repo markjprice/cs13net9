@@ -36,7 +36,7 @@ First, we need to create a separate project for the Blazor WebAssembly component
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
@@ -44,18 +44,14 @@ First, we need to create a separate project for the Blazor WebAssembly component
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Version="8.0.0"
-      Include="Microsoft.AspNetCore.Components.WebAssembly" />
-    <PackageReference Version="8.0.0"
-      Include="Microsoft.Extensions.Http" />
+    <PackageReference Version="9.0.11" Include="Microsoft.AspNetCore.Components.WebAssembly" />
+    <PackageReference Version="9.0.11" Include="Microsoft.Extensions.Http" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- change Sqlite to SqlServer if you prefer -->
-    <ProjectReference Include="..\Northwind.EntityModels.Sqlite\
-Northwind.EntityModels.Sqlite.csproj" />
-    <ProjectReference Include="..\Northwind.Blazor.Services\
-Northwind.Blazor.Services.csproj" />
+    <ProjectReference Include="..\Northwind.EntityModels.Sqlite\Northwind.EntityModels.Sqlite.csproj" />
+    <ProjectReference Include="..\Northwind.Blazor.Services\Northwind.Blazor.Services.csproj" />
   </ItemGroup>
 
 </Project>
@@ -189,24 +185,20 @@ By default, client-side interactions are disabled. We will switch the pages to u
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Version="8.0.0" Include=
-      "Microsoft.AspNetCore.Components.WebAssembly.Server" />
+    <PackageReference Version="9.0.11" Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- change Sqlite to SqlServer if you prefer -->
-    <ProjectReference Include="..\Northwind.DataContext.Sqlite\
-Northwind.DataContext.Sqlite.csproj" />
-    <ProjectReference Include="..\Northwind.Blazor.Services\
-Northwind.Blazor.Services.csproj" />
-    <ProjectReference Include="..\Northwind.Blazor.Wasm\
-Northwind.Blazor.Wasm.csproj" />
+    <ProjectReference Include="..\Northwind.DataContext.Sqlite\Northwind.DataContext.Sqlite.csproj" />
+    <ProjectReference Include="..\Northwind.Blazor.Services\Northwind.Blazor.Services.csproj" />
+    <ProjectReference Include="..\Northwind.Blazor.Wasm\Northwind.Blazor.Wasm.csproj" />
   </ItemGroup>
 
   <ItemGroup>
