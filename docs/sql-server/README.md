@@ -319,15 +319,13 @@ To use SQL Server, you will not need to do anything if you already set up the No
 1.	Add a new project, as defined in the following list:
     - Project template: **Class Library** / `classlib`
     - Project file and folder: `Northwind.EntityModels.SqlServer`
-    - Solution file and folder: `PracticalApps`
+    - Solution file and folder: `ModernWeb`
 
 2.	In the `Northwind.EntityModels.SqlServer` project, add package references for the SQL Server database provider and EF Core design-time support, as shown in the following markup:
 ```xml
 <ItemGroup>
-  <PackageReference
-    Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
-  <PackageReference 
-    Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11">
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
     <PrivateAssets>all</PrivateAssets>
     <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
   </PackageReference>  
@@ -337,7 +335,7 @@ To use SQL Server, you will not need to do anything if you already set up the No
 3.	Delete the `Class1.cs` file.
 4.	Build the `Northwind.EntityModels.SqlServer` project to restore packages.
 5.	At a command prompt or terminal for the `Northwind.EntityModels.SqlServer` folder, generate entity class models for all tables, as shown in the following command:
-```
+```shell
 dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --namespace Northwind.EntityModels --data-annotations
 ```
 
@@ -382,17 +380,16 @@ You will now define a database context class library:
 1.	Add a new project, as defined in the following list:
     - Project template: **Class Library** / `classlib`
     - Project file and folder: `Northwind.DataContext.SqlServer`
-    - Solution file and folder: `PracticalApps`
+    - Solution file and folder: `ModernWeb`
 
-2.	In the `Northwind.DataContext.SqlServer` project, statically and globally import the `Console` class, add a project reference to the `Northwind.EntityModels.SqlServer` project, and add package references for the EF Core database provider and the ADO.NET database provider for SQL Server, as shown in the following markup:
+2.	In the `Northwind.DataContext.SqlServer` project, statically and globally import the `Console` class, add a project reference to the `Northwind.EntityModels.SqlServer` project, and add a package reference for the EF Core database provider for SQL Server, as shown in the following markup:
 ```xml
 <ItemGroup>
   <Using Include="System.Console" Static="true" />
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
-  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
 </ItemGroup>
 
 <ItemGroup>
@@ -550,12 +547,12 @@ builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
 ```
 1. Set the two environment variables at the command prompt or terminal, as shown in the following commands:
    - On Windows:
-```
+```shell
 setx MY_SQL_USR <your_user_name>
 setx MY_SQL_PWD <your_password>
 ```
    - On macOS and Linux:
-```
+```shell
 export MY_SQL_USR=<your_user_name>
 export MY_SQL_PWD=<your_password>
 ```
